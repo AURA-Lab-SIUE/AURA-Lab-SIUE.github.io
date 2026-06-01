@@ -1,0 +1,658 @@
+/*
+  Communication Theories design tokens + components.
+  Ported from docs/superpowers/mockups/theories/variant-c-blend.html (Variant C:
+  "warm skin, video bones"). The rest of the AURA Lab site is dark by default
+  (tokens.css / global.css). The theories section opts into a warm parchment skin,
+  scoped under .theories-skin so it never leaks into the global dark theme.
+
+  REDUCED-MOTION RULE (hard): everything renders visible by default (opacity:1,
+  untransformed). Entrance animation lives ONLY inside
+  @media (prefers-reduced-motion: no-preference). Nothing depends on JS or animation
+  to become visible.
+*/
+
+.theories-skin {
+  /* ---- SKIN: warm editorial parchment ---- */
+  --paper: #f4f0eb;
+  --paper-2: #ebe5db;
+  --paper-3: #e2dacb;
+  --ink: #1b1a17;
+  --ink-soft: #4a463e;
+  --rule: #d8cfc0;
+  --t-violet: #6d28d9;
+
+  /* 9 category colors, print-legible on parchment (light token pairs) */
+  --c-tech: #1d4ed8;
+  --c-proc: #0e7490;
+  --c-health: #15803d;
+  --c-inter: #be185d;
+  --c-lang: #7c3aed;
+  --c-mass: #b91c1c;
+  --c-cult: #c2410c;
+  --c-org: #4d7c0f;
+  --c-pr: #a16207;
+
+  /* ---- BONES: luminous video-grade scale (dark scene previews) ---- */
+  --stage-panel: #15151c;
+  --stage-chalk: #f4f0eb;
+  --stage-muted: #8a8a99;
+  --vc-tech: #38bdf8;
+  --vc-proc: #2dd4bf;
+  --vc-health: #4ade80;
+  --vc-inter: #f472b6;
+  --vc-lang: #a78bfa;
+  --vc-mass: #fb7185;
+  --vc-cult: #fb923c;
+  --vc-org: #a3e635;
+  --vc-pr: #fbbf24;
+
+  --t-measure: 64ch;
+  --t-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* repaint the surface warm within this section only */
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 18% 8%, rgba(180, 83, 9, 0.045), transparent 42%),
+    radial-gradient(circle at 88% 78%, rgba(109, 40, 217, 0.045), transparent 46%);
+  color: var(--ink);
+  font-family: 'Atkinson Hyperlegible', 'Instrument Sans Variable', system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.theories-skin :focus-visible {
+  outline: 3px solid var(--t-violet);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.theories-skin .t-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ---------- Masthead ---------- */
+.theories-skin .t-masthead {
+  border-bottom: 2px solid var(--ink);
+  padding: 48px 0 28px;
+}
+.theories-skin .t-kicker {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+.theories-skin .t-masthead h1 {
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.theories-skin .t-masthead h1 em {
+  font-style: italic;
+  color: var(--t-violet);
+}
+.theories-skin .t-dek {
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.42rem);
+  color: var(--ink-soft);
+  max-width: var(--t-measure);
+  margin: 18px 0 0;
+}
+
+/* ---------- Category rail: all 9, color coded ---------- */
+.theories-skin .t-rail {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 0;
+  margin-top: 6px;
+}
+.theories-skin .t-rail-inner {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+  align-items: center;
+}
+.theories-skin .t-rail-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  flex: none;
+  margin-right: 4px;
+}
+.theories-skin .t-search {
+  flex: none;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.theories-skin .t-search input {
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 7px 14px;
+  min-width: 180px;
+}
+.theories-skin .t-search input::placeholder {
+  color: var(--ink-soft);
+}
+.theories-skin .t-search input:focus-visible {
+  border-color: var(--t-violet);
+}
+.theories-skin .cat-btn {
+  --c: var(--ink);
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 7px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    border-color 0.22s var(--t-ease),
+    background 0.22s var(--t-ease),
+    transform 0.12s var(--t-ease);
+}
+.theories-skin .cat-btn .bar {
+  width: 14px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--c);
+  flex: none;
+}
+.theories-skin .cat-btn:hover {
+  border-color: var(--c);
+  transform: translateY(-1px);
+}
+.theories-skin .cat-btn[aria-pressed='true'] {
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 13%, transparent);
+}
+
+/* ---------- Section head ---------- */
+.theories-skin .t-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 44px 0 20px;
+  flex-wrap: wrap;
+}
+.theories-skin .t-section-head h2 {
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-weight: 500;
+  font-size: 1.8rem;
+  margin: 0;
+}
+.theories-skin .t-section-head .count {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.theories-skin .t-empty {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  padding: 24px 0 8px;
+}
+
+/* ---------- Scene cards ---------- */
+.theories-skin .t-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 18px;
+}
+.theories-skin .scene {
+  --c: var(--c-health);
+  position: relative;
+  display: block;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 0;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 0.3s var(--t-ease),
+    border-color 0.3s var(--t-ease),
+    box-shadow 0.3s var(--t-ease);
+  /* Default VISIBLE. Animation is progressive enhancement only (see media query). */
+  opacity: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .theories-skin .scene {
+    opacity: 0;
+    animation: t-pop 0.5s var(--t-ease) forwards;
+  }
+  .theories-skin .scene:nth-child(1) { animation-delay: 0.05s; }
+  .theories-skin .scene:nth-child(2) { animation-delay: 0.12s; }
+  .theories-skin .scene:nth-child(3) { animation-delay: 0.19s; }
+  .theories-skin .scene:nth-child(4) { animation-delay: 0.26s; }
+  .theories-skin .scene:nth-child(5) { animation-delay: 0.33s; }
+  .theories-skin .scene:nth-child(6) { animation-delay: 0.4s; }
+}
+@keyframes t-pop {
+  from { opacity: 0; transform: translateY(18px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.theories-skin .scene:hover {
+  transform: translateY(-4px);
+  border-color: var(--c);
+  box-shadow: 0 18px 38px -20px color-mix(in srgb, var(--c) 70%, transparent);
+}
+.theories-skin .scene[hidden] {
+  display: none;
+}
+.theories-skin .stage-head {
+  position: relative;
+  height: 128px;
+  padding: 18px 20px;
+  background:
+    radial-gradient(120% 150% at 92% 0%, color-mix(in srgb, var(--c) 22%, transparent), transparent 62%),
+    var(--paper-3);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.theories-skin .stage-head .glyph {
+  position: absolute;
+  right: -8px;
+  bottom: -34px;
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 8.4rem;
+  line-height: 1;
+  color: var(--c);
+  opacity: 0.18;
+  letter-spacing: -0.04em;
+}
+.theories-skin .stage-head .cat {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+}
+.theories-skin .stage-head .cat .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c);
+}
+.theories-skin .stage-head .abbr {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--c);
+  letter-spacing: 0.04em;
+}
+.theories-skin .scene .body {
+  padding: 18px 20px 22px;
+}
+.theories-skin .scene h3 {
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0 0 9px;
+  line-height: 1.08;
+}
+.theories-skin .scene p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  max-width: none;
+}
+.theories-skin .scene .cta {
+  margin-top: 16px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.theories-skin .scene .cta .arrow {
+  transition: transform 0.2s var(--t-ease);
+}
+.theories-skin .scene:hover .cta .arrow {
+  transform: translateX(5px);
+}
+
+/* ---------- Detail: storyboard ---------- */
+.theories-skin .t-detail {
+  --c: var(--c-health);
+  margin: 28px 0 90px;
+}
+.theories-skin .t-back {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  display: inline-flex;
+  gap: 6px;
+}
+.theories-skin .t-back:hover {
+  color: var(--c);
+}
+.theories-skin .detail-head {
+  margin-top: 22px;
+  border-top: 2px solid var(--ink);
+  padding-top: 40px;
+}
+.theories-skin .detail-head .cat {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c);
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.theories-skin .detail-head .cat .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c);
+}
+.theories-skin .detail-head h2.title {
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.theories-skin .detail-head .meta {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+}
+.theories-skin .lede {
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-size: 1.46rem;
+  line-height: 1.42;
+  font-weight: 400;
+  margin: 26px 0 22px;
+  max-width: var(--t-measure);
+}
+.theories-skin .lede::first-letter {
+  font-size: 3.2em;
+  float: left;
+  line-height: 0.72;
+  padding: 6px 12px 0 0;
+  font-weight: 600;
+  color: var(--c);
+}
+.theories-skin .keyterms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 30px;
+}
+.theories-skin .term {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.74rem;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+  color: var(--c);
+  border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+}
+.theories-skin .storyboard-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 6px 0 16px;
+}
+.theories-skin .storyboard-head h3 {
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0;
+}
+.theories-skin .storyboard-head .note {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+.theories-skin .storyboard {
+  display: grid;
+  gap: 14px;
+}
+.theories-skin .scene-row {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 0;
+  align-items: stretch;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.25s var(--t-ease);
+}
+.theories-skin .scene-row:hover {
+  border-color: var(--c);
+}
+.theories-skin .scene-row .num {
+  background: var(--paper-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--c);
+  border-right: 1px solid var(--rule);
+}
+.theories-skin .scene-row .txt {
+  padding: 16px 20px;
+}
+.theories-skin .scene-row h4 {
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+.theories-skin .scene-row p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  max-width: var(--t-measure);
+}
+
+/* ---------- References / source note ---------- */
+.theories-skin .t-refs {
+  margin: 40px 0 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
+}
+.theories-skin .t-refs h3 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+.theories-skin .t-refs ul {
+  margin: 0 0 20px;
+  padding-left: 1.2em;
+}
+.theories-skin .t-refs li {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+.theories-skin .t-source {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  font-style: normal;
+}
+
+/* ---------- One scene, two surfaces (optional detail element) ---------- */
+.theories-skin .twosurface {
+  --c: var(--c-health);
+  margin: 56px 0 0;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+.theories-skin .ts-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--rule);
+}
+.theories-skin .ts-head h3 {
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin: 0;
+}
+.theories-skin .ts-head p {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin: 4px 0 0;
+  max-width: 56ch;
+}
+.theories-skin .ts-stages {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+@media (min-width: 820px) {
+  .theories-skin .ts-stages {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.theories-skin .ts-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  padding: 26px 30px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+.theories-skin .ts-frame .fkicker {
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.theories-skin .ts-frame .fkicker .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.theories-skin .ts-frame .fnum {
+  position: absolute;
+  top: 16px;
+  right: 30px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+.theories-skin .ts-frame .ftitle {
+  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.05;
+  margin: 0 0 12px;
+}
+.theories-skin .ts-frame .label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-top: 10px;
+}
+.theories-skin .ts-frame .surface-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 30px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.theories-skin .ts-frame.web {
+  background:
+    radial-gradient(120% 150% at 90% 0%, color-mix(in srgb, var(--c) 16%, transparent), transparent 62%),
+    var(--paper-3);
+  color: var(--ink);
+}
+.theories-skin .ts-frame.web .fkicker { color: var(--ink-soft); }
+.theories-skin .ts-frame.web .fkicker .dot { background: var(--c); }
+.theories-skin .ts-frame.web .fnum { color: var(--c); }
+.theories-skin .ts-frame.web .label { color: var(--ink-soft); }
+.theories-skin .ts-frame.video {
+  --c: var(--vc-health);
+  color: var(--stage-chalk);
+  background-image:
+    radial-gradient(120% 160% at 100% 0%, color-mix(in srgb, var(--c) 30%, transparent), transparent 55%),
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: auto, 22px 22px;
+  background-color: var(--stage-panel);
+}
+.theories-skin .ts-frame.video .fkicker { color: var(--stage-muted); }
+.theories-skin .ts-frame.video .fkicker .dot { background: var(--c); }
+.theories-skin .ts-frame.video .fnum { color: var(--c); }
+.theories-skin .ts-frame.video .ftitle { color: var(--stage-chalk); }
+.theories-skin .ts-frame.video .label { color: var(--stage-muted); }
