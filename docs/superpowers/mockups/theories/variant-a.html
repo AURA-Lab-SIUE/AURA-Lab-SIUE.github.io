@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Communication Theories — Variant A (Editorial)</title>
+<!-- Atkinson Hyperlegible for body (accessibility), Fraunces for display (lab identity) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* warm editorial parchment palette, harmonized with lab violet/amber */
+    --paper:    #F4F0EB;
+    --paper-2:  #EBE5DB;
+    --ink:      #1B1A17;
+    --ink-soft: #4A463E;
+    --rule:     #D8CFC0;
+    --violet:   #6D28D9;
+    --amber:    #B45309;
+
+    /* 9 category colors — distinct, print-legible on parchment */
+    --c-tech:   #1D4ED8; /* Communication and Information Technology */
+    --c-proc:   #0E7490; /* Communication Processes */
+    --c-health: #15803D; /* Health Communication */
+    --c-inter:  #BE185D; /* Interpersonal Communication and Relations */
+    --c-lang:   #7C3AED; /* Language Theories and Linguistics */
+    --c-mass:   #B91C1C; /* Mass Media */
+    --c-cult:   #C2410C; /* Media, Culture and Society */
+    --c-org:    #4D7C0F; /* Organizational Communication */
+    --c-pr:     #A16207; /* Public Relations / Advertising, Marketing, Consumer Behavior */
+
+    --measure: 64ch;
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    /* faint paper grain via layered radial noise */
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(180,83,9,0.04), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(109,40,217,0.04), transparent 45%);
+    color: var(--ink);
+    font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 3px solid var(--violet);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding: 44px 0 26px;
+    margin-bottom: 8px;
+  }
+  .kicker {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+  }
+  .masthead h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .masthead h1 em { font-style: italic; color: var(--violet); }
+  .dek {
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--ink-soft);
+    max-width: var(--measure);
+    margin: 18px 0 0;
+  }
+
+  /* ---------- Filter bar (all 9 categories with color coding) ---------- */
+  .filterbar {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0;
+  }
+  .filterbar .wrap { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
+  .filter-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft); margin-right: 6px;
+  }
+  .chip {
+    --c: var(--ink);
+    display: inline-flex; align-items: center; gap: 7px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--ink);
+    font-family: "Atkinson Hyperlegible", sans-serif;
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.12s var(--ease);
+  }
+  .chip:hover { transform: translateY(-1px); border-color: var(--c); }
+  .chip[aria-pressed="true"] { border-color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
+  .chip .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); flex: none; }
+
+  /* ---------- Index grid ---------- */
+  .section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin: 40px 0 18px; gap: 16px; flex-wrap: wrap;
+  }
+  .section-head h2 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: 1.7rem; margin: 0;
+  }
+  .section-head .count {
+    font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--ink-soft);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  /* editorial: cards are ruled rows, not floating boxes */
+  .card {
+    --c: var(--ink);
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    padding: 26px 26px 30px;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.25s var(--ease);
+    overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: var(--c); transform: scaleY(0); transform-origin: top;
+    transition: transform 0.3s var(--ease);
+  }
+  .card:hover { background: var(--paper-2); }
+  .card:hover::before { transform: scaleY(1); }
+  .card .cat {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--c); display: inline-flex; align-items: center; gap: 6px;
+    margin-bottom: 12px;
+  }
+  .card .cat .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+  .card h3 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: 1.5rem; line-height: 1.1; margin: 0 0 4px;
+  }
+  .card .abbr {
+    font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .card p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
+  .card .read {
+    margin-top: 16px; font-family: "JetBrains Mono", monospace; font-size: 0.72rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--c);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .card .read .arrow { transition: transform 0.2s var(--ease); }
+  .card:hover .read .arrow { transform: translateX(4px); }
+
+  /* hidden when filtered out */
+  .card[hidden] { display: none; }
+
+  /* ---------- Detail view ---------- */
+  .detail {
+    margin: 64px 0 80px;
+    border-top: 2px solid var(--ink);
+    padding-top: 40px;
+  }
+  .detail .back {
+    font-family: "JetBrains Mono", monospace; font-size: 0.74rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-soft); text-decoration: none;
+    display: inline-flex; gap: 6px; margin-bottom: 28px;
+  }
+  .detail .back:hover { color: var(--violet); }
+  .detail-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 860px) { .detail-grid { grid-template-columns: 1.6fr 1fr; } }
+
+  .detail .cat {
+    font-family: "JetBrains Mono", monospace; font-size: 0.7rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--c-health);
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;
+  }
+  .detail .cat .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c-health); }
+  .detail h2.title {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.0; margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .detail .subtitle {
+    font-family: "JetBrains Mono", monospace; font-size: 0.86rem; color: var(--ink-soft);
+    margin-bottom: 30px;
+  }
+  .lede {
+    font-family: "Fraunces", Georgia, serif; font-size: 1.5rem; line-height: 1.4;
+    font-weight: 400; margin: 0 0 28px; max-width: var(--measure);
+  }
+  .lede::first-letter {
+    font-size: 3.4em; float: left; line-height: 0.74; padding: 6px 12px 0 0;
+    font-weight: 600; color: var(--c-health);
+  }
+  .body-prose p { max-width: var(--measure); margin: 0 0 18px; }
+  .body-prose h3 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 1.3rem;
+    margin: 32px 0 10px;
+  }
+
+  .sidecard {
+    border: 1px solid var(--rule); background: var(--paper-2);
+    padding: 24px; border-radius: 4px; align-self: start;
+    position: sticky; top: 80px;
+  }
+  .sidecard h4 {
+    font-family: "JetBrains Mono", monospace; font-size: 0.7rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-soft); margin: 0 0 14px;
+  }
+  .sidecard dl { margin: 0; }
+  .sidecard dt {
+    font-family: "JetBrains Mono", monospace; font-size: 0.66rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--ink-soft); margin-top: 14px;
+  }
+  .sidecard dt:first-child { margin-top: 0; }
+  .sidecard dd { margin: 2px 0 0; font-size: 0.95rem; }
+  .related { list-style: none; padding: 0; margin: 0; }
+  .related li { padding: 8px 0; border-bottom: 1px solid var(--rule); }
+  .related li:last-child { border-bottom: none; }
+  .related a { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .related a:hover { color: var(--c-health); }
+  .related .dot { width: 7px; height: 7px; border-radius: 50%; }
+
+  footer.mock {
+    border-top: 1px solid var(--rule); padding: 30px 0 60px;
+    font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: var(--ink-soft);
+  }
+  .viewnote {
+    font-family: "JetBrains Mono", monospace; font-size: 0.68rem; color: var(--ink-soft);
+    text-align: center; padding: 10px; background: var(--paper-2); border-bottom: 1px solid var(--rule);
+  }
+</style>
+</head>
+<body>
+  <div class="viewnote">Variant A — Editorial / serif teaching aesthetic. Scroll for the index grid, then the theory detail view below.</div>
+
+  <header class="masthead">
+    <div class="wrap">
+      <p class="kicker">AURA Lab · Teaching Library</p>
+      <h1>Communication <em>Theories</em></h1>
+      <p class="dek">A reading-room guide to the frameworks that explain how messages move, persuade, and shape the people who send and receive them.</p>
+    </div>
+  </header>
+
+  <!-- Filter bar: all 9 categories, color coded -->
+  <nav class="filterbar" aria-label="Filter theories by category">
+    <div class="wrap">
+      <span class="filter-label">Categories</span>
+      <button class="chip" aria-pressed="true" data-filter="all" style="--c:var(--ink)"><span class="dot" style="background:linear-gradient(90deg,var(--c-tech),var(--c-pr))"></span>All</button>
+      <button class="chip" aria-pressed="false" data-filter="tech" style="--c:var(--c-tech)"><span class="dot"></span>Communication &amp; Information Technology</button>
+      <button class="chip" aria-pressed="false" data-filter="proc" style="--c:var(--c-proc)"><span class="dot"></span>Communication Processes</button>
+      <button class="chip" aria-pressed="false" data-filter="health" style="--c:var(--c-health)"><span class="dot"></span>Health Communication</button>
+      <button class="chip" aria-pressed="false" data-filter="inter" style="--c:var(--c-inter)"><span class="dot"></span>Interpersonal Communication &amp; Relations</button>
+      <button class="chip" aria-pressed="false" data-filter="lang" style="--c:var(--c-lang)"><span class="dot"></span>Language Theories &amp; Linguistics</button>
+      <button class="chip" aria-pressed="false" data-filter="mass" style="--c:var(--c-mass)"><span class="dot"></span>Mass Media</button>
+      <button class="chip" aria-pressed="false" data-filter="cult" style="--c:var(--c-cult)"><span class="dot"></span>Media, Culture &amp; Society</button>
+      <button class="chip" aria-pressed="false" data-filter="org" style="--c:var(--c-org)"><span class="dot"></span>Organizational Communication</button>
+      <button class="chip" aria-pressed="false" data-filter="pr" style="--c:var(--c-pr)"><span class="dot"></span>Public Relations / Advertising, Marketing &amp; Consumer Behavior</button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div class="section-head">
+      <h2>Health Communication</h2>
+      <span class="count" id="count">4 theories shown</span>
+    </div>
+
+    <section class="grid" id="grid" aria-label="Theory index">
+      <!-- Health Communication sample set -->
+      <article class="card" data-cat="health" style="--c:var(--c-health)" tabindex="0" aria-label="Elaboration Likelihood Model, Health Communication">
+        <span class="cat"><span class="dot"></span>Health Communication</span>
+        <h3>Elaboration Likelihood Model</h3>
+        <div class="abbr">ELM · Petty &amp; Cacioppo</div>
+        <p>Explains persuasion as two routes: a central route built on careful thinking about the argument, and a peripheral route driven by surface cues like a likeable source.</p>
+        <span class="read">Read theory <span class="arrow">→</span></span>
+      </article>
+
+      <article class="card" data-cat="health" style="--c:var(--c-health)" tabindex="0" aria-label="Health Belief Model, Health Communication">
+        <span class="cat"><span class="dot"></span>Health Communication</span>
+        <h3>Health Belief Model</h3>
+        <div class="abbr">HBM · Rosenstock</div>
+        <p>Predicts whether people take a health action by weighing how susceptible they feel, how serious the threat seems, and whether the benefits outrun the barriers.</p>
+        <span class="read">Read theory <span class="arrow">→</span></span>
+      </article>
+
+      <article class="card" data-cat="health" style="--c:var(--c-health)" tabindex="0" aria-label="Protection Motivation Theory, Health Communication">
+        <span class="cat"><span class="dot"></span>Health Communication</span>
+        <h3>Protection Motivation Theory</h3>
+        <div class="abbr">PMT · Rogers</div>
+        <p>Models how fear appeals work by pairing a threat appraisal with a coping appraisal, so people act only when they also believe a response will protect them.</p>
+        <span class="read">Read theory <span class="arrow">→</span></span>
+      </article>
+
+      <article class="card" data-cat="health" style="--c:var(--c-health)" tabindex="0" aria-label="Theory of Planned Behavior, Health Communication">
+        <span class="cat"><span class="dot"></span>Health Communication</span>
+        <h3>Theory of Planned Behavior</h3>
+        <div class="abbr">TPB · Ajzen</div>
+        <p>Treats intention as the engine of behavior, fed by personal attitudes, perceived social pressure, and how much control a person feels they have.</p>
+        <span class="read">Read theory <span class="arrow">→</span></span>
+      </article>
+    </section>
+
+    <!-- Detail view: Elaboration Likelihood Model -->
+    <article class="detail" id="detail" aria-label="Theory detail">
+      <a class="back" href="#grid">← Back to the index</a>
+      <div class="detail-grid">
+        <div>
+          <span class="cat"><span class="dot"></span>Health Communication</span>
+          <h2 class="title">Elaboration Likelihood Model</h2>
+          <p class="subtitle">ELM · proposed by Richard Petty and John Cacioppo, 1986</p>
+
+          <p class="lede">Persuasion is not one process but two, and which one fires depends on how much a person is willing and able to think about the message in front of them.</p>
+
+          <div class="body-prose">
+            <p>The model draws a line between a central route and a peripheral route. On the central route, an audience scrutinizes the actual argument, weighs the evidence, and forms an attitude that tends to stick. On the peripheral route, people lean on shortcuts: the attractiveness of the source, the sheer number of arguments, or a pleasant mood standing in for real reasoning.</p>
+
+            <h3>Why it matters for health messaging</h3>
+            <p>A campaign that wants durable behavior change has to push audiences toward the central route, which means motivation and ability both need to be high. When either is low, peripheral cues take over and the resulting attitude is easier to reverse.</p>
+
+            <h3>Teaching example</h3>
+            <p>A vaccination flyer dense with statistics will only persuade a reader who cares enough to process it. For a distracted reader, a trusted physician's photograph may do more work than the data ever could.</p>
+          </div>
+        </div>
+
+        <aside class="sidecard">
+          <h4>At a glance</h4>
+          <dl>
+            <dt>Category</dt><dd>Health Communication</dd>
+            <dt>Originators</dt><dd>Petty &amp; Cacioppo</dd>
+            <dt>Core idea</dt><dd>Two routes to persuasion: central (thoughtful) and peripheral (cue-based).</dd>
+            <dt>Key terms</dt><dd>Elaboration, motivation, ability, attitude strength</dd>
+          </dl>
+          <h4 style="margin-top:24px;">Related in this category</h4>
+          <ul class="related">
+            <li><a href="#grid"><span class="dot" style="background:var(--c-health)"></span>Health Belief Model</a></li>
+            <li><a href="#grid"><span class="dot" style="background:var(--c-health)"></span>Protection Motivation Theory</a></li>
+            <li><a href="#grid"><span class="dot" style="background:var(--c-health)"></span>Theory of Planned Behavior</a></li>
+          </ul>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="mock">
+    <div class="wrap">AURA Lab · Communication Theories · Mockup variant A (layout placeholder copy, original wording)</div>
+  </footer>
+
+<script>
+  // Filter chips (visual filtering of the index grid)
+  const chips = document.querySelectorAll('.chip');
+  const cards = document.querySelectorAll('#grid .card');
+  const count = document.getElementById('count');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+      chip.setAttribute('aria-pressed', 'true');
+      const f = chip.dataset.filter;
+      let shown = 0;
+      cards.forEach(card => {
+        const match = (f === 'all' || card.dataset.cat === f);
+        card.hidden = !match;
+        if (match) shown++;
+      });
+      count.textContent = shown + (shown === 1 ? ' theory shown' : ' theories shown');
+    });
+  });
+  // Card click jumps to detail (all sample cards point to the one detail view)
+  cards.forEach(card => {
+    const go = () => document.getElementById('detail').scrollIntoView({ behavior: 'smooth' });
+    card.addEventListener('click', go);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
+</script>
+</body>
+</html>

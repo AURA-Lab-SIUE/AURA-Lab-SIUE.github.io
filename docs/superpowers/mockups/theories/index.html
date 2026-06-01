@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Communication Theories — Mockup Switcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0C0C10; --panel: #16161D; --line: #2A2A37; --chalk: #F4F0EB; --muted: #8A8A99;
+    --violet: #A78BFA; --amber: #FBBF24;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--bg); color: var(--chalk);
+    font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+    display: flex; flex-direction: column; height: 100vh; overflow: hidden;
+  }
+  :focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; }
+
+  .switcher {
+    position: fixed; top: 16px; right: 16px; z-index: 100;
+    display: flex; align-items: center; gap: 6px;
+    background: color-mix(in srgb, var(--panel) 92%, transparent);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--line); border-radius: 14px; padding: 8px;
+    box-shadow: 0 14px 40px -12px rgba(0,0,0,0.7);
+  }
+  .switcher .label {
+    font-family: "JetBrains Mono", monospace; font-size: 0.62rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted); padding: 0 8px 0 4px;
+  }
+  .switcher button {
+    font-family: "JetBrains Mono", monospace; font-size: 0.78rem; font-weight: 500;
+    background: transparent; color: var(--chalk); border: 1px solid var(--line);
+    border-radius: 9px; padding: 8px 14px; cursor: pointer; transition: all 0.2s ease;
+  }
+  .switcher button:hover { border-color: var(--violet); }
+  .switcher button[aria-pressed="true"] {
+    background: var(--violet); color: #0B0B0E; border-color: var(--violet);
+    box-shadow: 0 0 20px -4px var(--violet);
+  }
+  .switcher button .sub { display: block; font-size: 0.58rem; opacity: 0.7; letter-spacing: 0.04em; }
+
+  .bar {
+    flex: none; padding: 12px 22px; border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 14px; background: var(--panel);
+  }
+  .bar .brand { font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.12em; }
+  .bar .brand b { color: var(--amber); }
+  .bar .meta { font-family: "JetBrains Mono", monospace; font-size: 0.68rem; color: var(--muted); }
+
+  .stage { flex: 1; position: relative; background: #050507; }
+  iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: var(--bg); }
+  iframe[hidden] { display: none; }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <span class="brand">AURA <b>LAB</b> · THEORIES</span>
+    <span class="meta">Design-selection gate · pick one direction</span>
+  </div>
+
+  <nav class="switcher" aria-label="Switch design variant">
+    <span class="label">Variant</span>
+    <button id="btn-a" aria-pressed="true" data-src="variant-a.html">A<span class="sub">Editorial</span></button>
+    <button id="btn-b" aria-pressed="false" data-src="variant-b.html">B<span class="sub">Systematic</span></button>
+  </nav>
+
+  <div class="stage">
+    <iframe id="frame-a" src="variant-a.html" title="Variant A — Editorial / serif teaching aesthetic"></iframe>
+    <iframe id="frame-b" src="variant-b.html" title="Variant B — Systematic / motion-forward aesthetic" hidden loading="lazy"></iframe>
+  </div>
+
+<script>
+  const buttons = document.querySelectorAll('.switcher button');
+  const frames = { a: document.getElementById('frame-a'), b: document.getElementById('frame-b') };
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+      btn.setAttribute('aria-pressed', 'true');
+      const which = btn.id === 'btn-a' ? 'a' : 'b';
+      Object.entries(frames).forEach(([k, f]) => { f.hidden = (k !== which); });
+    });
+  });
+  // keyboard: press A or B to flip
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'a' || e.key === 'A') document.getElementById('btn-a').click();
+    if (e.key === 'b' || e.key === 'B') document.getElementById('btn-b').click();
+  });
+</script>
+</body>
+</html>
