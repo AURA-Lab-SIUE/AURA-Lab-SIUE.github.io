@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Communication Theories — Variant C (Warm skin, video bones)</title>
+<!-- Fraunces for display, Atkinson Hyperlegible for body (accessibility). Space Grotesk intentionally dropped. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* ---- SKIN: warm editorial parchment (default site surface, from Variant A) ---- */
+    --paper:    #F4F0EB;
+    --paper-2:  #EBE5DB;
+    --paper-3:  #E2DACB;
+    --ink:      #1B1A17;
+    --ink-soft: #4A463E;
+    --rule:     #D8CFC0;
+    --violet:   #6D28D9;
+
+    /* 9 category colors, print-legible on parchment (Variant A scale) */
+    --c-tech:   #1D4ED8;
+    --c-proc:   #0E7490;
+    --c-health: #15803D;
+    --c-inter:  #BE185D;
+    --c-lang:   #7C3AED;
+    --c-mass:   #B91C1C;
+    --c-cult:   #C2410C;
+    --c-org:    #4D7C0F;
+    --c-pr:     #A16207;
+
+    /* ---- BONES: luminous video-grade scale (from Variant B), used in dark scene previews ---- */
+    --stage-bg:    #0C0C10;
+    --stage-panel: #15151C;
+    --stage-panel-2:#1D1D27;
+    --stage-line:  #2A2A37;
+    --stage-chalk: #F4F0EB;
+    --stage-muted: #8A8A99;
+    --vc-tech:  #38BDF8;
+    --vc-proc:  #2DD4BF;
+    --vc-health:#4ADE80;
+    --vc-inter: #F472B6;
+    --vc-lang:  #A78BFA;
+    --vc-mass:  #FB7185;
+    --vc-cult:  #FB923C;
+    --vc-org:   #A3E635;
+    --vc-pr:    #FBBF24;
+
+    --measure: 64ch;
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 18% 8%, rgba(180,83,9,0.045), transparent 42%),
+      radial-gradient(circle at 88% 78%, rgba(109,40,217,0.045), transparent 46%);
+    color: var(--ink);
+    font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+  .viewnote {
+    font-family: "JetBrains Mono", monospace; font-size: 0.68rem; color: var(--ink-soft);
+    text-align: center; padding: 10px; background: var(--paper-2); border-bottom: 1px solid var(--rule);
+  }
+
+  /* ---------- Masthead (warm skin) ---------- */
+  .masthead { border-bottom: 2px solid var(--ink); padding: 48px 0 28px; }
+  .kicker {
+    font-family: "JetBrains Mono", monospace; font-size: 0.72rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--ink-soft); margin: 0 0 14px;
+  }
+  .masthead h1 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 0.98; letter-spacing: -0.01em; margin: 0;
+  }
+  .masthead h1 em { font-style: italic; color: var(--violet); }
+  .dek {
+    font-family: "Fraunces", Georgia, serif; font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.42rem); color: var(--ink-soft);
+    max-width: var(--measure); margin: 18px 0 0;
+  }
+
+  /* ---------- Category rail: all 9, color coded (bones: B's rail, dressed in A's palette) ---------- */
+  .rail {
+    position: sticky; top: 0; z-index: 30;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0; margin-top: 6px;
+  }
+  .rail-inner { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; align-items: center; }
+  .rail-label {
+    font-family: "JetBrains Mono", monospace; font-size: 0.64rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-soft); flex: none; margin-right: 4px;
+  }
+  .cat-btn {
+    --c: var(--ink);
+    flex: none; display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; border: 1px solid var(--rule); color: var(--ink);
+    font-family: "Atkinson Hyperlegible", sans-serif; font-weight: 700; font-size: 0.8rem;
+    padding: 7px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;
+    transition: border-color 0.22s var(--ease), background 0.22s var(--ease), transform 0.12s var(--ease);
+  }
+  .cat-btn .bar { width: 14px; height: 4px; border-radius: 2px; background: var(--c); flex: none; }
+  .cat-btn:hover { border-color: var(--c); transform: translateY(-1px); }
+  .cat-btn[aria-pressed="true"] { border-color: var(--c); background: color-mix(in srgb, var(--c) 13%, transparent); }
+
+  /* ---------- Section head ---------- */
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin: 44px 0 20px; flex-wrap: wrap; }
+  .section-head h2 { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 1.8rem; margin: 0; }
+  .section-head .count { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--ink-soft); }
+
+  /* ---------- Grid of scene cards (bones from B, skin from A) ---------- */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+  .scene {
+    --c: var(--c-health);
+    position: relative; background: var(--paper-2); border: 1px solid var(--rule);
+    border-radius: 14px; padding: 0; cursor: pointer; overflow: hidden;
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    opacity: 0; animation: pop 0.5s var(--ease) forwards;
+  }
+  .scene:nth-child(1){animation-delay:.05s}.scene:nth-child(2){animation-delay:.12s}
+  .scene:nth-child(3){animation-delay:.19s}.scene:nth-child(4){animation-delay:.26s}
+  @keyframes pop { from { opacity: 0; transform: translateY(18px) scale(0.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  .scene:hover { transform: translateY(-4px); border-color: var(--c); box-shadow: 0 18px 38px -20px color-mix(in srgb, var(--c) 70%, transparent); }
+  .scene[hidden] { display: none; }
+
+  /* the "stage" header — the part that maps to a video frame. Warm but identity-led (glyph + abbr from B). */
+  .stage-head {
+    position: relative; height: 128px; padding: 18px 20px;
+    background:
+      radial-gradient(120% 150% at 92% 0%, color-mix(in srgb, var(--c) 22%, transparent), transparent 62%),
+      var(--paper-3);
+    border-bottom: 1px solid var(--rule);
+    display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;
+  }
+  .stage-head .glyph {
+    position: absolute; right: -8px; bottom: -34px;
+    font-family: "Fraunces", Georgia, serif; font-weight: 600; font-style: italic;
+    font-size: 8.4rem; line-height: 1; color: var(--c); opacity: 0.18; letter-spacing: -0.04em;
+  }
+  .stage-head .cat {
+    font-family: "JetBrains Mono", monospace; font-size: 0.62rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-soft);
+    display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+  }
+  .stage-head .cat .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+  .stage-head .abbr {
+    font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 1.2rem; color: var(--c);
+    letter-spacing: 0.04em;
+  }
+
+  .scene .body { padding: 18px 20px 22px; }
+  .scene h3 { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 1.4rem; margin: 0 0 9px; line-height: 1.08; }
+  .scene p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
+  .scene .cta {
+    margin-top: 16px; font-family: "JetBrains Mono", monospace; font-size: 0.7rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--c);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .cta .arrow { transition: transform 0.2s var(--ease); }
+  .scene:hover .cta .arrow { transform: translateX(5px); }
+
+  /* ---------- Detail: storyboard (bones from B) on warm skin (from A) ---------- */
+  .detail { --c: var(--c-health); margin: 66px 0 90px; border-top: 2px solid var(--ink); padding-top: 40px; }
+  .detail .back {
+    font-family: "JetBrains Mono", monospace; font-size: 0.74rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-soft); text-decoration: none; display: inline-flex; gap: 6px;
+  }
+  .detail .back:hover { color: var(--c); }
+
+  .detail-head { margin-top: 22px; }
+  .detail-head .cat {
+    font-family: "JetBrains Mono", monospace; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--c); display: inline-flex; gap: 8px; align-items: center; margin-bottom: 12px;
+  }
+  .detail-head .cat .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+  .detail-head h2.title {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.0; letter-spacing: -0.01em; margin: 0 0 8px;
+  }
+  .detail-head .meta { font-family: "JetBrains Mono", monospace; font-size: 0.84rem; color: var(--ink-soft); }
+
+  .lede {
+    font-family: "Fraunces", Georgia, serif; font-size: 1.46rem; line-height: 1.42;
+    font-weight: 400; margin: 26px 0 22px; max-width: var(--measure);
+  }
+  .lede::first-letter { font-size: 3.2em; float: left; line-height: 0.72; padding: 6px 12px 0 0; font-weight: 600; color: var(--c); }
+
+  .keyterms { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 30px; }
+  .term {
+    font-family: "JetBrains Mono", monospace; font-size: 0.74rem; padding: 5px 11px; border-radius: 999px;
+    background: color-mix(in srgb, var(--c) 12%, transparent); color: var(--c);
+    border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+  }
+
+  .storyboard-head {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+    margin: 6px 0 16px;
+  }
+  .storyboard-head h3 { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 1.4rem; margin: 0; }
+  .storyboard-head .note { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: var(--ink-soft); }
+
+  /* storyboard rows: each row = one Remotion scene */
+  .storyboard { display: grid; gap: 14px; }
+  .scene-row {
+    display: grid; grid-template-columns: 84px 1fr; gap: 0; align-items: stretch;
+    background: var(--paper-2); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden;
+    transition: border-color 0.25s var(--ease);
+  }
+  .scene-row:hover { border-color: var(--c); }
+  .scene-row .num {
+    background: var(--paper-3); display: flex; align-items: center; justify-content: center;
+    font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 1.4rem; color: var(--c);
+    border-right: 1px solid var(--rule);
+  }
+  .scene-row .txt { padding: 16px 20px; }
+  .scene-row h4 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.1rem; margin: 0 0 6px; }
+  .scene-row p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; max-width: var(--measure); }
+
+  /* ---------- Two-surfaces demo: same scene, warm web vs dark video frame ---------- */
+  .twosurface { --c: var(--c-health); margin: 56px 0 0; border: 1px solid var(--rule); border-radius: 16px; background: var(--paper-2); overflow: hidden; }
+  .twosurface .ts-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+    padding: 18px 22px; border-bottom: 1px solid var(--rule);
+  }
+  .twosurface .ts-head h3 { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 1.3rem; margin: 0; }
+  .twosurface .ts-head p { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: var(--ink-soft); margin: 4px 0 0; max-width: 56ch; }
+
+  .ts-toggle { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; flex: none; }
+  .ts-toggle button {
+    font-family: "JetBrains Mono", monospace; font-size: 0.72rem; font-weight: 500;
+    background: transparent; color: var(--ink-soft); border: 0; padding: 8px 16px; cursor: pointer;
+    transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  }
+  .ts-toggle button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+  .ts-stages { display: grid; grid-template-columns: 1fr; gap: 0; }
+  @media (min-width: 820px) { .ts-stages { grid-template-columns: 1fr 1fr; } }
+
+  /* shared scene-frame geometry — identical layout, two skins, proving Remotion mappability */
+  .ts-frame { position: relative; aspect-ratio: 16 / 9; padding: 26px 30px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+  .ts-frame .fkicker {
+    position: absolute; top: 18px; left: 30px;
+    font-family: "JetBrains Mono", monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .ts-frame .fkicker .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .ts-frame .fnum {
+    position: absolute; top: 16px; right: 30px;
+    font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.05em;
+  }
+  .ts-frame .ftitle { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.05; margin: 0 0 12px; }
+  /* the "fork" motif — a line splitting into two branches, the literal scene-01 visual */
+  .fork { display: flex; align-items: center; gap: 14px; font-family: "JetBrains Mono", monospace; font-size: 0.86rem; }
+  .fork .branch { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1px solid currentColor; }
+  .fork .branch .pip { width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
+  .fork .split { font-size: 1.1rem; opacity: 0.7; }
+
+  /* warm web surface */
+  .ts-frame.web { background:
+      radial-gradient(120% 150% at 90% 0%, color-mix(in srgb, var(--c) 16%, transparent), transparent 62%),
+      var(--paper-3); color: var(--ink); }
+  .ts-frame.web .fkicker { color: var(--ink-soft); }
+  .ts-frame.web .fkicker .dot { background: var(--c); }
+  .ts-frame.web .fnum { color: var(--c); }
+  .ts-frame.web .fork .branch.central { color: var(--c); }
+  .ts-frame.web .fork .branch.peripheral { color: var(--ink-soft); }
+  .ts-frame.web .label { font-family: "JetBrains Mono", monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-soft); margin-top: 10px; }
+
+  /* dark video-scene surface (B's luminous bones), using the matching luminous green */
+  .ts-frame.video {
+    --c: var(--vc-health);
+    background:
+      radial-gradient(120% 160% at 100% 0%, color-mix(in srgb, var(--c) 30%, transparent), transparent 55%),
+      var(--stage-panel);
+    color: var(--stage-chalk);
+    background-image:
+      radial-gradient(120% 160% at 100% 0%, color-mix(in srgb, var(--c) 30%, transparent), transparent 55%),
+      radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: auto, 22px 22px;
+    background-color: var(--stage-panel);
+  }
+  .ts-frame.video .fkicker { color: var(--stage-muted); }
+  .ts-frame.video .fkicker .dot { background: var(--c); }
+  .ts-frame.video .fnum { color: var(--c); }
+  .ts-frame.video .ftitle { color: var(--stage-chalk); }
+  .ts-frame.video .fork .branch.central { color: var(--c); box-shadow: 0 0 22px -6px var(--c); }
+  .ts-frame.video .fork .branch.peripheral { color: var(--stage-muted); }
+  .ts-frame.video .label { font-family: "JetBrains Mono", monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--stage-muted); margin-top: 10px; }
+
+  .ts-frame .surface-tag {
+    position: absolute; bottom: 14px; left: 30px;
+    font-family: "JetBrains Mono", monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* single-toggle (mobile / reduced) state: hide one frame */
+  .ts-stages[data-mode="web"] .ts-frame.video { display: none; }
+  .ts-stages[data-mode="video"] .ts-frame.web { display: none; }
+  .ts-stages[data-mode="both"] .ts-frame { display: flex; }
+  @media (max-width: 819px) {
+    .ts-stages[data-mode="both"] .ts-frame.video { border-top: 1px solid var(--rule); }
+  }
+
+  footer.mock { border-top: 1px solid var(--rule); padding: 30px 0 60px; font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+  <div class="viewnote">Variant C — Warm skin, video bones. Parchment + Fraunces teaching surface over Variant B's scene-card and storyboard structure. Scroll to the storyboard, then the two-surfaces demo.</div>
+
+  <header class="masthead">
+    <div class="wrap">
+      <p class="kicker">AURA Lab · Teaching Library</p>
+      <h1>Communication <em>Theories</em></h1>
+      <p class="dek">A reading-room guide where every framework is also a scene: one color, one core idea, one motion you can watch unfold.</p>
+    </div>
+  </header>
+
+  <!-- Category rail: all 9 categories, color coded -->
+  <nav class="rail" aria-label="Filter theories by category">
+    <div class="wrap">
+      <div class="rail-inner">
+        <span class="rail-label">Categories</span>
+        <button class="cat-btn" aria-pressed="true" data-filter="all" style="--c:var(--ink)"><span class="bar" style="background:linear-gradient(90deg,var(--c-tech),var(--c-pr))"></span>All</button>
+        <button class="cat-btn" aria-pressed="false" data-filter="tech" style="--c:var(--c-tech)"><span class="bar"></span>Comm &amp; Info Technology</button>
+        <button class="cat-btn" aria-pressed="false" data-filter="proc" style="--c:var(--c-proc)"><span class="bar"></span>Communication Processes</button>
+        <button class="cat-btn" aria-pressed="false" data-filter="health" style="--c:var(--c-health)"><span class="bar"></span>Health Communication</button>
+        <button class="cat-btn" aria-pressed="false" data-filter="inter" style="--c:var(--c-inter)"><span class="bar"></span>Interpersonal &amp; Relations</button>
+        <button class="cat-btn" aria-pressed="false" data-filter="lang" style="--c:var(--c-lang)"><span class="bar"></span>Language &amp; Linguistics</button>
+        <button class="cat-btn" aria-pressed="false" data-filter="mass" style="--c:var(--c-mass)"><span class="bar"></span>Mass Media</button>
+        <button class="cat-btn" aria-pressed="false" data-filter="cult" style="--c:var(--c-cult)"><span class="bar"></span>Media, Culture &amp; Society</button>
+        <button class="cat-btn" aria-pressed="false" data-filter="org" style="--c:var(--c-org)"><span class="bar"></span>Organizational Comm</button>
+        <button class="cat-btn" aria-pressed="false" data-filter="pr" style="--c:var(--c-pr)"><span class="bar"></span>PR / Advertising &amp; Marketing</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div class="section-head">
+      <h2>Health Communication</h2>
+      <span class="count" id="count">4 scenes shown</span>
+    </div>
+
+    <section class="grid" id="grid" aria-label="Theory index">
+      <article class="scene" data-cat="health" style="--c:var(--c-health)" tabindex="0" aria-label="Elaboration Likelihood Model, Health Communication">
+        <div class="stage-head">
+          <span class="cat"><span class="dot"></span>Health Communication</span>
+          <span class="abbr">ELM</span>
+          <span class="glyph" aria-hidden="true">E</span>
+        </div>
+        <div class="body">
+          <h3>Elaboration Likelihood Model</h3>
+          <p>Persuasion splits into two routes: deep thinking about the argument, or quick reliance on surface cues.</p>
+          <span class="cta">View storyboard <span class="arrow">→</span></span>
+        </div>
+      </article>
+
+      <article class="scene" data-cat="health" style="--c:var(--c-health)" tabindex="0" aria-label="Health Belief Model, Health Communication">
+        <div class="stage-head">
+          <span class="cat"><span class="dot"></span>Health Communication</span>
+          <span class="abbr">HBM</span>
+          <span class="glyph" aria-hidden="true">H</span>
+        </div>
+        <div class="body">
+          <h3>Health Belief Model</h3>
+          <p>People act on health when perceived threat and clear benefits outweigh the barriers in the way.</p>
+          <span class="cta">View storyboard <span class="arrow">→</span></span>
+        </div>
+      </article>
+
+      <article class="scene" data-cat="health" style="--c:var(--c-health)" tabindex="0" aria-label="Protection Motivation Theory, Health Communication">
+        <div class="stage-head">
+          <span class="cat"><span class="dot"></span>Health Communication</span>
+          <span class="abbr">PMT</span>
+          <span class="glyph" aria-hidden="true">P</span>
+        </div>
+        <div class="body">
+          <h3>Protection Motivation Theory</h3>
+          <p>Fear appeals only work when a threat appraisal is paired with belief that a coping response will help.</p>
+          <span class="cta">View storyboard <span class="arrow">→</span></span>
+        </div>
+      </article>
+
+      <article class="scene" data-cat="health" style="--c:var(--c-health)" tabindex="0" aria-label="Theory of Planned Behavior, Health Communication">
+        <div class="stage-head">
+          <span class="cat"><span class="dot"></span>Health Communication</span>
+          <span class="abbr">TPB</span>
+          <span class="glyph" aria-hidden="true">T</span>
+        </div>
+        <div class="body">
+          <h3>Theory of Planned Behavior</h3>
+          <p>Intention drives behavior, shaped by attitudes, social pressure, and how much control a person feels.</p>
+          <span class="cta">View storyboard <span class="arrow">→</span></span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Detail view: storyboard (each row = a Remotion scene) on the warm web surface -->
+    <article class="detail" id="detail" style="--c:var(--c-health)" aria-label="Theory detail">
+      <a class="back" href="#grid">← Back to the index</a>
+
+      <header class="detail-head">
+        <span class="cat"><span class="dot"></span>Health Communication</span>
+        <h2 class="title">Elaboration Likelihood Model</h2>
+        <p class="meta">ELM · Petty &amp; Cacioppo, 1986 · 4-scene explainer</p>
+      </header>
+
+      <p class="lede">Persuasion is not one process but two, and which one fires depends on how much a person is willing and able to think about the message in front of them.</p>
+
+      <div class="keyterms">
+        <span class="term">Central route</span>
+        <span class="term">Peripheral route</span>
+        <span class="term">Elaboration</span>
+        <span class="term">Motivation &amp; ability</span>
+        <span class="term">Attitude strength</span>
+      </div>
+
+      <div class="storyboard-head">
+        <h3>Storyboard</h3>
+        <span class="note">Each row maps to one animated Remotion scene.</span>
+      </div>
+
+      <div class="storyboard">
+        <div class="scene-row">
+          <div class="num">01</div>
+          <div class="txt">
+            <h4>The fork in the road</h4>
+            <p>A message arrives and the audience faces two paths. The scene opens on a single line splitting into two glowing branches.</p>
+          </div>
+        </div>
+        <div class="scene-row">
+          <div class="num">02</div>
+          <div class="txt">
+            <h4>The central route</h4>
+            <p>When motivation and ability are high, viewers travel the thinking path. The argument's evidence is weighed and a durable attitude forms.</p>
+          </div>
+        </div>
+        <div class="scene-row">
+          <div class="num">03</div>
+          <div class="txt">
+            <h4>The peripheral route</h4>
+            <p>When attention is low, the shortcut path lights up instead. Surface cues like a likeable source stand in for real reasoning.</p>
+          </div>
+        </div>
+        <div class="scene-row">
+          <div class="num">04</div>
+          <div class="txt">
+            <h4>Why it matters</h4>
+            <p>Attitudes built on the central route resist change, so durable health campaigns work to raise both motivation and ability.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TWO SURFACES, ONE LANGUAGE: same scene 01, warm web vs dark video frame -->
+      <section class="twosurface" id="twosurface" aria-label="One scene, two surfaces">
+        <div class="ts-head">
+          <div>
+            <h3>One scene, two surfaces</h3>
+            <p>Scene 01 rendered as the warm web page and as the dark video frame. Same layout and color logic, so the storyboard maps straight to Remotion.</p>
+          </div>
+          <div class="ts-toggle" role="group" aria-label="Choose surface">
+            <button type="button" data-mode="web" aria-pressed="false">Web</button>
+            <button type="button" data-mode="both" aria-pressed="true">Both</button>
+            <button type="button" data-mode="video" aria-pressed="false">Video</button>
+          </div>
+        </div>
+
+        <div class="ts-stages" id="ts-stages" data-mode="both">
+          <!-- warm web surface -->
+          <figure class="ts-frame web" style="margin:0">
+            <span class="fkicker"><span class="dot"></span>Health Communication · ELM</span>
+            <span class="fnum">Scene 01</span>
+            <h4 class="ftitle">The fork in the road</h4>
+            <div class="fork" aria-hidden="true">
+              <span class="branch central"><span class="pip"></span>Central</span>
+              <span class="split">⟋⟍</span>
+              <span class="branch peripheral"><span class="pip"></span>Peripheral</span>
+            </div>
+            <span class="label">Web reading surface</span>
+            <figcaption class="surface-tag">Warm skin · parchment</figcaption>
+          </figure>
+
+          <!-- dark video-scene surface -->
+          <figure class="ts-frame video" style="margin:0">
+            <span class="fkicker"><span class="dot"></span>Health Communication · ELM</span>
+            <span class="fnum">Scene 01</span>
+            <h4 class="ftitle">The fork in the road</h4>
+            <div class="fork" aria-hidden="true">
+              <span class="branch central"><span class="pip"></span>Central</span>
+              <span class="split">⟋⟍</span>
+              <span class="branch peripheral"><span class="pip"></span>Peripheral</span>
+            </div>
+            <span class="label">Remotion render frame</span>
+            <figcaption class="surface-tag">Video bones · dark stage</figcaption>
+          </figure>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="mock">
+    <div class="wrap">AURA Lab · Communication Theories · Mockup variant C (warm skin, video bones — original wording)</div>
+  </footer>
+
+<script>
+  // ---- Category filter (visual filtering of the scene grid) ----
+  const chips = document.querySelectorAll('.cat-btn');
+  const cards = document.querySelectorAll('#grid .scene');
+  const count = document.getElementById('count');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+      chip.setAttribute('aria-pressed', 'true');
+      const f = chip.dataset.filter;
+      let shown = 0;
+      cards.forEach(card => {
+        const match = (f === 'all' || card.dataset.cat === f);
+        card.hidden = !match;
+        if (match) shown++;
+      });
+      count.textContent = shown + (shown === 1 ? ' scene shown' : ' scenes shown');
+    });
+  });
+
+  // ---- Scene card jumps to the storyboard detail ----
+  cards.forEach(card => {
+    const go = () => document.getElementById('detail').scrollIntoView({ behavior: 'smooth' });
+    card.addEventListener('click', go);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
+
+  // ---- Two-surfaces toggle (web / both / video) ----
+  const tsButtons = document.querySelectorAll('.ts-toggle button');
+  const tsStages = document.getElementById('ts-stages');
+  tsButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tsButtons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+      btn.setAttribute('aria-pressed', 'true');
+      tsStages.dataset.mode = btn.dataset.mode;
+    });
+  });
+</script>
+</body>
+</html>

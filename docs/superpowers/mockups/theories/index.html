@@ -66,31 +66,34 @@
 
   <nav class="switcher" aria-label="Switch design variant">
     <span class="label">Variant</span>
-    <button id="btn-a" aria-pressed="true" data-src="variant-a.html">A<span class="sub">Editorial</span></button>
+    <button id="btn-a" aria-pressed="false" data-src="variant-a.html">A<span class="sub">Editorial</span></button>
     <button id="btn-b" aria-pressed="false" data-src="variant-b.html">B<span class="sub">Systematic</span></button>
+    <button id="btn-c" aria-pressed="true" data-src="variant-c-blend.html">C<span class="sub">Blend (chosen)</span></button>
   </nav>
 
   <div class="stage">
-    <iframe id="frame-a" src="variant-a.html" title="Variant A — Editorial / serif teaching aesthetic"></iframe>
+    <iframe id="frame-a" src="variant-a.html" title="Variant A — Editorial / serif teaching aesthetic" hidden loading="lazy"></iframe>
     <iframe id="frame-b" src="variant-b.html" title="Variant B — Systematic / motion-forward aesthetic" hidden loading="lazy"></iframe>
+    <iframe id="frame-c" src="variant-c-blend.html" title="Variant C — Warm skin, video bones (chosen blend)"></iframe>
   </div>
 
 <script>
   const buttons = document.querySelectorAll('.switcher button');
-  const frames = { a: document.getElementById('frame-a'), b: document.getElementById('frame-b') };
+  const frames = { a: document.getElementById('frame-a'), b: document.getElementById('frame-b'), c: document.getElementById('frame-c') };
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => b.setAttribute('aria-pressed', 'false'));
       btn.setAttribute('aria-pressed', 'true');
-      const which = btn.id === 'btn-a' ? 'a' : 'b';
+      const which = btn.id === 'btn-a' ? 'a' : (btn.id === 'btn-b' ? 'b' : 'c');
       Object.entries(frames).forEach(([k, f]) => { f.hidden = (k !== which); });
     });
   });
-  // keyboard: press A or B to flip
+  // keyboard: press A, B, or C to flip
   document.addEventListener('keydown', e => {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
     if (e.key === 'a' || e.key === 'A') document.getElementById('btn-a').click();
     if (e.key === 'b' || e.key === 'B') document.getElementById('btn-b').click();
+    if (e.key === 'c' || e.key === 'C') document.getElementById('btn-c').click();
   });
 </script>
 </body>
