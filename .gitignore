@@ -5,3 +5,9 @@ dist
 .env.local
 .DS_Store
 *.log
+
+# Internal UTwente source notes (raw reference text, never publish/commit)
+scripts/_source-notes/
+
+# Python bytecode cache
+__pycache__/
