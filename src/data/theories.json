@@ -1,1 +1,66 @@
-[]
+[
+  {
+    "slug": "elaboration-likelihood-model",
+    "name": "Elaboration Likelihood Model",
+    "aka": ["ELM"],
+    "categories": [
+      "Health Communication",
+      "Interpersonal Communication and Relations",
+      "Public Relations / Advertising, Marketing and Consumer Behavior"
+    ],
+    "summary": "Persuasion splits into two routes: deep thinking about the argument, or quick reliance on surface cues.",
+    "what_it_is": "The Elaboration Likelihood Model is a dual-process account of persuasion. It proposes that attitude change can happen through either careful, effortful evaluation of a message or through low-effort reliance on cues, and that the path taken depends on a person's motivation and ability to think about the content in front of them.",
+    "core_idea": "Persuasion is not one process but two. A central route engages when people are both willing and able to scrutinize an argument, while a peripheral route takes over when attention is low and surface cues stand in for reasoning. Attitudes formed centrally tend to be stronger and more durable.",
+    "how_used": "Researchers and campaign designers use the model to decide whether to invest in strong evidence or in attractive cues for a given audience. It guides message testing, audience segmentation, and the framing of health and advertising appeals depending on how engaged the target audience is likely to be.",
+    "example": "A vaccination campaign aimed at hesitant but engaged parents leads with clear evidence and addresses counterarguments (central route), while a fast social feed reminder leans on a trusted clinician's face and a simple call to action (peripheral route).",
+    "primary_references": [
+      "Petty, R. E., & Cacioppo, J. T. (1986). Communication and Persuasion: Central and Peripheral Routes to Attitude Change. Springer-Verlag."
+    ],
+    "source_note": "Adapted by AURA Lab from University of Twente, Communication Theories (2026).",
+    "related": ["theory-of-planned-behavior"]
+  },
+  {
+    "slug": "health-belief-model",
+    "name": "Health Belief Model",
+    "aka": ["HBM"],
+    "categories": ["Health Communication"],
+    "summary": "People act on health when perceived threat and clear benefits outweigh the barriers in the way.",
+    "what_it_is": "The Health Belief Model is a value-expectancy framework for explaining and predicting health behavior. It holds that whether a person takes a protective action depends on how they weigh the threat of a condition against the costs and benefits of acting, often nudged along by a triggering cue.",
+    "core_idea": "Action follows from a set of beliefs: perceived susceptibility to a problem, perceived severity of it, perceived benefits of acting, and perceived barriers to acting. A cue to action and a person's confidence in their ability to act tip the balance toward behavior.",
+    "how_used": "Health communicators use the model to diagnose which belief is blocking a behavior and to target messages accordingly. It informs screening promotion, the design of reminder systems, and the wording of materials meant to lower perceived barriers or raise perceived benefits.",
+    "example": "A clinic increases mammography uptake by mailing a personalized reminder (cue to action) that stresses early detection benefits and reassures patients that the scan is quick and low cost, directly lowering the perceived barriers.",
+    "primary_references": [],
+    "source_note": "Adapted by AURA Lab from University of Twente, Communication Theories (2026).",
+    "related": ["protection-motivation-theory"]
+  },
+  {
+    "slug": "protection-motivation-theory",
+    "name": "Protection Motivation Theory",
+    "aka": ["PMT"],
+    "categories": ["Health Communication"],
+    "summary": "Fear appeals only work when a threat appraisal is paired with belief that a coping response will help.",
+    "what_it_is": "Protection Motivation Theory explains how people respond to fear-based messages. It frames the response as the product of two appraisals running in parallel: an evaluation of the threat itself and an evaluation of whether a recommended response can be carried out and will actually work.",
+    "core_idea": "Motivation to protect oneself rises when a threat appears both likely and severe and when the person believes a coping response is effective and within their reach. When threat is high but coping confidence is low, people tend to deny or avoid the message rather than act.",
+    "how_used": "Campaign designers use the model to pair every fear appeal with a concrete, achievable recommendation, so audiences feel capable rather than overwhelmed. It guides the balance of threat and efficacy content in messaging about smoking, sun exposure, and other risks.",
+    "example": "An anti-smoking ad pairs a vivid warning about lung disease with a specific, doable next step, a free quitline number, so viewers feel both the threat and a realistic way to cope with it.",
+    "primary_references": [],
+    "source_note": "Adapted by AURA Lab from University of Twente, Communication Theories (2026).",
+    "related": ["health-belief-model"]
+  },
+  {
+    "slug": "theory-of-planned-behavior",
+    "name": "Theory of Planned Behavior",
+    "aka": ["TPB"],
+    "categories": ["Health Communication", "Interpersonal Communication and Relations"],
+    "summary": "Intention drives behavior, shaped by attitudes, social pressure, and how much control a person feels.",
+    "what_it_is": "The Theory of Planned Behavior predicts deliberate behavior from a person's intention to perform it. It extends earlier reasoned-action models by adding perceived behavioral control, recognizing that intention alone does not carry the day when people doubt their ability to act.",
+    "core_idea": "Behavioral intention is shaped by three inputs: a person's attitude toward the behavior, the social pressure they perceive from important others, and how much control they feel they have. Stronger and more aligned inputs produce stronger intentions and, in turn, behavior.",
+    "how_used": "Researchers use the model to identify which of the three drivers is weakest for a target behavior and to design interventions that strengthen it. It supports survey instruments, formative research, and the targeting of attitudes, norms, or control beliefs in health promotion.",
+    "example": "A campus program to raise physical activity surveys students, finds that perceived control is the weak link, and responds with free, low-barrier drop-in sessions that make exercise feel achievable rather than just desirable.",
+    "primary_references": [
+      "Ajzen, I. (1991). The theory of planned behavior. Organizational Behavior and Human Decision Processes, 50(2), 179-211."
+    ],
+    "source_note": "Adapted by AURA Lab from University of Twente, Communication Theories (2026).",
+    "related": ["elaboration-likelihood-model"]
+  }
+]

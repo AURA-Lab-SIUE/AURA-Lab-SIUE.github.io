@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import theoriesData from '../../data/theories.json';
+import {
+  CATEGORY_KEY,
+  CATEGORY_SHORT,
+  type Theory,
+} from '../../types/theory';
+import { abbreviate } from '../../components/theories/theory-utils';
+import '../../styles/theories.css';
+
+export function getStaticPaths() {
+  const theories = (theoriesData as Theory[]);
+  return theories.map((theory) => ({
+    params: { slug: theory.slug },
+    props: { theory },
+  }));
+}
+
+interface Props {
+  theory: Theory;
+}
+
+const { theory } = Astro.props as Props;
+
+// Primary category drives the accent color + chip.
+const primaryCategory = theory.categories[0];
+const colorVar = `var(--c-${CATEGORY_KEY[primaryCategory]})`;
+const abbr = abbreviate(theory);
+
+// The four storyboard scenes. Each row maps to one future Remotion scene.
+const scenes = [
+  { title: 'What it is', body: theory.what_it_is },
+  { title: 'The core idea', body: theory.core_idea },
+  { title: 'How it is used', body: theory.how_used },
+  { title: 'In practice', body: theory.example },
+];
+
+// Key terms shown as chips: spelled-out alternate names + category labels.
+const keyterms = [
+  ...(theory.aka ?? []),
+  ...theory.categories.map((c) => CATEGORY_SHORT[c]),
+];
+
+const metaParts = [abbr, ...theory.categories.map((c) => CATEGORY_SHORT[c]), '4-scene explainer'];
+---
+<BaseLayout
+  title={theory.name}
+  description={theory.summary}>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </Fragment>
+
+  <div class="theories-skin">
+    <article class="t-detail t-wrap" style={`--c:${colorVar}`} aria-label={`${theory.name} detail`}>
+      <a class="t-back" href="/theories/">← Back to the index</a>
+
+      <header class="detail-head">
+        <span class="cat">
+          <span class="dot" aria-hidden="true"></span>
+          {theory.categories.map((c, i) => (
+            <Fragment>{i > 0 ? ' · ' : ''}{CATEGORY_SHORT[c]}</Fragment>
+          ))}
+        </span>
+        <h2 class="title">{theory.name}</h2>
+        <p class="meta">{metaParts.join(' · ')}</p>
+      </header>
+
+      <p class="lede">{theory.summary}</p>
+
+      {keyterms.length > 0 && (
+        <div class="keyterms">
+          {keyterms.map((term) => (
+            <span class="term">{term}</span>
+          ))}
+        </div>
+      )}
+
+      <div class="storyboard-head">
+        <h3>Storyboard</h3>
+        <span class="note">Each row maps to one animated Remotion scene.</span>
+      </div>
+
+      <div class="storyboard">
+        {scenes.map((scene, i) => (
+          <div class="scene-row">
+            <div class="num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="txt">
+              <h4>{scene.title}</h4>
+              <p>{scene.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <section class="t-refs" aria-label="References and source">
+        {theory.primary_references && theory.primary_references.length > 0 && (
+          <Fragment>
+            <h3>Primary references</h3>
+            <ul>
+              {theory.primary_references.map((ref) => (
+                <li>{ref}</li>
+              ))}
+            </ul>
+          </Fragment>
+        )}
+        <h3>Source</h3>
+        <p class="t-source">{theory.source_note}</p>
+      </section>
+    </article>
+  </div>
+</BaseLayout>

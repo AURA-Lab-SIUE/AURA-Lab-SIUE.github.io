@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CategoryFilter from '../../components/theories/CategoryFilter.tsx';
+import TheoryCard from '../../components/theories/TheoryCard.tsx';
+// NOTE: src/data/theories.json currently holds 4 SAMPLE Health Communication
+// entries seeded for the Phase 4 shell. They are placeholders to be replaced with
+// the real authored content in Phase 3.
+import theoriesData from '../../data/theories.json';
+import { THEORY_CATEGORIES, CATEGORY_KEY, type Theory, type TheoryCategory } from '../../types/theory';
+import '../../styles/theories.css';
+
+const theories = theoriesData as Theory[];
+
+// Group theories by category. A theory tagged to multiple categories appears
+// under each of its categories (so the card is rendered once per section).
+const byCategory = THEORY_CATEGORIES.map((category) => ({
+  category,
+  key: CATEGORY_KEY[category],
+  items: theories.filter((t) => t.categories.includes(category as TheoryCategory)),
+})).filter((g) => g.items.length > 0);
+---
+<BaseLayout
+  title="Communication Theories"
+  current="theories"
+  description="A reading-room guide to communication theory from AURA Lab, where every framework is also a scene.">
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </Fragment>
+
+  <div class="theories-skin">
+    <header class="t-masthead">
+      <div class="t-wrap">
+        <p class="t-kicker">AURA Lab · Teaching Library</p>
+        <h1>Communication <em>Theories</em></h1>
+        <p class="t-dek">
+          A reading-room guide where every framework is also a scene: one color, one core idea,
+          one motion you can watch unfold.
+        </p>
+      </div>
+    </header>
+
+    <nav class="t-rail" aria-label="Filter theories by category">
+      <div class="t-wrap">
+        <CategoryFilter theories={theories} client:load />
+      </div>
+    </nav>
+
+    <div class="t-wrap">
+      <p data-global-empty hidden class="t-empty">No theories match that search.</p>
+
+      {byCategory.map((group) => (
+        <section data-cat-section={group.category} aria-label={group.category}>
+          <div class="t-section-head">
+            <h2>{group.category}</h2>
+            <span class="count" data-count>{group.items.length} {group.items.length === 1 ? 'scene' : 'scenes'} shown</span>
+          </div>
+          <div class="t-grid">
+            {group.items.map((theory) => (
+              <TheoryCard theory={theory} category={group.category} />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
