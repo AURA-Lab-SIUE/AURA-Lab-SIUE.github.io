@@ -55,13 +55,10 @@ AURA-Lab-SIUE.github.io/
 
 ## Projects
 
-### [Vibes to Variables](https://github.com/AURA-Lab-SIUE/vibes-to-variables)
-An open educational resource guiding undergraduate Communication and Media Studies students through a complete research project — from hypothesis to reproducible study — using a real dataset of 1,792 songs. Built with Quarto.
-
 ### v2v — *Vibes to Variables* (three prongs)
 - **[v2v](https://github.com/AURA-Lab-SIUE/v2v)** — *From Vibes to Variables: A Field Guide to Open Media Science*, the open textbook (OER) for SIUE MC-451 / MC-501. Built with Quarto. CC BY 4.0.
 - **[v2v-r](https://github.com/AURA-Lab-SIUE/v2v-r)** — Companion R package; ships a 22M-row Twitch corpus and chapter-by-chapter pedagogical helpers behind a learner-friendly API.
-- **[v2v-hub](https://github.com/AURA-Lab-SIUE/v2v-hub)** — Course hub for MC-451 Research Methods (the Liaison Program).
+- **[v2v-hub](https://github.com/AURA-Lab-SIUE/v2v-hub)** — Course hub for MC-451 Research Methods (the Liaison Program). Companion Obsidian vault: [mc451-liaison-program](https://github.com/AURA-Lab-SIUE/mc451-liaison-program).
 
 ### [MethodoSync](methodosync/)
 Browser-based qualitative research tool for video annotation and codebook generation. Built with Vite + React 18 + TypeScript + Tailwind CSS. No server or account required.
@@ -74,9 +71,6 @@ Web application for managing and reserving production equipment for SIUE Mass Co
 
 ### [Comm Theories Explorer](theories/)
 Interactive GSAP-animated guide to common mass communication theories, designed to help students identify an appropriate theory for their research project.
-
-### [Open Methods Hub](https://github.com/AURA-Lab-SIUE/open-methods-hub)
-MC Research Methods course website for MC-451 at SIUE — the umbrella for the research-methods teaching ecosystem. Companion Obsidian vault at [mc451-liaison-program](https://github.com/AURA-Lab-SIUE/mc451-liaison-program).
 
 ### [Concordance](https://github.com/AURA-Lab-SIUE/concordance)
 A topic-agnostic term checker — test documents against any configurable term list. AURA Lab in collaboration with SIM DAD LLC.
