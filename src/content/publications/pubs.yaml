@@ -1,36 +1,174 @@
-# Public-facing publications only.
-# Inclusion rule: must have at least one of (doi, preprint, or status="in-press" with venue).
-# In-progress/under-review/drafting entries from the Paper Tracker are intentionally excluded.
-# Replace this seed with full Paper Tracker exports before launch.
+# Public-facing publications — sourced from the PI's CV (peer-reviewed journal
+# articles, editorial, and refereed conference proceedings).
+# Book chapters and in-progress/under-review work are intentionally excluded.
+# Areas map each work to the site's four filter buckets:
+#   virtual-environments | streaming | methods | meetings
 
 entries:
-  - title: "Asymmetric Ties in Networked Publics"
-    authors: ["Alex P. Leith"]
-    venue: "New Media & Society"
-    year: 2026
-    status: "in-press"
-    areas: ["streaming", "methods"]
+  # ---- Peer-reviewed journal articles ----
+  - title: "Stress and coping in VRChat: A mixed-method case study of the use of VRChat as a coping tool during the COVID-19 pandemic"
+    authors: ["Leith, A. P.", "Lim, C.", "Foxman, M.", "Beyea, D.", "Jeong, D. C."]
+    venue: "Computers in Human Behavior Reports"
+    year: 2025
+    doi: "https://doi.org/10.1016/j.chbr.2025.100843"
+    status: "published"
+    areas: ["virtual-environments"]
     featured: true
 
-  - title: "Co-Play: When Watching Isn't Enough"
-    authors: ["Alex P. Leith"]
-    venue: "Journal of Gaming & Virtual Worlds"
+  - title: "Balancing fun and professionalism in game development: The dark and light side of play in virtual meetings"
+    authors: ["Douzek, D.", "Foxman, M.", "Lim, C.", "Leith, A. P."]
+    venue: "Frontiers in Communication"
     year: 2025
+    doi: "https://doi.org/10.3389/fcomm.2025.1609776"
+    status: "published"
+    areas: ["meetings"]
+
+  - title: "Time matters in VR: Students benefit from longer VR class duration, but certain outcomes decline after 45 minutes, with large individual variance"
+    authors: ["Ratan, R. A.", "Lin, Q.", "Lim, C.", "Park, R.", "Lover, A.", "Han, E.", "Jang, D.", "Leith, A. P.", "Bailenson, J. N."]
+    venue: "Computers & Education"
+    year: 2025
+    doi: "https://doi.org/10.1016/j.compedu.2025.105328"
+    status: "published"
+    areas: ["virtual-environments"]
+
+  - title: "Meeting needs: How social interaction anxiety, Zoom fatigue, relatedness, and demographics predict virtual meeting feature preferences"
+    authors: ["Lim, C.", "Leith, A. P.", "Ratan, R.", "Bouzek, D."]
+    venue: "Computers in Human Behavior Reports"
+    year: 2025
+    doi: "https://doi.org/10.1016/j.chbr.2025.100673"
+    status: "published"
+    areas: ["meetings"]
+
+  - title: "Examining attitudes about the virtual workplace: Associations between Zoom fatigue, impression management, and virtual meeting adoption intent"
+    authors: ["Lim, C.", "Ratan, R.", "Foxman, M.", "Beyea, D.", "Jeong, D.", "Leith, A. P."]
+    venue: "PLOS One"
+    year: 2025
+    doi: "https://doi.org/10.1371/journal.pone.0312354"
+    status: "published"
+    areas: ["meetings"]
+
+  - title: "Zoom fatigue in review: A meta-analytical examination of videoconferencing fatigue's antecedents"
+    authors: ["Beyea, D.", "Lim, C.", "Lover, A.", "Foxman, M.", "Ratan, R.", "Leith, A. P."]
+    venue: "Computers in Human Behavior Reports"
+    year: 2025
+    doi: "https://doi.org/10.1016/j.chbr.2024.100571"
+    status: "published"
+    areas: ["meetings"]
+    featured: true
+
+  - title: "Beyond genre: Classifying virtual reality experiences"
+    authors: ["Foxman, M.", "Beyea, D.", "Leith, A. P.", "Ratan, R. A.", "Chen, V. H. H.", "Klebig, B."]
+    venue: "IEEE Transactions on Games"
+    year: 2022
+    doi: "https://doi.org/10.1109/TG.2021.3119521"
+    status: "published"
+    areas: ["virtual-environments"]
+
+  - title: "Twitch in the time of quarantine: The role of engagement in needs fulfillment"
+    authors: ["Leith, A. P.", "Gheen, E."]
+    venue: "Psychology of Popular Media"
+    year: 2022
+    doi: "https://doi.org/10.1037/ppm0000372"
+    status: "published"
+    areas: ["streaming"]
+
+  - title: "Parasocial cues: The ubiquity of parasocial relationships on Twitch"
+    authors: ["Leith, A. P."]
+    venue: "Communication Monographs"
+    year: 2021
+    doi: "https://doi.org/10.1080/03637751.2020.1868544"
     status: "published"
     areas: ["streaming"]
     featured: true
 
-  - title: "Virtual Touch-Up: Impression Management in Videoconferencing"
-    authors: ["Beyond Meet Space Team", "Alex P. Leith"]
-    venue: "Behaviour & Information Technology"
+  - title: "Women keep it real: Avatar gender choice in League of Legends"
+    authors: ["Ratan, R. A.", "Fordham, J.", "Leith, A. P.", "Williams, D."]
+    venue: "Cyberpsychology, Behavior, and Social Networking"
+    year: 2019
+    doi: "https://doi.org/10.1089/cyber.2018.0302"
+    status: "published"
+    areas: ["virtual-environments"]
+
+  - title: "R.I.P. Kutner: Parasocial grief following the death of a television character"
+    authors: ["DeGroot, J. M.", "Leith, A. P."]
+    venue: "OMEGA — Journal of Death and Dying"
+    year: 2018
+    doi: "https://doi.org/10.1177/0030222815600450"
+    status: "published"
+    areas: ["streaming"]
+
+  - title: "The (de-)evolution of evolution games: Analyzing the accuracy of evolution depiction in video games"
+    authors: ["Leith, A. P.", "Ratan, R. A.", "Wohn, D. Y."]
+    venue: "Journal of Science Education and Technology"
+    year: 2016
+    doi: "https://doi.org/10.1007/s10956-016-9620-x"
+    status: "published"
+    areas: ["virtual-environments"]
+
+  # ---- Editorial ----
+  - title: "Metaverse-mediated communication: A call for theory-driven XR research [Editorial]"
+    authors: ["Beyea, D.", "Foxman, M.", "Ratan, R.", "Klebig, B.", "Leith, A. P.", "Chen, V. H. H."]
+    venue: "Journal of Media Psychology: Theories, Methods, and Applications"
+    year: 2025
+    doi: "https://doi.org/10.1027/1864-1105/a000465"
+    status: "published"
+    areas: ["virtual-environments"]
+
+  # ---- Refereed conference proceedings ----
+  - title: "The Hyperpersonal Model of Communication in virtual meetings"
+    authors: ["Lim, C.", "Leith, A. P.", "Foxman, M.", "Ratan, R.", "Klebig, B."]
+    venue: "Proceedings of the 58th Hawaii International Conference on System Sciences (HICSS)"
     year: 2025
     status: "published"
     areas: ["meetings"]
 
-  - title: "Dreaming a Virtual Reality: VRChat as Interpersonal Space During COVID"
-    authors: ["Alex P. Leith"]
-    venue: "International Journal of Communication"
+  - title: "Focusing on virtual groups: A method for focus group interviews in XR/VR group settings"
+    authors: ["Milik, O.", "Jang, D.", "Foxman, M.", "Klebig, B.", "Beyea, D.", "Leith, A. P.", "Ratan, R."]
+    venue: "AoIR Selected Papers of Internet Research"
     year: 2024
     status: "published"
+    areas: ["methods"]
+
+  - title: "Making a virtual playground: Values-based game design in meeting platforms"
+    authors: ["Foxman, M.", "Bouzek, D.", "Lim, C.", "Ratan, R.", "Klebig, B.", "Leith, A. P.", "Beyea, D."]
+    venue: "DiGRA 2024 Conference: Playgrounds"
+    year: 2024
+    status: "published"
+    areas: ["meetings"]
+
+  - title: "Wanting playfulness to counter fatigue from virtual meetings"
+    authors: ["Lim, C.", "Foxman, M.", "Leith, A. P.", "Meshi, D.", "Ratan, R."]
+    venue: "DiGRA 2024 Conference: Playgrounds"
+    year: 2024
+    status: "published"
+    areas: ["meetings"]
+
+  - title: "Virtually limited: Boundaries of play in virtual reality production"
+    authors: ["Foxman, M.", "Bouzek, D.", "Ratan, R. A.", "Leith, A."]
+    venue: "DiGRA 2023 Conference: Limits and Margins of Games"
+    year: 2023
+    status: "published"
     areas: ["virtual-environments"]
-    featured: true
+
+  - title: "Mixed feelings and realities: Joyful to nauseating sentiments about VR on Twitter"
+    authors: ["Leith, A.", "Foxman, M.", "Onuche, M.", "Ratan, R.", "Lim, C."]
+    venue: "DiGRA 2023 Conference: Limits and Margins of Games"
+    year: 2023
+    status: "published"
+    areas: ["virtual-environments", "methods"]
+
+  - title: "Virtual reality genres: Comparing preferences in immersive experiences and games"
+    authors: ["Foxman, M.", "Beyea, D.", "Leith, A. P.", "Klebig, B.", "Chen, V. H. H.", "Ratan, R."]
+    venue: "CHI PLAY '20: Extended Abstracts"
+    year: 2020
+    doi: "https://doi.org/10.1145/3383668.3419881"
+    status: "published"
+    areas: ["virtual-environments"]
+
+  - title: "Playing games for others: Constructing a gameplay livestreaming taxonomy"
+    authors: ["Leith, A. P."]
+    venue: "Proceedings of Meaningful Play 2018"
+    year: 2019
+    doi: "https://doi.org/10.1184/R1/9995969"
+    status: "published"
+    areas: ["streaming"]

@@ -7,8 +7,6 @@ const dist = path.join(root, 'dist');
 
 const items = [
   'methodosync',
-  'intro-to-obsidian',
-  'open-coding.html',
   'captionizer.html',
   'countdown.html',
   'app_form.html',

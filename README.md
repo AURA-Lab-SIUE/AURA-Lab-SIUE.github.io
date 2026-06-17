@@ -10,7 +10,7 @@ AURA Lab is a computational communication research group at SIUE that studies ho
 
 > **Note on scope:** This organization covers academic and instructional work at SIUE. Industry consulting, applied data tools, and contract software live under [SIM DAD LLC](https://github.com/SIM-DAD) separately.
 
-**Live site:** [aura-lab-siue.github.io](https://aura-lab-siue.github.io) *(Coming Soon page live; full site in development through 2026. A future move to `aura-lab.siue.edu` is planned.)*
+**Live site:** [aura-lab.siue.edu](https://aura-lab.siue.edu) *(also mirrored at [aura-lab-siue.github.io](https://aura-lab-siue.github.io) via GitHub Pages).*
 
 ---
 
@@ -20,7 +20,7 @@ AURA Lab is a computational communication research group at SIUE that studies ho
 |---|---|
 | **Virtual Environments** | Social interaction in VR/XR, videoconferencing fatigue, remote work equity — including a completed $1.6M NSF grant with the [Beyond Meet Space](http://beyondmeet.space/) collective |
 | **Streaming Platforms** | Parasocial relationships, avatar identity, community dynamics on Twitch and related platforms |
-| **Computational Methods** | Sentiment analysis, topic modeling, network analysis, and applied NLP for communication research (TASS and related toolchains) |
+| **Computational Methods** | Sentiment analysis, topic modeling, network analysis, and applied NLP for communication research |
 | **Virtual Meetings** | Design and study of synchronous mediated interaction in work and learning contexts |
 
 ---
@@ -43,8 +43,6 @@ AURA-Lab-SIUE.github.io/
 │
 │   # Legacy teaching pages — preserved at original URLs via postbuild copy
 ├── methodosync/            # MethodoSync — React/Vite/TypeScript app
-├── intro-to-obsidian/      # Multi-module Obsidian tutorial
-├── open-coding.html        # Grounded Theory Coding Studio
 ├── captionizer.html        # Caption helper
 ├── countdown.html          # In-class countdown timer
 │
@@ -60,17 +58,13 @@ AURA-Lab-SIUE.github.io/
 ### [Vibes to Variables](https://github.com/AURA-Lab-SIUE/vibes-to-variables)
 An open educational resource guiding undergraduate Communication and Media Studies students through a complete research project — from hypothesis to reproducible study — using a real dataset of 1,792 songs. Built with Quarto.
 
-### [v2v](https://github.com/AURA-Lab-SIUE/v2v)
-Companion R package for the *From Vibes to Variables* OER textbook (SIUE MC-451 + MC-501). Ships the Twitch dataset and pedagogical helpers introduced chapter by chapter.
-
-### [coursepackR](https://github.com/AURA-Lab-SIUE/coursepackR)
-Shared coursework material for MC-451 and MC-501 — assignment scaffolds and reproducible analysis templates for the research-methods sequence.
+### v2v — *Vibes to Variables* (three prongs)
+- **[v2v](https://github.com/AURA-Lab-SIUE/v2v)** — *From Vibes to Variables: A Field Guide to Open Media Science*, the open textbook (OER) for SIUE MC-451 / MC-501. Built with Quarto. CC BY 4.0.
+- **[v2v-r](https://github.com/AURA-Lab-SIUE/v2v-r)** — Companion R package; ships a 22M-row Twitch corpus and chapter-by-chapter pedagogical helpers behind a learner-friendly API.
+- **[v2v-hub](https://github.com/AURA-Lab-SIUE/v2v-hub)** — Course hub for MC-451 Research Methods (the Liaison Program).
 
 ### [MethodoSync](methodosync/)
 Browser-based qualitative research tool for video annotation and codebook generation. Built with Vite + React 18 + TypeScript + Tailwind CSS. No server or account required.
-
-### [Open Coding Studio](open-coding.html)
-Self-contained, single-file Grounded Theory coding environment. Paste data, apply open codes, collapse to axial/selective codes, and export structured codebooks — no installation or backend.
 
 ### [MC Careers Dashboard](https://github.com/AURA-Lab-SIUE/mc-careers-dashboard)
 Interactive SvelteKit dashboard mapping Mass Communications career paths, salary data, and skill requirements for student career planning.
@@ -84,14 +78,8 @@ Interactive GSAP-animated guide to common mass communication theories, designed 
 ### [Open Methods Hub](https://github.com/AURA-Lab-SIUE/open-methods-hub)
 MC Research Methods course website for MC-451 at SIUE — the umbrella for the research-methods teaching ecosystem. Companion Obsidian vault at [mc451-liaison-program](https://github.com/AURA-Lab-SIUE/mc451-liaison-program).
 
-### [Open WebUI Launcher](https://github.com/AURA-Lab-SIUE/open-webui-launcher)
-One-click launcher for Open WebUI with DeepSeek-R1 via Docker — a local-AI on-ramp for students and lab researchers.
-
-### [Hate Raids](https://github.com/AURA-Lab-SIUE/hate-raids)
-R-based data and analysis behind the peer-reviewed Hate Raids paper — examining coordinated harassment events on Twitch.
-
-### [Banned Word Checker](https://github.com/AURA-Lab-SIUE/banned-word-checker)
-Python tool for testing Word documents or PDF submissions against a list of prohibited terms — built for instructional and content-moderation use cases.
+### [Concordance](https://github.com/AURA-Lab-SIUE/concordance)
+A topic-agnostic term checker — test documents against any configurable term list. AURA Lab in collaboration with SIM DAD LLC.
 
 ---
 
