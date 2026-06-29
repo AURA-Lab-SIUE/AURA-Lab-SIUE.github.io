@@ -1,71 +1,240 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import CategoryFilter from '../../components/theories/CategoryFilter.tsx';
-import TheoryCard from '../../components/theories/TheoryCard.tsx';
-// NOTE: src/data/theories.json currently holds 4 SAMPLE Health Communication
-// entries seeded for the Phase 4 shell. They are placeholders to be replaced with
-// the real authored content in Phase 3.
 import theoriesData from '../../data/theories.json';
-import { THEORY_CATEGORIES, CATEGORY_KEY, type Theory, type TheoryCategory } from '../../types/theory';
+import { searchHaystack } from '../../components/theories/theory-utils';
+import { THEORY_CATEGORIES, CATEGORY_KEY, CATEGORY_SHORT, type Theory, type TheoryCategory } from '../../types/theory';
 import '../../styles/theories.css';
 
 const theories = theoriesData as Theory[];
 
-// Group theories by category. A theory tagged to multiple categories appears
-// under each of its categories (so the card is rendered once per section).
+// ---- Constellation layout, computed at build time (deterministic) ----
+// Field = POSITION: nine category clusters on a ring. A theory is a node
+// tethered to every field it belongs to (cross-listing = literal lines);
+// "related" theories are joined by a stronger dashed edge. No per-field color.
+const W = 1200, H = 820, cx = 600, cy = 400, rx = 450, ry = 300;
+
+// Stable pseudo-random in [0,1) from a string (FNV-1a) — keeps layout fixed
+// across builds, so nothing jitters between deploys.
+function rand(seed: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i++) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0) / 4294967296;
+}
+
+const clusters = THEORY_CATEGORIES.map((cat, i) => {
+  const ang = -Math.PI / 2 + i * ((2 * Math.PI) / THEORY_CATEGORIES.length);
+  const cosA = Math.cos(ang);
+  return {
+    cat,
+    key: CATEGORY_KEY[cat],
+    short: CATEGORY_SHORT[cat],
+    x: cx + rx * cosA,
+    y: cy + ry * Math.sin(ang),
+    lx: cx + (rx + 46) * cosA,
+    ly: cy + (ry + 30) * Math.sin(ang),
+    anchor: cosA > 0.3 ? 'start' : cosA < -0.3 ? 'end' : 'middle',
+    count: theories.filter((t) => t.categories.includes(cat)).length,
+  };
+});
+const clusterByCat = Object.fromEntries(clusters.map((c) => [c.cat, c])) as Record<TheoryCategory, (typeof clusters)[number]>;
+
+const nodes = theories.map((t) => {
+  const centers = t.categories.map((c) => clusterByCat[c]);
+  const bx = centers.reduce((s, c) => s + c.x, 0) / centers.length;
+  const by = centers.reduce((s, c) => s + c.y, 0) / centers.length;
+  const r = 26 + rand(t.slug + 'r') * 54;
+  const a = rand(t.slug + 'a') * Math.PI * 2;
+  return {
+    t,
+    x: bx + r * Math.cos(a),
+    y: by + r * Math.sin(a),
+    radius: 4 + rand(t.slug + 's') * 3.5,
+    key: CATEGORY_KEY[t.categories[0]],
+    haystack: searchHaystack(t),
+  };
+});
+const nodeBySlug = Object.fromEntries(nodes.map((n) => [n.t.slug, n]));
+
+const memberEdges = nodes.flatMap((n) =>
+  n.t.categories.map((c) => ({
+    x1: n.x, y1: n.y, x2: clusterByCat[c].x, y2: clusterByCat[c].y,
+    slug: n.t.slug, key: CATEGORY_KEY[c],
+  }))
+);
+
+const relSeen = new Set<string>();
+const relatedEdges: { x1: number; y1: number; x2: number; y2: number; a: string; b: string }[] = [];
+for (const n of nodes) {
+  for (const rel of n.t.related ?? []) {
+    const other = nodeBySlug[rel];
+    if (!other) continue;
+    const pair = [n.t.slug, rel].sort().join('::');
+    if (relSeen.has(pair)) continue;
+    relSeen.add(pair);
+    relatedEdges.push({ x1: n.x, y1: n.y, x2: other.x, y2: other.y, a: n.t.slug, b: rel });
+  }
+}
+
+// Faint decorative stars scattered behind the network (purely texture).
+const decoStars = Array.from({ length: 46 }, (_, i) => ({
+  x: rand(`sx${i}`) * (W + 200) - 100,
+  y: rand(`sy${i}`) * (H + 160) - 80,
+  r: 0.6 + rand(`sr${i}`) * 1.3,
+  o: (0.12 + rand(`so${i}`) * 0.38).toFixed(2),
+}));
+
+// Secondary list (no-JS fallback + a11y + search target), grouped by field.
 const byCategory = THEORY_CATEGORIES.map((category) => ({
   category,
-  key: CATEGORY_KEY[category],
   items: theories.filter((t) => t.categories.includes(category as TheoryCategory)),
 })).filter((g) => g.items.length > 0);
 ---
 <BaseLayout
   title="Communication Theories"
   current="theories"
-  description="A reading-room guide to communication theory from AURA Lab, where every framework is also a scene.">
+  description="A navigable map of communication theory from AURA Lab — every framework is a star in a field you can explore.">
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      try { if (localStorage.getItem('aura-theory-theme') === 'dark') document.documentElement.classList.add('theory-dark'); } catch (e) {}
+    </script>
   </Fragment>
 
   <div class="theories-skin">
-    <header class="t-masthead">
-      <div class="t-wrap">
+    <section class="t-constellation" data-constellation aria-label="Map of communication theories">
+      <div class="t-sky-masthead">
         <p class="t-kicker">AURA Lab · Teaching Library</p>
         <h1>Communication <em>Theories</em></h1>
         <p class="t-dek">
-          A reading-room guide where every framework is also a scene: one color, one core idea,
-          one motion you can watch unfold.
+          The whole field as one sky. Each star is a theory, tethered to every area it belongs to;
+          related theories are linked. Drag to pan, scroll to zoom, click a cluster to focus an area —
+          open any star to read it.
         </p>
+        <div class="t-sky-tools">
+          <div class="t-progress" data-progress-meter aria-label="Your reading progress">
+            <span class="t-progress-label" data-progress-label>0 of 0 read</span>
+            <span class="t-progress-track"><span class="t-progress-fill" data-progress-fill></span></span>
+          </div>
+          <button type="button" class="t-toggle" data-theme-toggle aria-pressed="false">
+            <span class="t-toggle-ico" aria-hidden="true"></span>
+            <span data-theme-label>Dark</span>
+          </button>
+        </div>
       </div>
-    </header>
 
-    <nav class="t-rail" aria-label="Filter theories by category">
-      <div class="t-wrap">
-        <CategoryFilter theories={theories} client:load />
+      <div class="net-controls">
+        <span class="net-search">
+          <label class="sr-only" for="net-search">Search theories</label>
+          <input id="net-search" type="search" placeholder="Search the sky…" data-net-search autocomplete="off" />
+        </span>
+        <button type="button" class="net-btn" data-net-zoom="in" aria-label="Zoom in">+</button>
+        <button type="button" class="net-btn" data-net-zoom="out" aria-label="Zoom out">−</button>
+        <button type="button" class="net-btn" data-net-reset>Reset</button>
       </div>
-    </nav>
 
-    <div class="t-wrap">
-      <p data-global-empty hidden class="t-empty">No theories match that search.</p>
+      <svg
+        class="net-canvas"
+        viewBox={`0 0 ${W} ${H}`}
+        preserveAspectRatio="xMidYMid meet"
+        role="img"
+        aria-label="Network map of communication theories grouped into nine areas. A full text index follows below.">
+        <g class="net-zoom" data-net-zoom-group>
+          {/* decorative background stars */}
+          {decoStars.map((s) => (
+            <circle class="net-star" cx={s.x} cy={s.y} r={s.r} opacity={s.o} />
+          ))}
+
+          {/* cluster halos */}
+          {clusters.map((c) => (
+            <circle class="net-halo" cx={c.x} cy={c.y} r="96" />
+          ))}
+
+          {/* membership edges (node → each of its fields) */}
+          {memberEdges.map((e) => (
+            <line class="net-edge" x1={e.x1} y1={e.y1} x2={e.x2} y2={e.y2} data-edge-node={e.slug} data-edge-cat={e.key} />
+          ))}
+
+          {/* related edges */}
+          {relatedEdges.map((e) => (
+            <line class="net-edge is-related" x1={e.x1} y1={e.y1} x2={e.x2} y2={e.y2} data-edge-a={e.a} data-edge-b={e.b} />
+          ))}
+
+          {/* cluster labels (click to focus a field) */}
+          {clusters.map((c) => (
+            <g class="net-cluster" data-cluster={c.key} data-cx={c.x} data-cy={c.y} tabindex="0" role="button" aria-label={`Zoom to the ${c.short} area`}>
+              <text class="net-cluster-label" x={c.lx} y={c.ly} text-anchor={c.anchor}>{c.short}</text>
+              <text class="net-cluster-count" x={c.lx} y={c.ly + 16} text-anchor={c.anchor}>{c.count} {c.count === 1 ? 'theory' : 'theories'}</text>
+            </g>
+          ))}
+
+          {/* theory nodes (stars) */}
+          {nodes.map((n) => (
+            <a
+              class="net-node"
+              href={`/theories/${n.t.slug}/?cat=${n.key}`}
+              data-slug={n.t.slug}
+              data-haystack={n.haystack}
+              data-cats={n.t.categories.map((c) => CATEGORY_KEY[c]).join(' ')}>
+              <title>{n.t.name}</title>
+              <circle class="net-node-dot" cx={n.x} cy={n.y} r={n.radius} />
+              <text class="net-node-label" x={n.x + n.radius + 5} y={n.y + 4}>{n.t.name}</text>
+            </a>
+          ))}
+        </g>
+      </svg>
+
+      <p class="net-hint" data-net-hint>Drag to pan · scroll to zoom · click a cluster to focus</p>
+    </section>
+
+    <div class="t-wrap t-list" aria-label="All theories by area">
+      <div class="t-list-head">
+        <h2>All theories by area</h2>
+        <p data-global-empty hidden class="t-empty">No theories match that search.</p>
+      </div>
+      <p class="net-noscript">The complete index — also the place to land if you would rather read a list than fly the map.</p>
 
       {byCategory.map((group) => (
-        <section data-cat-section={group.category} aria-label={group.category}>
-          <div class="t-section-head">
-            <h2>{group.category}</h2>
-            <span class="count" data-count>{group.items.length} {group.items.length === 1 ? 'scene' : 'scenes'} shown</span>
-          </div>
-          <div class="t-grid">
-            {group.items.map((theory) => (
-              <TheoryCard theory={theory} category={group.category} />
+        <section class="t-list-cat" data-cat-section={group.category}>
+          <h3>{group.category}</h3>
+          <ul class="t-list-links">
+            {group.items.map((t) => (
+              <li data-slug={t.slug} data-haystack={searchHaystack(t)}>
+                <a href={`/theories/${t.slug}/?cat=${CATEGORY_KEY[group.category]}`} data-slug={t.slug}>
+                  <span>{t.name}</span>
+                  {t.aka && t.aka.length > 0 && <span class="aka">{t.aka[0]}</span>}
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
       ))}
     </div>
+
+    {/* shadowbox reading modal — populated client-side from the theory's own page */}
+    <div class="t-modal" data-modal hidden role="dialog" aria-modal="true" aria-label="Theory reading view">
+      <button type="button" class="t-modal-backdrop" data-modal-close aria-label="Close and return to the map"></button>
+      <div class="t-modal-panel" data-modal-panel tabindex="-1">
+        <div class="t-modal-bar">
+          <a class="t-modal-full" data-modal-full target="_self" href="/theories/">View full page ↗</a>
+          <button type="button" class="t-modal-close" data-modal-close>Back to the sky ✕</button>
+        </div>
+        <div class="t-modal-body" data-modal-body>
+          <p class="t-modal-loading">Loading…</p>
+        </div>
+      </div>
+    </div>
   </div>
+  <script>
+    import '../../components/theories/theory-ui';
+    import '../../components/theories/constellation';
+    import '../../components/theories/reading-modal';
+  </script>
 </BaseLayout>

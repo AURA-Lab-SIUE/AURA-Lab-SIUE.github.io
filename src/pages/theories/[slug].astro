@@ -1,117 +1,188 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import theoriesData from '../../data/theories.json';
-import {
-  CATEGORY_KEY,
-  CATEGORY_SHORT,
-  type Theory,
-} from '../../types/theory';
-import { abbreviate } from '../../components/theories/theory-utils';
+import { CATEGORY_KEY, CATEGORY_SHORT, type Theory } from '../../types/theory';
 import '../../styles/theories.css';
 
 export function getStaticPaths() {
-  const theories = (theoriesData as Theory[]);
-  return theories.map((theory) => ({
-    params: { slug: theory.slug },
-    props: { theory },
-  }));
+  const theories = theoriesData as Theory[];
+  return theories.map((theory) => ({ params: { slug: theory.slug }, props: { theory } }));
 }
 
 interface Props {
   theory: Theory;
 }
-
 const { theory } = Astro.props as Props;
 
-// Primary category drives the accent color + chip.
-const primaryCategory = theory.categories[0];
-const colorVar = `var(--c-${CATEGORY_KEY[primaryCategory]})`;
-const abbr = abbreviate(theory);
+const theories = theoriesData as Theory[];
+const bySlug = new Map(theories.map((t) => [t.slug, t]));
 
-// The four storyboard scenes. Each row maps to one future Remotion scene.
+// Category memberships, with the per-category "lens" note where authored.
+const catData = theory.categories.map((c) => ({
+  full: c,
+  label: CATEGORY_SHORT[c],
+  key: CATEGORY_KEY[c],
+  note: theory.category_notes?.[c] ?? null,
+}));
+const lensList = catData.filter((c) => c.note);
+const defaultLens = lensList[0] ?? null;
+const defaultKey = (defaultLens ?? catData[0]).key;
+const lensByKey: Record<string, { label: string; note: string }> = {};
+for (const c of lensList) lensByKey[c.key] = { label: c.label, note: c.note as string };
+
+// The four core sections + the deeper "study" sections (rendered when authored).
 const scenes = [
   { title: 'What it is', body: theory.what_it_is },
   { title: 'The core idea', body: theory.core_idea },
   { title: 'How it is used', body: theory.how_used },
   { title: 'In practice', body: theory.example },
 ];
+const deepSections = [
+  { title: 'Key studies & evidence', body: theory.key_studies },
+  { title: 'Critiques & limitations', body: theory.critiques },
+  { title: 'Applications', body: theory.applications },
+].filter((s) => s.body);
 
-// Key terms shown as chips: spelled-out alternate names + category labels.
-const keyterms = [
-  ...(theory.aka ?? []),
-  ...theory.categories.map((c) => CATEGORY_SHORT[c]),
-];
+const related = (theory.related ?? [])
+  .map((slug) => bySlug.get(slug))
+  .filter((t): t is Theory => Boolean(t))
+  .map((t) => ({ slug: t.slug, name: t.name }));
 
-const metaParts = [abbr, ...theory.categories.map((c) => CATEGORY_SHORT[c]), '4-scene explainer'];
+const allProse = [
+  theory.tldr, theory.what_it_is, theory.core_idea, theory.how_used, theory.example,
+  theory.key_studies, theory.critiques, theory.applications, ...lensList.map((c) => c.note),
+].filter(Boolean).join(' ');
+const readMins = Math.max(1, Math.round(allProse.split(/\s+/).filter(Boolean).length / 200));
+const bylineParts = [...(theory.aka ?? []), `${readMins} min read`];
 ---
-<BaseLayout
-  title={theory.name}
-  description={theory.summary}>
+<BaseLayout title={theory.name} description={theory.summary}>
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      try { if (localStorage.getItem('aura-theory-theme') === 'dark') document.documentElement.classList.add('theory-dark'); } catch (e) {}
+    </script>
   </Fragment>
 
   <div class="theories-skin">
-    <article class="t-detail t-wrap" style={`--c:${colorVar}`} aria-label={`${theory.name} detail`}>
-      <a class="t-back" href="/theories/">← Back to the index</a>
-
-      <header class="detail-head">
-        <span class="cat">
-          <span class="dot" aria-hidden="true"></span>
-          {theory.categories.map((c, i) => (
-            <Fragment>{i > 0 ? ' · ' : ''}{CATEGORY_SHORT[c]}</Fragment>
-          ))}
-        </span>
-        <h2 class="title">{theory.name}</h2>
-        <p class="meta">{metaParts.join(' · ')}</p>
-      </header>
-
-      <p class="lede">{theory.summary}</p>
-
-      {keyterms.length > 0 && (
-        <div class="keyterms">
-          {keyterms.map((term) => (
-            <span class="term">{term}</span>
-          ))}
-        </div>
-      )}
-
-      <div class="storyboard-head">
-        <h3>Storyboard</h3>
-        <span class="note">Each row maps to one animated Remotion scene.</span>
+    <article
+      class="t-detail t-wrap"
+      style={`--lens-c: var(--c-${defaultKey})`}
+      data-default-cat={defaultKey}
+      data-lenses={JSON.stringify(lensByKey)}>
+      <div class="t-toolbar">
+        <a class="t-back" href="/theories/">← All theories</a>
+        <button type="button" class="t-toggle" data-theme-toggle aria-pressed="false">
+          <span class="t-toggle-ico" aria-hidden="true"></span>
+          <span data-theme-label>Dark</span>
+        </button>
       </div>
 
-      <div class="storyboard">
-        {scenes.map((scene, i) => (
-          <div class="scene-row">
-            <div class="num">{String(i + 1).padStart(2, '0')}</div>
-            <div class="txt">
-              <h4>{scene.title}</h4>
-              <p>{scene.body}</p>
+      <div class="t-layout">
+        <aside class="t-margin" aria-label="About this theory">
+          {theory.originator && (
+            <div class="m-block">
+              <span class="m-label">Originator</span>
+              <span class="m-val">{theory.originator}</span>
             </div>
-          </div>
-        ))}
-      </div>
-
-      <section class="t-refs" aria-label="References and source">
-        {theory.primary_references && theory.primary_references.length > 0 && (
-          <Fragment>
-            <h3>Primary references</h3>
-            <ul>
-              {theory.primary_references.map((ref) => (
-                <li>{ref}</li>
+          )}
+          {theory.year && (
+            <div class="m-block">
+              <span class="m-label">Year</span>
+              <span class="m-val">{theory.year}</span>
+            </div>
+          )}
+          <div class="m-block">
+            <span class="m-label">Categories</span>
+            <ul class="m-cats">
+              {catData.map((c) => (
+                <li data-cat-key={c.key} style={`--c: var(--c-${c.key})`}>
+                  <span class="m-marker" aria-hidden="true"></span>
+                  <a href={`/theories/${theory.slug}?cat=${c.key}`}>{c.label}</a>
+                </li>
               ))}
             </ul>
-          </Fragment>
-        )}
-        <h3>Source</h3>
-        <p class="t-source">{theory.source_note}</p>
-      </section>
+          </div>
+          {theory.key_terms && theory.key_terms.length > 0 && (
+            <div class="m-block">
+              <span class="m-label">Key terms</span>
+              <ul class="m-terms">
+                {theory.key_terms.map((t) => (<li>{t}</li>))}
+              </ul>
+            </div>
+          )}
+          {related.length > 0 && (
+            <div class="m-block">
+              <span class="m-label">Related</span>
+              <ul class="m-related">
+                {related.map((r) => (<li><a href={`/theories/${r.slug}`}>{r.name}</a></li>))}
+              </ul>
+            </div>
+          )}
+        </aside>
+
+        <div class="t-read">
+          <header class="t-read-head">
+            <span class="t-eyebrow">Communication Theory</span>
+            <h1 class="t-title">{theory.name}</h1>
+            <p class="t-byline">{bylineParts.join(' · ')}</p>
+          </header>
+
+          {theory.tldr && (
+            <aside class="t-tldr" aria-label="TL;DR — the gist">
+              <span class="t-tldr-tag">TL;DR</span>
+              <p>{theory.tldr}</p>
+            </aside>
+          )}
+
+          {defaultLens && (
+            <aside class="t-lens" data-lens aria-label="How this theory fits the chosen category">
+              <span class="t-lens-tag">In <span data-lens-cat>{defaultLens.label}</span></span>
+              <p data-lens-text>{defaultLens.note}</p>
+            </aside>
+          )}
+
+          <div class="t-body">
+            {scenes.map((s) => (
+              <section><h2>{s.title}</h2><p>{s.body}</p></section>
+            ))}
+            {deepSections.map((s) => (
+              <section class="t-deep-section"><h2>{s.title}</h2><p>{s.body}</p></section>
+            ))}
+          </div>
+
+          <footer class="t-refs" aria-label="References and source">
+            {theory.primary_references && theory.primary_references.length > 0 && (
+              <Fragment>
+                <h3>Primary references</h3>
+                <ul>{theory.primary_references.map((ref) => (<li>{ref}</li>))}</ul>
+              </Fragment>
+            )}
+            {theory.further_reading && theory.further_reading.length > 0 && (
+              <Fragment>
+                <h3>Further reading</h3>
+                <ul>{theory.further_reading.map((ref) => (<li>{ref}</li>))}</ul>
+              </Fragment>
+            )}
+            <h3>Source</h3>
+            <p class="t-source">{theory.source_note}</p>
+          </footer>
+
+          <div class="t-readbar">
+            <button type="button" class="t-markread" data-mark-read={theory.slug} aria-pressed="false">
+              <span class="t-markread-ico" aria-hidden="true"></span>
+              <span data-mark-label>Mark as read</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </article>
   </div>
+  <script>
+    import '../../components/theories/theory-ui';
+  </script>
 </BaseLayout>

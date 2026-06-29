@@ -41,6 +41,32 @@ export interface Theory {
   source_note: string;
   /** Optional related theory slugs. */
   related?: string[];
+
+  // ---- Marginalia metadata (optional; shown in the detail-page margin) ----
+  /** Who originated the theory, e.g. "Richard Petty & John Cacioppo". */
+  originator?: string;
+  /** Year or era of origin, e.g. "1986" or "1970s". */
+  year?: string;
+  /** Key terms a reader should recognize (margin glossary chips). */
+  key_terms?: string[];
+  /**
+   * Per-category "lens" notes: how this theory is framed when read under a
+   * given category. Keyed by full category label. Surfaced based on which
+   * category the reader arrived from. The shared body stays the same.
+   */
+  category_notes?: Partial<Record<TheoryCategory, string>>;
+
+  // ---- Deep "learning resource" fields (optional; authored per theory) ----
+  /** Scannable gist shown in a callout at the very top of the detail page. */
+  tldr?: string;
+  /** Key studies and the evidence base (prose). */
+  key_studies?: string;
+  /** Critiques, limitations, and boundary conditions (prose). */
+  critiques?: string;
+  /** Applications, including to AURA Lab / SIUE teaching (prose). */
+  applications?: string;
+  /** Further reading — citations or resource lines. */
+  further_reading?: string[];
 }
 
 /** Stable short key per category, used for color tokens and filter ids. */

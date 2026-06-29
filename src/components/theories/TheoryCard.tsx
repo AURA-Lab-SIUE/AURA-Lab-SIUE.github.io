@@ -1,5 +1,5 @@
 import type { Theory, TheoryCategory } from '../../types/theory';
-import { CATEGORY_SHORT } from '../../types/theory';
+import { CATEGORY_SHORT, CATEGORY_KEY } from '../../types/theory';
 import { abbreviate, categoryColorVar, glyph } from './theory-utils';
 
 interface Props {
@@ -22,7 +22,7 @@ export default function TheoryCard({ theory, category }: Props) {
   return (
     <a
       className="scene"
-      href={`/theories/${theory.slug}`}
+      href={`/theories/${theory.slug}?cat=${CATEGORY_KEY[category]}`}
       style={{ ['--c' as string]: color }}
       data-cat={category}
       data-slug={theory.slug}
@@ -42,7 +42,7 @@ export default function TheoryCard({ theory, category }: Props) {
         <h3>{theory.name}</h3>
         <p>{theory.summary}</p>
         <span className="cta">
-          View storyboard <span className="arrow" aria-hidden="true">→</span>
+          Read <span className="arrow" aria-hidden="true">→</span>
         </span>
       </div>
     </a>

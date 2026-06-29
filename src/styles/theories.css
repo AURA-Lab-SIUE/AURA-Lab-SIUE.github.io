@@ -1,161 +1,249 @@
 /*
-  Communication Theories design tokens + components.
-  Ported from docs/superpowers/mockups/theories/variant-c-blend.html (Variant C:
-  "warm skin, video bones"). The rest of the AURA Lab site is dark by default
-  (tokens.css / global.css). The theories section opts into a warm parchment skin,
-  scoped under .theories-skin so it never leaks into the global dark theme.
-
-  REDUCED-MOTION RULE (hard): everything renders visible by default (opacity:1,
-  untransformed). Entrance animation lives ONLY inside
-  @media (prefers-reduced-motion: no-preference). Nothing depends on JS or animation
-  to become visible.
+  Communication Theories — "Editorial reference + marginalia" art direction.
+  Replaces the earlier warm-parchment/serif/mono skin. The look:
+    - One workhorse grotesk for text (Hanken Grotesk), one characterful
+      grotesk for display (Bricolage Grotesque). No serif display, no
+      uppercase-monospace eyebrows, no parchment, no pastel pills.
+    - Warm off-white paper + warm near-black ink; ONE functional accent
+      (oxblood) for links and current state.
+    - A persistent margin column on detail pages carries the metadata and
+      the theory's full category memberships (cross-listing made visible).
+    - Category color is FUNCTIONAL only: a top rule on index cards and a
+      small marker in the margin. It never floods the page.
+  Scoped under .theories-skin so it never leaks into the global dark site.
 */
 
 .theories-skin {
-  /* ---- SKIN: warm editorial parchment ---- */
-  --paper: #f4f0eb;
-  --paper-2: #ebe5db;
-  --paper-3: #e2dacb;
-  --ink: #1b1a17;
-  --ink-soft: #4a463e;
-  --rule: #d8cfc0;
-  --t-violet: #6d28d9;
+  /* paper + ink */
+  --paper: #f4f0e6;
+  --paper-2: #eae3d3;
+  --ink: #1a2138;
+  --ink-2: #46506b;
+  --ink-3: #8a8676;
+  --rule: #ddd5c2;
+  --rule-strong: #1a2138;
+  --accent: #9a6a12; /* gold-leaf — the one signal color (celestial chart) */
 
-  /* 9 category colors, print-legible on parchment (light token pairs) */
-  --c-tech: #1d4ed8;
-  --c-proc: #0e7490;
-  --c-health: #15803d;
-  --c-inter: #be185d;
-  --c-lang: #7c3aed;
-  --c-mass: #b91c1c;
-  --c-cult: #c2410c;
-  --c-org: #4d7c0f;
-  --c-pr: #a16207;
+  /* Two-tone doctrine: fields are shown by POSITION (constellation clusters)
+     + label, never by nine competing hues. All category vars collapse to one
+     quiet ink so any legacy reference degrades to the palette; the *current*
+     field is signalled with --accent instead of a unique color. */
+  --c-tech: var(--ink-3);
+  --c-proc: var(--ink-3);
+  --c-health: var(--ink-3);
+  --c-inter: var(--ink-3);
+  --c-lang: var(--ink-3);
+  --c-mass: var(--ink-3);
+  --c-cult: var(--ink-3);
+  --c-org: var(--ink-3);
+  --c-pr: var(--ink-3);
 
-  /* ---- BONES: luminous video-grade scale (dark scene previews) ---- */
-  --stage-panel: #15151c;
-  --stage-chalk: #f4f0eb;
-  --stage-muted: #8a8a99;
-  --vc-tech: #38bdf8;
-  --vc-proc: #2dd4bf;
-  --vc-health: #4ade80;
-  --vc-inter: #f472b6;
-  --vc-lang: #a78bfa;
-  --vc-mass: #fb7185;
-  --vc-cult: #fb923c;
-  --vc-org: #a3e635;
-  --vc-pr: #fbbf24;
+  /* constellation ink — hairlines, navy stars on aged paper, textured ground */
+  --net-line: #cdc4ac;
+  --net-line-strong: #a99a74;
+  --net-node: #2a3556;
+  --net-ground: #f1ecdf;
+  --net-dot: rgba(26, 33, 56, 0.05);
+  --net-glow: rgba(154, 106, 18, 0.22);
 
-  --t-measure: 64ch;
-  --t-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --font-display: 'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif;
+  --font-text: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --measure: 66ch;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 
-  /* repaint the surface warm within this section only */
   background: var(--paper);
-  background-image:
-    radial-gradient(circle at 18% 8%, rgba(180, 83, 9, 0.045), transparent 42%),
-    radial-gradient(circle at 88% 78%, rgba(109, 40, 217, 0.045), transparent 46%);
   color: var(--ink);
-  font-family: 'Atkinson Hyperlegible', 'Instrument Sans Variable', system-ui, sans-serif;
+  font-family: var(--font-text);
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
 }
 
 .theories-skin :focus-visible {
-  outline: 3px solid var(--t-violet);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 2px;
+}
+.theories-skin a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 .theories-skin .t-wrap {
-  max-width: 1180px;
+  max-width: 1140px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 32px;
 }
 
-/* ---------- Masthead ---------- */
+/* shared small label (replaces the old uppercase-mono eyebrow) */
+.theories-skin .t-eyebrow,
+.theories-skin .m-label,
+.theories-skin .t-kicker {
+  font-family: var(--font-text);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ====================== MASTHEAD ====================== */
 .theories-skin .t-masthead {
-  border-bottom: 2px solid var(--ink);
-  padding: 48px 0 28px;
+  border-bottom: 2px solid var(--rule-strong);
+  padding: 56px 0 26px;
 }
 .theories-skin .t-kicker {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin: 0 0 14px;
+  margin: 0 0 16px;
 }
 .theories-skin .t-masthead h1 {
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(2.6rem, 6vw, 4.8rem);
-  line-height: 0.98;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.7rem, 6.5vw, 5rem);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
   margin: 0;
+  max-width: 16ch;
 }
 .theories-skin .t-masthead h1 em {
-  font-style: italic;
-  color: var(--t-violet);
+  font-style: normal;
+  color: var(--accent);
 }
 .theories-skin .t-dek {
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
-  font-style: italic;
-  font-size: clamp(1.1rem, 2vw, 1.42rem);
-  color: var(--ink-soft);
-  max-width: var(--t-measure);
-  margin: 18px 0 0;
+  font-family: var(--font-text);
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 56ch;
+  margin: 20px 0 0;
+}
+.theories-skin .t-masthead-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+.theories-skin .t-masthead-tools .t-progress {
+  margin: 0;
+  flex: 1 1 280px;
 }
 
-/* ---------- Category rail: all 9, color coded ---------- */
+/* progress meter */
+.theories-skin .t-progress {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: var(--measure);
+}
+.theories-skin .t-progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  overflow: hidden;
+}
+.theories-skin .t-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.45s var(--ease);
+}
+.theories-skin .t-progress-label {
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* theme + mark-read buttons */
+.theories-skin .t-toggle,
+.theories-skin .t-markread {
+  font-family: var(--font-text);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.theories-skin .t-toggle:hover,
+.theories-skin .t-markread:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.theories-skin .t-toggle-ico {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: linear-gradient(90deg, currentColor 0 50%, transparent 50% 100%);
+}
+.theories-skin .t-markread-ico {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid currentColor;
+}
+.theories-skin .t-markread.is-read {
+  background: var(--accent);
+  color: var(--paper);
+  border-color: var(--accent);
+}
+.theories-skin .t-markread.is-read .t-markread-ico {
+  background: var(--paper);
+}
+
+/* ====================== FACETED RAIL ====================== */
 .theories-skin .t-rail {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--rule);
   padding: 14px 0;
-  margin-top: 6px;
 }
 .theories-skin .t-rail-inner {
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding-bottom: 2px;
-  scrollbar-width: thin;
   align-items: center;
+  scrollbar-width: thin;
 }
 .theories-skin .t-rail-label {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.64rem;
-  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--ink-3);
   flex: none;
-  margin-right: 4px;
+  margin-right: 6px;
 }
 .theories-skin .t-search {
   flex: none;
   margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
 }
 .theories-skin .t-search input {
-  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-family: var(--font-text);
   font-size: 0.85rem;
   color: var(--ink);
   background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  padding: 7px 14px;
-  min-width: 180px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  padding: 7px 13px;
+  min-width: 190px;
 }
 .theories-skin .t-search input::placeholder {
-  color: var(--ink-soft);
-}
-.theories-skin .t-search input:focus-visible {
-  border-color: var(--t-violet);
+  color: var(--ink-3);
 }
 .theories-skin .cat-btn {
   --c: var(--ink);
@@ -165,494 +253,862 @@
   gap: 8px;
   background: transparent;
   border: 1px solid var(--rule);
-  color: var(--ink);
-  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
-  font-weight: 700;
+  color: var(--ink-2);
+  font-family: var(--font-text);
+  font-weight: 600;
   font-size: 0.8rem;
-  padding: 7px 14px;
-  border-radius: 999px;
+  padding: 7px 13px;
+  border-radius: 0;
   cursor: pointer;
   white-space: nowrap;
-  transition:
-    border-color 0.22s var(--t-ease),
-    background 0.22s var(--t-ease),
-    transform 0.12s var(--t-ease);
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
 }
 .theories-skin .cat-btn .bar {
-  width: 14px;
-  height: 4px;
-  border-radius: 2px;
+  width: 10px;
+  height: 10px;
   background: var(--c);
   flex: none;
 }
 .theories-skin .cat-btn:hover {
-  border-color: var(--c);
-  transform: translateY(-1px);
+  border-color: var(--ink);
+  color: var(--ink);
 }
 .theories-skin .cat-btn[aria-pressed='true'] {
-  border-color: var(--c);
-  background: color-mix(in srgb, var(--c) 13%, transparent);
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
 }
 
-/* ---------- Section head ---------- */
+/* ====================== INDEX SECTIONS + CARDS ====================== */
 .theories-skin .t-section-head {
   display: flex;
   align-items: baseline;
-  gap: 14px;
-  margin: 44px 0 20px;
+  gap: 16px;
+  margin: 52px 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
   flex-wrap: wrap;
 }
 .theories-skin .t-section-head h2 {
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
-  font-weight: 500;
-  font-size: 1.8rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.7rem;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 .theories-skin .t-section-head .count {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.8rem;
-  color: var(--ink-soft);
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
 }
 .theories-skin .t-empty {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-  padding: 24px 0 8px;
+  font-size: 0.9rem;
+  color: var(--ink-3);
+  padding: 24px 0;
 }
 
-/* ---------- Scene cards ---------- */
 .theories-skin .t-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--rule);
 }
+/* Editorial "ledger" cards: a colored category rule, clean type, no glyph */
 .theories-skin .scene {
   --c: var(--c-health);
   position: relative;
   display: block;
-  background: var(--paper-2);
-  border: 1px solid var(--rule);
-  border-radius: 14px;
-  padding: 0;
-  overflow: hidden;
+  background: transparent;
+  border-bottom: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  border-top: 3px solid var(--c);
+  padding: 18px 20px 22px;
   color: inherit;
   text-decoration: none;
-  transition:
-    transform 0.3s var(--t-ease),
-    border-color 0.3s var(--t-ease),
-    box-shadow 0.3s var(--t-ease);
-  /* Default VISIBLE. Animation is progressive enhancement only (see media query). */
+  transition: background 0.2s var(--ease);
   opacity: 1;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .theories-skin .scene {
-    opacity: 0;
-    animation: t-pop 0.5s var(--t-ease) forwards;
-  }
-  .theories-skin .scene:nth-child(1) { animation-delay: 0.05s; }
-  .theories-skin .scene:nth-child(2) { animation-delay: 0.12s; }
-  .theories-skin .scene:nth-child(3) { animation-delay: 0.19s; }
-  .theories-skin .scene:nth-child(4) { animation-delay: 0.26s; }
-  .theories-skin .scene:nth-child(5) { animation-delay: 0.33s; }
-  .theories-skin .scene:nth-child(6) { animation-delay: 0.4s; }
-}
-@keyframes t-pop {
-  from { opacity: 0; transform: translateY(18px) scale(0.99); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
 .theories-skin .scene:hover {
-  transform: translateY(-4px);
-  border-color: var(--c);
-  box-shadow: 0 18px 38px -20px color-mix(in srgb, var(--c) 70%, transparent);
+  background: var(--paper-2);
 }
 .theories-skin .scene[hidden] {
   display: none;
 }
-.theories-skin .stage-head {
-  position: relative;
-  height: 128px;
-  padding: 18px 20px;
-  background:
-    radial-gradient(120% 150% at 92% 0%, color-mix(in srgb, var(--c) 22%, transparent), transparent 62%),
-    var(--paper-3);
-  border-bottom: 1px solid var(--rule);
+/* drop the old decorative glyph + abbr-as-hero treatment */
+.theories-skin .scene .stage-head {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
-.theories-skin .stage-head .glyph {
-  position: absolute;
-  right: -8px;
-  bottom: -34px;
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
+.theories-skin .scene .stage-head .glyph {
+  display: none;
+}
+.theories-skin .scene .stage-head .cat {
+  font-size: 0.68rem;
   font-weight: 600;
-  font-style: italic;
-  font-size: 8.4rem;
-  line-height: 1;
-  color: var(--c);
-  opacity: 0.18;
-  letter-spacing: -0.04em;
-}
-.theories-skin .stage-head .cat {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--ink-3);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  align-self: flex-start;
+  gap: 7px;
 }
-.theories-skin .stage-head .cat .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+.theories-skin .scene .stage-head .cat .dot {
+  width: 9px;
+  height: 9px;
   background: var(--c);
+  border-radius: 0;
 }
-.theories-skin .stage-head .abbr {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+.theories-skin .scene .stage-head .abbr {
+  margin-left: auto;
+  font-size: 0.72rem;
   font-weight: 700;
-  font-size: 1.2rem;
   color: var(--c);
   letter-spacing: 0.04em;
 }
-.theories-skin .scene .body {
-  padding: 18px 20px 22px;
-}
-.theories-skin .scene h3 {
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
-  font-weight: 500;
-  font-size: 1.4rem;
-  margin: 0 0 9px;
-  line-height: 1.08;
-}
-.theories-skin .scene p {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 0.96rem;
-  max-width: none;
-}
-.theories-skin .scene .cta {
-  margin-top: 16px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--c);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.theories-skin .scene .cta .arrow {
-  transition: transform 0.2s var(--t-ease);
-}
-.theories-skin .scene:hover .cta .arrow {
-  transform: translateX(5px);
-}
-
-/* ---------- Detail: storyboard ---------- */
-.theories-skin .t-detail {
-  --c: var(--c-health);
-  margin: 28px 0 90px;
-}
-.theories-skin .t-back {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.74rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  text-decoration: none;
-  display: inline-flex;
-  gap: 6px;
-}
-.theories-skin .t-back:hover {
-  color: var(--c);
-}
-.theories-skin .detail-head {
-  margin-top: 22px;
-  border-top: 2px solid var(--ink);
-  padding-top: 40px;
-}
-.theories-skin .detail-head .cat {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--c);
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
-}
-.theories-skin .detail-head .cat .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--c);
-}
-.theories-skin .detail-head h2.title {
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1;
+.theories-skin .scene .body h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.32rem;
+  line-height: 1.12;
   letter-spacing: -0.01em;
   margin: 0 0 8px;
 }
-.theories-skin .detail-head .meta {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.84rem;
-  color: var(--ink-soft);
+.theories-skin .scene .body p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.94rem;
+  line-height: 1.5;
 }
-.theories-skin .lede {
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
-  font-size: 1.46rem;
-  line-height: 1.42;
-  font-weight: 400;
-  margin: 26px 0 22px;
-  max-width: var(--t-measure);
-}
-.theories-skin .lede::first-letter {
-  font-size: 3.2em;
-  float: left;
-  line-height: 0.72;
-  padding: 6px 12px 0 0;
+.theories-skin .scene .cta {
+  margin-top: 14px;
+  font-size: 0.76rem;
   font-weight: 600;
-  color: var(--c);
+  color: var(--accent);
+  display: inline-flex;
+  gap: 6px;
 }
-.theories-skin .keyterms {
+.theories-skin .scene .cta .arrow {
+  transition: transform 0.2s var(--ease);
+}
+.theories-skin .scene:hover .cta .arrow {
+  transform: translateX(4px);
+}
+.theories-skin .scene.is-read::after {
+  content: 'Read';
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ====================== DETAIL: marginalia layout ====================== */
+.theories-skin .t-detail {
+  --c: var(--accent);
+  margin: 24px auto 96px;
+}
+.theories-skin .t-toolbar {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
   flex-wrap: wrap;
+  padding-bottom: 22px;
+}
+.theories-skin .t-back {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.theories-skin .t-back:hover {
+  color: var(--accent);
+}
+
+.theories-skin .t-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  border-top: 2px solid var(--rule-strong);
+  padding-top: 34px;
+}
+@media (min-width: 880px) {
+  .theories-skin .t-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 56px;
+  }
+}
+
+/* ---- the margin column ---- */
+.theories-skin .t-margin {
+  display: grid;
+  gap: 22px;
+  align-content: start;
+  font-size: 0.9rem;
+}
+@media (min-width: 880px) {
+  .theories-skin .t-margin {
+    position: sticky;
+    top: 24px;
+  }
+}
+.theories-skin .m-block {
+  display: grid;
+  gap: 7px;
+}
+.theories-skin .m-label {
+  display: block;
+}
+.theories-skin .m-val {
+  color: var(--ink);
+  line-height: 1.4;
+}
+.theories-skin .m-cats,
+.theories-skin .m-terms,
+.theories-skin .m-related {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.theories-skin .m-cats li {
+  --c: var(--ink-3);
+  display: grid;
+  grid-template-columns: 11px 1fr;
+  align-items: start;
+  gap: 9px;
+  color: var(--ink-2);
+  line-height: 1.35;
+  font-size: 0.86rem;
+}
+.theories-skin .m-cats li .m-marker {
+  width: 11px;
+  height: 11px;
+  margin-top: 5px;
+  background: var(--c);
+}
+.theories-skin .m-cats li.is-current {
+  color: var(--ink);
+  font-weight: 700;
+}
+.theories-skin .m-cats li.is-current .m-marker {
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 3.5px var(--accent);
+}
+.theories-skin .m-terms li {
+  color: var(--ink-2);
+  font-size: 0.86rem;
+}
+.theories-skin .m-terms li::before {
+  content: '— ';
+  color: var(--ink-3);
+}
+.theories-skin .m-related a {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* ---- the reading column ---- */
+.theories-skin .t-read {
+  min-width: 0;
+}
+.theories-skin .t-read-head .t-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+}
+.theories-skin .t-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+.theories-skin .t-byline {
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+.theories-skin .t-tldr {
+  margin: 28px 0 8px;
+  padding: 18px 0 18px 22px;
+  border-left: 3px solid var(--accent);
+  max-width: var(--measure);
+}
+.theories-skin .t-tldr-tag {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.theories-skin .t-tldr p {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* per-category lens: how this theory reads under the category you arrived from.
+   Color is the CURRENT category's marker color (functional). */
+.theories-skin .t-lens {
+  margin: 24px 0 8px;
+  padding: 16px 20px;
+  background: color-mix(in srgb, var(--accent) 7%, var(--paper));
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--rule));
+  border-left: 3px solid var(--accent);
+  max-width: var(--measure);
+}
+.theories-skin .t-lens[hidden] {
+  display: none;
+}
+.theories-skin .t-lens-tag {
+  display: inline-flex;
+  align-items: center;
   gap: 8px;
-  margin: 0 0 30px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
 }
-.theories-skin .term {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+.theories-skin .t-lens-tag::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+}
+.theories-skin .t-lens p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.theories-skin .t-body {
+  margin-top: 34px;
+}
+.theories-skin .t-body section {
+  margin-bottom: 30px;
+  max-width: var(--measure);
+}
+.theories-skin .t-body section h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.32rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.theories-skin .t-body section p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.68;
+}
+/* deeper sections get a hairline above to mark the shift to "study" depth */
+.theories-skin .t-body .t-deep-section {
+  padding-top: 26px;
+  border-top: 1px solid var(--rule);
+}
+
+.theories-skin .t-refs {
+  margin: 44px 0 0;
+  border-top: 2px solid var(--rule-strong);
+  padding-top: 24px;
+  max-width: var(--measure);
+}
+.theories-skin .t-refs h3 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 10px;
+}
+.theories-skin .t-refs ul {
+  margin: 0 0 22px;
+  padding-left: 1.1em;
+}
+.theories-skin .t-refs li {
+  color: var(--ink-2);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 7px;
+}
+.theories-skin .t-source {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+}
+.theories-skin .t-readbar {
+  margin: 32px 0 0;
+}
+
+/* ====================== DARK READING THEME ====================== */
+html.theory-dark .theories-skin {
+  --paper: #0c1022;
+  --paper-2: #151b34;
+  --ink: #e9ecf8;
+  --ink-2: #b3bad5;
+  --ink-3: #7c83a2;
+  --rule: #242b4a;
+  --rule-strong: #3a4470;
+  --accent: #e6b945; /* gold star — the one signal color (night sky) */
+
+  /* fields stay two-tone in dark too — one quiet ink, accent for current */
+  --c-tech: var(--ink-3);
+  --c-proc: var(--ink-3);
+  --c-health: var(--ink-3);
+  --c-inter: var(--ink-3);
+  --c-lang: var(--ink-3);
+  --c-mass: var(--ink-3);
+  --c-cult: var(--ink-3);
+  --c-org: var(--ink-3);
+  --c-pr: var(--ink-3);
+
+  /* starlight nodes + constellation lines on the deep-sky ground */
+  --net-line: #283058;
+  --net-line-strong: #44508a;
+  --net-node: #cdd3ee;
+  --net-ground: #080b18;
+  --net-dot: rgba(205, 211, 238, 0.05);
+  --net-glow: rgba(230, 185, 69, 0.32);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theories-skin * {
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ====================== CONSTELLATION (index macroview) ====================== */
+/*
+  The landing is the whole field on one screen: nine category clusters, each
+  theory a node tethered to every field it belongs to (cross-listing made
+  literal), related theories joined by a stronger edge. Two-tone: ink hairlines
+  + ink nodes on a textured ground; the ONE accent marks hover / focus / the
+  active field. Field is read by POSITION + label, never by nine colors.
+*/
+.theories-skin .t-constellation {
+  position: relative;
+  margin: 0;
+  background-color: var(--net-ground);
+  background-image:
+    radial-gradient(circle at 50% 38%, color-mix(in srgb, var(--net-line) 30%, transparent), transparent 70%),
+    radial-gradient(var(--net-dot) 1px, transparent 1px);
+  background-size: auto, 30px 30px;
+  overflow: hidden;
+  height: clamp(560px, 86vh, 1040px);
+  touch-action: none;
+}
+.theories-skin .net-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+.theories-skin .t-constellation.is-panning .net-canvas {
+  cursor: grabbing;
+}
+
+/* edges */
+.theories-skin .net-edge {
+  fill: none;
+  stroke: var(--net-line);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transition: stroke 0.2s var(--ease), opacity 0.2s var(--ease);
+}
+.theories-skin .net-edge.is-related {
+  stroke: var(--net-line-strong);
+  stroke-dasharray: 3 4;
+}
+.theories-skin .net-edge.is-lit {
+  stroke: var(--accent);
+  opacity: 1;
+}
+
+/* cluster halos + labels */
+.theories-skin .net-halo {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.5;
+}
+.theories-skin .net-cluster {
+  cursor: pointer;
+}
+.theories-skin .net-cluster-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  fill: var(--ink-2);
+  letter-spacing: -0.01em;
+  user-select: none;
+  transition: fill 0.2s var(--ease);
+}
+.theories-skin .net-cluster-count {
+  font-family: var(--font-text);
+  font-size: 11px;
+  fill: var(--ink-3);
+  user-select: none;
+}
+.theories-skin .net-cluster:hover .net-cluster-label,
+.theories-skin .net-cluster.is-active .net-cluster-label {
+  fill: var(--accent);
+}
+
+/* nodes */
+.theories-skin .net-node {
+  cursor: pointer;
+}
+.theories-skin .net-node-dot {
+  fill: var(--net-node);
+  stroke: var(--net-ground);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.18s var(--ease), r 0.18s var(--ease);
+}
+.theories-skin .net-node-label {
+  font-family: var(--font-text);
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--ink);
+  paint-order: stroke;
+  stroke: var(--net-ground);
+  stroke-width: 3px;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.18s var(--ease);
+}
+.theories-skin .net-node:hover .net-node-dot,
+.theories-skin .net-node:focus-visible .net-node-dot,
+.theories-skin .net-node.is-lit .net-node-dot {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 5px var(--net-glow));
+}
+/* faint decorative stars scattered behind the network */
+.theories-skin .net-star {
+  fill: var(--net-node);
+}
+
+/* smooth cluster zoom + reveal every star's full name past the zoom threshold */
+.theories-skin .net-zoom.is-animating {
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.theories-skin .net-zoom.is-zoomed .net-node-label {
+  opacity: 1;
+}
+.theories-skin .net-zoom.has-focus .net-node:not(.is-lit) .net-node-label {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .theories-skin .net-zoom.is-animating { transition: none; }
+}
+.theories-skin .net-node:hover .net-node-label,
+.theories-skin .net-node:focus-visible .net-node-label,
+.theories-skin .net-node.is-lit .net-node-label {
+  opacity: 1;
+}
+.theories-skin .net-node.is-read .net-node-dot {
+  stroke: var(--accent);
+  stroke-width: 2.5;
+}
+
+/* dimming for active-cluster + search focus */
+.theories-skin .net-zoom.has-focus .net-node:not(.is-lit) .net-node-dot {
+  fill: var(--rule-strong);
+  opacity: 0.5;
+}
+.theories-skin .net-zoom.has-focus .net-edge:not(.is-lit) {
+  opacity: 0.25;
+}
+
+/* floating controls */
+.theories-skin .net-controls {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: calc(100% - 32px);
+}
+.theories-skin .net-search input {
+  font-family: var(--font-text);
+  font-size: 0.85rem;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--net-ground) 86%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  padding: 8px 13px;
+  min-width: 200px;
+}
+.theories-skin .net-search input::placeholder {
+  color: var(--ink-3);
+}
+.theories-skin .net-btn {
+  font-family: var(--font-text);
   font-size: 0.74rem;
-  padding: 5px 11px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--c) 12%, transparent);
-  color: var(--c);
-  border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+  font-weight: 600;
+  color: var(--ink-2);
+  background: color-mix(in srgb, var(--net-ground) 86%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  padding: 8px 11px;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.18s var(--ease), background 0.18s var(--ease);
 }
-.theories-skin .storyboard-head {
+.theories-skin .net-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.theories-skin .net-hint {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+  font-size: 0.72rem;
+  color: var(--ink-3);
+  background: color-mix(in srgb, var(--net-ground) 70%, transparent);
+  padding: 4px 10px;
+  pointer-events: none;
+}
+
+/* secondary accessible / no-JS list below the map */
+.theories-skin .t-list {
+  padding: 48px 0 72px;
+}
+.theories-skin .t-list-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
-  margin: 6px 0 16px;
+  margin-bottom: 8px;
 }
-.theories-skin .storyboard-head h3 {
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
-  font-weight: 500;
+.theories-skin .t-list-head h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 1.4rem;
   margin: 0;
 }
-.theories-skin .storyboard-head .note {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+.theories-skin .t-list-cat {
+  margin: 28px 0 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+}
+.theories-skin .t-list-cat > h3 {
   font-size: 0.72rem;
-  color: var(--ink-soft);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 10px;
 }
-.theories-skin .storyboard {
+.theories-skin .t-list-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 4px 28px;
 }
-.theories-skin .scene-row {
-  display: grid;
-  grid-template-columns: 84px 1fr;
-  gap: 0;
-  align-items: stretch;
-  background: var(--paper-2);
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: border-color 0.25s var(--t-ease);
+.theories-skin .t-list-links a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 5px 0;
+  font-size: 0.96rem;
 }
-.theories-skin .scene-row:hover {
-  border-color: var(--c);
+.theories-skin .t-list-links a:hover {
+  color: var(--accent);
 }
-.theories-skin .scene-row .num {
-  background: var(--paper-3);
+.theories-skin .t-list-links a .aka {
+  font-size: 0.78rem;
+  color: var(--ink-3);
+}
+.theories-skin .t-list-links li[hidden] {
+  display: none;
+}
+.theories-skin .net-noscript {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: var(--ink-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theories-skin .net-edge,
+  .theories-skin .net-node-dot,
+  .theories-skin .net-node-label {
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---- title + intro overlaid on the sky (no separate masthead band) ---- */
+.theories-skin .t-sky-masthead {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  padding: 30px 34px 56px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--net-ground) 82%, transparent),
+    transparent
+  );
+}
+.theories-skin .t-sky-masthead > * {
+  pointer-events: auto;
+}
+.theories-skin .t-sky-masthead .t-kicker {
+  margin: 0 0 10px;
+}
+.theories-skin .t-sky-masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.theories-skin .t-sky-masthead h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+.theories-skin .t-sky-masthead .t-dek {
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 50ch;
+  margin: 12px 0 0;
+}
+.theories-skin .t-sky-tools {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: var(--c);
-  border-right: 1px solid var(--rule);
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  max-width: 560px;
 }
-.theories-skin .scene-row .txt {
-  padding: 16px 20px;
-}
-.theories-skin .scene-row h4 {
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin: 0 0 6px;
-}
-.theories-skin .scene-row p {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-  max-width: var(--t-measure);
+.theories-skin .t-sky-tools .t-progress {
+  flex: 1 1 240px;
 }
 
-/* ---------- References / source note ---------- */
-.theories-skin .t-refs {
-  margin: 40px 0 0;
-  border-top: 1px solid var(--rule);
-  padding-top: 24px;
+/* ---- reading modal (shadowbox over the sky) ---- */
+.theories-skin .t-modal[hidden] {
+  display: none;
 }
-.theories-skin .t-refs h3 {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin: 0 0 12px;
+.theories-skin .t-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 4vw, 40px);
 }
-.theories-skin .t-refs ul {
-  margin: 0 0 20px;
-  padding-left: 1.2em;
+.theories-skin .t-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--net-ground) 74%, transparent);
+  backdrop-filter: blur(4px);
+  border: 0;
+  cursor: zoom-out;
 }
-.theories-skin .t-refs li {
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-  margin-bottom: 6px;
+.theories-skin .t-modal-panel {
+  position: relative;
+  width: min(980px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--paper);
+  border: 1px solid var(--rule-strong);
+  box-shadow: 0 40px 100px -24px rgba(0, 0, 0, 0.62);
+  animation: t-modal-rise 0.32s var(--ease);
 }
-.theories-skin .t-source {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.74rem;
-  color: var(--ink-soft);
-  font-style: normal;
+@keyframes t-modal-rise {
+  from { opacity: 0; transform: translateY(14px) scale(0.985); }
+  to { opacity: 1; transform: none; }
 }
-
-/* ---------- One scene, two surfaces (optional detail element) ---------- */
-.theories-skin .twosurface {
-  --c: var(--c-health);
-  margin: 56px 0 0;
-  border: 1px solid var(--rule);
-  border-radius: 16px;
-  background: var(--paper-2);
-  overflow: hidden;
-}
-.theories-skin .ts-head {
+.theories-skin .t-modal-bar {
+  position: sticky;
+  top: 0;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  flex-wrap: wrap;
-  padding: 18px 22px;
+  gap: 12px;
+  padding: 12px 16px;
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--rule);
 }
-.theories-skin .ts-head h3 {
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
-  font-weight: 500;
-  font-size: 1.3rem;
-  margin: 0;
+.theories-skin .t-modal-full {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+  text-decoration: none;
 }
-.theories-skin .ts-head p {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  color: var(--ink-soft);
-  margin: 4px 0 0;
-  max-width: 56ch;
+.theories-skin .t-modal-full:hover {
+  color: var(--accent);
 }
-.theories-skin .ts-stages {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-}
-@media (min-width: 820px) {
-  .theories-skin .ts-stages {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.theories-skin .ts-frame {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  padding: 26px 30px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0;
-}
-.theories-skin .ts-frame .fkicker {
-  position: absolute;
-  top: 18px;
-  left: 30px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+.theories-skin .t-modal-close {
+  font-family: var(--font-text);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  padding: 7px 14px;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  transition: color 0.18s var(--ease), background 0.18s var(--ease);
 }
-.theories-skin .ts-frame .fkicker .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+.theories-skin .t-modal-close:hover {
+  background: var(--ink);
+  color: var(--paper);
 }
-.theories-skin .ts-frame .fnum {
-  position: absolute;
-  top: 16px;
-  right: 30px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
+.theories-skin .t-modal-body .t-detail {
+  margin: 8px auto 40px;
 }
-.theories-skin .ts-frame .ftitle {
-  font-family: 'Fraunces Variable', Fraunces, Georgia, serif;
-  font-weight: 600;
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  line-height: 1.05;
-  margin: 0 0 12px;
+.theories-skin .t-modal-loading {
+  padding: 64px 32px;
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 0.9rem;
 }
-.theories-skin .ts-frame .label {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  margin-top: 10px;
+
+/* sky recedes while a star is open */
+html.t-modal-open body {
+  overflow: hidden;
 }
-.theories-skin .ts-frame .surface-tag {
-  position: absolute;
-  bottom: 14px;
-  left: 30px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.7;
+html.t-modal-open .net-canvas {
+  transform: scale(1.06);
+  filter: blur(2px) saturate(0.85);
+  transition: transform 0.4s var(--ease), filter 0.4s var(--ease);
 }
-.theories-skin .ts-frame.web {
-  background:
-    radial-gradient(120% 150% at 90% 0%, color-mix(in srgb, var(--c) 16%, transparent), transparent 62%),
-    var(--paper-3);
-  color: var(--ink);
+@media (prefers-reduced-motion: reduce) {
+  .theories-skin .t-modal-panel { animation: none; }
+  html.t-modal-open .net-canvas { transition: none; }
 }
-.theories-skin .ts-frame.web .fkicker { color: var(--ink-soft); }
-.theories-skin .ts-frame.web .fkicker .dot { background: var(--c); }
-.theories-skin .ts-frame.web .fnum { color: var(--c); }
-.theories-skin .ts-frame.web .label { color: var(--ink-soft); }
-.theories-skin .ts-frame.video {
-  --c: var(--vc-health);
-  color: var(--stage-chalk);
-  background-image:
-    radial-gradient(120% 160% at 100% 0%, color-mix(in srgb, var(--c) 30%, transparent), transparent 55%),
-    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: auto, 22px 22px;
-  background-color: var(--stage-panel);
-}
-.theories-skin .ts-frame.video .fkicker { color: var(--stage-muted); }
-.theories-skin .ts-frame.video .fkicker .dot { background: var(--c); }
-.theories-skin .ts-frame.video .fnum { color: var(--c); }
-.theories-skin .ts-frame.video .ftitle { color: var(--stage-chalk); }
-.theories-skin .ts-frame.video .label { color: var(--stage-muted); }

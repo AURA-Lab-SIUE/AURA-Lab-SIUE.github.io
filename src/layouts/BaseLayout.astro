@@ -63,13 +63,19 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
           h1.innerHTML = '';
           const spans: HTMLElement[] = [];
           for (const token of tokens) {
+            // Whitespace tokens stay as real text nodes — wrapping a space in an
+            // inline-block span collapses it, which welds words together.
+            if (!token.trim()) {
+              h1.appendChild(document.createTextNode(token));
+              continue;
+            }
             const span = document.createElement('span');
             span.textContent = token;
             span.style.display = 'inline-block';
             span.style.opacity = '0';
             span.style.transform = 'translateY(0.4em)';
             h1.appendChild(span);
-            if (token.trim()) spans.push(span);
+            spans.push(span);
           }
           animate(
             spans as any,

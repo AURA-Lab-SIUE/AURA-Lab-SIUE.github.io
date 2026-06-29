@@ -30,7 +30,19 @@
       "example": { "type": "string", "minLength": 20 },
       "primary_references": { "type": "array", "items": { "type": "string" } },
       "source_note": { "type": "string", "minLength": 10 },
-      "related": { "type": "array", "items": { "type": "string" } }
+      "related": { "type": "array", "items": { "type": "string" } },
+      "originator": { "type": "string", "minLength": 2 },
+      "year": { "type": "string", "minLength": 2 },
+      "key_terms": { "type": "array", "items": { "type": "string" } },
+      "category_notes": {
+        "type": "object",
+        "additionalProperties": { "type": "string", "minLength": 20 }
+      },
+      "tldr": { "type": "string", "minLength": 20 },
+      "key_studies": { "type": "string", "minLength": 20 },
+      "critiques": { "type": "string", "minLength": 20 },
+      "applications": { "type": "string", "minLength": 20 },
+      "further_reading": { "type": "array", "items": { "type": "string" } }
     }
   }
 }
