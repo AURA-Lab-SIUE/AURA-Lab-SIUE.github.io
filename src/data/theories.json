@@ -14,13 +14,13 @@
       "need for cognition"
     ],
     "category_notes": {
+      "Communication Processes": "This is the model's home ground: a general account of how any persuasive message is processed. Motivation and ability decide whether a receiver elaborates on the arguments themselves or leans on surface cues, and the route taken determines whether the resulting attitude is durable, resistant to counterargument, and predictive of behavior. Every applied use of the ELM, in health, advertising, or anywhere else, inherits this core message-processing logic.",
       "Health Communication": "In health campaigns the ELM is mostly a targeting decision. Audiences who already care about a condition (engaged patients, worried parents) are on the central route, so lead with evidence, risk data, and direct answers to their doubts. Audiences who are distracted or low-stakes are on the peripheral route, where a trusted clinician's face, one simple instruction, and visible social proof do more than a dense pamphlet ever will.",
-      "Interpersonal Communication and Relations": "Read interpersonally, the model is about how much cognitive work a listener is willing to do for the person in front of them. In close relationships, partners tend to elaborate carefully on each other's messages (central route); with acquaintances or in passing exchanges, surface cues such as tone, warmth, and likability carry the persuasion. The same request lands differently depending on the listener's investment in the relationship.",
       "Public Relations / Advertising, Marketing and Consumer Behavior": "In advertising and PR the ELM underwrites the classic split between 'reason-why' and 'image' campaigns. High-involvement purchases (a car, insurance, a B2B service) reward central-route messages full of specifications and comparisons, while low-involvement, habitual buys (soda, snacks) are won on peripheral cues: celebrity endorsement, attractive packaging, repetition, and brand familiarity."
     },
     "categories": [
+      "Communication Processes",
       "Health Communication",
-      "Interpersonal Communication and Relations",
       "Public Relations / Advertising, Marketing and Consumer Behavior"
     ],
     "summary": "Persuasion splits into two routes: deep thinking about the argument, or quick reliance on surface cues.",
@@ -151,7 +151,7 @@
     ],
     "categories": [
       "Health Communication",
-      "Interpersonal Communication and Relations"
+      "Communication Processes"
     ],
     "summary": "A theory holding that behavior follows from intention, which is itself driven by our attitudes, the social pressure we feel, and how much control we believe we have.",
     "what_it_is": "The Theory of Planned Behavior explains and predicts deliberate human behavior by tracing it back to a person's intention to act. Intention, in turn, is shaped by three inputs: the attitude toward the behavior (whether the person evaluates it positively or negatively), the subjective norm (perceived social pressure from important others), and perceived behavioral control (the felt ease or difficulty of acting). It extends the earlier Theory of Reasoned Action.",
@@ -174,7 +174,7 @@
     "source_note": "Compiled by AURA Lab from primary sources.",
     "category_notes": {
       "Health Communication": "Under this lens the theory is a workhorse of behavior-change campaign design. It directs the communicator to measure attitudes, norms, and perceived control toward a specific health behavior, locate the weak predictor, and target the salient beliefs feeding it rather than broadcasting generic appeals. It sits alongside the Health Belief Model and Protection Motivation Theory in the health-message toolkit.",
-      "Interpersonal Communication and Relations": "Read interpersonally, the subjective norm puts relationships at the center of action: behavior is shaped by what we believe specific important others expect and by our motivation to comply with them. This frames how partners, families, and peer networks exert normative pressure, and explains why interpersonal influence can outweigh private attitude in driving or blocking a behavior."
+      "Communication Processes": "Read as a persuasion-process theory, this is the mature branch of the Fishbein and Ajzen expectancy-value line: messages change behavior only by changing the salient behavioral, normative, or control beliefs that feed intention. That gives message designers three distinct levers and a discipline for choosing among them, since an appeal aimed at the wrong predictor leaves intention, and therefore behavior, unmoved."
     },
     "related": [
       "theory-of-reasoned-action",
