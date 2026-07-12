@@ -11,3 +11,7 @@ entries:
     blurb: "Lightweight in-class countdown timer."
     href: "/countdown.html"
     language: "Web"
+  - name: "MC Careers Dashboard"
+    blurb: "Interactive dashboard of mass communications career paths, occupations, and outcomes data."
+    href: "https://aura-lab-siue.github.io/mc-careers-dashboard/"
+    language: "Web"
