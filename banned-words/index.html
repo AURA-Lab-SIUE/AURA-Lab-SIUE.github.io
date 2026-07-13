@@ -17,21 +17,18 @@
 <meta property="og:description" content="Browser tool implementing the leaked NSF 3-stage decision tree for federal grant text. Local-only processing.">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Spline+Sans+Mono:wght@400;500&display=swap">
-
+<link rel="stylesheet" href="./fonts.css">
 <link rel="stylesheet" href="./styles.css">
 
-<!-- PDF.js + mammoth.js for in-browser file parsing (no server uploads) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.js"></script>
+<!-- PDF.js + mammoth.js, vendored locally so the page makes no external
+     requests. In-browser file parsing only; nothing is uploaded. -->
+<script src="./vendor/pdf.min.js"></script>
 <script>
   if (window.pdfjsLib) {
-    window.pdfjsLib.GlobalWorkerOptions.workerSrc =
-      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js';
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = './vendor/pdf.worker.min.js';
   }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.7.2/mammoth.browser.min.js"></script>
+<script src="./vendor/mammoth.browser.min.js"></script>
 </head>
 <body>
 

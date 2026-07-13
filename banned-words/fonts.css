@@ -1,0 +1,35 @@
+/* Self-hosted fonts (latin subset) so the page makes no external requests.
+   Matches the AURA Lab families: Archivo (display/UI), Newsreader (body),
+   Spline Sans Mono (data/labels). Variable weights via @fontsource. */
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('./fonts/archivo-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('./fonts/newsreader-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Spline Sans Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./fonts/spline-sans-mono-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Spline Sans Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('./fonts/spline-sans-mono-latin-500-normal.woff2') format('woff2');
+}
