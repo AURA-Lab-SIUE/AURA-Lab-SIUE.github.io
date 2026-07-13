@@ -7,6 +7,23 @@ import { marked } from 'marked';
 const directorEntry = await getEntry('people', 'director');
 const director = directorEntry!.data;
 const bioHtml = marked.parse(director.bio);
+
+const collaborators = [
+  { name: 'Robby Ratan', roles: ['Professor + AT&T Endowed Chair', 'Media & Information, Michigan State University', 'Visiting Scholar, Virtual Human Interaction Lab, Stanford'], orcid: 'https://orcid.org/0000-0001-7611-8046' },
+  { name: 'Chaeyun Lim', roles: ['Postdoctoral Fellow', 'Kellogg School of Management, Northwestern University'], orcid: 'https://orcid.org/0000-0003-2570-3071' },
+  { name: 'Maxwell Foxman', roles: ['Associate Professor', 'School of Journalism and Communication, University of Oregon'], orcid: 'https://orcid.org/0000-0001-6499-4372' },
+  { name: 'David Beyea', roles: ['Associate Professor', 'Department of Communication, University of Wisconsin-Whitewater'], orcid: 'https://orcid.org/0000-0003-4660-008X' },
+  { name: 'David C. Jeong', roles: ['Assistant Professor', 'Department of Communication, Santa Clara University'], orcid: 'https://orcid.org/0000-0002-8829-3578' },
+  { name: 'Brian Klebig', roles: ['Professor', 'Department of Communication, Bethany Lutheran College'], orcid: 'https://orcid.org/0000-0003-3888-2566' },
+];
+const students = {
+  Undergraduate: ['Gerri Marion'],
+  Graduate: ['Michelle Poneleit'],
+};
+const alumni = {
+  Undergraduate: ['Erin Gheen', 'Sam Baker', 'Dakota Kasper', 'Dallas Creech', 'Olivia Buente', 'Stephanie Schrage'],
+  Graduate: ['Mary Onuche', 'Amanda Cooper'],
+};
 ---
 <BaseLayout title="People" current="people"
   description="People at AURA Lab — directed by Dr. Alex P. Leith, with ongoing recruitment.">
@@ -40,7 +57,50 @@ const bioHtml = marked.parse(director.bio);
     </div>
   </section>
 
-  <SectionDivider kicker="Students & collaborators" title="Currently recruiting." />
+  <SectionDivider kicker="The network" title="Collaborators." />
+  <section class="container-page">
+    <div class="grid gap-6 sm:grid-cols-2">
+      {collaborators.map(c => (
+        <div class="collab">
+          <h3 class="font-display text-2xl leading-tight">{c.name}</h3>
+          <ul class="mt-2 text-muted text-sm space-y-0.5">
+            {c.roles.map(r => <li>{r}</li>)}
+          </ul>
+          <a class="link-underline text-accent-text text-sm mt-4 inline-block" href={c.orcid}>ORCID ↗</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <SectionDivider kicker="In the lab" title="Students." />
+  <section class="container-page">
+    <div class="grid gap-8 sm:grid-cols-2 roster">
+      {Object.entries(students).map(([level, names]) => (
+        <div>
+          <p class="rlevel">{level}</p>
+          <ul class="mt-3 space-y-1 text-lg">
+            {names.map(n => <li>{n}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <SectionDivider kicker="Where they are now" title="Alumni." />
+  <section class="container-page">
+    <div class="grid gap-8 sm:grid-cols-2 roster">
+      {Object.entries(alumni).map(([level, names]) => (
+        <div>
+          <p class="rlevel">{level}</p>
+          <ul class="mt-3 space-y-1 text-lg">
+            {names.map(n => <li>{n}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <SectionDivider kicker="Open lab" title="Currently recruiting." />
   <section class="container-page max-w-measure text-lg">
     <p>
       AURA Lab is open to students and researchers from any institution — at SIUE,
@@ -69,4 +129,20 @@ const bioHtml = marked.parse(director.bio);
   .headshot-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .bio :global(strong) { color: var(--text); font-weight: 600; }
   .bio :global(p) { max-width: var(--measure); }
+  .collab {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 22px 24px;
+    box-shadow: var(--shadow-card);
+  }
+  .collab h3 { color: var(--text); }
+  .rlevel {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .roster li { color: var(--text); }
 </style>
