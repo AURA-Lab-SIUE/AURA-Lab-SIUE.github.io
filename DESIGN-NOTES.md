@@ -71,6 +71,24 @@ bento grids, Inter-for-everything, and stock "metaverse" avatars. The antidote u
 one warm environment, one intentional accent, real typographic hierarchy, and a motif
 (`FIG.`/grid/axis) that *means something* because it's drawn from the lab's methods.
 
+## 4b. Logo & marks — "The Reading"
+
+The identity is a vector mark drawn from the same motif as the site: a plotted **reading**
+(a peak) rising to a **measured point** — the SIUE-red diamond — over the lab's **settings
+axis**. The diamond is the same institutional atom as the nav wordmark tick, and remains the
+single place the exact SIUE red `#e5182d` is allowed. The axis carries **four graduation ticks,
+one per AURA dimension — Avatars · Users · Relationships · Affect** — so the acronym is built
+into the mark; everything else is ink + brick, keeping the monochromatic-red-on-paper discipline.
+It reads as a caret/ascent (an "A") without being a literal letter and holds down to a 16 px
+favicon (which drops the graduations). The full lockup pairs the mark with "AURA Lab" (Archivo
+800, outlined) over the expansion line with the A·U·R·A initials in brick.
+
+This **retired the earlier off-brand assets**: the teal/orange `logo-*.svg` set and the
+concentric "aura-ring glow" favicon (the very motif §4 says was dropped). Superseded files are
+kept under `brand/_superseded/`. Full spec, palette, clear-space, and every export
+(SVG/PNG icons + light/ink wallpapers for desktop, tablet, phone) live in `brand/` — see
+`brand/BRAND-GUIDE.md`. Regenerate with `brand/src/package.sh`.
+
 ## 5. Accessibility
 
 - Ink `#1e1b18` on paper `#f6f3ec`: ~15:1 (AAA).

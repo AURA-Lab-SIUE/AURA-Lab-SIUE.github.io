@@ -13,9 +13,9 @@ const links = [
   <div class="container-page py-12 grid gap-8 md:grid-cols-[1fr_auto] md:items-start">
     <div>
       <p class="colo">AURA Lab</p>
+      <p class="acro"><b>A</b>vatars · <b>U</b>sers · <b>R</b>elationships · <b>A</b>ffect</p>
       <p class="meta">
-        Avatars · Users · Relationships · Affect —
-        studying platforms, games, and virtual worlds as social phenomena.
+        Studying platforms, games, and virtual worlds as social phenomena.
       </p>
       <p class="meta">
         Department of Mass Communications, College of Arts &amp; Sciences,
@@ -40,6 +40,15 @@ const links = [
     color: var(--ink);
     margin-bottom: 10px;
   }
+  .acro {
+    font-family: theme('fontFamily.sans');
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .acro b { color: var(--brick); font-weight: 700; }
   .meta {
     font-size: 0.92rem;
     color: var(--ink-soft);

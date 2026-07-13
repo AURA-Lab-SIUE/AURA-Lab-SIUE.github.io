@@ -25,6 +25,11 @@ const stats = [
     corpus-scale tools and honest claims.
   </p>
 
+  <p class="framework">
+    <span class="fw-k">AURA</span>
+    <span class="fw-dims"><b>A</b>vatars&nbsp;·&nbsp;<b>U</b>sers&nbsp;·&nbsp;<b>R</b>elationships&nbsp;·&nbsp;<b>A</b>ffect</span>
+  </p>
+
   <div class="stats">
     {stats.map((s) => (
       <div class="stat">
@@ -63,6 +68,22 @@ const stats = [
     color: var(--ink);
   }
   .deck em { font-style: italic; color: var(--brick); }
+  .framework {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;
+    margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--line);
+    max-width: 54ch;
+  }
+  .fw-k {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.64rem; font-weight: 500; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-soft);
+  }
+  .fw-dims {
+    font-family: theme('fontFamily.sans');
+    font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em;
+    color: var(--ink-soft);
+  }
+  .fw-dims b { color: var(--brick); font-weight: 700; }
   .stats { display: flex; flex-wrap: wrap; gap: 38px; margin-top: 34px; }
   .stat .n {
     font-family: theme('fontFamily.mono');
