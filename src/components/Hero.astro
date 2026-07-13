@@ -1,15 +1,15 @@
 ---
 // The "instrument" hero: a figure label, a grotesque headline, a serif deck,
-// mono readouts, and an annotated axis of the settings the lab studies.
-const axis = [
-  { at: '2%',  label: 'stream' },
-  { at: '26%', label: 'server' },
-  { at: '50%', label: 'headset' },
-  { at: '74%', label: 'feed' },
-  { at: '98%', label: 'room' },
+// mono readouts, and a live AURA instrument — an annotated axis of the four
+// dimensions the lab studies (Avatars, Users, Relationships, Affect).
+const dims = [
+  { label: 'avatars',       at: 6 },
+  { label: 'users',         at: 35.33 },
+  { label: 'relationships', at: 64.67 },
+  { label: 'affect',        at: 94 },
 ];
 const stats = [
-  { n: '3', k: 'Research threads' },
+  { n: '4', k: 'Dimensions' },
   { n: 'R · Python', k: 'Open tools we ship' },
   { n: '0', k: 'Prerequisites to join' },
 ];
@@ -25,11 +25,6 @@ const stats = [
     corpus-scale tools and honest claims.
   </p>
 
-  <p class="framework">
-    <span class="fw-k">AURA</span>
-    <span class="fw-dims"><b>A</b>vatars&nbsp;·&nbsp;<b>U</b>sers&nbsp;·&nbsp;<b>R</b>elationships&nbsp;·&nbsp;<b>A</b>ffect</span>
-  </p>
-
   <div class="stats">
     {stats.map((s) => (
       <div class="stat">
@@ -39,10 +34,50 @@ const stats = [
     ))}
   </div>
 
-  <div class="axis" role="img" aria-label="Settings we study, from livestreams to shared virtual rooms">
-    {axis.map((a) => <span style={`left:${a.at}`}>{a.label}</span>)}
+  <div class="aura" role="img" aria-label="AURA — the four dimensions the lab studies: Avatars, Users, Relationships, Affect">
+    <p class="aura-read"><span class="ak" id="heroAk">A — AVATARS</span><span class="at" id="heroAt">how people show up when the body is rendered</span></p>
+    <div class="aura-line">
+      <span class="aura-dia" id="heroDia" style="left:6%"></span>
+      {dims.map((d, i) => (
+        <button type="button" class="aura-lab" data-i={i} style={`left:${d.at}%`}>{d.label}</button>
+      ))}
+    </div>
   </div>
 </section>
+
+<script>
+  const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const readouts = [
+    { k: 'A — AVATARS',       t: 'how people show up when the body is rendered' },
+    { k: 'U — USERS',         t: 'who is in the room, and who gets left out' },
+    { k: 'R — RELATIONSHIPS', t: 'how connection forms across a screen' },
+    { k: 'A — AFFECT',        t: 'what it feels like, measured honestly' },
+  ];
+  const pos = [6, 35.33, 64.67, 94];
+  const dia = document.getElementById('heroDia');
+  const ak = document.getElementById('heroAk');
+  const at = document.getElementById('heroAt');
+  const read = document.querySelector('.aura-read');
+  const labs = Array.from(document.querySelectorAll('.aura-lab'));
+  let cur = -1, timer = null;
+  function paint(i) {
+    ak.textContent = readouts[i].k;
+    at.textContent = readouts[i].t;
+    dia.style.left = pos[i] + '%';
+    labs.forEach((l, j) => l.classList.toggle('on', j === i));
+  }
+  function go(i) {
+    if (i === cur) return;
+    if (RM || !read) { cur = i; paint(i); return; }
+    read.style.opacity = '0';
+    setTimeout(() => { cur = i; paint(i); read.style.opacity = '1'; }, 200);
+  }
+  function play() { clearInterval(timer); timer = setInterval(() => go((cur + 1) % readouts.length), 3200); }
+  function stop() { clearInterval(timer); timer = null; }
+  labs.forEach((l, i) => l.addEventListener('click', () => { go(i); stop(); }));
+  cur = 0; paint(0);
+  if (!RM) play();
+</script>
 
 <style>
   .hero { padding: 68px 0 22px; }
@@ -68,22 +103,6 @@ const stats = [
     color: var(--ink);
   }
   .deck em { font-style: italic; color: var(--brick); }
-  .framework {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;
-    margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--line);
-    max-width: 54ch;
-  }
-  .fw-k {
-    font-family: theme('fontFamily.mono');
-    font-size: 0.64rem; font-weight: 500; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--ink-soft);
-  }
-  .fw-dims {
-    font-family: theme('fontFamily.sans');
-    font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em;
-    color: var(--ink-soft);
-  }
-  .fw-dims b { color: var(--brick); font-weight: 700; }
   .stats { display: flex; flex-wrap: wrap; gap: 38px; margin-top: 34px; }
   .stat .n {
     font-family: theme('fontFamily.mono');
@@ -96,19 +115,41 @@ const stats = [
     letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--ink-soft); margin-top: 2px;
   }
-  .axis {
-    position: relative; height: 30px; margin-top: 34px;
-    border-top: 1px solid var(--ink);
+
+  /* The live AURA instrument — inline, styled like the site's hero axis (no box). */
+  .aura { margin-top: 40px; max-width: 640px; }
+  .aura-read {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.72rem; letter-spacing: 0.02em; margin: 0 0 12px;
+    display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline;
+    transition: opacity 0.22s var(--ease-out);
   }
-  .axis span {
+  .aura-read .ak { color: var(--brick); font-weight: 500; letter-spacing: 0.08em; }
+  .aura-read .at { color: var(--ink-soft); }
+  .aura-line { position: relative; height: 30px; border-top: 1px solid var(--ink); }
+  .aura-dia {
+    position: absolute; top: -5px; width: 10px; height: 10px;
+    background: var(--siue); border-radius: 1px;
+    transform: translateX(-50%) rotate(45deg);
+    transition: left 0.7s var(--ease-out); will-change: left;
+  }
+  .aura-lab {
     position: absolute; top: 8px; transform: translateX(-50%);
+    background: none; border: none; padding: 2px 0; cursor: pointer;
     font-family: theme('fontFamily.mono');
     font-size: 0.62rem; color: var(--ink-soft); white-space: nowrap;
+    transition: color 0.3s var(--ease-out);
   }
-  .axis span::before {
+  .aura-lab::before {
     content: ""; position: absolute; top: -8px; left: 50%;
     width: 1px; height: 8px; background: var(--ink);
   }
+  .aura-lab:hover { color: var(--ink); }
+  .aura-lab.on { color: var(--brick); }
+
   @keyframes rise { from { opacity: 0; transform: translateY(0.4em); } to { opacity: 1; transform: none; } }
-  @media (prefers-reduced-motion: reduce) { .hero h1 { animation: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .hero h1 { animation: none; }
+    .aura-dia, .aura-read { transition: none; }
+  }
 </style>
