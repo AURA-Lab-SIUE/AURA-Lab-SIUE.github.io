@@ -12,10 +12,11 @@ const recentPubs = [...(pubsEntry?.data.entries ?? [])]
   .sort((a, b) => b.year - a.year)
   .slice(0, 3);
 
-const areas = [
-  { word: 'Presence', blurb: 'How identity and connection form in VR, streams, and shared virtual rooms.', href: '/research/#virtual-environments' },
-  { word: 'Platform', blurb: 'How affordances and platforms shape what speech, performance, and audiences can be.', href: '/research/#streaming' },
-  { word: 'Affect',   blurb: 'Sentiment, mood, and emotion at corpus scale — and the methods to measure them honestly.', href: '/research/#methods' },
+const dimensions = [
+  { word: 'Avatars',       blurb: 'How people show up when the body is rendered — embodiment and self-presentation in VR and virtual worlds.', href: '/framework/' },
+  { word: 'Users',         blurb: 'Who is in the room, and who gets left out — audiences, communities, identity tagging, and inclusion.', href: '/framework/' },
+  { word: 'Relationships', blurb: 'How connection forms across a screen — parasocial and interpersonal ties in mixed sync / async spaces.', href: '/framework/' },
+  { word: 'Affect',        blurb: 'What it feels like, measured honestly — emotion, presence, and well-being at corpus scale.', href: '/framework/' },
 ];
 ---
 <BaseLayout title="AURA Lab" current="home">
@@ -23,10 +24,13 @@ const areas = [
 
   <a id="below" tabindex="-1"></a>
 
-  <SectionDivider kicker="Three research threads" title="Presence. Platform. Affect." />
-  <section class="container-page grid gap-6 md:grid-cols-3">
-    {areas.map(a => <ResearchAreaCard {...a} />)}
+  <SectionDivider kicker="The framework — what AURA studies" title="Avatars. Users. Relationships. Affect." />
+  <section class="container-page grid gap-6 sm:grid-cols-2">
+    {dimensions.map(a => <ResearchAreaCard {...a} />)}
   </section>
+  <div class="container-page mt-8">
+    <a href="/framework/" class="link-underline text-accent-text">See the whole framework →</a>
+  </div>
 
   <SectionDivider kicker="Recent" title="What's been published." />
   <section class="container-page">

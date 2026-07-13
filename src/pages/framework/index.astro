@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// AURA — the lab's organizing framework. Four dimensions of social experience
+// online; the research settings sit underneath as the "where".
+const dims = [
+  { label: 'avatars', letter: 'A', k: 'A — AVATARS', title: 'Avatars',
+    tag: 'How people show up when the body is rendered.',
+    ask: 'What does an avatar carry — posture, gaze, proximity, identity — that a profile photo can’t?',
+    where: 'Virtual environments · social VR', link: '/research/' },
+  { label: 'users', letter: 'U', k: 'U — USERS', title: 'Users',
+    tag: 'Who is in the room, and who gets left out.',
+    ask: 'How do audiences and communities form, tag identity, and include or exclude?',
+    where: 'Streaming · virtual meetings', link: '/research/' },
+  { label: 'relationships', letter: 'R', k: 'R — RELATIONSHIPS', title: 'Relationships',
+    tag: 'How connection forms across a screen.',
+    ask: 'How do parasocial and interpersonal ties hold in mixed sync / async spaces?',
+    where: 'Streaming · shared rooms', link: '/research/' },
+  { label: 'affect', letter: 'A', k: 'A — AFFECT', title: 'Affect',
+    tag: 'What it feels like — measured honestly.',
+    ask: 'How do we read presence, emotion, and well-being at corpus scale?',
+    where: 'Computational methods · all settings', link: '/research/' },
+];
+
+const order = ['Avatars', 'Users', 'Relationships', 'Affect'];
+const field = [
+  { setting: 'Virtual Environments', sub: 'VRChat, social VR, 3D worlds', dims: ['Avatars', 'Relationships', 'Affect'] },
+  { setting: 'Streaming Platforms', sub: '22M-row Twitch chat corpus', dims: ['Users', 'Relationships', 'Affect'] },
+  { setting: 'Virtual Meetings', sub: 'Beyond Meet Space · NSF FW-HTF-R', dims: ['Users', 'Relationships'] },
+  { setting: 'Computational Methods', sub: 'TASS · v2v R · Quarto', dims: ['ALL'] },
+];
+---
+<BaseLayout title="Framework" current="framework"
+  description="AURA is the lab's framework — Avatars, Users, Relationships, and Affect: four dimensions of social experience when life moves online.">
+
+  <section class="container-page aura-hero">
+    <span class="figtag">FIG. — THE FRAMEWORK</span>
+    <div class="aura-word" id="auraword" aria-label="Avatars, Users, Relationships, Affect">
+      {dims.map((d, i) => (
+        <span data-i={i}><span class="i">{d.letter}</span>{d.title.slice(1)}</span>
+      ))}
+    </div>
+    <p class="subhead">
+      Four questions the lab asks about people online. The name is the framework:
+      <strong>how people show up, who is in the room, how they connect, and what it feels like</strong>
+      — across platforms, games, and virtual worlds.
+    </p>
+
+    <div class="stage" role="img" aria-label="The four AURA dimensions the lab studies">
+      <div class="apbody" id="apbody">
+        <div class="apk" id="apk">{dims[0].k}</div>
+        <h2 class="aptitle" id="aptitle">{dims[0].title}</h2>
+        <p class="aptag" id="aptag">{dims[0].tag}</p>
+        <p class="apask" id="apask">{dims[0].ask}</p>
+        <div class="apwhere"><span class="dot" aria-hidden="true"></span><span id="apwhere">{dims[0].where}</span></div>
+      </div>
+      <div class="instr" aria-hidden="true">
+        <div class="track"></div>
+        {dims.map((_, i) => <div class="tick" style={`left:${(6 + 88 * i / (dims.length - 1)).toFixed(2)}%`}></div>)}
+        <div class="dia" id="dia" style="left:6%"></div>
+      </div>
+      <div class="stations" id="stations" role="tablist" aria-label="AURA dimensions">
+        {dims.map((d, i) => (
+          <button type="button" class="station" data-i={i} role="tab"
+            style={`left:${(6 + 88 * i / (dims.length - 1)).toFixed(2)}%`}>{d.label}</button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page dims-sec">
+    <p class="seclbl">The lab in four dimensions</p>
+    <div class="pillars">
+      {dims.map((d) => (
+        <a class="pillar" href={d.link}>
+          <span class="letter" aria-hidden="true">{d.letter}</span>
+          <span class="pk">{d.k}</span>
+          <h3>{d.title}</h3>
+          <p>{d.tag}</p>
+          <span class="plink">{d.where} →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-page field-sec">
+    <p class="seclbl">Where we study it</p>
+    <p class="fdeck">The research settings are the <em>where</em>. AURA is the <em>what</em>. Each setting foregrounds some dimensions more than others; methods measure all four.</p>
+    <div class="matrix">
+      {field.map((r) => (
+        <div class="mrow">
+          <div class="setting">{r.setting}<small>{r.sub}</small></div>
+          <div class="chips">
+            {r.dims[0] === 'ALL'
+              ? <span class="chip all">measures all four</span>
+              : order.map((o) => <span class={`chip ${r.dims.includes(o) ? 'hot' : ''}`}>{o}</span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dims = [
+    { label: 'avatars', k: 'A — AVATARS', title: 'Avatars', tag: 'How people show up when the body is rendered.',
+      ask: 'What does an avatar carry — posture, gaze, proximity, identity — that a profile photo can’t?', where: 'Virtual environments · social VR' },
+    { label: 'users', k: 'U — USERS', title: 'Users', tag: 'Who is in the room, and who gets left out.',
+      ask: 'How do audiences and communities form, tag identity, and include or exclude?', where: 'Streaming · virtual meetings' },
+    { label: 'relationships', k: 'R — RELATIONSHIPS', title: 'Relationships', tag: 'How connection forms across a screen.',
+      ask: 'How do parasocial and interpersonal ties hold in mixed sync / async spaces?', where: 'Streaming · shared rooms' },
+    { label: 'affect', k: 'A — AFFECT', title: 'Affect', tag: 'What it feels like — measured honestly.',
+      ask: 'How do we read presence, emotion, and well-being at corpus scale?', where: 'Computational methods · all settings' },
+  ];
+  const N = dims.length, pad = 6, span = 88, xOf = (i) => pad + span * i / (N - 1);
+  const $ = (id) => document.getElementById(id);
+  const dia = $('dia'), stations = $('stations'), body = $('apbody'),
+        words = Array.from(document.querySelectorAll('#auraword span[data-i]'));
+  const fields = { k: $('apk'), t: $('aptitle'), g: $('aptag'), a: $('apask'), w: $('apwhere') };
+  const btns = Array.from(document.querySelectorAll('.station'));
+  btns.forEach((b, i) => b.addEventListener('click', () => { go(i); pause(); }));
+  let cur = -1, timer = null;
+  function paint(i) {
+    const d = dims[i];
+    fields.k.textContent = d.k; fields.t.textContent = d.title; fields.g.textContent = d.tag;
+    fields.a.textContent = d.ask; fields.w.textContent = d.where;
+    dia.style.left = xOf(i) + '%';
+    btns.forEach((b, j) => b.classList.toggle('on', j === i));
+    words.forEach((w, j) => w.classList.toggle('on', j === i));
+  }
+  function go(i) {
+    if (i === cur) return;
+    if (RM) { cur = i; paint(i); return; }
+    body.style.opacity = '0';
+    setTimeout(() => { cur = i; paint(i); body.style.opacity = '1'; }, 220);
+  }
+  function play() { clearInterval(timer); timer = setInterval(() => go((cur + 1) % N), 3600); }
+  function pause() { clearInterval(timer); timer = null; }
+  cur = 0; paint(0);
+  if (!RM) play();
+</script>
+
+<style>
+  .aura-hero { padding: 60px 0 20px; }
+  .aura-word {
+    display: flex; flex-wrap: wrap; gap: 0 0.28em; margin: 22px 0 0;
+    font-family: theme('fontFamily.display'); font-weight: 800; letter-spacing: -0.02em;
+    font-size: clamp(40px, 8.5vw, 96px); line-height: 0.98;
+  }
+  .aura-word span { color: var(--ink-soft); transition: color 400ms var(--ease-out); }
+  .aura-word span.on { color: var(--ink); }
+  .aura-word span .i { color: var(--brick); }
+  .subhead {
+    font-family: theme('fontFamily.serif'); font-size: clamp(19px, 1.9vw, 24px);
+    line-height: 1.42; color: var(--ink); max-width: 56ch; margin-top: 22px;
+  }
+  .subhead strong { color: var(--ink); font-weight: 600; }
+
+  .stage { margin-top: 30px; background: var(--card); border: 1px solid var(--line);
+    border-radius: 16px; padding: 34px 32px; }
+  .apbody { min-height: 208px; transition: opacity 250ms var(--ease-out); }
+  .apk { font-family: theme('fontFamily.mono'); font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--brick); }
+  .aptitle { font-family: theme('fontFamily.display'); font-weight: 800;
+    font-size: clamp(30px, 4vw, 46px); margin: 8px 0 10px; line-height: 1.02; }
+  .aptag { font-family: theme('fontFamily.serif'); font-size: clamp(18px, 1.6vw, 22px);
+    color: var(--ink); max-width: 48ch; margin: 0; }
+  .apask { font-family: theme('fontFamily.mono'); font-size: 0.86rem; color: var(--ink-soft);
+    margin-top: 14px; max-width: 58ch; line-height: 1.5; }
+  .apwhere { display: flex; align-items: center; gap: 9px; margin-top: 16px;
+    font-family: theme('fontFamily.mono'); font-size: 0.74rem; letter-spacing: 0.03em; color: var(--brick); }
+  .dot { width: 7px; height: 7px; background: var(--siue); border-radius: 1px;
+    transform: rotate(45deg); display: inline-block; flex: none; }
+  .instr { position: relative; height: 34px; margin: 26px 0 4px; }
+  .instr .track { position: absolute; left: 6%; right: 6%; top: 16px; height: 2px; background: var(--ink); opacity: 0.7; }
+  .instr .tick { position: absolute; top: 16px; width: 2px; height: 9px; background: var(--ink); opacity: 0.4; transform: translate(-50%, 0); }
+  .instr .dia { position: absolute; top: 16px; width: 16px; height: 16px; background: var(--siue);
+    border-radius: 2px; transform: translate(-50%, -50%) rotate(45deg); transition: left 700ms var(--ease-out);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--siue) 16%, transparent); }
+  .stations { position: relative; height: 26px; margin-top: 6px; }
+  .stations button { position: absolute; transform: translateX(-50%); background: none; border: none;
+    padding: 4px 2px; cursor: pointer; font-family: theme('fontFamily.mono'); font-size: 0.72rem;
+    color: var(--ink-soft); transition: color 300ms var(--ease-out); white-space: nowrap; }
+  .stations button:hover { color: var(--ink); }
+  .stations button.on { color: var(--brick); }
+
+  .seclbl { font-family: theme('fontFamily.sans'); color: var(--ink-soft); font-size: 0.72rem;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 1.2rem; }
+  .dims-sec, .field-sec { padding-top: 40px; }
+  .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .pillar { position: relative; overflow: hidden; display: block; text-decoration: none;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-card);
+    padding: 26px 28px; box-shadow: var(--shadow-card);
+    transition: transform 250ms var(--ease-out), box-shadow 250ms var(--ease-out), border-color 250ms var(--ease-out); }
+  .pillar:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); border-color: color-mix(in srgb, var(--brick) 40%, var(--line)); }
+  .pillar .letter { position: absolute; right: 16px; top: -18px; font-family: theme('fontFamily.display');
+    font-weight: 800; font-size: 6.5rem; color: var(--brick); opacity: 0.10; line-height: 1; }
+  .pillar .pk { font-family: theme('fontFamily.mono'); font-size: 0.66rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--brick); }
+  .pillar h3 { font-family: theme('fontFamily.display'); font-weight: 800; font-size: 1.5rem; margin: 6px 0 8px; color: var(--ink); }
+  .pillar p { color: var(--ink-soft); margin: 0; font-size: 0.98rem; max-width: 40ch; }
+  .pillar .plink { font-family: theme('fontFamily.mono'); font-size: 0.72rem; color: var(--ink);
+    margin-top: 16px; display: block; letter-spacing: 0.02em; }
+
+  .fdeck { font-family: theme('fontFamily.serif'); font-size: 1.15rem; color: var(--ink-soft); max-width: 60ch; margin: 0 0 1.6rem; }
+  .fdeck em { color: var(--brick); font-style: italic; }
+  .matrix { border: 1px solid var(--line); border-radius: var(--radius-card); overflow: hidden; }
+  .mrow { display: grid; grid-template-columns: 1.4fr 2fr; gap: 16px; padding: 18px 22px;
+    border-top: 1px solid var(--line); align-items: center; }
+  .mrow:first-child { border-top: none; }
+  .setting { font-family: theme('fontFamily.display'); font-weight: 700; font-size: 1.05rem; color: var(--ink); }
+  .setting small { display: block; font-family: theme('fontFamily.mono'); font-weight: 400; font-size: 0.68rem;
+    color: var(--ink-soft); letter-spacing: 0.03em; margin-top: 3px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip { font-family: theme('fontFamily.mono'); font-size: 0.68rem; letter-spacing: 0.03em;
+    padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-soft); }
+  .chip.hot { color: #fff; background: var(--brick); border-color: var(--brick); }
+  .chip.all { color: var(--brick); border-color: var(--brick); background: var(--brick-wash); }
+
+  @media (max-width: 760px) { .pillars, .mrow { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .apbody, .instr .dia, .aura-word span { transition: none; } }
+</style>
