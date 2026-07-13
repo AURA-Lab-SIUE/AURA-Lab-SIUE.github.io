@@ -1,0 +1,239 @@
+# New Students toolkit. Every tool here is free; the `license` flag says how free:
+#   foss     = open-source, free forever
+#   free     = costs nothing, but source is closed
+#   freemium = free tier is genuinely useful; some features cost money
+#   student  = free with your SIUE / education status
+# Install commands live on /students/toolkit/install/ — kept out of the way on purpose.
+categories:
+  - slug: writing
+    name: Writing & Documents
+    tagline: Draft papers, build slides, and hand in clean files — without an Office subscription.
+    tools:
+      - name: LibreOffice
+        what: A full office suite — documents, spreadsheets, slides — that opens and saves Word/Excel/PowerPoint files. Your offline, no-subscription fallback when the Wi-Fi or the internet is not cooperating.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://www.libreoffice.org/download/
+      - name: Zettlr
+        what: A distraction-free writing app for essays and papers that pulls citations straight from Zotero and exports to Word, PDF, or LaTeX. Built for students and researchers.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://www.zettlr.com/download
+      - name: Typst
+        what: A modern, much friendlier alternative to LaTeX for papers with equations, tables, and references — near-instant preview and a gentle learning curve.
+        license: foss
+        platforms: [Windows, macOS, Web, Linux]
+        href: https://typst.app/
+      - name: LaTeX (TeX Live / TeXstudio)
+        what: The standard for math, science, and engineering papers — flawless equations and bibliographies. A steeper climb, but the norm in many STEM courses.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://www.tug.org/texlive/
+        note: On a group paper with no setup, Overleaf runs LaTeX in the browser (free tier = 1 editor).
+
+  - slug: notes
+    name: Notes & Reading
+    tagline: Capture what you learn, mark up your readings, and actually find it again later.
+    tools:
+      - name: Obsidian
+        what: A local-first note app that links your ideas into a searchable web of knowledge — a "second brain" for a whole degree. Free, though not open-source; your notes stay as plain files you own.
+        license: free
+        platforms: [Windows, macOS, Linux, iOS, Android]
+        href: https://obsidian.md/
+      - name: Logseq
+        what: An open-source, outline-style notebook with a daily journal and backlinks. Great if you think in bullet points rather than documents.
+        license: foss
+        platforms: [Windows, macOS, Linux, Android]
+        href: https://logseq.com/
+      - name: Joplin
+        what: Open-source notes with encrypted sync to your phone and a web clipper for saving articles. The private alternative to Evernote or OneNote.
+        license: foss
+        platforms: [Windows, macOS, Linux, iOS, Android]
+        href: https://joplinapp.org/
+      - name: Xournal++
+        what: Write and highlight directly on lecture-slide PDFs with a stylus or tablet, or take freehand notes. Ideal on a 2-in-1 laptop.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://xournalpp.github.io/
+
+  - slug: study
+    name: Study & Memory
+    tagline: Spend your study minutes only on what you're about to forget.
+    tools:
+      - name: Anki
+        what: Flashcards on a spaced-repetition schedule — the most evidence-backed way to memorize terms, definitions, media theories, and formulas and still remember them at finals.
+        license: foss
+        platforms: [Windows, macOS, Linux, iOS, Android]
+        href: https://apps.ankiweb.net/
+        note: Desktop + Android are free; the iPhone/iPad app is a one-time paid purchase that funds the project.
+      - name: Freeplane
+        what: Map a topic, an essay's structure, or a study plan as a branching visual before you write or review it.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://www.freeplane.org/
+
+  - slug: research
+    name: Research & Citations
+    tagline: The single biggest time-saver in academic writing — collect sources once, cite them perfectly forever.
+    tools:
+      - name: Zotero
+        what: Collects your sources and generates citations and bibliographies in APA, MLA, Chicago, or any style with one click. Change the style and your whole paper reformats. If you take one tool from this page, take this one.
+        license: foss
+        platforms: [Windows, macOS, Linux, Web]
+        href: https://www.zotero.org/download/
+        note: Add the free Zotero Connector browser extension to save any article or web page in one click.
+      - name: Stirling-PDF
+        what: A 60-plus-tool PDF workshop — merge, split, compress, sign, and make scanned pages searchable — that runs entirely on your computer, so nothing gets uploaded to a sketchy "free PDF" website.
+        license: foss
+        platforms: [Windows, macOS, Web, Linux]
+        href: https://stirling.com/download
+      - name: Docling
+        what: Turns a PDF (even a scanned one) into clean text you can hand to an AI assistant for summaries or study questions. The open-source way to make your readings AI-ready.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://github.com/docling-project/docling
+
+  - slug: ai
+    name: AI Helpers
+    tagline: Cloud AI for the strongest answers; private AI on your own laptop for anything sensitive.
+    tools:
+      - name: Microsoft Copilot Chat
+        what: A ChatGPT-style assistant included with your SIUE Microsoft 365 account — writing help, summaries, brainstorming, and web-grounded answers. Sign in with your @siue.edu login.
+        license: student
+        platforms: [Web, Windows, macOS]
+        href: https://copilot.microsoft.com/
+      - name: GitHub Copilot
+        what: An AI assistant inside your code editor. Verify for GitHub Education and you get unlimited code completion — which also works as free autocomplete while you write notes, essays, and LaTeX in VS Code.
+        license: student
+        platforms: [Windows, macOS, Linux]
+        href: https://github.com/education
+      - name: Ollama
+        what: Runs capable AI models entirely on your laptop — free, unlimited, offline, and nothing you type ever leaves your machine. The private engine behind the apps below.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://ollama.com/download
+      - name: Jan
+        what: A polished, ChatGPT-style desktop app that runs AI models 100% offline. The easiest way to have a private assistant you just click on — no terminal, no account.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://www.jan.ai/
+      - name: AnythingLLM
+        what: Drop in your own PDFs, slides, and notes, then ask questions grounded in your material — privately, offline. Perfect for exam review over a semester of readings.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://anythingllm.com/download
+      - name: Whisper (Buzz)
+        what: Free AI that transcribes a recorded lecture or interview into searchable text you can summarize and turn into study notes. (Always get permission before recording a class.)
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://github.com/chidiwilliams/buzz
+
+  - slug: media
+    name: Media & Creation
+    tagline: Record, design, and produce — the free production stack, right at home in a communications program.
+    tools:
+      - name: OBS Studio
+        what: Professional screen recording and streaming. Record a presentation with your webcam in the corner, capture a demo for a group project, or produce a study screencast.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://obsproject.com/
+      - name: Audacity
+        what: Multi-track audio recording and editing — record a podcast, voiceover, or interview and clean up the sound. A staple for audio and media assignments.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://www.audacityteam.org/
+      - name: GIMP
+        what: A full image editor — the free Photoshop alternative — for cropping, retouching, and composing images for reports, posters, and slides.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://www.gimp.org/
+      - name: Inkscape
+        what: Vector graphics for logos, scalable figures, and print-quality posters that stay crisp at any size. The free Illustrator alternative.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://inkscape.org/
+      - name: Excalidraw
+        what: A hand-drawn-style whiteboard for quick sketches, brainstorming with a group, or roughing out how a project fits together. Runs in your browser, nothing to install.
+        license: foss
+        platforms: [Web]
+        href: https://excalidraw.com/
+      - name: draw.io
+        what: Clean, structured diagrams — flowcharts, org charts, process maps, network diagrams — for any "draw a diagram" assignment. Works fully offline.
+        license: foss
+        platforms: [Windows, macOS, Web, Linux]
+        href: https://www.drawio.com/
+
+  - slug: coding
+    name: Coding & Data
+    tagline: For CS, data, and analytics courses — the same professional tools working developers use.
+    tools:
+      - name: VS Code
+        what: The world's most popular code editor — extensions, debugging, built-in Git, and the home of GitHub Copilot. (Prefer a fully open build? VSCodium is the same editor, telemetry-free.)
+        license: free
+        platforms: [Windows, macOS, Linux]
+        href: https://code.visualstudio.com/
+      - name: Git
+        what: Tracks every change to your work, lets you undo mistakes, and powers collaboration on GitHub. Expected in nearly every tech course and job.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://git-scm.com/
+      - name: Python
+        what: The most common first language and the default for data analysis and computational research — including the corpus and text methods used in this lab.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://www.python.org/
+      - name: R + RStudio
+        what: The standard language and workbench for statistics and much social-science research. RStudio's free open-source edition is all you need.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://posit.co/download/rstudio-desktop/
+      - name: JupyterLab
+        what: Interactive notebooks that mix code, charts, and writing in one document — the standard environment for data and analytics coursework.
+        license: foss
+        platforms: [Windows, macOS, Web, Linux]
+        href: https://jupyter.org/
+
+  - slug: organize
+    name: Organization & Time
+    tagline: Never be surprised by a deadline again.
+    tools:
+      - name: Super Productivity
+        what: A task manager built for focus — plan your day, track projects, and run a built-in Pomodoro timer so you can see where your hours actually go. No account, no ads.
+        license: foss
+        platforms: [Windows, macOS, Web, Linux, Android, iOS]
+        href: https://super-productivity.com/
+      - name: Thunderbird
+        what: One desktop home for your SIUE email plus your personal mail, with a built-in calendar for class deadlines and office hours. Works offline.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://www.thunderbird.net/
+
+  - slug: security
+    name: Security & Backup
+    tagline: Protect your accounts, and never lose a paper the night before it's due.
+    tools:
+      - name: Bitwarden
+        what: A password manager that remembers a strong, unique password for every account behind one master password. The single highest-impact thing you can do for your digital safety.
+        license: foss
+        platforms: [Windows, macOS, Linux, Web, iOS, Android]
+        href: https://bitwarden.com/
+      - name: KeePassXC
+        what: A fully offline password manager whose vault is an encrypted file on your own computer — maximum control, no company involved. (Bitwarden if you want easy sync; this if you want no cloud at all.)
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://keepassxc.org/
+      - name: Firefox
+        what: A fast, independent browser with strong tracking protection built in. Add uBlock Origin for a cleaner, faster web.
+        license: foss
+        platforms: [Windows, macOS, Linux, Android]
+        href: https://www.firefox.com/
+      - name: Syncthing
+        what: Keeps your coursework in sync directly between your own devices — no cloud, no storage limit, encrypted in transit. Pair it with your OneDrive for real 3-2-1 backup.
+        license: foss
+        platforms: [Windows, macOS, Linux, Android]
+        href: https://syncthing.net/
+      - name: Duplicati
+        what: Scheduled, encrypted backups to a drive or the cloud, with a friendly interface — so you can recover a deleted file or an earlier draft, not just the latest save.
+        license: foss
+        platforms: [Windows, macOS, Linux]
+        href: https://duplicati.com/

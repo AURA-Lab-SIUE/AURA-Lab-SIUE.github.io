@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SectionDivider from '../../../components/SectionDivider.astro';
+
+// Copy-paste install blocks. Kept on its own page on purpose — you never have
+// to touch a terminal to use this toolkit, but if you like package managers,
+// this is the fast path.
+const win = {
+  starter: [
+    'winget install -e --id Mozilla.Firefox',
+    'winget install -e --id Bitwarden.Bitwarden',
+    'winget install -e --id TheDocumentFoundation.LibreOffice',
+    'winget install -e --id Zotero.Zotero',
+    'winget install -e --id Anki.Anki',
+    'winget install -e --id Obsidian.Obsidian',
+    'winget install -e --id Mozilla.Thunderbird',
+    'winget install -e --id Syncthing.Syncthing',
+  ],
+  ai: [
+    'winget install -e --id Ollama.Ollama',
+    'winget install -e --id Jan.Jan',
+  ],
+  media: [
+    'winget install -e --id OBSProject.OBSStudio',
+    'winget install -e --id Audacity.Audacity',
+    'winget install -e --id GIMP.GIMP',
+    'winget install -e --id Inkscape.Inkscape',
+    'winget install -e --id JGraph.Draw',
+  ],
+  code: [
+    'winget install -e --id Microsoft.VisualStudioCode',
+    'winget install -e --id Git.Git',
+    'winget install -e --id Python.Python.3.13',
+  ],
+};
+const mac = {
+  starter: [
+    'brew install --cask firefox',
+    'brew install --cask bitwarden',
+    'brew install --cask libreoffice',
+    'brew install --cask zotero',
+    'brew install --cask anki',
+    'brew install --cask obsidian',
+    'brew install --cask thunderbird',
+    'brew install syncthing',
+  ],
+  ai: [
+    'brew install ollama',
+    'brew install --cask jan',
+  ],
+  media: [
+    'brew install --cask obs',
+    'brew install --cask audacity',
+    'brew install --cask gimp',
+    'brew install --cask inkscape',
+    'brew install --cask drawio',
+  ],
+  code: [
+    'brew install --cask visual-studio-code',
+    'brew install git',
+    'brew install python@3.13',
+  ],
+};
+---
+<BaseLayout
+  title="Install Cheat Sheet"
+  current="students"
+
+  description="Copy-paste install commands for the SIUE student toolkit — winget on Windows, Homebrew on Mac.">
+
+  <section class="container-page pt-20 pb-6">
+    <p class="text-muted uppercase tracking-ui text-sm">
+      <a href="/students/" class="link-underline">New Students</a> ·
+      <a href="/students/toolkit/" class="link-underline">Toolkit</a> · Install
+    </p>
+    <h1 class="font-display text-5xl md:text-7xl mt-4 leading-none">Set up fast.</h1>
+    <p class="mt-8 max-w-measure text-lg">
+      You never <em>have</em> to use a terminal — every tool has a normal download
+      button on its own page. But a <strong>package manager</strong> installs apps
+      from one command and keeps them updated later. Set it up once, then paste the
+      blocks you want.
+    </p>
+    <p class="mt-4 max-w-measure text-muted">
+      On a lab or managed computer some installs may be blocked — use each tool's web
+      version, or ask IT. If a command ever errors, search for the app by name
+      (<code>winget search zotero</code>) or just grab it from its website.
+    </p>
+  </section>
+
+  <SectionDivider kicker="Step 1 — one-time setup" title="Get a package manager." />
+  <section class="container-page grid gap-8 md:grid-cols-2">
+    <div>
+      <h3 class="font-display text-2xl mb-3">Windows — winget</h3>
+      <p class="text-muted mb-3">
+        Already built into Windows 11. Open <b>Windows Terminal</b> and check:
+      </p>
+      <pre class="codeblock" data-copy><code>winget --version</code></pre>
+      <p class="text-muted mt-3 text-sm">
+        No version number? Install <b>App Installer</b> from the Microsoft Store.
+        Later, <code>winget upgrade --all</code> updates everything at once.
+      </p>
+    </div>
+    <div>
+      <h3 class="font-display text-2xl mb-3">Mac — Homebrew</h3>
+      <p class="text-muted mb-3">Open <b>Terminal</b> and paste this one line:</p>
+      <pre class="codeblock" data-copy><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+      <p class="text-muted mt-3 text-sm">
+        Follow the prompts, then reopen Terminal. Later, <code>brew upgrade</code>
+        updates everything.
+      </p>
+    </div>
+  </section>
+
+  <SectionDivider kicker="Step 2 — the essentials" title="A starter set for any major." />
+  <section class="container-page grid gap-8 lg:grid-cols-2">
+    <div>
+      <h3 class="font-display text-xl mb-3">Windows</h3>
+      <pre class="codeblock" data-copy><code>{win.starter.join('\n')}</code></pre>
+    </div>
+    <div>
+      <h3 class="font-display text-xl mb-3">Mac</h3>
+      <pre class="codeblock" data-copy><code>{mac.starter.join('\n')}</code></pre>
+    </div>
+  </section>
+
+  <SectionDivider kicker="Step 3 — add by need" title="Only what your courses use." />
+  <section class="container-page space-y-10">
+    <div class="add-block">
+      <h3 class="font-display text-xl">Private / local AI</h3>
+      <div class="grid gap-6 lg:grid-cols-2 mt-3">
+        <pre class="codeblock" data-copy><code>{win.ai.join('\n')}</code></pre>
+        <pre class="codeblock" data-copy><code>{mac.ai.join('\n')}</code></pre>
+      </div>
+    </div>
+    <div class="add-block">
+      <h3 class="font-display text-xl">Media & creation</h3>
+      <div class="grid gap-6 lg:grid-cols-2 mt-3">
+        <pre class="codeblock" data-copy><code>{win.media.join('\n')}</code></pre>
+        <pre class="codeblock" data-copy><code>{mac.media.join('\n')}</code></pre>
+      </div>
+    </div>
+    <div class="add-block">
+      <h3 class="font-display text-xl">Coding & data</h3>
+      <div class="grid gap-6 lg:grid-cols-2 mt-3">
+        <pre class="codeblock" data-copy><code>{win.code.join('\n')}</code></pre>
+        <pre class="codeblock" data-copy><code>{mac.code.join('\n')}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page pt-16 pb-8">
+    <p class="max-w-measure text-muted">
+      Want the reasoning behind each pick? Head back to the
+      <a href="/students/toolkit/" class="link-underline text-accent-text">full toolkit →</a>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Code stays dark — a familiar developer surface, and a small nod to the
+     lab's dark identity inside the lighter student zone. */
+  .codeblock {
+    background: #14141a;
+    color: #eae7f2;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-card);
+    padding: 1rem 1.1rem;
+    overflow-x: auto;
+    font-family: theme('fontFamily.mono');
+    font-size: 0.82rem;
+    line-height: 1.7;
+    position: relative;
+  }
+  .codeblock code { white-space: pre; }
+  code { font-family: theme('fontFamily.mono'); font-size: 0.9em; }
+  /* :global — the button is injected by JS, so Astro's scoped attribute
+     never lands on it; scoped selectors would not match. */
+  :global(.copy-btn) {
+    position: absolute;
+    top: 0.5rem; right: 0.5rem;
+    font-family: theme('fontFamily.mono');
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #b9b3c9;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 150ms var(--ease-out), color 150ms var(--ease-out);
+  }
+  .codeblock:hover :global(.copy-btn), :global(.copy-btn:focus-visible) { opacity: 1; }
+  :global(.copy-btn:hover) { color: #fff; }
+</style>
+
+<script>
+  function wireCopy() {
+    document.querySelectorAll<HTMLElement>('.codeblock[data-copy]').forEach((block) => {
+      if (block.querySelector('.copy-btn')) return;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'copy-btn';
+      btn.textContent = 'Copy';
+      btn.addEventListener('click', async () => {
+        const code = block.querySelector('code')?.textContent ?? '';
+        try {
+          await navigator.clipboard.writeText(code);
+          btn.textContent = 'Copied';
+          setTimeout(() => (btn.textContent = 'Copy'), 1400);
+        } catch {
+          btn.textContent = 'Ctrl+C';
+        }
+      });
+      block.appendChild(btn);
+    });
+  }
+  wireCopy();
+  document.addEventListener('astro:page-load', wireCopy);
+</script>

@@ -1,33 +1,9 @@
 // Client behavior for the Communication Theories section:
-//   1. Light/dark theme toggle (scoped to the .theories-skin reading area).
-//   2. Reading-progress tracking (per-theory "read" state + index meter).
-// State persists in localStorage. Re-runs on every Astro view-transition.
+//   Reading-progress tracking (per-theory "read" state + index meter) and the
+//   per-category lens on detail pages. State persists in localStorage.
+//   Re-runs on every Astro view-transition.
 
-const THEME_KEY = 'aura-theory-theme';
 const READ_KEY = 'aura-theory-read';
-
-type Theme = 'light' | 'dark';
-
-function getTheme(): Theme {
-  try {
-    return localStorage.getItem(THEME_KEY) === 'dark' ? 'dark' : 'light';
-  } catch {
-    return 'light';
-  }
-}
-
-function applyTheme(t: Theme): void {
-  document.documentElement.classList.toggle('theory-dark', t === 'dark');
-}
-
-function syncToggles(t: Theme): void {
-  const dark = t === 'dark';
-  document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((b) => {
-    b.setAttribute('aria-pressed', String(dark));
-    const label = b.querySelector('[data-theme-label]');
-    if (label) label.textContent = dark ? 'Light' : 'Dark';
-  });
-}
 
 function getRead(): Set<string> {
   try {
@@ -44,24 +20,6 @@ function setRead(s: Set<string>): void {
   } catch {
     /* storage blocked; progress simply won't persist */
   }
-}
-
-function wireThemeToggle(): void {
-  document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((btn) => {
-    if (btn.dataset.wired) return;
-    btn.dataset.wired = '1';
-    btn.addEventListener('click', () => {
-      const next: Theme = getTheme() === 'dark' ? 'light' : 'dark';
-      try {
-        localStorage.setItem(THEME_KEY, next);
-      } catch {
-        /* ignore */
-      }
-      applyTheme(next);
-      syncToggles(next);
-    });
-  });
-  syncToggles(getTheme());
 }
 
 function renderProgress(): void {
@@ -152,8 +110,6 @@ function initCategoryLens(): void {
 }
 
 function run(): void {
-  applyTheme(getTheme());
-  wireThemeToggle();
   renderProgress();
   wireMarkRead();
   initCategoryLens();

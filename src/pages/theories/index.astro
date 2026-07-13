@@ -96,23 +96,11 @@ const byCategory = THEORY_CATEGORIES.map((category) => ({
   title="Communication Theories"
   current="theories"
   description="A navigable map of communication theory from AURA Lab — every framework is a star in a field you can explore.">
-  <Fragment slot="head">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script is:inline>
-      try { if (localStorage.getItem('aura-theory-theme') === 'dark') document.documentElement.classList.add('theory-dark'); } catch (e) {}
-    </script>
-  </Fragment>
-
   <div class="theories-skin">
     <section class="t-constellation" data-constellation aria-label="Map of communication theories">
       <div class="t-sky-masthead">
         <p class="t-kicker">AURA Lab · Teaching Library</p>
-        <h1>Communication <em>Theories</em></h1>
+        <h1 data-no-split>Communication <em>Theories</em></h1>
         <p class="t-dek">
           The whole field as one sky. Each star is a theory, tethered to every area it belongs to;
           related theories are linked. Drag to pan, scroll to zoom, click a cluster to focus an area —
@@ -123,10 +111,6 @@ const byCategory = THEORY_CATEGORIES.map((category) => ({
             <span class="t-progress-label" data-progress-label>0 of 0 read</span>
             <span class="t-progress-track"><span class="t-progress-fill" data-progress-fill></span></span>
           </div>
-          <button type="button" class="t-toggle" data-theme-toggle aria-pressed="false">
-            <span class="t-toggle-ico" aria-hidden="true"></span>
-            <span data-theme-label>Dark</span>
-          </button>
         </div>
       </div>
 

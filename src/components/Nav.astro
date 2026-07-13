@@ -5,22 +5,24 @@ const items = [
   { href: '/people/', label: 'People', key: 'people' },
   { href: '/publications/', label: 'Publications', key: 'publications' },
   { href: '/tools/', label: 'Tools', key: 'tools' },
+  { href: '/students/', label: 'New Students', key: 'students' },
   { href: '/news/', label: 'News', key: 'news' },
   { href: '/join/', label: 'Join', key: 'join' },
 ];
 ---
 <header class="topbar" aria-label="Site">
-  <div class="container-page flex items-center justify-between py-5">
-    <a href="/" class="brand inline-flex items-center gap-2 text-text font-semibold tracking-ui uppercase text-sm">
-      <span class="dot" aria-hidden="true"></span>
-      AURA Lab
+  <div class="container-page flex items-center justify-between py-4">
+    <a href="/" class="brand inline-flex items-baseline gap-2.5">
+      <span class="tick" aria-hidden="true"></span>
+      <span class="name">AURA&nbsp;Lab</span>
+      <span class="affil">SIUE&nbsp;·&nbsp;Mass&nbsp;Communications</span>
     </a>
     <nav aria-label="Primary" class="hidden md:block">
-      <ul class="flex gap-6 text-sm uppercase tracking-ui text-muted">
+      <ul class="flex gap-5 lg:gap-6">
         {items.map((it) => (
           <li>
             <a href={it.href}
-               class={`link-underline ${current === it.key ? 'text-text' : ''}`}
+               class={`navlink link-underline ${current === it.key ? 'on' : ''}`}
                aria-current={current === it.key ? 'page' : undefined}>
               {it.label}
             </a>
@@ -35,11 +37,42 @@ const items = [
   .topbar {
     position: sticky; top: 0; z-index: 20;
     backdrop-filter: blur(8px);
-    background: color-mix(in oklab, var(--bg) 86%, transparent);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: color-mix(in srgb, var(--paper) 84%, transparent);
+    border-bottom: 1px solid var(--line);
   }
-  .dot {
-    display: inline-block; width: 6px; height: 6px;
-    border-radius: 50%; background: var(--violet);
+  .brand .name {
+    font-family: theme('fontFamily.display');
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    font-size: 1.15rem;
+    color: var(--ink);
   }
+  /* the one place the EXACT SIUE red appears — the institutional mark */
+  .tick {
+    width: 9px; height: 9px;
+    background: var(--siue);
+    transform: rotate(45deg);
+    border-radius: 1px;
+    align-self: center;
+  }
+  .affil {
+    font-family: theme('fontFamily.sans');
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 900px) { .affil { display: none; } }
+  .navlink {
+    font-family: theme('fontFamily.sans');
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    transition: color 200ms var(--ease-out);
+  }
+  .navlink:hover { color: var(--ink); }
+  .navlink.on { color: var(--brick); }
 </style>

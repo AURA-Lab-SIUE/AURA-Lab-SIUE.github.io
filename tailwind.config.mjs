@@ -4,26 +4,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg:          'var(--bg)',
-        surface:     'var(--surface)',
-        chalk:       'var(--chalk)',
-        text:        'var(--text)',
-        'text-dark': 'var(--text-dark)',
-        muted:       'var(--muted)',
-        violet:      'var(--violet)',
-        amber:       'var(--amber)',
+        bg:            'var(--bg)',
+        surface:       'var(--surface)',
+        paper:         'var(--paper)',
+        card:          'var(--card)',
+        chalk:         'var(--chalk)',
+        text:          'var(--text)',
+        'text-dark':   'var(--text-dark)',
+        ink:           'var(--ink)',
+        muted:         'var(--muted)',
+        accent:        'var(--accent)',       // fills, borders, large elements
+        'accent-text': 'var(--accent-text)',  // small red text
+        brick:         'var(--brick)',
+        'brick-deep':  'var(--brick-deep)',
+        siue:          'var(--siue)',          // institutional mark only
+        line:          'var(--line)',
       },
       fontFamily: {
-        display: ['"Fraunces Variable"', 'Fraunces', 'Georgia', 'serif'],
-        sans:    ['"Instrument Sans Variable"', 'Instrument Sans', 'system-ui', 'sans-serif'],
-        mono:    ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        display: ['"Archivo Variable"', 'Archivo', 'system-ui', 'sans-serif'],
+        sans:    ['"Archivo Variable"', 'Archivo', 'system-ui', 'sans-serif'],
+        serif:   ['"Newsreader Variable"', 'Newsreader', 'Georgia', 'serif'],
+        mono:    ['"Spline Sans Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       maxWidth: {
         measure: '68ch',
         page:    '1180px',
       },
       letterSpacing: {
-        display: '0.02em',
+        display: '-0.02em',
         ui:      '0.14em',
       },
     },

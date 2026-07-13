@@ -1,11 +1,10 @@
 /*
-  Communication Theories — "Editorial reference + marginalia" art direction.
-  Replaces the earlier warm-parchment/serif/mono skin. The look:
-    - One workhorse grotesk for text (Hanken Grotesk), one characterful
-      grotesk for display (Bricolage Grotesque). No serif display, no
-      uppercase-monospace eyebrows, no parchment, no pastel pills.
-    - Warm off-white paper + warm near-black ink; ONE functional accent
-      (oxblood) for links and current state.
+  Communication Theories — "Editorial reference + marginalia" art direction,
+  aligned to the site theme ("The Instrument, in warm paper"). The look:
+    - Archivo (display + UI) with Newsreader for reading prose — the site's
+      own type system. No serif display, no uppercase-monospace eyebrows.
+    - Warm bone paper + near-black ink; ONE functional accent — the site's
+      brick red (--accent #a8322a) — for links and current state.
     - A persistent margin column on detail pages carries the metadata and
       the theory's full category memberships (cross-listing made visible).
     - Category color is FUNCTIONAL only: a top rule on index cards and a
@@ -14,15 +13,15 @@
 */
 
 .theories-skin {
-  /* paper + ink */
-  --paper: #f4f0e6;
-  --paper-2: #eae3d3;
-  --ink: #1a2138;
-  --ink-2: #46506b;
-  --ink-3: #8a8676;
-  --rule: #ddd5c2;
-  --rule-strong: #1a2138;
-  --accent: #9a6a12; /* gold-leaf — the one signal color (celestial chart) */
+  /* paper + ink — aligned to the site's warm institutional theme */
+  --paper: #f6f3ec;
+  --paper-2: #efe9dc;
+  --ink: #1e1b18;
+  --ink-2: #6b6357;
+  --ink-3: #8f887b;
+  --rule: #ddd7c8;
+  --rule-strong: #1e1b18;
+  --accent: #a8322a; /* brick — the site's one working accent */
 
   /* Two-tone doctrine: fields are shown by POSITION (constellation clusters)
      + label, never by nine competing hues. All category vars collapse to one
@@ -38,16 +37,18 @@
   --c-org: var(--ink-3);
   --c-pr: var(--ink-3);
 
-  /* constellation ink — hairlines, navy stars on aged paper, textured ground */
-  --net-line: #cdc4ac;
-  --net-line-strong: #a99a74;
-  --net-node: #2a3556;
-  --net-ground: #f1ecdf;
-  --net-dot: rgba(26, 33, 56, 0.05);
-  --net-glow: rgba(154, 106, 18, 0.22);
+  /* constellation ink — ink stars + warm hairlines on paper, textured ground */
+  --net-line: #d8d1c0;
+  --net-line-strong: #b7ac93;
+  --net-node: #3a3630;
+  --net-ground: #f6f3ec;
+  --net-dot: rgba(30, 27, 24, 0.05);
+  --net-glow: rgba(168, 50, 42, 0.20);
 
-  --font-display: 'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif;
-  --font-text: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  /* Site fonts (self-hosted): Archivo for display + UI, Newsreader for prose. */
+  --font-display: 'Archivo Variable', Archivo, system-ui, sans-serif;
+  --font-text: 'Archivo Variable', Archivo, system-ui, sans-serif;
+  --font-read: 'Newsreader Variable', Newsreader, Georgia, serif;
   --measure: 66ch;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 
@@ -110,8 +111,8 @@
   color: var(--accent);
 }
 .theories-skin .t-dek {
-  font-family: var(--font-text);
-  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  font-family: var(--font-read);
+  font-size: clamp(1.08rem, 1.7vw, 1.3rem);
   line-height: 1.5;
   color: var(--ink-2);
   max-width: 56ch;
@@ -611,9 +612,10 @@
 }
 .theories-skin .t-body section p {
   margin: 0;
-  color: var(--ink-2);
-  font-size: 1rem;
-  line-height: 1.68;
+  font-family: var(--font-read);
+  color: var(--ink);
+  font-size: 1.06rem;
+  line-height: 1.62;
 }
 /* deeper sections get a hairline above to mark the shift to "study" depth */
 .theories-skin .t-body .t-deep-section {
@@ -651,37 +653,6 @@
 }
 .theories-skin .t-readbar {
   margin: 32px 0 0;
-}
-
-/* ====================== DARK READING THEME ====================== */
-html.theory-dark .theories-skin {
-  --paper: #0c1022;
-  --paper-2: #151b34;
-  --ink: #e9ecf8;
-  --ink-2: #b3bad5;
-  --ink-3: #7c83a2;
-  --rule: #242b4a;
-  --rule-strong: #3a4470;
-  --accent: #e6b945; /* gold star — the one signal color (night sky) */
-
-  /* fields stay two-tone in dark too — one quiet ink, accent for current */
-  --c-tech: var(--ink-3);
-  --c-proc: var(--ink-3);
-  --c-health: var(--ink-3);
-  --c-inter: var(--ink-3);
-  --c-lang: var(--ink-3);
-  --c-mass: var(--ink-3);
-  --c-cult: var(--ink-3);
-  --c-org: var(--ink-3);
-  --c-pr: var(--ink-3);
-
-  /* starlight nodes + constellation lines on the deep-sky ground */
-  --net-line: #283058;
-  --net-line-strong: #44508a;
-  --net-node: #cdd3ee;
-  --net-ground: #080b18;
-  --net-dot: rgba(205, 211, 238, 0.05);
-  --net-glow: rgba(230, 185, 69, 0.32);
 }
 
 @media (prefers-reduced-motion: reduce) {
