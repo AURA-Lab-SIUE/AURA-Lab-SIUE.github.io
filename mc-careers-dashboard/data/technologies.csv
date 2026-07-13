@@ -1,0 +1,69 @@
+Tech_ID,Commodity Title,Examples
+1,Business intelligence and data analysis software,"Tableau, Microsoft Power BI, Apache Spark"
+2,Document management software,"Adobe Acrobat, dSPACE"
+3,Video creation and editing software,"Adobe Premiere Pro, Adobe After Effects, DaVinci Resolve, OBS Studio, TechSmith Camtasia"
+4,Graphics or photo imaging software,"Adobe Photoshop, Adobe Illustrator, Microsoft Visio, Canva, Autodesk Maya"
+5,Web page creation and editing software,"Facebook, WordPress"
+6,Desktop publishing software,Adobe InDesign
+7,Data base reporting software,Microsoft SQL Server Reporting Services SSRS
+8,Enterprise resource planning ERP software,"SAP software, Microsoft Dynamics, Oracle PeopleSoft, Workday software, Sabre Central Command"
+9,Analytical or scientific software,"The MathWorks MATLAB, SAS, IBM SPSS Statistics, RStudio, Python"
+10,Customer relationship management CRM software,"Salesforce software, Microsoft Dynamics, HubSpot, Zoho CRM"
+11,Data base user interface and query software,"SQL, Microsoft SQL Server, Microsoft Access, Oracle Database, pandas"
+12,Web platform development software,"HTML, CSS, JavaScript, React, PHP"
+13,Electronic mail software,Microsoft Outlook
+14,Project management software,"Microsoft Project, Microsoft Teams, Microsoft SharePoint, Atlassian JIRA, Atlassian Confluence"
+15,Enterprise application integration software,"XML, Microsoft SSIS, Microsoft Teams, Jenkins CI, Atlassian Bamboo"
+16,Sales and marketing software,"Marketo Marketing Automation, HubSpot software"
+17,Inventory management software,"Inventory management systems, Inventory control system software, Warehouse management system WMS"
+18,Spreadsheet software,"Microsoft Excel, Google Sheets, LibreOffice Calc, LibreOffice Calc, Gnumeric"
+19,Office suite software,"Microsoft Office software, Google Workspace, LibreOffice, LibreOffice, Apache OpenOffice"
+20,Presentation software,"Microsoft PowerPoint, Google Slides, Prezi, LibreOffice Impress"
+21,Data base management system software,"Microsoft SQL Server, Oracle Database, MySQL, MongoDB, Apache Hadoop"
+22,Operating system software,"Microsoft Windows, Microsoft Windows Server, Apple macOS, Linux, Google Android"
+23,Word processing software,"Microsoft Word, Google Docs"
+24,Information retrieval or search software,"Thomson Reuters Westlaw, Elasticsearch, Apache Solr"
+25,Internet browser software,Web browser software
+26,Development environment software,"Microsoft Visual Studio, VS Code, Eclipse, Jupyter Notebooks, Unity"
+27,Transaction server software,"Web server software, IBM Middleware"
+28,Cloud-based data access and sharing software,"Microsoft SharePoint, Slack, Atlassian Confluence"
+29,Content workflow software,Atlassian JIRA
+30,Graphical user interface development software,Figma
+31,Accounting software,"Intuit QuickBooks, SAP Concur, Accounting software, Tax software"
+32,Application server software,"Microsoft Windows Server, Docker, Kubernetes, Spring Boot, GitHub"
+33,Data mining software,"Google Analytics, RapidMiner, KNIME, IBM SPSS Modeler, Orange"
+34,Video conferencing software,"Cisco Webex, Zoom"
+35,Enterprise system management software,Splunk Enterprise
+36,Object or component oriented development software,"Java, C++, Python, R, TypeScript"
+37,Network conferencing software,Atlassian Confluence
+38,Transaction security and virus protection software,Tenable Nessus
+39,Process mapping and design software,Microsoft Visio
+40,Expert system software,Ansible software
+41,Computer based training software,Learning management system LMS
+42,Cloud-based management software,"Splunk Enterprise, Amazon Web Services AWS CloudFormation, IBM WebSphere MQ"
+43,Computer aided design CAD software,"Autodesk AutoCAD, Autodesk Revit, SketchUp Pro, SolidWorks, PTC Creo Parametric"
+44,Geographic information system,"ESRI ArcGIS software, Geographic information system GIS systems, ETAP, Google Earth Pro"
+45,Human resources software,"Oracle HRIS, Payroll software, BambooHR, Workday HCM"
+46,Industrial control software,"Chatbot software, Outage management system OMS"
+47,Map creation software,"ESRI ArcGIS software, RockWare ArcMap"
+48,Time accounting software,Kronos Workforce Timekeeper
+49,Mobile location based services software,Transportation management system TMS software
+50,Tax preparation software,Intuit TurboTax
+51,Storage networking software,"Amazon Simple Storage Service S3, NetApp ONTAP, Dell EMC Isilon"
+52,Procedure management software,Apache Airflow
+53,File versioning software,"Git, Apache Subversion SVN"
+54,Object oriented data base management software,"PostgreSQL, Transact-SQL, Hibernate ORM"
+55,Metadata management software,"Informatica software, Perforce software"
+56,Medical software,"MEDITECH software, Epic Systems, eClinicalWorks EHR software, Henry Schein Dentrix"
+57,Program testing software,"Selenium, JUnit, pytest, System testing software, Source code editor software"
+58,Network monitoring software,"Wireshark, Forsk Atoll"
+59,Network security and virtual private network VPN equipment software,Firewall software
+60,Music or sound editing software,"Adobe Audition, Audacity, Avid Pro Tools, GarageBand, LMMS"
+61,Compliance software,"Tax compliance property tax management software, Thomson Reuters ONESOURCE, Wolters Kluwer CCH Axcess"
+62,Switch or router software,Border Gateway Protocol BGP
+63,Network security or virtual private network VPN management software,CyberArk
+64,Internet directory services software,"Network directory services software, Microsoft Active Directory"
+65,Authentication server software,"Single sign-on SSO, Okta, Duo Security, Auth0, Keycloak"
+66,Configuration management software,Puppet
+67,Computer aided manufacturing CAM software,"Dassault Systemes SolidWorks, Mastercam computer-aided design and manufacturing software"
+68,Materials requirements planning logistics and supply chain software,Warehouse management system WMS

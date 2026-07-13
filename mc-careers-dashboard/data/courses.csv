@@ -1,0 +1,54 @@
+Course_ID,Course_Name,Full_Title,Description,Credits,Tier,Required_For,Track_Journalism_Pct,Track_Production_Pct,Track_Strategic_Pct
+MC201,Mass Media in Society,MC 201 - Mass Media in Society,"Analysis of mass media focusing on technological, economic, governmental, and societal impact.",3,intro_core,all,34,33,33
+MC202,Writing for the Media,MC 202 - Writing for the Media,"Introduction to media writing styles and techniques including writing news stories, audio & video scripts, social media, advertising and public relations content.",3,intro_core,all,40,20,40
+MC204,Intro to Audio and Video Production,MC 204 - Introduction to Audio and Video Production,"Planning and realization of audio and video productions; studio techniques; audio and video non-linear editing.",3,intro_core,all,20,60,20
+MC301,Advanced Audio Production,MC 301 - Advanced Audio Production,Professional audio production across digital media platforms.,3,intermediate_core,elective,10,80,10
+MC323,Digital Publishing and Design,MC 323 - Digital Publishing and Design,Digital publication design and production of layouts.,3,intermediate_core,elective,40,30,30
+MC327,Essentials of Web Design,MC 327 - Essentials of Web Design,An introduction to web design and development for media professionals.,3,intermediate_core,elective,30,40,30
+MC331,Media Performance,MC 331 - Media Performance,"Extensive instruction and practice in media performance, including on-camera and voice work.",3,intermediate_core,elective,30,50,20
+MC332,Advanced News Production,MC 332 - Advanced News Production,"Extensive practice in writing, producing, and presenting broadcast news.",3,intermediate_core,elective,60,30,10
+MC333,Advanced Video Production,MC 333 - Advanced Video Production,Students produce professional-quality video segments.,3,intermediate_core,elective,10,80,10
+MC334,Commercial Production,MC 334 - Commercial Production,"Processes and practices in copywriting and production for radio, television, and digital commercials.",3,intermediate_core,elective,10,40,50
+MC342,Digital Imagery,MC 342 - Digital Imagery,"Capturing, editing, and presenting digital images for media applications.",3,intermediate_core,elective,30,40,30
+MC401,Media Law and Policy,MC 401 - Media Law and Policy,U.S. Constitution and federal and state law related to mass media.,3,advanced_core,all,40,20,40
+MC403,Cultural Studies in Media,MC 403 - Cultural Studies in Media,Use of critical theory to examine media's impact on society and culture.,3,advanced_core,all,34,33,33
+MC451,Research Methods in Mass Media,MC 451 - Research Methods in Mass Media,Examination of traditional and emerging concepts of research in mass communications.,3,advanced_core,all,34,33,33
+MC455,Media Ethics,MC 455 - Media Ethics,"Critical examination and analysis of values, principles, and ethical decision-making in mass media.",3,advanced_core,all,34,33,33
+MC481,Internship/Senior Portfolio,MC 481 - Internship/Senior Portfolio,Experience with professional media under joint supervision. Includes senior portfolio requirement.,3,advanced_core,all,34,33,33
+MC322,Copy Editing For News Media,MC 322 - Copy Editing For News Media,Students build professional news editing skills.,3,track_required,journalism,80,10,10
+MC324,Advanced News Reporting,MC 324 - Advanced News Reporting,Reporting for print and digital media about local and state government.,3,track_required,journalism,90,5,5
+MC325,Fundamentals of Advertising,MC 325 - Fundamentals of Advertising,Provides an overview of advertising from the perspectives of marketing and social roles.,3,track_required,strategic,10,10,80
+MC389,Media Planning,MC 389 - Media Planning,"Basic principles of media planning, buying, and strategy for advertising campaigns.",3,track_required,strategic,10,10,80
+MC422,Strategic Media Writing,MC 422 - Strategic Media Writing,"Analyzing and creating strategic communication materials for PR, marketing, and organizational contexts.",3,track_required,strategic,20,10,70
+MC330,Advanced Media Writing,MC 330 - Advanced Media Writing,Advanced writing techniques for various media platforms.,3,track_required,production,20,60,20
+MC321,Feature Writing,MC 321 - Feature Writing,Learn the essentials of writing and researching feature news pieces.,3,track_elective,journalism,80,10,10
+MC330E,Advanced Media Writing,MC 330 - Advanced Media Writing,Advanced writing techniques for various media platforms.,3,track_elective,journalism,20,60,20
+MC332E,Advanced News Production,MC 332 - Advanced News Production,"Extensive practice in writing, producing, and presenting broadcast news.",3,track_elective,journalism,60,30,10
+MC341,Sports Journalism,MC 341 - Sports Journalism,Course provides overview of sports journalism and enhances students' skills.,3,track_elective,journalism,70,20,10
+MC342E,Digital Imagery,MC 342 - Digital Imagery,"Capturing, editing, and presenting digital images for media applications.",3,track_elective,journalism,30,40,30
+MC424,Literary Journalism,MC 424 - Literary Journalism,Students develop skills in literary non-fiction writing.,3,track_elective,journalism,80,10,10
+MC447,Photojournalism,MC 447 - Photojournalism,Students learn to explore their communities with cameras.,3,track_elective,journalism,60,30,10
+MC453,Transnational Media,MC 453 - Transnational Media,"Focus on media ownership, regulation, and cultural impact across national borders.",3,track_elective,journalism,40,20,40
+MC454,Documentary Media Production,MC 454 - Documentary Media Production,Evolution of documentary filmmaking; emphasis on student production of original documentary films.,3,track_elective,journalism,30,60,10
+MC326,Advertising Copywriting and Design,MC 326 - Advertising Copywriting and Design,Create ads for a variety of products using professional design and copywriting techniques.,3,track_elective,strategic,10,20,70
+MC334E,Commercial Production,MC 334 - Commercial Production,"Processes and practices in copywriting and production for radio, television, and digital commercials.",3,track_elective,strategic,10,40,50
+MC342S,Digital Imagery,MC 342 - Digital Imagery,"Capturing, editing, and presenting digital images for media applications.",3,track_elective,strategic,30,40,30
+MC402,Media Management,MC 402 - Media Management,Focus on product development and project management in media industries.,3,track_elective,strategic,20,30,50
+MC421,Advertising Campaigns,MC 421 - Advertising Campaigns,Creation and production of advertising campaigns using a mix of media.,3,track_elective,strategic,10,20,70
+MC440,Visual Media Analysis,MC 440 - Visual Media Analysis,Analysis of still and moving images for artistic and communicative purposes.,3,track_elective,strategic,30,30,40
+MC441,Advanced Writing and Designing for Digital Media,MC 441 - Advanced Writing and Designing for Digital Media,Provides a comprehensive overview of both writing and designing for digital media.,3,track_elective,strategic,30,30,40
+MC449,Media Psychology,MC 449 - Media Psychology,Media's short term and long term psychological effects on individuals and society.,3,track_elective,strategic,30,10,60
+MC478,International Advertising,MC 478 - International Advertising,Issues that affect advertising and communications in a global marketplace.,3,track_elective,strategic,10,10,80
+MC301P,Advanced Audio Production,MC 301 - Advanced Audio Production,Professional audio production across digital media platforms.,3,track_elective,production,10,80,10
+MC331P,Media Performance,MC 331 - Media Performance,"Extensive instruction and practice in media performance, including on-camera and voice work.",3,track_elective,production,30,50,20
+MC332P,Advanced News Production,MC 332 - Advanced News Production,"Extensive practice in writing, producing, and presenting broadcast news.",3,track_elective,production,60,30,10
+MC333P,Advanced Video Production,MC 333 - Advanced Video Production,Students produce professional-quality video segments.,3,track_elective,production,10,80,10
+MC334P,Commercial Production,MC 334 - Commercial Production,"Processes and practices in copywriting and production for radio, television, and digital commercials.",3,track_elective,production,10,40,50
+MC342P,Digital Imagery,MC 342 - Digital Imagery,"Capturing, editing, and presenting digital images for media applications.",3,track_elective,production,30,40,30
+MC402P,Media Management,MC 402 - Media Management,Focus on product development and project management in media industries.,3,track_elective,production,20,30,50
+MC431,Freelance Media Production,MC 431 - Freelance Media Production,Advanced production techniques for corporate and non-profit videos.,3,track_elective,production,10,80,10
+MC433,Advanced Video Directing and Producing,MC 433 - Advanced Video Directing and Producing,Advanced theory and practice in television directing and producing.,3,track_elective,production,10,80,10
+MC435,Media Post-Production,MC 435 - Media Post-Production,"Theory and practice of post-production including video editing, color correction, and sound design.",3,track_elective,production,10,80,10
+MC443,Narrative Media Production,MC 443 - Narrative Media Production,Write and produce short narrative films and web series.,3,track_elective,production,10,80,10
+MC453P,Transnational Media,MC 453 - Transnational Media,"Focus on media ownership, regulation, and cultural impact across national borders.",3,track_elective,production,40,20,40
+MC454P,Documentary Media Production,MC 454 - Documentary Media Production,Evolution of documentary filmmaking; emphasis on student production of original documentary films.,3,track_elective,production,30,60,10

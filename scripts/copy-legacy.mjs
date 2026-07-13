@@ -7,9 +7,16 @@ const dist = path.join(root, 'dist');
 
 const items = [
   'methodosync',
+  'banned-words',
+  'mc-careers-dashboard',
   'captionizer.html',
   'countdown.html',
   'app_form.html',
+  // Legacy stylesheets/scripts the standalone HTML pages above load by
+  // relative path (css/style.css, js/countdown.js, …). Without these the
+  // Captionizer and Countdown pages render unstyled.
+  'css',
+  'js',
   '_archive',
 ];
 

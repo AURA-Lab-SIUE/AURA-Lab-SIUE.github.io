@@ -8,26 +8,69 @@ const toolsEntry = await getEntry('tools', 'tools');
 const teachingEntry = await getEntry('tools', 'teaching');
 const toolsData = toolsEntry?.data.entries ?? [];
 const teachingData = teachingEntry?.data.entries ?? [];
+
+const byGroup = (g: string) => toolsData.filter(t => t.group === g);
+const v2v = byGroup('v2v');
+const gearout = byGroup('gearout');
+const apps = byGroup('apps');
 ---
 <BaseLayout title="Tools" current="tools"
-  description="Open-source research tools and teaching resources from AURA Lab.">
+  description="Open-source research tools, live apps, and teaching resources from AURA Lab.">
 
   <section class="container-page pt-24 pb-8">
     <p class="text-muted uppercase tracking-ui text-sm">Open-source outputs</p>
     <h1 class="font-display text-5xl md:text-7xl mt-4 leading-none">Tools.</h1>
     <p class="mt-8 max-w-measure text-lg text-muted">
-      Code, data, and teaching materials the lab maintains. Everything that can be
-      open is.
+      Code, data, live apps, and teaching materials the lab maintains. Everything
+      that can be open is.
     </p>
   </section>
 
-  <SectionDivider kicker="Research tools" title="Code we use and share." />
-  <section class="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-    {toolsData.map(t => <ToolCard {...t} />)}
+  <!-- From Vibes to Variables — the OER course stack, presented as one group -->
+  <SectionDivider kicker="From Vibes to Variables · OER course stack" title="One methods course, three open pieces." />
+  <section class="container-page">
+    <p class="max-w-measure text-muted mb-8">
+      The textbook, its companion R package, and the course hub are built to be used
+      together — an open path into media data science for students with no prior
+      stats or coding.
+    </p>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {v2v.map(t => <ToolCard {...t} />)}
+    </div>
   </section>
 
+  <!-- GearOut on its own -->
+  <SectionDivider kicker="Equipment reservation" title="GearOut." />
+  <section class="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {gearout.map(t => <ToolCard {...t} />)}
+  </section>
+
+  <!-- Live apps served on the lab site -->
+  <SectionDivider kicker="Live on the lab site" title="Apps you can open right now." />
+  <section class="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {apps.map(t => <ToolCard {...t} />)}
+  </section>
+
+  <!-- Classroom-tested teaching tools -->
   <SectionDivider kicker="Teaching resources" title="Classroom-tested tools." />
   <section class="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-3">
     {teachingData.map(t => <ToolCard {...t} />)}
+  </section>
+
+  <!-- Theories explorer -->
+  <SectionDivider kicker="Reference" title="Communication theories." />
+  <section class="container-page">
+    <article class="card p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 justify-between">
+      <div>
+        <h3 class="font-display text-2xl">Theory explorer</h3>
+        <p class="mt-2 text-muted max-w-measure">
+          An interactive map of the communication theories the lab teaches and
+          builds on — browse, filter, and read into each one.
+        </p>
+      </div>
+      <p class="shrink-0">
+        <a href="/theories/" class="link-underline text-accent-text text-lg">Open the theory explorer →</a>
+      </p>
+    </article>
   </section>
 </BaseLayout>

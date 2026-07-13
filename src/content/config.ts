@@ -38,6 +38,14 @@ const tools = defineCollection({
       blurb: z.string(),
       href: z.string(),
       language: z.string(),
+      // Optional grouping key so the Tools page can present related items
+      // together (e.g. the three "v2v" course-stack pieces).
+      group: z.string().optional(),
+      // Optional secondary repository link when `href` points at a live app.
+      repo: z.string().optional(),
+      // Optional "see also" pointer (label + href), e.g. the lightweight
+      // banned-word checker pointing on to the fuller Concordance tool.
+      seeAlso: z.object({ label: z.string(), href: z.string() }).optional(),
     })),
   }),
 });
