@@ -46,8 +46,8 @@ wallpapers/ desktop 3840/2560/1920 (16:9) · tablet 2560×1600 & 1600×2560 (16:
 | ink | `#1e1b18` | the caret (peak) |
 | brick | `#a8322a` | the axis + graduation ticks, the A·U·R·A initials |
 | **SIUE red** | **`#e5182d`** | **the diamond only** — the one institutional mark |
-| ink ground | `#171412` | dark tiles / ink wallpapers |
-| paper-hi / brick-lift | `#f2eee6` / `#c85a48` | reversed (dark-ground) caret / axis |
+| ink ground | `#101113` | dark tiles / ink wallpapers — cool charcoal from the director's headshot, deliberately not warm/brown |
+| paper-hi / brick-lift | `#ECEDEF` / `#d64a3c` | reversed (dark-ground) caret / axis |
 
 Type in the lockups is **Archivo** (800 wordmark, 700 descriptor), converted to outlines so
 the SVGs render identically without the font installed.
