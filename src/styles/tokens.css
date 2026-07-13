@@ -47,6 +47,38 @@
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
+/* ---------------------------------------------------------------------
+   Dark mode — cool charcoal (from the director's headshot; not warm brown).
+   Only the BASE tokens are overridden; every semantic alias is late-bound
+   var(), so the whole component library restyles for free. The true SIUE
+   red (--siue) is kept as the one institutional mark. See DESIGN-NOTES.
+   --------------------------------------------------------------------- */
+:root[data-theme="dark"] {
+  --paper:      #101113;  /* page ground (cool near-black)                  */
+  --card:       #191b1e;  /* raised surface                                */
+  --ink:        #ECEDEF;  /* body text (cool off-white)                    */
+  --ink-soft:   #A6A9AE;  /* secondary text                                */
+  --brick:      #d64a3c;  /* working accent — lifted red, reads on charcoal */
+  --brick-deep: #e0705f;  /* hover / pressed (lighter on dark)             */
+  --brick-wash: #2b1a17;  /* faint tint for callouts / badges              */
+  --siue:       #e5182d;  /* EXACT SIUE red — institutional mark ONLY       */
+  --line:       rgba(236, 237, 239, 0.15);
+  --grid:       rgba(236, 237, 239, 0.05);
+  --shadow-card:       0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 16px 34px -18px rgba(0, 0, 0, 0.75);
+  color-scheme: dark;
+}
+/* No-JS users on a dark OS still get dark (unless they've toggled to light). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #101113; --card: #191b1e; --ink: #ECEDEF; --ink-soft: #A6A9AE;
+    --brick: #d64a3c; --brick-deep: #e0705f; --brick-wash: #2b1a17; --siue: #e5182d;
+    --line: rgba(236,237,239,0.15); --grid: rgba(236,237,239,0.05);
+    --shadow-card: 0 1px 2px rgba(0,0,0,0.4); --shadow-card-hover: 0 16px 34px -18px rgba(0,0,0,0.75);
+    color-scheme: dark;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;

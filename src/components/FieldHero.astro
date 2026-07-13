@@ -1,0 +1,139 @@
+---
+// The homepage hero: the online crowd as a curl-noise flow field (divergence-
+// free, so it flows in streams, never clumps). The cursor is a "presence" the
+// crowd flows around, and the field reports its own emergent state. Theme-aware
+// via the site tokens; reduced-motion users get a calm settled frame.
+---
+<section class="fieldhero" id="fieldhero" aria-label="AURA Lab">
+  <canvas></canvas>
+  <div class="fh-content">
+    <span class="figtag">FIG. 1 — THE ONLINE CROWD</span>
+    <h1 data-no-split>Bringing <span class="u">methods</span> to the places people live online.</h1>
+    <p class="fh-sub">A crowd is not noise. Move through it — <em>presence</em> changes how it flows.</p>
+    <div class="fh-hint"><span class="d" aria-hidden="true"></span> move your cursor · you are a presence in the field</div>
+  </div>
+  <div class="fh-gauge" aria-hidden="true">
+    <div class="row"><span class="lbl">Coherence</span><span class="bar"><span class="fill" id="fhCoh"></span></span><span class="val" id="fhCohV">0.00</span></div>
+    <div class="row"><span class="lbl">Flow</span><span class="bar"><span class="fill" id="fhFlow"></span></span><span class="val" id="fhFlowV">0.00</span></div>
+    <div class="row"><span class="lbl">Gathering</span><span class="bar"><span class="fill" id="fhGath"></span></span><span class="val" id="fhGathV">0%</span></div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    function boot() {
+      var host = document.getElementById('fieldhero');
+      if (!host || host.dataset.booted) return;
+      host.dataset.booted = '1';
+      var cv = host.querySelector('canvas'), ctx = cv.getContext('2d');
+      var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+      function resize() { var r = host.getBoundingClientRect(); w = r.width; h = r.height; cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+      resize(); new ResizeObserver(resize).observe(host);
+      var m = { x: -9999, y: -9999, on: false };
+      host.addEventListener('pointermove', function (e) { var r = host.getBoundingClientRect(); m.x = e.clientX - r.left; m.y = e.clientY - r.top; m.on = true; });
+      host.addEventListener('pointerleave', function () { m.on = false; m.x = m.y = -9999; });
+      function cssv(n) { return getComputedStyle(document.body).getPropertyValue(n).trim(); }
+
+      var N = Math.min(1300, Math.max(500, Math.round((w * h) / 860))) || 900;
+      var agents = [];
+      for (var i = 0; i < N; i++) agents.push({ x: ((i * 61) % 997) / 997 * (w || 900), y: ((i * 137) % 991) / 991 * (h || 600), vx: 0, vy: 0 });
+      agents[0].red = true;
+      var MAXV = 1.9, cohSm = 0, flowSm = 0, gathSm = 0, tf = 0;
+      function pot(x, y) {
+        return Math.sin(x * 0.0028 + tf * 0.0017) + Math.cos(y * 0.0031 - tf * 0.0014) + 0.6 * Math.sin((x + y) * 0.0021 + tf * 0.0009);
+      }
+      var g = { c: document.getElementById('fhCoh'), cv: document.getElementById('fhCohV'), f: document.getElementById('fhFlow'), fv: document.getElementById('fhFlowV'), g: document.getElementById('fhGath'), gv: document.getElementById('fhGathV') };
+      function step() {
+        tf++;
+        var ramp = Math.min(1, tf / 150), e = 1.3, sumvx = 0, sumvy = 0, sumsp = 0, gathering = 0;
+        for (var i = 0; i < agents.length; i++) {
+          var a = agents[i];
+          var dpdx = (pot(a.x + e, a.y) - pot(a.x - e, a.y)) / (2 * e);
+          var dpdy = (pot(a.x, a.y + e) - pot(a.x, a.y - e)) / (2 * e);
+          var fx = dpdy, fy = -dpdx, fm = Math.hypot(fx, fy) || 1e-6; fx /= fm; fy /= fm;
+          a.vx += (fx * MAXV * ramp - a.vx) * 0.07;
+          a.vy += (fy * MAXV * ramp - a.vy) * 0.07;
+          if (m.on) { var dx = m.x - a.x, dy = m.y - a.y, d = Math.hypot(dx, dy) || 1e-6; if (d < 215) { var f = (215 - d) / 215 * 0.68 * ramp; a.vx += dx / d * f; a.vy += dy / d * f; if (d < 125) gathering++; } }
+          var sp = Math.hypot(a.vx, a.vy) || 1e-6, cap = MAXV * 1.35; if (sp > cap) { a.vx = a.vx / sp * cap; a.vy = a.vy / sp * cap; }
+          a.x += a.vx; a.y += a.vy;
+          if (a.x < -6) a.x = w + 6; else if (a.x > w + 6) a.x = -6; if (a.y < -6) a.y = h + 6; else if (a.y > h + 6) a.y = -6;
+          sumvx += a.vx; sumvy += a.vy; sumsp += sp;
+        }
+        var meanSp = sumsp / agents.length || 1e-6;
+        var coherence = Math.hypot(sumvx, sumvy) / agents.length / meanSp;
+        var flow = Math.min(1, meanSp / MAXV), gath = Math.min(1, gathering / 70);
+        cohSm += (coherence - cohSm) * 0.05; flowSm += (flow - flowSm) * 0.05; gathSm += (gath - gathSm) * 0.08;
+        draw(); gauge();
+      }
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        var ink = cssv('--ink'), acc = cssv('--brick'), siue = cssv('--siue');
+        ctx.lineCap = 'round';
+        for (var i = 0; i < agents.length; i++) {
+          var a = agents[i], sp = Math.hypot(a.vx, a.vy) || 1e-6, ux = a.vx / sp, uy = a.vy / sp;
+          var L = 5.2 + 3.2 * Math.min(1, sp / MAXV);
+          var near = m.on && Math.hypot(m.x - a.x, m.y - a.y) < 125;
+          if (a.red) { ctx.strokeStyle = siue; ctx.globalAlpha = 1; ctx.lineWidth = 3; }
+          else if (near) { ctx.strokeStyle = acc; ctx.globalAlpha = 1; ctx.lineWidth = 1.9; }
+          else { ctx.strokeStyle = ink; ctx.globalAlpha = 0.24 + 0.40 * Math.min(1, sp / MAXV); ctx.lineWidth = 1.1; }
+          ctx.beginPath(); ctx.moveTo(a.x - ux * L, a.y - uy * L); ctx.lineTo(a.x + ux * L * 0.35, a.y + uy * L * 0.35); ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+      }
+      function gauge() {
+        g.c.style.width = (cohSm * 100).toFixed(0) + '%'; g.cv.textContent = cohSm.toFixed(2);
+        g.f.style.width = (flowSm * 100).toFixed(0) + '%'; g.fv.textContent = flowSm.toFixed(2);
+        g.g.style.width = (gathSm * 100).toFixed(0) + '%'; g.gv.textContent = (gathSm * 100).toFixed(0) + '%';
+      }
+      if (RM) { for (var k = 0; k < 240; k++) step(); }
+      else { (function loop() { step(); requestAnimationFrame(loop); })(); }
+    }
+    boot();
+    document.addEventListener('astro:page-load', boot);
+  })();
+</script>
+
+<style>
+  .fieldhero { position: relative; height: 88svh; min-height: 600px; overflow: hidden; }
+  .fieldhero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+  .fh-content {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-left: max(24px, calc((100% - 1200px) / 2 + 24px));
+    padding-right: 24px;
+  }
+  .fh-content::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: -1;
+    background: radial-gradient(120% 100% at 18% 50%,
+      color-mix(in srgb, var(--bg) 92%, transparent) 0%,
+      color-mix(in srgb, var(--bg) 58%, transparent) 42%,
+      transparent 74%);
+  }
+  .fh-content .figtag { position: relative; align-self: flex-start; }
+  .fh-content h1 {
+    position: relative; font-family: theme('fontFamily.display'); font-weight: 800;
+    letter-spacing: -0.02em; line-height: 0.98; color: var(--ink);
+    font-size: clamp(40px, 6.6vw, 92px); max-width: 14ch; margin: 20px 0 0;
+    animation: fh-rise 0.7s var(--ease-out) both;
+  }
+  .fh-content h1 .u { color: var(--brick); position: relative; white-space: nowrap; }
+  .fh-content h1 .u::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0.05em; height: 0.08em; background: var(--brick); opacity: 0.35; }
+  .fh-sub { position: relative; font-family: theme('fontFamily.serif'); font-size: clamp(18px, 1.8vw, 23px); color: var(--ink); max-width: 44ch; margin-top: 22px; }
+  .fh-sub em { color: var(--brick); font-style: italic; }
+  .fh-hint { position: relative; font-family: theme('fontFamily.mono'); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--ink-soft); margin-top: 28px; display: flex; align-items: center; gap: 8px; }
+  .fh-hint .d { width: 7px; height: 7px; background: var(--siue); border-radius: 1px; transform: rotate(45deg); display: inline-block; }
+  .fh-gauge {
+    position: absolute; z-index: 3; right: clamp(20px, 4vw, 52px); bottom: clamp(20px, 4vw, 40px);
+    font-family: theme('fontFamily.mono'); font-size: 0.72rem; color: var(--ink);
+    display: grid; gap: 8px; text-align: right; pointer-events: none;
+  }
+  .fh-gauge .row { display: grid; grid-template-columns: 1fr auto auto; gap: 14px; align-items: center; }
+  .fh-gauge .lbl { color: var(--ink-soft); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.62rem; }
+  .fh-gauge .bar { width: 110px; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; justify-self: end; }
+  .fh-gauge .fill { height: 100%; background: var(--brick); width: 0%; }
+  .fh-gauge .val { color: var(--brick); min-width: 3ch; }
+  @media (max-width: 640px) { .fh-gauge { display: none; } }
+  @keyframes fh-rise { from { opacity: 0; transform: translateY(0.4em); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .fh-content h1 { animation: none; } }
+</style>

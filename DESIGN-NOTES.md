@@ -58,9 +58,22 @@ Keeping the true brand red for a single high-intent mark (and the working accent
 brick shade of the *same hue*) means the palette is essentially **monochromatic red on warm
 neutrals** — institutionally SIUE, but never loud, and with no second hue to clash.
 
-The dark theme is gone, so there is no separate light "zone" anymore; the whole site is one
-warm theme. Legacy `--paper-*` / `--siue-red-*` tokens are kept as aliases pointing at the
-new palette, so the New Students pages restyled for free.
+Legacy `--paper-*` / `--siue-red-*` tokens are kept as aliases pointing at the new palette, so
+the New Students pages restyled for free.
+
+**Dark mode (reinstated 2026-07-13, owner request).** The site now ships a real **cool-charcoal
+dark theme** (`#101113` ground, off-white ink, lifted brick `#d64a3c`), derived from the
+director's headshot — deliberately *not* warm brown. It's the **default**, with a nav toggle to
+warm-paper light (persisted in `localStorage`, FOUC-safe via an inline `<head>` script). Only the
+base tokens are overridden under `:root[data-theme="dark"]`; every semantic alias is late-bound
+`var()`, so the whole component library restyles for free. The true SIUE red is kept in both themes
+as the one institutional mark.
+
+**The homepage hero is now a live flow field** (`FieldHero.astro`): the online crowd as a
+divergence-free curl-noise field — people flow in streams, the cursor is a *presence* they gather
+around, and the field reports its own emergent state (coherence / flow / gathering). It reads as the
+lab's subject without reusing the theories constellation's node-edge grammar; reduced-motion users
+get a calm settled frame.
 
 ## 4. Anti-"AI-slop" stance
 

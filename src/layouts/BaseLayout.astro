@@ -28,7 +28,23 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f6f3ec" />
+    <meta name="theme-color" content="#101113" />
+    <script is:inline>
+      (function () {
+        function apply(t) {
+          document.documentElement.setAttribute('data-theme', t);
+          var mc = document.querySelector('meta[name="theme-color"]');
+          if (mc) mc.setAttribute('content', t === 'light' ? '#f6f3ec' : '#101113');
+        }
+        try {
+          apply(localStorage.getItem('theme') || 'dark');
+        } catch (e) { apply('dark'); }
+        // Re-apply after Astro View Transitions swap the <head>.
+        document.addEventListener('astro:after-swap', function () {
+          try { apply(localStorage.getItem('theme') || 'dark'); } catch (e) {}
+        });
+      })();
+    </script>
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" sizes="any" />

@@ -162,7 +162,7 @@ const mac = {
   .codeblock {
     background: #14141a;
     color: #eae7f2;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid var(--line);
     border-radius: var(--radius-card);
     padding: 1rem 1.1rem;
     overflow-x: auto;
@@ -183,8 +183,8 @@ const mac = {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #b9b3c9;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: var(--brick-wash);
+    border: 1px solid var(--line);
     border-radius: 6px;
     padding: 0.2rem 0.5rem;
     cursor: pointer;
@@ -192,7 +192,7 @@ const mac = {
     transition: opacity 150ms var(--ease-out), color 150ms var(--ease-out);
   }
   .codeblock:hover :global(.copy-btn), :global(.copy-btn:focus-visible) { opacity: 1; }
-  :global(.copy-btn:hover) { color: #fff; }
+  :global(.copy-btn:hover) { color: var(--ink); }
 </style>
 
 <script>
