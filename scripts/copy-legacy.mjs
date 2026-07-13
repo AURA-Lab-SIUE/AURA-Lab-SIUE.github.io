@@ -17,6 +17,12 @@ const items = [
   // Captionizer and Countdown pages render unstyled.
   'css',
   'js',
+  // Self-hosted assets so the standalone pages make no external requests:
+  // fonts (Inter/Lexend/Public Sans), Font Awesome (Captionizer icons),
+  // and the vendored Tailwind Play compiler (app_form).
+  'fonts',
+  'fontawesome',
+  'vendor',
   '_archive',
 ];
 
