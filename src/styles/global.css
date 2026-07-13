@@ -109,3 +109,15 @@
     border-color: var(--brick);
   }
 }
+
+/* Scroll-reveal — enabled via `.anim` on <html> (set pre-paint, skipped for
+   reduced-motion). Elements rise + fade in as they enter the viewport. */
+:root.anim :is(.card, .area, .pillar, .collab, .mrow, .pub, .news-item, .lcard, .divider .title) {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+:root.anim :is(.card, .area, .pillar, .collab, .mrow, .pub, .news-item, .lcard, .divider .title).in {
+  opacity: 1;
+  transform: none;
+}

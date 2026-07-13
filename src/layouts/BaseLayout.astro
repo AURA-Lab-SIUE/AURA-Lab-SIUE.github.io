@@ -39,6 +39,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
         try {
           apply(localStorage.getItem('theme') || 'dark');
         } catch (e) { apply('dark'); }
+        // Enable scroll-reveal (FOUC-safe: hides target elements before first paint).
+        try {
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('anim');
+          }
+        } catch (e) {}
         // Re-apply after Astro View Transitions swap the <head>.
         document.addEventListener('astro:after-swap', function () {
           try { apply(localStorage.getItem('theme') || 'dark'); } catch (e) {}
@@ -104,8 +110,22 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
         });
       }
 
+      const REVEAL_SEL = '.card, .area, .pillar, .collab, .mrow, .pub, .news-item, .lcard, .divider .title';
+      let io: IntersectionObserver | null = null;
+      function revealOnScroll() {
+        if (!document.documentElement.classList.contains('anim')) return;
+        if (io) io.disconnect();
+        io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) { e.target.classList.add('in'); io && io.unobserve(e.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+        document.querySelectorAll(REVEAL_SEL).forEach((el) => io!.observe(el));
+      }
+
       reveal();
-      document.addEventListener('astro:page-load', reveal);
+      revealOnScroll();
+      document.addEventListener('astro:page-load', () => { reveal(); revealOnScroll(); });
     </script>
   </body>
 </html>

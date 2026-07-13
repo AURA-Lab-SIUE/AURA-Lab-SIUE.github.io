@@ -108,3 +108,12 @@ h1, h3 {
 	width: 48%;
 	/* Adjust as needed */
 }
+/* Dark mode — override the base palette vars. Applied by /tool-theme.js. */
+:root[data-theme="dark"] {
+  --white-color: #191b1e;
+  --10-grey-color: #23262b;
+  --90-grey-color: #ECEDEF;
+  --black-color: #ECEDEF;
+  color-scheme: dark;
+}
+:root[data-theme="dark"] body { background: #101113; color: #ECEDEF; }

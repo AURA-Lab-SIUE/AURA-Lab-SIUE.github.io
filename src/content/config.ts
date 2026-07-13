@@ -84,6 +84,7 @@ const news = defineCollection({
     date: z.date(),
     title: z.string(),
     tags: z.array(z.string()).optional(),
+    dimensions: z.array(z.enum(['Avatars', 'Users', 'Relationships', 'Affect'])).optional(),
   }),
 });
 

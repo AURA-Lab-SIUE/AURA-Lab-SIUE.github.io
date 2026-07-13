@@ -4,13 +4,20 @@ import FieldHero from '../components/FieldHero.astro';
 import SectionDivider from '../components/SectionDivider.astro';
 import ResearchAreaCard from '../components/ResearchAreaCard.astro';
 import PubItem from '../components/PubItem.astro';
-import { getEntry } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
 
 const pubsEntry = await getEntry('publications', 'pubs');
 const recentPubs = [...(pubsEntry?.data.entries ?? [])]
   .filter(p => p.featured || p.status === 'published')
   .sort((a, b) => b.year - a.year)
   .slice(0, 3);
+
+// Dynamic content: newest news item, surfaced automatically on each build.
+const latestNews = (await getCollection('news'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+const latestNewsDate = latestNews
+  ? latestNews.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  : '';
 
 const dimensions = [
   { word: 'Avatars',       blurb: 'How people show up when the body is rendered — embodiment and self-presentation in VR and virtual worlds.', href: '/framework/' },
@@ -31,6 +38,23 @@ const dimensions = [
   <div class="container-page mt-8">
     <a href="/framework/" class="link-underline text-accent-text">See the whole framework →</a>
   </div>
+
+  <section class="container-page mt-16">
+    <div class="signal">
+      {latestNews && (
+        <a class="sig-latest" href="/news/">
+          <span class="sig-k">Latest</span>
+          <time class="sig-date">{latestNewsDate}</time>
+          <span class="sig-title">{latestNews.data.title}</span>
+          <span class="sig-arr" aria-hidden="true">→</span>
+        </a>
+      )}
+      <p class="sig-studying">
+        <span class="sig-k">Currently studying</span>
+        <span id="studyLine" class="sig-val">presence in shared virtual rooms</span>
+      </p>
+    </div>
+  </section>
 
   <SectionDivider kicker="Recent" title="What's been published." />
   <section class="container-page">
@@ -57,3 +81,49 @@ const dimensions = [
     </p>
   </section>
 </BaseLayout>
+
+<script is:inline>
+  (function () {
+    var phrases = [
+      'presence in shared virtual rooms',
+      'identity tagging on Twitch',
+      'affect at corpus scale',
+      'inclusion in virtual meetings',
+      'parasocial ties in livestreams',
+    ];
+    function run() {
+      var el = document.getElementById('studyLine');
+      if (!el || el.dataset.cycling) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      el.dataset.cycling = '1';
+      var i = 0;
+      setInterval(function () {
+        i = (i + 1) % phrases.length;
+        el.style.opacity = '0';
+        setTimeout(function () { el.textContent = phrases[i]; el.style.opacity = '1'; }, 350);
+      }, 2800);
+    }
+    run();
+    document.addEventListener('astro:page-load', run);
+  })();
+</script>
+
+<style>
+  .signal {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 16px 32px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .sig-k {
+    font-family: theme('fontFamily.mono'); font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--brick);
+  }
+  .sig-latest { display: inline-flex; align-items: baseline; gap: 12px; text-decoration: none; min-width: 0; }
+  .sig-date { font-family: theme('fontFamily.mono'); font-size: 0.72rem; color: var(--ink-soft); }
+  .sig-title { font-family: theme('fontFamily.display'); font-weight: 700; font-size: 0.98rem; color: var(--ink); }
+  .sig-arr { color: var(--brick); transition: transform 250ms var(--ease-out); }
+  .sig-latest:hover .sig-arr { transform: translateX(3px); }
+  .sig-latest:hover .sig-title { color: var(--brick); }
+  .sig-studying { display: inline-flex; align-items: baseline; gap: 12px; margin: 0; }
+  .sig-val { font-family: theme('fontFamily.mono'); font-size: 0.86rem; color: var(--ink); transition: opacity 0.35s var(--ease-out); }
+  @media (max-width: 720px) { .signal { flex-direction: column; align-items: flex-start; } }
+</style>

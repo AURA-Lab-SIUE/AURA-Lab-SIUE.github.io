@@ -8,7 +8,28 @@ const directorEntry = await getEntry('people', 'director');
 const director = directorEntry!.data;
 const bioHtml = marked.parse(director.bio);
 
-const collaborators = [
+// Each collaborator's AURA dimensions, derived from the publications they've
+// co-authored with the lab (the same setting→dimension map used site-wide).
+const pubsEntry = await getEntry('publications', 'pubs');
+const pubs = pubsEntry?.data.entries ?? [];
+const AURA_OF: Record<string, string[]> = {
+  'virtual-environments': ['Avatars', 'Relationships', 'Affect'],
+  'streaming': ['Users', 'Relationships', 'Affect'],
+  'meetings': ['Users', 'Relationships'],
+  'methods': ['Avatars', 'Users', 'Relationships', 'Affect'],
+};
+const AURA_ORDER = ['Avatars', 'Users', 'Relationships', 'Affect'];
+function dimsForSurname(surname: string) {
+  const areas = new Set<string>();
+  for (const p of pubs) {
+    if (p.authors.some(a => a.split(',')[0].trim() === surname || a.includes(surname))) {
+      for (const ar of p.areas) areas.add(ar);
+    }
+  }
+  return AURA_ORDER.filter(d => [...areas].some(ar => (AURA_OF[ar] ?? []).includes(d)));
+}
+
+const collaboratorsRaw = [
   { name: 'Robby Ratan', roles: ['Professor + AT&T Endowed Chair', 'Media & Information, Michigan State University', 'Visiting Scholar, Virtual Human Interaction Lab, Stanford'], orcid: 'https://orcid.org/0000-0001-7611-8046' },
   { name: 'Chaeyun Lim', roles: ['Postdoctoral Fellow', 'Kellogg School of Management, Northwestern University'], orcid: 'https://orcid.org/0000-0003-2570-3071' },
   { name: 'Maxwell Foxman', roles: ['Associate Professor', 'School of Journalism and Communication, University of Oregon'], orcid: 'https://orcid.org/0000-0001-6499-4372' },
@@ -16,6 +37,7 @@ const collaborators = [
   { name: 'David C. Jeong', roles: ['Assistant Professor', 'Department of Communication, Santa Clara University'], orcid: 'https://orcid.org/0000-0002-8829-3578' },
   { name: 'Brian Klebig', roles: ['Professor', 'Department of Communication, Bethany Lutheran College'], orcid: 'https://orcid.org/0000-0003-3888-2566' },
 ];
+const collaborators = collaboratorsRaw.map(c => ({ ...c, dims: dimsForSurname(c.name.split(' ').pop() as string) }));
 const students = {
   Undergraduate: ['Gerri Marion'],
   Graduate: ['Michelle Poneleit'],
@@ -66,6 +88,11 @@ const alumni = {
           <ul class="mt-2 text-muted text-sm space-y-0.5">
             {c.roles.map(r => <li>{r}</li>)}
           </ul>
+          {c.dims.length > 0 && (
+            <p class="cdims" title="AURA dimensions this collaborator works in, from shared publications">
+              {c.dims.map(d => <a class="cdim" href={`/publications/`}>{d}</a>)}
+            </p>
+          )}
           <a class="link-underline text-accent-text text-sm mt-4 inline-block" href={c.orcid}>ORCID ↗</a>
         </div>
       ))}
@@ -137,6 +164,15 @@ const alumni = {
     box-shadow: var(--shadow-card);
   }
   .collab h3 { color: var(--text); }
+  .cdims { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.9rem; }
+  .cdim {
+    font-family: theme('fontFamily.mono'); font-size: 0.62rem; letter-spacing: 0.04em;
+    color: var(--brick); text-decoration: none;
+    border: 1px solid color-mix(in srgb, var(--brick) 35%, transparent);
+    background: var(--brick-wash); padding: 2px 8px; border-radius: 999px;
+    transition: background 200ms var(--ease-out), color 200ms var(--ease-out);
+  }
+  .cdim:hover { background: var(--brick); color: #fff; }
   .rlevel {
     font-family: theme('fontFamily.mono');
     font-size: 0.72rem;

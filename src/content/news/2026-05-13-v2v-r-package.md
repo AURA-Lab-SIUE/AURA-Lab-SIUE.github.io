@@ -2,6 +2,7 @@
 date: 2026-05-13
 title: "v2v R package goes live"
 tags: ["tools", "open-science"]
+dimensions: ["Users", "Relationships", "Affect"]
 ---
 
 The companion R package for *Vibes to Variables* — the lab's open data-literacy

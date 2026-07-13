@@ -1,6 +1,6 @@
 ---
-interface Props { date: Date; title: string; tags?: string[]; }
-const { date, title, tags = [] } = Astro.props;
+interface Props { date: Date; title: string; tags?: string[]; dimensions?: string[]; }
+const { date, title, tags = [], dimensions = [] } = Astro.props;
 const formatted = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 const iso = date.toISOString().slice(0, 10);
 ---
@@ -12,6 +12,11 @@ const iso = date.toISOString().slice(0, 10);
       <ul class="mt-1 flex gap-2 text-xs uppercase tracking-ui text-muted">
         {tags.map(t => <li>#{t}</li>)}
       </ul>
+    )}
+    {dimensions.length > 0 && (
+      <p class="ndims">
+        {dimensions.map(d => <a class="ndim" href="/framework/">{d}</a>)}
+      </p>
     )}
     <div class="mt-3 max-w-measure text-muted">
       <slot />
@@ -30,4 +35,13 @@ const iso = date.toISOString().slice(0, 10);
   @media (max-width: 640px) {
     .news-item { grid-template-columns: 1fr; }
   }
+  .ndims { display: flex; flex-wrap: wrap; gap: 6px; margin: 0.5rem 0 0; }
+  .ndim {
+    font-family: theme('fontFamily.mono'); font-size: 0.62rem; letter-spacing: 0.04em;
+    color: var(--brick); text-decoration: none;
+    border: 1px solid color-mix(in srgb, var(--brick) 35%, transparent);
+    background: var(--brick-wash); padding: 2px 8px; border-radius: 999px;
+    transition: background 200ms var(--ease-out), color 200ms var(--ease-out);
+  }
+  .ndim:hover { background: var(--brick); color: #fff; }
 </style>

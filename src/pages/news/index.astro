@@ -21,7 +21,7 @@ const rendered = await Promise.all(news.map(async (entry) => {
 
   <section class="container-page mt-10 max-w-3xl">
     {rendered.map(({ entry, Content }) => (
-      <NewsItem date={entry.data.date} title={entry.data.title} tags={entry.data.tags}>
+      <NewsItem date={entry.data.date} title={entry.data.title} tags={entry.data.tags} dimensions={entry.data.dimensions}>
         <Content />
       </NewsItem>
     ))}
