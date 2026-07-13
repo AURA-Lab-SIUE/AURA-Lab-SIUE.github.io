@@ -10,11 +10,20 @@ const projects = await getCollection('projects');
 const pubsEntry = await getEntry('publications', 'pubs');
 const pubs = pubsEntry?.data.entries ?? [];
 
+// AURA is the lens; each setting foregrounds some of the four dimensions.
+const AURA_OF: Record<string, string[]> = {
+  'virtual-environments': ['Avatars', 'Relationships', 'Affect'],
+  'streaming': ['Users', 'Relationships', 'Affect'],
+  'methods': ['ALL'],
+  'meetings': ['Users', 'Relationships'],
+};
+const AURA_ORDER = ['Avatars', 'Users', 'Relationships', 'Affect'];
+
 const rendered = await Promise.all(areas.map(async (area) => {
   const { Content } = await area.render();
   const areaProjects = projects.filter(p => p.data.area === area.data.area);
   const areaPubs = pubs.filter(p => p.areas.includes(area.data.area as any)).slice(0, 3);
-  return { area, Content, areaProjects, areaPubs };
+  return { area, Content, areaProjects, areaPubs, dims: AURA_OF[area.data.area] ?? [] };
 }));
 ---
 <BaseLayout title="Research" current="research"
@@ -24,15 +33,22 @@ const rendered = await Promise.all(areas.map(async (area) => {
     <p class="text-muted uppercase tracking-ui text-sm">What the lab studies</p>
     <h1 class="font-display text-5xl md:text-7xl mt-4 leading-none">Research at AURA Lab.</h1>
     <p class="mt-8 max-w-measure text-lg text-muted">
-      Four threads, one orientation: take the lived experience of platforms, games,
-      and virtual worlds seriously as social phenomena, and bring methods to the
-      questions that actually arise there.
+      We read four dimensions of social experience online —
+      <a href="/framework/" class="link-underline text-accent-text">Avatars, Users, Relationships, and Affect</a>.
+      The settings below are where we study them: each is a context that foregrounds
+      some dimensions more than others, and our methods measure across all four.
     </p>
   </section>
 
-  {rendered.map(({ area, Content, areaProjects, areaPubs }) => (
+  {rendered.map(({ area, Content, areaProjects, areaPubs, dims }) => (
     <article id={area.data.area}>
-      <SectionDivider kicker={`Thread 0${area.data.order}`} title={area.data.title} />
+      <SectionDivider kicker={`Setting 0${area.data.order} — where we study it`} title={area.data.title} />
+      <div class="container-page dim-row">
+        <span class="dt-label">AURA</span>
+        {dims[0] === 'ALL'
+          ? <a href="/framework/" class="dchip all">measures all four →</a>
+          : AURA_ORDER.map(o => <span class={`dchip ${dims.includes(o) ? 'hot' : ''}`}>{o}</span>)}
+      </div>
       <div class="container-page grid lg:grid-cols-[1fr_2fr] gap-12">
         <div>
           <p class="text-lg max-w-measure">{area.data.blurb}</p>
@@ -61,4 +77,19 @@ const rendered = await Promise.all(areas.map(async (area) => {
 
 <style>
   .prose-area :global(p) { margin: 0.8em 0; }
+  .dim-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px;
+    margin-top: -0.5rem; margin-bottom: 2rem;
+  }
+  .dt-label {
+    font-family: theme('fontFamily.mono'); font-size: 0.64rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--muted); margin-right: 4px;
+  }
+  .dchip {
+    font-family: theme('fontFamily.mono'); font-size: 0.68rem; letter-spacing: 0.03em;
+    padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line);
+    color: var(--muted); text-decoration: none;
+  }
+  .dchip.hot { color: #fff; background: var(--brick); border-color: var(--brick); }
+  .dchip.all { color: var(--brick); border-color: var(--brick); background: var(--brick-wash); }
 </style>

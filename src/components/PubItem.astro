@@ -8,15 +8,19 @@ interface Props {
   preprint?: string;
   status: 'published' | 'in-press' | 'preprint';
   areas: string[];
+  dims?: string[];
 }
-const { title, authors, venue, year, doi, preprint, status, areas } = Astro.props;
+const { title, authors, venue, year, doi, preprint, status, areas, dims } = Astro.props;
 const link = doi ?? preprint;
 const authorsRendered = authors.map(a => a.includes('Leith') ? `<strong>${a}</strong>` : a).join(', ');
 ---
-<article class="pub" data-areas={areas.join(' ')}>
+<article class="pub" data-areas={areas.join(' ')} data-dims={(dims ?? []).join(' ')}>
   <h3 class="pub-title">
     {link ? <a class="link-underline" href={link}>{title}</a> : title}
   </h3>
+  {dims && dims.length > 0 && (
+    <p class="pub-dims">{dims.map(d => <span class="pd">{d}</span>)}</p>
+  )}
   <p class="meta">
     <span set:html={authorsRendered} />
     <span class="dot">·</span>
@@ -31,6 +35,12 @@ const authorsRendered = authors.map(a => a.includes('Leith') ? `<strong>${a}</st
 
 <style>
   .pub { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .pub-dims { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 0.5rem; }
+  .pd {
+    font-family: theme('fontFamily.mono'); font-size: 0.62rem; letter-spacing: 0.04em;
+    color: var(--brick); border: 1px solid color-mix(in srgb, var(--brick) 35%, transparent);
+    background: var(--brick-wash); padding: 2px 8px; border-radius: 999px;
+  }
   .pub-title {
     font-family: theme('fontFamily.display');
     font-weight: 600;

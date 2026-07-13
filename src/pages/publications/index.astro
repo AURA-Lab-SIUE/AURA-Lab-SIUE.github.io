@@ -6,12 +6,21 @@ import { getEntry } from 'astro:content';
 const pubsEntry = await getEntry('publications', 'pubs');
 const pubs = [...(pubsEntry?.data.entries ?? [])].sort((a, b) => b.year - a.year);
 
+// Browse publications through the AURA lens: derive each pub's dimensions from
+// the settings it's tagged with (methods measures across all four).
+const AURA_OF: Record<string, string[]> = {
+  'virtual-environments': ['Avatars', 'Relationships', 'Affect'],
+  'streaming': ['Users', 'Relationships', 'Affect'],
+  'meetings': ['Users', 'Relationships'],
+  'methods': ['Avatars', 'Users', 'Relationships', 'Affect'],
+};
+const AURA_ORDER = ['Avatars', 'Users', 'Relationships', 'Affect'];
+const dimsOf = (areas: string[]) => AURA_ORDER.filter(d => areas.some(a => (AURA_OF[a] ?? []).includes(d)));
+const pubsWithDims = pubs.map(p => ({ ...p, dims: dimsOf(p.areas) }));
+
 const filters = [
   { key: 'all', label: 'All' },
-  { key: 'virtual-environments', label: 'Virtual Envs' },
-  { key: 'streaming', label: 'Streaming' },
-  { key: 'methods', label: 'Methods' },
-  { key: 'meetings', label: 'Meetings' },
+  ...AURA_ORDER.map(d => ({ key: d, label: d })),
 ];
 ---
 <BaseLayout title="Publications" current="publications"
@@ -28,17 +37,17 @@ const filters = [
   </section>
 
   <section class="container-page mt-10">
-    <div class="flex flex-wrap gap-3" role="group" aria-label="Filter publications by area">
+    <div class="flex flex-wrap gap-3" role="group" aria-label="Filter publications by AURA dimension">
       {filters.map((f, i) => (
         <button class="pill" data-filter={f.key} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>
       ))}
     </div>
 
     <div id="pub-list" class="mt-10 max-w-3xl">
-      {pubs.map(p => <PubItem {...p} />)}
+      {pubsWithDims.map(p => <PubItem {...p} />)}
     </div>
 
-    <p id="empty" class="hidden mt-6 text-muted">No publications in this area yet.</p>
+    <p id="empty" class="hidden mt-6 text-muted">No publications in this dimension yet.</p>
   </section>
 </BaseLayout>
 
@@ -51,8 +60,8 @@ const filters = [
     function apply(filter: string) {
       let shown = 0;
       items.forEach(el => {
-        const areas = (el.dataset.areas ?? '').split(' ');
-        const match = filter === 'all' || areas.includes(filter);
+        const dims = (el.dataset.dims ?? '').split(' ');
+        const match = filter === 'all' || dims.includes(filter);
         el.style.display = match ? '' : 'none';
         if (match) shown += 1;
       });
