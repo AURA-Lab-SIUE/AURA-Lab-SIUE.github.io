@@ -1,0 +1,94 @@
+# Design Notes — AURA Lab
+
+The rationale behind the site's visual system, kept so the choices are auditable rather
+than arbitrary. The lab studies the lived experience of platforms, games, and virtual
+worlds as social phenomena, and brings methods to the questions that arise there. The design
+has to read as **serious, human, inviting, and methods-forward** — and to sit believably
+alongside SIUE — while avoiding generic "AI-slop" design.
+
+---
+
+## 1. The direction: "The Instrument, in warm paper"
+
+The site is a synthesis of two explored directions:
+
+- **Structure = "The Instrument."** The lab brings measurement to messy social life, so the
+  visual language is warm scientific plotting: a faint **graph-paper grid**, **`FIG.` labels**,
+  an annotated **axis** of the settings we study (stream → server → headset → feed → room),
+  mono readouts, and figure-plate cards. The *structure* is the ornament — it's derived from
+  what the lab actually does, not decoration.
+- **Palette + voice = "The Reader."** Warm bone paper, near-black ink, an expressive
+  grotesque display over a readable serif body — the feel of a serious little magazine about
+  digital social life (*Logic(s)*, *Real Life*). This carries the director's ethos: *publish
+  to be read and reused.*
+
+This also pulls the lab toward **SIUE.edu's** own posture: a light institutional ground,
+near-black text, restrained red, grotesque headings over serif body, generous whitespace.
+
+## 2. Type
+
+Three families, three clear jobs (all self-hosted via `@fontsource`):
+
+| Role | Typeface | Where |
+|---|---|---|
+| Display / headlines | **Archivo** (grotesque, 800) | `h1`–`h3`, hero, section titles |
+| UI / labels | **Archivo** | nav, kickers, `.seclabel`, badges, buttons |
+| Body copy | **Newsreader** (serif) | paragraphs, decks — bookish, readable |
+| Data / labels | **Spline Sans Mono** | `FIG.` tags, axis ticks, stat readouts, code |
+
+Grotesque-headings-over-serif-body deliberately echoes SIUE's own pairing (URW Grotesk /
+ITC Slimbach) with free stand-ins, so we align without licensing their fonts.
+
+## 3. Color — one working accent, one institutional mark
+
+The earlier bright-SIUE-red-on-dark theme was retired: forcing `#e5182d` as the primary
+accent fought the lab's character. The system now is **warm neutrals + a single calm red**:
+
+| Token | Value | Role |
+|---|---|---|
+| `--paper` | `#f6f3ec` | page ground (warm bone) |
+| `--card` | `#fcfbf7` | raised surface |
+| `--ink` | `#1e1b18` | body text — ~15:1 on paper (AAA) |
+| `--ink-soft` | `#6b6357` | secondary text |
+| **`--brick`** | **`#a8322a`** | **the working accent** — links, `FIG.` tags, rules, active states, buttons. Collegiate red, ~6:1 on paper (AA). Calm, not a siren. |
+| `--brick-deep` | `#872619` | hover / pressed |
+| **`--siue`** | **`#e5182d`** | **exact SIUE University Red — used in exactly ONE place:** the diamond tick beside the wordmark. The institutional "whisper." |
+
+Keeping the true brand red for a single high-intent mark (and the working accent as a
+brick shade of the *same hue*) means the palette is essentially **monochromatic red on warm
+neutrals** — institutionally SIUE, but never loud, and with no second hue to clash.
+
+The dark theme is gone, so there is no separate light "zone" anymore; the whole site is one
+warm theme. Legacy `--paper-*` / `--siue-red-*` tokens are kept as aliases pointing at the
+new palette, so the New Students pages restyled for free.
+
+## 4. Anti-"AI-slop" stance
+
+Explicitly avoided (all flagged as 2026 slop tells): purple/blue gradient meshes, glowing
+orbs/"auras" (notable given the lab's name — the old hero's aura-ring glow is gone),
+glassmorphism, neon-on-black dark mode, the one-sided thick accent-border card, generic
+bento grids, Inter-for-everything, and stock "metaverse" avatars. The antidote used here:
+one warm environment, one intentional accent, real typographic hierarchy, and a motif
+(`FIG.`/grid/axis) that *means something* because it's drawn from the lab's methods.
+
+## 5. Accessibility
+
+- Ink `#1e1b18` on paper `#f6f3ec`: ~15:1 (AAA).
+- Brick `#a8322a` text/links on paper: ~6:1 (AA, near-AAA); `--brick-deep` ~8:1.
+- White on brick buttons and white on the `#e5182d` tick both clear AA.
+- Focus rings, reduced-motion handling, and the skip link are in the base layer; the hero
+  headline and the title-reveal animation both respect `prefers-reduced-motion`.
+
+## 6. Motion
+
+Restrained and meaningful only: a one-time serif/grotesque headline rise, a word-by-word
+reveal on page `h1`s (the hero opts out via `data-no-split` because it contains a styled
+span the reveal would flatten), link underlines that draw on hover, and card lift. No
+gradients, glow, parallax, or gimmicks.
+
+---
+
+*Tokens: `src/styles/tokens.css`. Base + component classes (`.figtag`, `.seclabel`, `.card`,
+`.pill`, `.link-underline`): `src/styles/global.css`. Fonts wired in `tailwind.config.mjs`.
+Shared chrome: `Nav.astro`, `Footer.astro`, `Hero.astro`, `SectionDivider.astro`. Student
+section: `src/pages/students/**` + `src/content/student-toolkit/toolkit.yaml`.*

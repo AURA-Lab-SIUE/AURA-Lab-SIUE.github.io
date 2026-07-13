@@ -1,0 +1,70 @@
+---
+interface Props {
+  name: string;
+  what: string;
+  license: 'foss' | 'free' | 'freemium' | 'student';
+  platforms: string[];
+  href: string;
+  note?: string;
+}
+const { name, what, license, platforms, href, note } = Astro.props;
+
+const LICENSE: Record<Props['license'], string> = {
+  foss: 'Open source',
+  free: 'Free',
+  freemium: 'Free tier',
+  student: 'Free · SIUE/Edu',
+};
+---
+<article class="card p-6 flex flex-col gap-3">
+  <header class="flex items-start justify-between gap-3">
+    <h3 class="font-display text-2xl leading-tight">
+      <a class="link-underline" href={href} target="_blank" rel="noopener">{name}</a>
+    </h3>
+    <span class={`badge badge--${license}`}>{LICENSE[license]}</span>
+  </header>
+
+  <p class="text-muted leading-relaxed">{what}</p>
+
+  {note && <p class="note">{note}</p>}
+
+  <footer class="mt-auto pt-2 flex items-center justify-between gap-3">
+    <span class="platforms">{platforms.join(' · ')}</span>
+    <a class="link-underline text-accent-text text-sm whitespace-nowrap"
+       href={href} target="_blank" rel="noopener">Get it ↗</a>
+  </footer>
+</article>
+
+<style>
+  .badge {
+    flex-shrink: 0;
+    font-family: theme('fontFamily.mono');
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--paper-line);
+    color: var(--paper-muted);
+    white-space: nowrap;
+  }
+  /* The one place brand red carries meaning: it marks the benefits you get
+     specifically because you're an SIUE student. */
+  .badge--student {
+    color: var(--siue-red-ink);
+    border-color: color-mix(in srgb, var(--siue-red) 40%, transparent);
+    background: var(--siue-red-wash);
+  }
+  .note {
+    font-size: 0.85rem;
+    color: var(--paper-muted);
+    border-left: 2px solid color-mix(in srgb, var(--siue-red) 45%, transparent);
+    padding-left: 0.75rem;
+  }
+  .platforms {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.7rem;
+    color: var(--paper-muted);
+    letter-spacing: 0.02em;
+  }
+</style>

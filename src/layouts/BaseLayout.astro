@@ -13,7 +13,7 @@ interface Props {
 
 const {
   title,
-  description = 'AURA Lab at SIUE — a computational communication research group studying mediated presence, streaming, and digital affect.',
+  description = 'AURA Lab at SIUE — studying the lived experience of platforms, games, and virtual worlds as social phenomena, and bringing methods to the questions that arise there.',
   current,
   image = '/img/aura-mark.png',
 } = Astro.props;
@@ -28,7 +28,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0E0E12" />
+    <meta name="theme-color" content="#f6f3ec" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/img/aura-mark.svg" />
 
@@ -43,7 +43,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <slot name="head" />
   </head>
   <body>
-    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-violet focus:text-text focus:px-3 focus:py-2 focus:rounded">Skip to main content</a>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-brick focus:text-white focus:px-3 focus:py-2 focus:rounded">Skip to main content</a>
     <Nav current={current} />
     <main id="main">
       <slot />
@@ -55,7 +55,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 
       function reveal() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const h1s = document.querySelectorAll<HTMLElement>('main h1:not([data-revealed]):not(.wordmark)');
+        const h1s = document.querySelectorAll<HTMLElement>('main h1:not([data-revealed]):not(.wordmark):not([data-no-split])');
         h1s.forEach((h1) => {
           h1.dataset.revealed = '1';
           const text = h1.textContent ?? '';

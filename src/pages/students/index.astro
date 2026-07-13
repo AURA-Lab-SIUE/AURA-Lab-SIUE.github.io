@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+// Guiding principles — the habits that matter more than any single app.
+const principles = [
+  {
+    title: 'Back up everything, today',
+    body: 'More students lose points to a dead laptop than to a hard exam. Keep 3 copies, on 2 kinds of storage, with 1 somewhere else. Your future self at 2 a.m. will thank you.',
+  },
+  {
+    title: 'Use AI honestly',
+    body: 'AI is a real study partner — and an easy way to accidentally cheat. Follow each syllabus, disclose when you use it, and verify everything: it invents citations and gets math wrong.',
+  },
+  {
+    title: 'Keep private things private',
+    body: 'Cloud AI sends your words to a company. Never paste grades, IDs, or health info into it. When you need AI on sensitive material, run it locally on your own laptop instead.',
+  },
+  {
+    title: 'Free is not lesser',
+    body: 'These are the same tools researchers and working professionals use every day. You do not need to pay for software to do excellent work in college.',
+  },
+];
+
+// The eight FST 101 weeks, each mapped to the tools that serve it and to a
+// course objective. Tools are examples — the toolkit page has the full set.
+const weeks = [
+  {
+    n: 1,
+    theme: 'Introduction',
+    focus: 'Get your digital life ready for college. Claim the free accounts you already have, set up a password manager, and get comfortable moving around Blackboard.',
+    tools: ['Bitwarden', 'Microsoft Copilot Chat', 'Firefox'],
+    objective: 'Academic expectations & working within Blackboard',
+  },
+  {
+    n: 2,
+    theme: 'Reading, Notetaking & Time Management',
+    focus: 'Build a system to capture readings and lectures — and never miss a deadline. Pick a notes app, mark up your PDFs, and put every due date in one calendar.',
+    tools: ['Obsidian', 'Xournal++', 'Super Productivity', 'Thunderbird'],
+    objective: 'Skills to meet academic expectations',
+  },
+  {
+    n: 3,
+    theme: 'Effective Study Skills',
+    focus: 'Study smarter, not longer. Use spaced-repetition flashcards for what you need to memorize, and let a private AI quiz you over your own notes.',
+    tools: ['Anki', 'AnythingLLM', 'Whisper (Buzz)'],
+    objective: 'Making the most of your efforts',
+  },
+  {
+    n: 4,
+    theme: 'Get Involved & Build Connections',
+    focus: 'Find your one thing. Use free tools to explore involvement, start a portfolio, and claim the GitHub Student Developer Pack. A research lab like AURA is one place to plug in.',
+    tools: ['GitHub Education', 'Zotero'],
+    objective: 'Resources, support, and engagement at SIUE',
+  },
+  {
+    n: 5,
+    theme: 'Cougar Collaboration: Belonging through Inclusive Community',
+    focus: 'Do great group work and make it reach everyone. Collaborate in shared documents, sketch ideas together, and caption your media so no one is left out.',
+    tools: ['LibreOffice', 'Excalidraw', 'Captionizer'],
+    objective: 'Learning in a diverse community; common human dignity',
+  },
+  {
+    n: 6,
+    theme: 'Personality, Major & Career — Defining Your Why',
+    focus: 'Explore who you are and where you are headed. Build a résumé and a portfolio, and try the production tools a communications career actually runs on.',
+    tools: ['OBS Studio', 'Audacity', 'GIMP', 'Inkscape'],
+    objective: 'Major and career options; defining your why',
+  },
+  {
+    n: 7,
+    theme: 'Advising, the SIUE Curriculum & Finding Your Path',
+    focus: 'Own your plan. Keep your advising notes, map your degree and the Lincoln Program requirements, and track your path from one semester to the next.',
+    tools: ['Freeplane', 'Joplin', 'Super Productivity'],
+    objective: 'Structure, purpose, and value of SIUE’s curricula',
+  },
+  {
+    n: 8,
+    theme: 'Visioning Success — This Semester and Beyond',
+    focus: 'Make it last. Lock in automatic backups, tidy your systems, and carry these habits — and your rights and responsibilities as a student — into the rest of your degree.',
+    tools: ['Syncthing', 'Duplicati', 'KeePassXC'],
+    objective: 'Your commitments, obligations, and rights as a student',
+  },
+];
+---
+<BaseLayout
+  title="New Students"
+  current="students"
+
+  description="A free, open-source toolkit for new SIUE students — mapped to the eight weeks of FST 101. Works alongside Microsoft Copilot and GitHub Copilot.">
+
+  <!-- Hero -->
+  <section class="container-page pt-20 pb-10">
+    <p class="text-muted uppercase tracking-ui text-sm">For new Cougars · FST 101</p>
+    <h1 class="font-display text-5xl md:text-7xl mt-4 leading-none">Start college ready.</h1>
+    <p class="mt-8 max-w-measure text-xl">
+      A kit of <strong>entirely free tools</strong> that will make you a better student —
+      on their own, or working alongside the <strong>Microsoft Copilot</strong> and
+      <strong>GitHub Copilot</strong> assistants you already get as an SIUE student.
+    </p>
+    <p class="mt-4 max-w-measure text-muted">
+      It is major-agnostic — useful whether you are studying mass communications,
+      nursing, engineering, or anything else — and it is organized to move with you
+      through the eight weeks of your FST 101 first-year seminar. No credit card, no
+      trials, no catch.
+    </p>
+    <p class="mt-8 flex flex-wrap gap-4 text-sm">
+      <a href="#weeks" class="cta cta--solid">Follow the 8 weeks ↓</a>
+      <a href="/students/toolkit/" class="cta cta--ghost">Browse the full toolkit →</a>
+    </p>
+  </section>
+
+  <!-- Principles -->
+  <SectionDivider kicker="Before any app" title="Four habits that matter most." />
+  <section class="container-page grid gap-6 sm:grid-cols-2">
+    {principles.map((p) => (
+      <article class="card p-6">
+        <h3 class="font-display text-2xl">{p.title}</h3>
+        <p class="mt-3 text-muted">{p.body}</p>
+      </article>
+    ))}
+  </section>
+
+  <!-- Eight weeks -->
+  <a id="weeks" tabindex="-1"></a>
+  <SectionDivider kicker="Your FST 101 semester" title="Eight weeks, eight setups." />
+  <section class="container-page">
+    <p class="max-w-measure text-muted mb-10">
+      Each week of FST 101 pairs with a small, concrete setup you can finish in an
+      afternoon. Do them in order and by week eight you will have a complete, free
+      system for the rest of your degree.
+    </p>
+    <ol class="weeks">
+      {weeks.map((w) => (
+        <li class="week card">
+          <div class="week-num" aria-hidden="true">{String(w.n).padStart(2, '0')}</div>
+          <div class="week-body">
+            <p class="week-kicker">Week {w.n}</p>
+            <h3 class="week-theme font-display">{w.theme}</h3>
+            <p class="week-focus text-muted">{w.focus}</p>
+            <div class="week-meta">
+              <div class="week-tools">
+                {w.tools.map((t) => <span class="chip">{t}</span>)}
+              </div>
+              <p class="week-obj"><span aria-hidden="true">◆</span> {w.objective}</p>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Toolkit handoff -->
+  <SectionDivider kicker="Everything in one place" title="The full toolkit." />
+  <section class="container-page">
+    <p class="max-w-measure text-lg">
+      Nine categories, three dozen free tools — writing, notes, study, research,
+      AI, media, coding, organization, and security. Each one explains what it does
+      and why it helps, with Windows and Mac options.
+    </p>
+    <p class="mt-6 flex flex-wrap gap-4 text-sm">
+      <a href="/students/toolkit/" class="cta cta--solid">Open the toolkit →</a>
+      <a href="/students/toolkit/install/" class="cta cta--ghost">Install cheat sheet →</a>
+    </p>
+  </section>
+
+  <!-- Connect -->
+  <SectionDivider kicker="You are not on your own" title="Find your people." />
+  <section class="container-page pb-8">
+    <p class="max-w-measure text-lg">
+      Getting involved is the surest predictor of a good first year. The AURA Lab
+      studies how people communicate through streams, virtual worlds, and social
+      platforms — and it works with undergraduates from any background and no prior
+      experience. If any of this sparked something, that is a good enough reason to
+      say hello.
+    </p>
+    <p class="mt-6 flex flex-wrap gap-6 text-sm">
+      <a href="mailto:aleith@siue.edu" class="link-underline text-accent-text">aleith@siue.edu →</a>
+      <a href="/join/" class="link-underline">How to get involved with the lab →</a>
+      <a href="https://www.siue.edu/arts-and-sciences/mass-communications/" class="link-underline">SIUE Mass Communications →</a>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: transform 200ms var(--ease-out), background 200ms var(--ease-out), border-color 200ms var(--ease-out);
+  }
+  .cta--solid { background: var(--siue-red); color: #fff; }
+  .cta--solid:hover { background: var(--siue-red-ink); transform: translateY(-1px); }
+  .cta--ghost { border: 1px solid var(--paper-line); color: var(--paper-ink); }
+  .cta--ghost:hover { border-color: var(--siue-red); color: var(--siue-red-ink); }
+
+  .weeks {
+    display: grid;
+    gap: 1.25rem;
+    counter-reset: none;
+    list-style: none;
+    padding: 0;
+  }
+  .week {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    align-items: start;
+  }
+  .week-num {
+    font-family: theme('fontFamily.display');
+    font-weight: 900;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    line-height: 0.9;
+    color: var(--siue-red);
+    opacity: 0.85;
+    min-width: 2ch;
+  }
+  .week-kicker {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--paper-muted);
+  }
+  .week-theme {
+    font-size: 1.5rem;
+    line-height: 1.15;
+    margin: 0.15rem 0 0.6rem;
+    max-width: 30ch;
+  }
+  .week-focus { max-width: 62ch; }
+  .week-meta {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .week-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .chip {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.68rem;
+    padding: 0.22rem 0.55rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--paper-line);
+    color: var(--paper-muted);
+  }
+  .week-obj {
+    font-size: 0.8rem;
+    color: var(--siue-red-ink);
+    letter-spacing: 0.01em;
+  }
+  .week-obj span { opacity: 0.6; margin-right: 0.3rem; }
+
+  @media (max-width: 560px) {
+    .week { grid-template-columns: 1fr; gap: 0.5rem; }
+    .week-num { font-size: 2rem; }
+  }
+</style>

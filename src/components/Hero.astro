@@ -1,138 +1,93 @@
 ---
-interface Props { tagline?: string; }
-const { tagline = 'Where digital presence becomes research.' } = Astro.props;
-const parts = tagline.split('research');
+// The "instrument" hero: a figure label, a grotesque headline, a serif deck,
+// mono readouts, and an annotated axis of the settings the lab studies.
+const axis = [
+  { at: '2%',  label: 'stream' },
+  { at: '26%', label: 'server' },
+  { at: '50%', label: 'headset' },
+  { at: '74%', label: 'feed' },
+  { at: '98%', label: 'room' },
+];
+const stats = [
+  { n: '3', k: 'Research threads' },
+  { n: 'R · Python', k: 'Open tools we ship' },
+  { n: '0', k: 'Prerequisites to join' },
+];
 ---
-<section class="hero" aria-label="AURA Lab">
-  <div class="wash" aria-hidden="true"></div>
+<section class="hero container-page" aria-label="AURA Lab">
+  <span class="figtag">FIG. 1 — WHAT WE STUDY</span>
 
-  <div class="hero-inner container-page">
-    <div class="mark-wrap">
-      <svg class="aura-ring" viewBox="0 0 600 600" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="arcFade" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.15"/>
-          </linearGradient>
-        </defs>
-        <circle cx="300" cy="300" r="240" stroke="#F0ECE8" stroke-opacity="0.18" stroke-width="1" />
-        <circle cx="300" cy="300" r="218" stroke="#F0ECE8" stroke-opacity="0.08" stroke-width="1" />
-        <path d="M 300 60 A 240 240 0 0 1 540 300" stroke="url(#arcFade)" stroke-width="1.5" stroke-linecap="round" />
-      </svg>
-      <h1 class="wordmark" aria-label="AURA Lab">AURA</h1>
-      <span class="lab-tag" aria-hidden="true">Lab</span>
-    </div>
+  <h1 data-no-split>Bringing <span class="u">methods</span> to the places people live online.</h1>
 
-    <p class="tagline">
-      {parts.map((part, i) => (
-        <>
-          {part}
-          {i < parts.length - 1 && <span class="accent">research</span>}
-        </>
-      ))}
-    </p>
+  <p class="deck">
+    Platforms, games, and virtual worlds are real social settings. We study what
+    happens inside them — <em>presence, performance, affect</em> — with
+    corpus-scale tools and honest claims.
+  </p>
 
-    <p class="full-name">Avatars · Users · Relationships · Affect</p>
+  <div class="stats">
+    {stats.map((s) => (
+      <div class="stat">
+        <div class="n">{s.n}</div>
+        <div class="k">{s.k}</div>
+      </div>
+    ))}
+  </div>
 
-    <a href="#below" class="scroll-cue" aria-label="Scroll to content">
-      <span aria-hidden="true">↓</span>
-    </a>
+  <div class="axis" role="img" aria-label="Settings we study, from livestreams to shared virtual rooms">
+    {axis.map((a) => <span style={`left:${a.at}`}>{a.label}</span>)}
   </div>
 </section>
 
 <style>
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-    isolation: isolate;
+  .hero { padding: 68px 0 22px; }
+  .hero h1 {
+    font-size: clamp(44px, 7.2vw, 100px);
+    line-height: 1.0;
+    max-width: 15ch;
+    margin: 22px 0 0;
+    color: var(--ink);
+    animation: rise 0.7s var(--ease-out) both;
   }
-  .wash {
-    position: absolute; inset: -10%;
-    background:
-      radial-gradient(circle at var(--mx, 50%) var(--my, 38%),
-        rgba(124, 58, 237, 0.18), transparent 55%);
-    pointer-events: none;
-    z-index: -1;
+  .hero h1 .u { color: var(--brick); position: relative; white-space: nowrap; }
+  .hero h1 .u::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0.05em;
+    height: 0.08em; background: var(--brick); opacity: 0.35;
   }
-  .hero-inner {
-    text-align: center;
-    display: flex; flex-direction: column; align-items: center;
-    gap: 1.5rem;
-    padding: 4rem 0;
+  .deck {
+    font-family: theme('fontFamily.serif');
+    font-size: clamp(19px, 1.9vw, 24px);
+    line-height: 1.42;
+    max-width: 54ch;
+    margin-top: 24px;
+    color: var(--ink);
   }
-  .mark-wrap {
-    position: relative;
-    display: inline-grid;
-    place-items: center;
-    padding: 1rem 0;
+  .deck em { font-style: italic; color: var(--brick); }
+  .stats { display: flex; flex-wrap: wrap; gap: 38px; margin-top: 34px; }
+  .stat .n {
+    font-family: theme('fontFamily.mono');
+    font-size: 1.5rem; font-weight: 500;
+    color: var(--brick);
   }
-  .aura-ring {
-    position: absolute;
-    width: clamp(280px, 60vw, 560px);
-    aspect-ratio: 1;
-    opacity: 0.55;
-  }
-  .wordmark {
-    font-family: theme('fontFamily.display');
-    font-weight: 900;
-    font-size: clamp(96px, 18vw, 280px);
-    line-height: 0.92;
-    letter-spacing: 0.02em;
-    margin: 0;
-    position: relative;
-    z-index: 1;
-  }
-  .lab-tag {
-    display: block;
+  .stat .k {
     font-family: theme('fontFamily.sans');
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.32em;
-    color: var(--muted);
-    margin-top: 0.4rem;
+    font-size: 0.66rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft); margin-top: 2px;
   }
-  .tagline {
-    font-family: theme('fontFamily.display');
-    font-weight: 400;
-    font-size: clamp(20px, 2.2vw, 30px);
-    color: var(--text);
-    max-width: 28ch;
+  .axis {
+    position: relative; height: 30px; margin-top: 34px;
+    border-top: 1px solid var(--ink);
   }
-  .tagline .accent { color: var(--violet); font-style: italic; }
-  .full-name {
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.28em;
-    font-size: 0.8rem;
+  .axis span {
+    position: absolute; top: 8px; transform: translateX(-50%);
+    font-family: theme('fontFamily.mono');
+    font-size: 0.62rem; color: var(--ink-soft); white-space: nowrap;
   }
-  .scroll-cue {
-    margin-top: 2rem;
-    color: var(--muted);
-    font-size: 1.2rem;
-    animation: bob 2.4s ease-in-out infinite;
+  .axis span::before {
+    content: ""; position: absolute; top: -8px; left: 50%;
+    width: 1px; height: 8px; background: var(--ink);
   }
-  @keyframes bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-  }
+  @keyframes rise { from { opacity: 0; transform: translateY(0.4em); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .hero h1 { animation: none; } }
 </style>
-
-<script>
-  const wash = document.querySelector('.hero .wash');
-  const hero = document.querySelector('.hero');
-  if (wash && hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let raf = 0;
-    hero.addEventListener('pointermove', (e) => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const rect = (hero as HTMLElement).getBoundingClientRect();
-        const x = ((e as PointerEvent).clientX - rect.left) / rect.width * 100;
-        const y = ((e as PointerEvent).clientY - rect.top) / rect.height * 100;
-        (wash as HTMLElement).style.setProperty('--mx', `${x}%`);
-        (wash as HTMLElement).style.setProperty('--my', `${y}%`);
-      });
-    });
-  }
-</script>

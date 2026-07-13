@@ -56,18 +56,6 @@ const readMins = Math.max(1, Math.round(allProse.split(/\s+/).filter(Boolean).le
 const bylineParts = [...(theory.aka ?? []), `${readMins} min read`];
 ---
 <BaseLayout title={theory.name} description={theory.summary}>
-  <Fragment slot="head">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script is:inline>
-      try { if (localStorage.getItem('aura-theory-theme') === 'dark') document.documentElement.classList.add('theory-dark'); } catch (e) {}
-    </script>
-  </Fragment>
-
   <div class="theories-skin">
     <article
       class="t-detail t-wrap"
@@ -76,10 +64,6 @@ const bylineParts = [...(theory.aka ?? []), `${readMins} min read`];
       data-lenses={JSON.stringify(lensByKey)}>
       <div class="t-toolbar">
         <a class="t-back" href="/theories/">← All theories</a>
-        <button type="button" class="t-toggle" data-theme-toggle aria-pressed="false">
-          <span class="t-toggle-ico" aria-hidden="true"></span>
-          <span data-theme-label>Dark</span>
-        </button>
       </div>
 
       <div class="t-layout">

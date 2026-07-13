@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SectionDivider from '../../../components/SectionDivider.astro';
+import StudentToolCard from '../../../components/StudentToolCard.astro';
+import { getEntry } from 'astro:content';
+
+const kit = await getEntry('student-toolkit', 'toolkit');
+const categories = kit?.data.categories ?? [];
+---
+<BaseLayout
+  title="Student Toolkit"
+  current="students"
+
+  description="Three dozen free and open-source tools for SIUE students, organized by need — writing, notes, study, research, AI, media, coding, organization, and security.">
+
+  <!-- Header -->
+  <section class="container-page pt-20 pb-6">
+    <p class="text-muted uppercase tracking-ui text-sm">
+      <a href="/students/" class="link-underline">New Students</a> · Toolkit
+    </p>
+    <h1 class="font-display text-5xl md:text-7xl mt-4 leading-none">The toolkit.</h1>
+    <p class="mt-8 max-w-measure text-lg">
+      Free tools, grouped by what you are trying to do. Every entry says what it is
+      and why it helps — pick what your courses actually need and ignore the rest.
+      Ready to install? The <a href="/students/toolkit/install/" class="link-underline text-accent-text">install cheat sheet</a>
+      has copy-paste setup for Windows and Mac.
+    </p>
+
+    <!-- Legend -->
+    <div class="legend" role="note" aria-label="What the labels mean">
+      <span><b>Open source</b> — free forever, source open</span>
+      <span><b>Free</b> — costs nothing, source closed</span>
+      <span><b>Free tier</b> — free tier is real; some features cost</span>
+      <span class="legend--edu"><b>Free · SIUE/Edu</b> — free with your student status</span>
+    </div>
+
+    <!-- Jump nav -->
+    <nav class="jump" aria-label="Toolkit categories">
+      {categories.map((c) => (
+        <a href={`#${c.slug}`} class="jump-link">{c.name}</a>
+      ))}
+    </nav>
+  </section>
+
+  {categories.map((c) => (
+    <>
+      <a id={c.slug} tabindex="-1"></a>
+      <SectionDivider kicker={c.tagline} title={c.name} />
+      <section class="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {c.tools.map((t) => <StudentToolCard {...t} />)}
+      </section>
+    </>
+  ))}
+
+  <section class="container-page pt-20 pb-8">
+    <p class="max-w-measure text-muted">
+      Ready to set up? The <a href="/students/toolkit/install/" class="link-underline text-accent-text">install
+      cheat sheet</a> turns all of this into a few copy-paste commands — or use each
+      tool's own download page linked above.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .legend {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    font-size: 0.8rem;
+    color: var(--paper-muted);
+  }
+  .legend b { color: var(--paper-ink); font-weight: 600; }
+  .legend--edu b { color: var(--siue-red-ink); }
+
+  .jump {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .jump-link {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.72rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--paper-line);
+    color: var(--paper-muted);
+    transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out);
+  }
+  .jump-link:hover { color: var(--siue-red-ink); border-color: var(--siue-red); }
+</style>

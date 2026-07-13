@@ -1,15 +1,57 @@
 ---
 const year = new Date().getFullYear();
+const links = [
+  { href: '/students/', label: 'New Students' },
+  { href: '/join/', label: 'Join the lab' },
+  { href: 'https://www.siue.edu/arts-and-sciences/mass-communications/', label: 'SIUE Mass Communications' },
+  { href: 'https://github.com/AURA-Lab-SIUE', label: 'GitHub' },
+  { href: 'mailto:aleith@siue.edu', label: 'aleith@siue.edu' },
+];
 ---
-<footer class="mt-32 border-t border-white/5">
-  <div class="container-page py-10 flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-sm text-muted">
+<footer class="mt-32">
+  <div class="brick-rule" aria-hidden="true"></div>
+  <div class="container-page py-12 grid gap-8 md:grid-cols-[1fr_auto] md:items-start">
     <div>
-      AURA Lab · Southern Illinois University Edwardsville · &copy; {year}
+      <p class="colo">AURA Lab</p>
+      <p class="meta">
+        Avatars · Users · Relationships · Affect —
+        studying platforms, games, and virtual worlds as social phenomena.
+      </p>
+      <p class="meta">
+        Department of Mass Communications, College of Arts &amp; Sciences,
+        Southern Illinois University Edwardsville · &copy; {year}
+      </p>
     </div>
-    <div class="flex flex-wrap gap-5">
-      <a class="link-underline" href="https://www.siue.edu/artsandsciences/mass-communications/">SIUE Mass Communications</a>
-      <a class="link-underline" href="https://github.com/AURA-Lab-SIUE">GitHub</a>
-      <a class="link-underline" href="mailto:aleith@siue.edu">aleith@siue.edu</a>
-    </div>
+    <nav class="flex flex-col gap-2 md:items-end" aria-label="Footer">
+      {links.map((l) => (
+        <a class="flink link-underline" href={l.href}>{l.label}</a>
+      ))}
+    </nav>
   </div>
 </footer>
+
+<style>
+  .brick-rule { height: 2px; background: var(--brick); }
+  .colo {
+    font-family: theme('fontFamily.display');
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .meta {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin-bottom: 8px;
+  }
+  .flink {
+    font-family: theme('fontFamily.sans');
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+  }
+  .flink:hover { color: var(--brick); }
+</style>

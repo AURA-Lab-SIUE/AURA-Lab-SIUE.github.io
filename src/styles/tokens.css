@@ -1,18 +1,48 @@
 :root {
-  --bg:        #0E0E12;
-  --surface:   #1A1A22;
-  --chalk:     #F4F0EB;
-  --text:      #F0ECE8;
-  --text-dark: #18181B;
-  --muted:     #71717A;
-  --violet:    #7C3AED;
-  --amber:     #F59E0B;
+  /* ---------------------------------------------------------------------
+     AURA Lab — "Instrument, in warm paper" theme.
+     A light, institutional, method-forward system: warm bone paper, near-
+     black ink, and a calm collegiate BRICK red as the working accent. The
+     exact SIUE University Red (--siue) is reserved for a single institutional
+     mark (the wordmark tick / footer rule) — the "one high-intent moment"
+     that ties the lab to SIUE without shouting. See DESIGN-NOTES.md.
+     --------------------------------------------------------------------- */
+  --paper:      #f6f3ec;  /* page ground (warm bone)                        */
+  --card:       #fcfbf7;  /* raised surface                                 */
+  --ink:        #1e1b18;  /* body text (warm near-black) ~15:1 on paper     */
+  --ink-soft:   #6b6357;  /* secondary text                                 */
+  --brick:      #a8322a;  /* working accent — collegiate red, ~6:1 on paper */
+  --brick-deep: #872619;  /* hover / pressed                                */
+  --brick-wash: #f1e4e1;  /* faint tint for callouts / badges               */
+  --siue:       #e5182d;  /* EXACT SIUE red — institutional mark ONLY       */
+  --line:       rgba(30, 27, 24, 0.14);  /* hairlines, borders             */
+  --grid:       rgba(30, 27, 24, 0.05);  /* faint graph-paper grid          */
+
+  /* Semantic aliases the whole component library already reads. */
+  --bg:        var(--paper);
+  --surface:   var(--card);
+  --text:      var(--ink);
+  --text-dark: var(--ink);
+  --muted:     var(--ink-soft);
+  --accent:      var(--brick);
+  --accent-text: var(--brick);   /* brick text clears AA on paper; one red */
+  --chalk:     var(--paper);
+
+  /* Back-compat aliases: the New Students pages + StudentToolCard reference
+     these older names. Pointed at the new palette so they restyle for free. */
+  --paper-raise: var(--card);
+  --paper-ink:   var(--ink);
+  --paper-muted: var(--ink-soft);
+  --paper-line:  var(--line);
+  --siue-red:      var(--brick);
+  --siue-red-ink:  var(--brick-deep);
+  --siue-red-wash: var(--brick-wash);
 
   --measure: 68ch;
-  --radius-card: 14px;
+  --radius-card: 10px;
   --radius-pill: 999px;
-  --shadow-card: 0 1px 0 rgba(255,255,255,0.04) inset, 0 8px 24px rgba(0,0,0,0.35);
-  --shadow-card-hover: 0 1px 0 rgba(255,255,255,0.06) inset, 0 14px 36px rgba(0,0,0,0.45);
+  --shadow-card: 0 1px 2px rgba(30, 27, 24, 0.05);
+  --shadow-card-hover: 0 14px 32px -18px rgba(30, 27, 24, 0.38);
 
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 }

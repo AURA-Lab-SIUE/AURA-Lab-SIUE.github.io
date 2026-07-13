@@ -79,6 +79,27 @@ const news = defineCollection({
   }),
 });
 
+// New Students toolkit — free/FOSS tools organized by student need.
+const studentToolkit = defineCollection({
+  type: 'data',
+  schema: z.object({
+    categories: z.array(z.object({
+      slug: z.string(),
+      name: z.string(),
+      tagline: z.string(),
+      tools: z.array(z.object({
+        name: z.string(),
+        what: z.string(),
+        // Honest cost/openness flag so students know what they're getting.
+        license: z.enum(['foss', 'free', 'freemium', 'student']),
+        platforms: z.array(z.enum(['Windows', 'macOS', 'Web', 'iOS', 'Android', 'Linux'])),
+        href: z.string().url(),
+        note: z.string().optional(),
+      })).nonempty(),
+    })).nonempty(),
+  }),
+});
+
 export const collections = {
   publications,
   projects,
@@ -86,4 +107,5 @@ export const collections = {
   people,
   'research-areas': researchAreas,
   news,
+  'student-toolkit': studentToolkit,
 };

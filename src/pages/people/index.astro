@@ -29,12 +29,12 @@ const bioHtml = marked.parse(director.bio);
       </ul>
       <div class="mt-6 max-w-measure text-lg space-y-4 bio" set:html={bioHtml} />
       <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-        <li><a class="link-underline text-violet" href={director.links.cv}>Curriculum vitae ↗</a></li>
-        <li><a class="link-underline text-violet" href={`mailto:${director.links.email}`}>{director.links.email} ↗</a></li>
-        <li><a class="link-underline text-violet" href={director.links.orcid}>ORCID ↗</a></li>
-        <li><a class="link-underline text-violet" href={director.links.website}>{director.links.website.replace('https://', '')} ↗</a></li>
+        <li><a class="link-underline text-accent-text" href={director.links.cv}>Curriculum vitae ↗</a></li>
+        <li><a class="link-underline text-accent-text" href={`mailto:${director.links.email}`}>{director.links.email} ↗</a></li>
+        <li><a class="link-underline text-accent-text" href={director.links.orcid}>ORCID ↗</a></li>
+        <li><a class="link-underline text-accent-text" href={director.links.website}>{director.links.website.replace('https://', '')} ↗</a></li>
         {director.links.github.map(g => (
-          <li><a class="link-underline text-violet" href={g.href}>github.com/{g.label} ↗</a></li>
+          <li><a class="link-underline text-accent-text" href={g.href}>github.com/{g.label} ↗</a></li>
         ))}
       </ul>
     </div>
@@ -51,7 +51,7 @@ const bioHtml = marked.parse(director.bio);
       work.
     </p>
     <p class="mt-6">
-      <a href="/join/" class="link-underline text-violet">How to join →</a>
+      <a href="/join/" class="link-underline text-accent-text">How to join →</a>
     </p>
   </section>
 </BaseLayout>
@@ -64,12 +64,12 @@ const bioHtml = marked.parse(director.bio);
     overflow: hidden;
     background: var(--surface);
     box-shadow: 0 0 0 1px rgba(255,255,255,0.06),
-                0 30px 80px -20px rgba(124,58,237,0.35);
+                0 30px 80px -20px rgba(229,24,45,0.35);
   }
   .headshot-wrap::after {
     content: "";
     position: absolute; inset: 0;
-    background: radial-gradient(120% 80% at 30% 20%, rgba(124,58,237,0.10), transparent 60%);
+    background: radial-gradient(120% 80% at 30% 20%, rgba(229,24,45,0.10), transparent 60%);
     pointer-events: none;
   }
   .headshot-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
