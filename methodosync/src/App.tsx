@@ -1,61 +1,75 @@
 import { useRef } from 'react'
 import { AppHeader } from './components/layout/AppHeader'
-import { PhaseNav } from './components/layout/PhaseNav'
+import { StageNav } from './components/layout/StageNav'
+import { ProjectBar } from './components/layout/ProjectBar'
 import { LiveRegion } from './components/layout/LiveRegion'
-import { Phase1Panel } from './components/phase1/Phase1Panel'
-import { BridgePanel } from './components/bridge/BridgePanel'
-import { Phase2Panel } from './components/phase2/Phase2Panel'
+import { Stage1Panel } from './components/stage1/Stage1Panel'
+import { Stage2Panel } from './components/stage2/Stage2Panel'
+import { Stage3Panel } from './components/stage3/Stage3Panel'
 import { useAppStore } from './store/useAppStore'
+import type { Stage } from './store/useAppStore'
 
 export default function App() {
-  const activePhase = useAppStore((s) => s.activePhase)
+  const activeStage = useAppStore((s) => s.activeStage)
 
-  const phase1Ref = useRef<HTMLHeadingElement>(null)
-  const bridgeRef = useRef<HTMLHeadingElement>(null)
-  const phase2Ref = useRef<HTMLHeadingElement>(null)
-
-  const panelRefs = { phase1: phase1Ref, bridge: bridgeRef, phase2: phase2Ref }
+  const stage1Ref = useRef<HTMLHeadingElement>(null)
+  const stage2Ref = useRef<HTMLHeadingElement>(null)
+  const stage3Ref = useRef<HTMLHeadingElement>(null)
+  const panelRefs: Record<Stage, React.RefObject<HTMLHeadingElement | null>> = {
+    stage1: stage1Ref,
+    stage2: stage2Ref,
+    stage3: stage3Ref,
+  }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <LiveRegion />
       <AppHeader />
-      <PhaseNav panelRefs={panelRefs} />
+      <StageNav panelRefs={panelRefs} />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+      <main className="mx-auto w-full max-w-page flex-1 px-4 py-8 md:px-8">
+        <ProjectBar />
+
         <div
-          id="panel-phase1"
+          id="panel-stage1"
           role="tabpanel"
-          aria-labelledby="tab-phase1"
-          hidden={activePhase !== 'phase1'}
+          aria-labelledby="tab-stage1"
+          hidden={activeStage !== 'stage1'}
+          className="pt-6"
         >
-          <Phase1Panel headingRef={phase1Ref} />
+          <Stage1Panel headingRef={stage1Ref} />
         </div>
 
         <div
-          id="panel-bridge"
+          id="panel-stage2"
           role="tabpanel"
-          aria-labelledby="tab-bridge"
-          hidden={activePhase !== 'bridge'}
+          aria-labelledby="tab-stage2"
+          hidden={activeStage !== 'stage2'}
+          className="pt-6"
         >
-          <BridgePanel headingRef={bridgeRef} />
+          <Stage2Panel headingRef={stage2Ref} />
         </div>
 
         <div
-          id="panel-phase2"
+          id="panel-stage3"
           role="tabpanel"
-          aria-labelledby="tab-phase2"
-          hidden={activePhase !== 'phase2'}
+          aria-labelledby="tab-stage3"
+          hidden={activeStage !== 'stage3'}
+          className="pt-6"
         >
-          <Phase2Panel headingRef={phase2Ref} />
+          <Stage3Panel headingRef={stage3Ref} />
         </div>
       </main>
 
       <footer
-        className="text-center py-6 text-xs"
-        style={{ color: 'var(--ink-soft)', borderTop: '1px solid var(--stroke)' }}
+        className="mx-auto w-full max-w-page px-4 py-8 md:px-8"
+        style={{ borderTop: '1px solid var(--line)' }}
       >
-        MethodoSync · SIM Lab @ SIUE · All processing occurs locally in your browser — no data is sent to any server.
+        <p className="font-mono text-xs text-ink-soft">
+          MethodoSync · AURA Lab @ SIUE · All coding stays in your browser — nothing
+          is sent to any server. Save a project file to keep your work or move it
+          between computers.
+        </p>
       </footer>
     </div>
   )

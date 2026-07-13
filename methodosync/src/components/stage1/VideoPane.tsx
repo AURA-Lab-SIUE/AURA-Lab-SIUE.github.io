@@ -8,21 +8,23 @@ export interface VideoPaneHandle {
   getCurrentTime: () => number
   pauseVideo: () => void
   playVideo: () => void
+  seekTo: (seconds: number) => void
 }
 
-function extractVideoId(input: string): string | null {
+export function extractVideoId(input: string): string | null {
   const trimmed = input.trim()
-  // youtu.be short links
-  const shortMatch = trimmed.match(/youtu\.be\/([^?&\s]+)/)
+  if (/^[A-Za-z0-9_-]{11}$/.test(trimmed)) return trimmed
+  const shortMatch = trimmed.match(/youtu\.be\/([A-Za-z0-9_-]{11})/)
   if (shortMatch) return shortMatch[1]
-  // Standard youtube.com/watch?v=...
   try {
     const url = new URL(trimmed.startsWith('http') ? trimmed : `https://${trimmed}`)
     const v = url.searchParams.get('v')
-    if (v) return v
+    if (v && /^[A-Za-z0-9_-]{11}$/.test(v)) return v
+    // youtube.com/embed/ID or /shorts/ID
+    const pathMatch = url.pathname.match(/\/(?:embed|shorts)\/([A-Za-z0-9_-]{11})/)
+    if (pathMatch) return pathMatch[1]
   } catch {
-    // Not a URL — assume it's a bare video ID (11 chars)
-    if (/^[A-Za-z0-9_-]{11}$/.test(trimmed)) return trimmed
+    // not a URL
   }
   return null
 }
@@ -34,77 +36,69 @@ interface VideoPaneProps {
 export const VideoPane = forwardRef<VideoPaneHandle, VideoPaneProps>(
   ({ onTimeCapture }, ref) => {
     const apiStatus = useYouTubeAPI()
+    const videoId = useAppStore((s) => s.videoId)
+    const videoUrl = useAppStore((s) => s.videoUrl)
+    const setVideoUrl = useAppStore((s) => s.setVideoUrl)
     const setVideoId = useAppStore((s) => s.setVideoId)
     const setPlayerState = useAppStore((s) => s.setPlayerState)
 
-    const [urlInput, setUrlInput] = useState('')
-    const [loadedVideoId, setLoadedVideoId] = useState<string | null>(null)
     const [error, setError] = useState('')
-
     const playerContainerRef = useRef<HTMLDivElement>(null)
     const playerRef = useRef<YTPlayer | null>(null)
 
-    // Expose imperative handle for parent
     useImperativeHandle(ref, () => ({
       getCurrentTime: () => playerRef.current?.getCurrentTime() ?? 0,
       pauseVideo: () => playerRef.current?.pauseVideo(),
       playVideo: () => playerRef.current?.playVideo(),
+      seekTo: (seconds: number) => {
+        playerRef.current?.seekTo(seconds, true)
+        playerRef.current?.playVideo()
+      },
     }))
 
-    // Create/recreate player when videoId changes and API is ready
+    // Create/recreate the player when a video is loaded and the API is ready.
     useEffect(() => {
-      if (apiStatus !== 'ready' || !loadedVideoId || !playerContainerRef.current) return
+      if (apiStatus !== 'ready' || !videoId || !playerContainerRef.current) return
 
       playerRef.current?.destroy()
-
       const container = playerContainerRef.current
       const playerDiv = document.createElement('div')
       container.innerHTML = ''
       container.appendChild(playerDiv)
 
       playerRef.current = new window.YT.Player(playerDiv, {
-        videoId: loadedVideoId,
+        videoId,
         width: '100%',
         height: '100%',
-        playerVars: {
-          modestbranding: 1,
-          rel: 0,
-          origin: window.location.origin,
-        },
-        events: {
-          onStateChange: (event: YTPlayerEvent) => {
-            setPlayerState(event.data)
-          },
-        },
+        playerVars: { modestbranding: 1, rel: 0, origin: window.location.origin },
+        events: { onStateChange: (event: YTPlayerEvent) => setPlayerState(event.data) },
       })
 
       return () => {
         playerRef.current?.destroy()
         playerRef.current = null
       }
-    }, [apiStatus, loadedVideoId, setPlayerState])
+    }, [apiStatus, videoId, setPlayerState])
 
     function handleLoad() {
       setError('')
-      const id = extractVideoId(urlInput)
+      const id = extractVideoId(videoUrl)
       if (!id) {
-        setError('Could not extract a YouTube video ID. Please check the URL and try again.')
+        setError('Could not read a YouTube video ID from that. Paste a full watch URL, a youtu.be link, or the 11-character ID.')
         return
       }
-      setLoadedVideoId(id)
       setVideoId(id)
     }
 
     return (
-      <div className="flex flex-col gap-4">
-        {/* URL input */}
-        <div className="flex gap-2">
-          <label htmlFor="yt-url-input" className="sr-only">YouTube URL or Video ID</label>
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <label htmlFor="yt-url-input" className="sr-only">YouTube URL or video ID</label>
           <input
             id="yt-url-input"
             type="text"
-            value={urlInput}
-            onChange={(e) => setUrlInput(e.target.value)}
+            value={videoUrl}
+            onChange={(e) => setVideoUrl(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleLoad()}
             placeholder="Paste a YouTube URL or video ID…"
             className="field-input flex-1"
@@ -113,66 +107,53 @@ export const VideoPane = forwardRef<VideoPaneHandle, VideoPaneProps>(
           <button
             onClick={handleLoad}
             className="btn-primary shrink-0"
-            aria-label="Load video"
             disabled={apiStatus === 'loading'}
           >
             <Play size={15} aria-hidden="true" />
-            {apiStatus === 'loading' ? 'Loading API…' : 'Load'}
+            {apiStatus === 'loading' ? 'Loading…' : 'Load video'}
           </button>
         </div>
 
         {error && (
-          <p id="yt-url-error" role="alert" className="text-sm" style={{ color: '#c0392b' }}>
+          <p id="yt-url-error" role="alert" className="text-sm" style={{ color: 'var(--brick-deep)' }}>
             {error}
           </p>
         )}
-
         {apiStatus === 'error' && (
-          <p role="alert" className="text-sm" style={{ color: '#c0392b' }}>
-            Failed to load the YouTube IFrame API. Please check your internet connection.
+          <p role="alert" className="text-sm" style={{ color: 'var(--brick-deep)' }}>
+            Could not reach YouTube. Check your internet connection and reload.
           </p>
         )}
 
-        {/* Player container */}
         <div
-          className="w-full rounded-xl overflow-hidden relative"
-          style={{
-            aspectRatio: '16/9',
-            background: 'var(--ink)',
-            border: '1px solid var(--stroke)',
-          }}
+          className="relative w-full overflow-hidden"
+          style={{ aspectRatio: '16/9', background: 'var(--ink)', borderRadius: 'var(--radius-card)', border: '1px solid var(--line)' }}
         >
-          {!loadedVideoId ? (
+          {!videoId && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <div
-                className="w-14 h-14 rounded-full flex items-center justify-center"
-                style={{ background: 'rgba(255,255,255,0.08)' }}
-              >
+              <div className="flex h-14 w-14 items-center justify-center rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
                 <Play size={24} style={{ color: 'rgba(255,255,255,0.5)' }} aria-hidden="true" />
               </div>
-              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                Load a YouTube video to begin annotation
+              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                Load a YouTube video to begin coding
               </p>
             </div>
-          ) : null}
+          )}
           <div
             ref={playerContainerRef}
-            className="w-full h-full"
+            className="h-full w-full"
             aria-label="YouTube video player"
-            style={{ display: loadedVideoId ? 'block' : 'none' }}
+            style={{ display: videoId ? 'block' : 'none' }}
           />
         </div>
 
-        {/* Timestamp display */}
-        {loadedVideoId && (
+        {videoId && (
           <button
             type="button"
             onClick={() => onTimeCapture(playerRef.current?.getCurrentTime() ?? 0)}
-            className="text-xs font-mono text-left transition-colors hover:opacity-80"
-            style={{ color: 'var(--teal)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-            aria-label="Capture current timestamp"
+            className="btn-secondary self-start"
           >
-            ⏱ Click to capture current timestamp
+            ⏱ Capture this moment
           </button>
         )}
       </div>

@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+/* MethodoSync — "Instrument, in warm paper", the AURA Lab site's own theme.
+   Tokens + component classes are ported from ../../src/styles/{tokens,global}.css
+   so the tool reads as one continuous surface with the rest of the site.
+   Fonts are self-hosted via @fontsource (same packages the site uses). */
+
+@import '@fontsource-variable/archivo/index.css';
+@import '@fontsource-variable/newsreader/index.css';
+@import '@fontsource/spline-sans-mono/400.css';
+@import '@fontsource/spline-sans-mono/500.css';
 
 @tailwind base;
 @tailwind components;
@@ -6,96 +14,204 @@
 
 @layer base {
   :root {
-    --ink:        #1a1a2e;
-    --ink-soft:   #3d3d5c;
-    --teal:       #0d7377;
-    --teal-dark:  #085a5e;
-    --teal-light: #e8f4f5;
-    --amber:      #e8871a;
-    --amber-pale: #fff4e6;
-    --rose:       #c45c8a;
-    --rose-pale:  #fdf0f6;
-    --paper:      #f9f7f4;
-    --panel:      #ffffff;
-    --stroke:     rgba(26,26,46,0.12);
+    --paper:      #f6f3ec;  /* page ground (warm bone)                        */
+    --card:       #fcfbf7;  /* raised surface                                 */
+    --ink:        #1e1b18;  /* body text (warm near-black) ~15:1 on paper     */
+    --ink-soft:   #6b6357;  /* secondary text                                 */
+    --brick:      #a8322a;  /* working accent — collegiate red, ~6:1 on paper */
+    --brick-deep: #872619;  /* hover / pressed                                */
+    --brick-wash: #f1e4e1;  /* faint tint for callouts / badges               */
+    --siue:       #e5182d;  /* EXACT SIUE red — institutional mark ONLY       */
+    --line:       rgba(30, 27, 24, 0.14);  /* hairlines, borders             */
+    --grid:       rgba(30, 27, 24, 0.05);  /* faint graph-paper grid          */
+
+    /* legacy aliases still referenced by a few utilities */
+    --stroke:     var(--line);
+
+    --measure: 68ch;
+    --radius-card: 10px;
+    --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(30, 27, 24, 0.05);
+    --shadow-card-hover: 0 14px 32px -18px rgba(30, 27, 24, 0.38);
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
-  html { scroll-behavior: smooth; }
-
+  html { background: var(--paper); scroll-behavior: smooth; }
   body {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    font-size: 15px;
-    line-height: 1.65;
-    color: var(--ink);
     background-color: var(--paper);
+    /* faint graph-paper grid — the "instrument" motif, sitewide and subtle */
     background-image:
-      radial-gradient(ellipse 800px 500px at 0% 0%, rgba(13,115,119,0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 600px 400px at 100% 100%, rgba(232,135,26,0.07) 0%, transparent 70%);
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 36px 36px;
+    background-position: -1px -1px;
+    color: var(--ink);
+    font-family: theme('fontFamily.serif');   /* Newsreader — readable body */
+    font-size: 18px;
+    line-height: 1.6;
     margin: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  /* WCAG 2.1 AA: 3:1 contrast focus ring */
+  h1, h2, h3 {
+    font-family: theme('fontFamily.display');
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection { background: var(--brick); color: #fff; }
   :focus-visible {
-    outline: 3px solid var(--teal);
+    outline: 2px solid var(--brick);
     outline-offset: 2px;
-    border-radius: 4px;
+    border-radius: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer components {
-  .card {
-    @apply bg-panel rounded-2xl p-6;
-    border: 1px solid var(--stroke);
-    box-shadow: 0 2px 8px rgba(26,26,46,0.08);
+  /* Mono "FIG." tag — the instrument label used across the site. */
+  .figtag {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--brick);
+    border: 1px solid var(--brick);
+    padding: 3px 9px;
+    border-radius: 3px;
+    display: inline-block;
+    line-height: 1.4;
   }
 
-  .btn-primary {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-body font-medium text-white text-sm transition-all;
-    background-color: var(--teal);
+  /* Section eyebrow: short brick rule + Archivo caps. */
+  .seclabel {
+    font-family: theme('fontFamily.sans');
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
   }
-  .btn-primary:hover { background-color: var(--teal-dark); }
-  .btn-primary:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+  .seclabel::before {
+    content: "";
+    width: 26px; height: 2px;
+    background: var(--brick);
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-pad { @apply p-5 md:p-6; }
+
+  /* Buttons — solid brick / ghost. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm;
+    font-family: theme('fontFamily.sans');
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    background: var(--brick);
+    color: #fff;
+    border: 1px solid var(--brick);
+    transition: background 200ms var(--ease-out), transform 200ms var(--ease-out);
+  }
+  .btn-primary:hover { background: var(--brick-deep); border-color: var(--brick-deep); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-body font-medium text-sm transition-all;
-    background-color: var(--teal-light);
-    color: var(--teal-dark);
-    border: 1px solid rgba(13,115,119,0.3);
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm;
+    font-family: theme('fontFamily.sans');
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out);
   }
-  .btn-secondary:hover { background-color: #d1eaeb; }
+  .btn-secondary:hover { color: var(--brick); border-color: var(--brick); }
+  .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
 
+  /* Small ghost/icon button */
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs;
+    font-family: theme('fontFamily.sans');
+    font-weight: 600;
+    color: var(--ink-soft);
+    transition: color 150ms var(--ease-out), background 150ms var(--ease-out);
+  }
+  .btn-ghost:hover { color: var(--brick); background: var(--brick-wash); }
+
+  /* Form fields */
   .field-label {
-    @apply block text-xs font-medium uppercase tracking-widest mb-1.5;
+    @apply block text-xs mb-1.5;
+    font-family: theme('fontFamily.sans');
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--ink-soft);
   }
-
   .field-input {
-    @apply w-full rounded-lg px-3 py-2.5 text-sm font-body transition-colors;
-    border: 1.5px solid var(--stroke);
-    background: var(--paper);
+    @apply w-full rounded-lg px-3 py-2.5 text-sm;
+    font-family: theme('fontFamily.serif');
+    border: 1.5px solid var(--line);
+    background: var(--card);
     color: var(--ink);
+    transition: border-color 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
   }
   .field-input:focus {
     outline: none;
-    border-color: var(--teal);
-    background: white;
-    box-shadow: 0 0 0 3px rgba(13,115,119,0.12);
+    border-color: var(--brick);
+    box-shadow: 0 0 0 3px rgba(168, 50, 42, 0.12);
   }
-  .field-input::placeholder { color: #9fa0b0; }
+  .field-input::placeholder { color: var(--ink-soft); opacity: 0.6; }
 
+  /* Chip / token */
   .pill-tag {
-    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
-    background-color: var(--teal-light);
-    color: var(--teal-dark);
-    border: 1px solid rgba(13,115,119,0.25);
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs;
+    font-family: theme('fontFamily.mono');
+    font-weight: 500;
+    background: var(--brick-wash);
+    color: var(--brick-deep);
+    border: 1px solid rgba(168, 50, 42, 0.28);
   }
+
+  /* Neutral chip (e.g. an unassigned code) */
+  .pill-muted {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs;
+    font-family: theme('fontFamily.mono');
+    font-weight: 500;
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1px dashed var(--line);
+  }
+
+  .link-underline {
+    background-image: linear-gradient(var(--brick), var(--brick));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 250ms var(--ease-out);
+  }
+  .link-underline:hover { background-size: 100% 1px; }
 
   .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
     overflow: hidden;
     clip: rect(0,0,0,0);
     white-space: nowrap;

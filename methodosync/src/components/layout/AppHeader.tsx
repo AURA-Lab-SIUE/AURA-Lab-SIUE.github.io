@@ -1,59 +1,75 @@
+/**
+ * The shared AURA Lab chrome, ported to React so MethodoSync reads as one
+ * continuous surface with the Astro site. Top bar = the site's Nav (wordmark +
+ * the single SIUE-red tick + links back to the site). Below it, a titled band
+ * that names the tool and states what it does.
+ */
 export function AppHeader() {
+  const siteLinks = [
+    { href: '/research/', label: 'Research' },
+    { href: '/tools/', label: 'Tools' },
+    { href: '/students/', label: 'New Students' },
+    { href: '/join/', label: 'Join' },
+  ]
+
   return (
-    <header
-      style={{
-        background: 'linear-gradient(135deg, #0d7377 0%, #085a5e 60%, #1a1a2e 100%)',
-      }}
-      className="w-full pt-14 pb-10 px-6 text-center relative overflow-hidden"
-    >
-      {/* Decorative pattern overlay */}
+    <header>
+      {/* Site top bar */}
       <div
-        aria-hidden="true"
-        className="absolute inset-0 opacity-10"
+        className="sticky top-0 z-40 border-b"
         style={{
-          backgroundImage:
-            'radial-gradient(circle at 20% 50%, rgba(232,135,26,0.4) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(196,92,138,0.3) 0%, transparent 40%)',
+          borderColor: 'var(--line)',
+          background: 'color-mix(in srgb, var(--paper) 84%, transparent)',
+          backdropFilter: 'blur(8px)',
         }}
-      />
+      >
+        <div className="mx-auto flex max-w-page items-center justify-between px-4 py-3.5 md:px-8">
+          <a href="/" className="inline-flex items-baseline gap-2.5">
+            <span
+              aria-hidden="true"
+              style={{
+                width: 9,
+                height: 9,
+                background: 'var(--siue)',
+                transform: 'rotate(45deg)',
+                borderRadius: 1,
+                alignSelf: 'center',
+              }}
+            />
+            <span className="font-display text-[1.15rem] font-extrabold tracking-tight text-ink">
+              AURA&nbsp;Lab
+            </span>
+            <span className="hidden font-sans text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-ink-soft sm:inline">
+              SIUE&nbsp;·&nbsp;Mass&nbsp;Communications
+            </span>
+          </a>
+          <nav aria-label="AURA Lab site" className="hidden md:block">
+            <ul className="flex gap-5 lg:gap-6">
+              {siteLinks.map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    className="link-underline font-sans text-[0.74rem] font-semibold uppercase tracking-[0.1em] text-ink-soft transition-colors hover:text-ink"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Lab badge */}
-        <span
-          className="inline-block px-3 py-1 rounded-full text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ background: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.85)' }}
-        >
-          SIM Lab @ SIUE
-        </span>
-
-        <h1
-          className="font-display text-4xl md:text-5xl text-white mb-3 leading-tight"
-          style={{ textShadow: '0 2px 20px rgba(0,0,0,0.3)' }}
-        >
-          MethodoSync
-        </h1>
-
-        <p
-          className="text-base md:text-lg max-w-2xl mx-auto"
-          style={{ color: 'rgba(255,255,255,0.75)' }}
-        >
-          A mixed-methods pedagogical platform — from qualitative video annotation
-          to quantitative codebook construction.
+      {/* Tool title band */}
+      <div className="mx-auto max-w-page px-4 pt-12 pb-6 md:px-8">
+        <p className="seclabel mb-4">A methods instrument · qualitative → quantitative</p>
+        <h1 className="font-display text-5xl leading-none md:text-6xl">MethodoSync</h1>
+        <p className="mt-5 max-w-measure font-serif text-lg text-ink-soft md:text-xl">
+          Code a YouTube video moment by moment, cluster what you find into
+          categories and themes, and turn them into a rigorous quantitative
+          codebook — one continuous, saveable workflow. Everything stays in your
+          browser.
         </p>
-
-        {/* Back link */}
-        <a
-          href="/index.html"
-          className="inline-flex items-center gap-1.5 mt-5 text-sm transition-colors"
-          style={{ color: 'rgba(255,255,255,0.6)' }}
-          onMouseEnter={(e) =>
-            ((e.target as HTMLElement).style.color = 'rgba(255,255,255,1)')
-          }
-          onMouseLeave={(e) =>
-            ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.6)')
-          }
-        >
-          ← SIM Lab Home
-        </a>
       </div>
     </header>
   )
