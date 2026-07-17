@@ -62,8 +62,11 @@ Legacy `--paper-*` / `--siue-red-*` tokens are kept as aliases pointing at the n
 the New Students pages restyled for free.
 
 **Dark mode (reinstated 2026-07-13, owner request).** The site now ships a real **cool-charcoal
-dark theme** (`#101113` ground, off-white ink, lifted brick `#d64a3c`), derived from the
-director's headshot — deliberately *not* warm brown. It's the **default**, with a nav toggle to
+dark theme** (`#101113` ground, off-white ink, lifted brick `#e05a4a`), derived from the
+director's headshot — deliberately *not* warm brown. The brick is lifted enough that brick
+*text* clears AA on charcoal; solid red *fills* that carry white text use separate
+`--brick-fill` / `--brick-fill-deep` tokens (`#c33d2e` / `#b0301f`), since the lifted accent is
+too light under white text. See §5. It's the **default**, with a nav toggle to
 warm-paper light (persisted in `localStorage`, FOUC-safe via an inline `<head>` script). Only the
 base tokens are overridden under `:root[data-theme="dark"]`; every semantic alias is late-bound
 `var()`, so the whole component library restyles for free. The true SIUE red is kept in both themes
@@ -104,11 +107,26 @@ kept under `brand/_superseded/`. Full spec, palette, clear-space, and every expo
 
 ## 5. Accessibility
 
-- Ink `#1e1b18` on paper `#f6f3ec`: ~15:1 (AAA).
-- Brick `#a8322a` text/links on paper: ~6:1 (AA, near-AAA); `--brick-deep` ~8:1.
-- White on brick buttons and white on the `#e5182d` tick both clear AA.
-- Focus rings, reduced-motion handling, and the skip link are in the base layer; the hero
-  headline and the title-reveal animation both respect `prefers-reduced-motion`.
+Targets **WCAG 2.1 / 2.2 AA**, verified with axe-core across all page templates in **both
+themes** (0 violations).
+
+- Ink `#1e1b18` on paper `#f6f3ec`: ~15:1 (AAA). Dark: ink `#ECEDEF` on `#101113` ~16:1.
+- Brick text/links on ground: light `#a8322a` ~6:1, dark `#e05a4a` ~4.7–5.2:1 (both AA);
+  `--brick-deep` is the hover tone.
+- **Solid red fills carrying white text** use `--brick-fill` (light `#a8322a` ~6.7:1 with white;
+  dark `#c33d2e` ~5.2:1) and `--brick-fill-deep` for hover — kept distinct from the accent
+  because the lifted dark `--brick` under white text falls below AA. White on the `#e5182d`
+  tick clears AA.
+- Secondary/tertiary inks clear AA on their grounds (e.g. the theories skin's `--ink-3`
+  is `#736b5d`, ~4.75:1 on paper).
+- Focus rings (`:focus-visible`), a skip link, and reduced-motion handling live in the base
+  layer; all motion respects `prefers-reduced-motion`. The auto-rotating framework instrument
+  has an explicit pause control (2.2.2), and its selector + the theory-map controls carry
+  correct roles and `aria-pressed` state (1.3.1 / 4.1.2).
+
+> When adjusting accent colors or adding a solid-fill component, re-check contrast in **dark**
+> mode first — it is the tighter constraint (a color that passes as text there can still fail
+> under white, and vice-versa).
 
 ## 6. Motion
 

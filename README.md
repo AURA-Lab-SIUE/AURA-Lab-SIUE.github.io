@@ -10,7 +10,7 @@ AURA Lab is a computational communication research group at SIUE that studies ho
 
 > **Note on scope:** This organization covers academic and instructional work at SIUE. Industry consulting, applied data tools, and contract software live under [SIM DAD LLC](https://github.com/SIM-DAD) separately.
 
-**Live site:** [aura-lab.siue.edu](https://aura-lab.siue.edu) *(also mirrored at [aura-lab-siue.github.io](https://aura-lab-siue.github.io) via GitHub Pages).*
+**Live site:** [aura-lab.siue.edu](https://aura-lab.siue.edu) — a SIUE-hosted mirror, kept in sync with the CI build. The build is deployed continuously to GitHub Pages at [aura-lab-siue.github.io](https://aura-lab-siue.github.io); both serve the same output.
 
 ---
 
@@ -32,23 +32,33 @@ AURA-Lab-SIUE.github.io/
 │
 ├── src/                    # Astro source (v2 site)
 │   ├── layouts/            # BaseLayout
-│   ├── components/         # Nav, Footer, Hero, etc.
-│   ├── pages/              # Astro routes (/, /research, /people, ...)
-│   ├── content/            # YAML + Markdown content collections
-│   └── styles/             # tokens.css + global.css
+│   ├── components/         # Nav, Footer, FieldHero, PubItem, theories island (React), ...
+│   ├── pages/              # Astro routes (/, /framework, /research, /people,
+│   │                       #   /publications, /tools, /students, /news, /join,
+│   │                       #   /theories — the native constellation map)
+│   ├── content/            # YAML + Markdown content collections (Zod-validated)
+│   ├── data/               # theories.json + schema (the constellation data)
+│   └── styles/             # tokens.css, global.css, theories.css
 │
-├── public/                 # Static assets (images, favicon, robots.txt)
-├── scripts/                # Build helpers (legacy postbuild copy)
+├── public/                 # Static assets served at the docroot
+├── brand/                  # Logo/mark system + BRAND-GUIDE.md ("The Reading")
+├── scripts/                # Build helpers (copy-legacy postbuild, validators)
 ├── _archive/               # Legacy v1 site preserved for reference
 │
-│   # Legacy teaching pages — preserved at original URLs via postbuild copy
-├── methodosync/            # MethodoSync — React/Vite/TypeScript app
+│   # Standalone student/teaching apps — self-contained, copied into the
+│   # build docroot by the postbuild step so they keep their original URLs:
+├── methodosync/            # MethodoSync — Vite + React + TS qualitative-coding app
+├── mc-careers-dashboard/   # MC Careers Dashboard — SvelteKit (compiled bundle)
+├── banned-words/           # Concordance — configurable term checker
+├── app_form.html           # Lab application form
 ├── captionizer.html        # Caption helper
 ├── countdown.html          # In-class countdown timer
+├── research-methods/       # R Bookdown methods textbook (static HTML)
+├── resume-cv/ · sample-portfolios/   # Student-facing teaching resources
 │
-├── astro.config.mjs
-├── tailwind.config.mjs
-└── .github/workflows/      # Deploy to GitHub Pages
+├── astro.config.mjs · tailwind.config.mjs · tsconfig.json
+├── DESIGN-NOTES.md         # Rationale for the visual system (auditable)
+└── .github/workflows/      # deploy.yml — build + deploy to GitHub Pages
 ```
 
 ---
@@ -66,11 +76,11 @@ Browser-based qualitative research tool for video annotation and codebook genera
 ### [MC Careers Dashboard](https://github.com/AURA-Lab-SIUE/mc-careers-dashboard)
 Interactive SvelteKit dashboard mapping Mass Communications career paths, salary data, and skill requirements for student career planning.
 
-### [Equipment Checkout](https://github.com/AURA-Lab-SIUE/equipment-checkout)
-Web application for managing and reserving production equipment for SIUE Mass Communications students. Built with TypeScript.
+### [GearOut](https://github.com/AURA-Lab-SIUE/equipment-checkout)
+Equipment-reservation platform for production gear, deployed at SIUE as **MassComm Checkout**. Built with TypeScript.
 
-### [Comm Theories Explorer](theories/)
-Interactive GSAP-animated guide to common mass communication theories, designed to help students identify an appropriate theory for their research project.
+### [Communication Theories Map](https://aura-lab.siue.edu/theories/)
+A navigable "sky" of communication theory — every framework is a star in a field, cross-listed theories are tethered across areas, and any star opens to a full reading. Built natively into the Astro site (server-rendered SVG constellation + a React filter island); fully usable with JavaScript off via the text index. Designed to help students find an appropriate theory for a project.
 
 ### [Concordance](https://github.com/AURA-Lab-SIUE/concordance)
 A topic-agnostic term checker — test documents against any configurable term list. AURA Lab in collaboration with SIM DAD LLC.
@@ -79,30 +89,47 @@ A topic-agnostic term checker — test documents against any configurable term l
 
 ## Identity System
 
-The AURA Lab visual identity is maintained by the lab director. Headline summary:
-- **Palette:** Deep Graphite (`#0E0E12`) primary background, Warm Chalk (`#F4F0EB`) light alternate, Aura Violet (`#7C3AED`) primary accent, Amber Signal (`#F59E0B`) secondary accent.
-- **Typography:** [Fraunces](https://fonts.google.com/specimen/Fraunces) for display, [Instrument Sans](https://fonts.google.com/specimen/Instrument+Sans) for UI and body, [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) for code and metadata.
-- **Mark:** AURA wordmark in heavy Fraunces, paired with a subtle radial element (the "aura ring") that reads as halo, aperture, and avatar selection indicator at once.
+The visual system is **"The Instrument, in warm paper"** — warm scientific plotting (a faint graph-paper grid, `FIG.` labels, an annotated settings axis, mono readouts) over the feel of a serious little magazine about digital social life. Full rationale, tokens, and clear-space specs live in [`DESIGN-NOTES.md`](DESIGN-NOTES.md) and [`brand/BRAND-GUIDE.md`](brand/). Headline summary:
+
+- **Palette:** monochromatic red on warm neutrals. Warm-bone paper (`#f6f3ec`) / cool-charcoal (`#101113`, the default dark theme) grounds, near-black/off-white ink, and a single collegiate **brick** accent (`#a8322a` light, `#e05a4a` dark). The exact SIUE University Red (`#e5182d`) appears in exactly one place — the diamond tick beside the wordmark. No second hue.
+- **Typography** (self-hosted via `@fontsource`): **Archivo** (grotesque, 800) for display and UI, **Newsreader** (serif) for body copy, **Spline Sans Mono** for `FIG.` tags, axis ticks, and data readouts — a grotesque-over-serif pairing that echoes SIUE's own.
+- **Mark — "The Reading":** a plotted reading (a peak) rising to a measured point (the SIUE-red diamond) over the lab's settings axis, whose four graduation ticks are the AURA dimensions (Avatars · Users · Relationships · Affect). Reads as an ascending "A" without being a literal letter.
+
+Both themes are token-driven (`src/styles/tokens.css`): overriding only the base tokens under `:root[data-theme="dark"]` restyles the whole component library, since every semantic alias is late-bound `var()`.
+
+---
+
+## Accessibility
+
+The site targets **WCAG 2.1 / 2.2 Level AA**, verified with [axe-core](https://github.com/dequelabs/axe-core) across every page template in **both light and dark themes** (0 violations). What that means in practice:
+
+- **Contrast (1.4.3 / 1.4.11):** all text and UI meet AA in both themes. Because the dark accent is lifted for legible *text*, solid red fills that carry white text use dedicated `--brick-fill` / `--brick-fill-deep` tokens so white-on-red still clears AA.
+- **Keyboard & focus (2.1.1 / 2.4.7):** a skip link, a visible `:focus-visible` ring in the base layer, and full keyboard operation — including the theory constellation (star links + `Enter`/`Space` on cluster controls).
+- **Names, roles, structure (1.3.1 / 4.1.2):** semantic landmarks and headings; the interactive SVG map and the framework "instrument" expose their controls to assistive tech with correct roles and `aria-pressed` state.
+- **Motion (2.2.2 / 2.3.3):** every animation respects `prefers-reduced-motion`, and the auto-rotating framework instrument has an explicit pause control (plus hover/focus auto-pause).
+- **Images & language:** meaningful images have text alternatives, decorative canvases/marks are hidden from AT, and the document declares `lang="en"`.
+
+When changing accent colors or adding solid-fill components, re-check contrast in **dark** mode specifically — it is the tighter constraint. See [`DESIGN-NOTES.md`](DESIGN-NOTES.md) §5.
 
 ---
 
 ## Tech Stack
 
 **Main site (v2)**
-- [Astro 5](https://astro.build/) (static output)
+- [Astro 5](https://astro.build/) (static output) with [React](https://react.dev/) islands (the theory-map filter) via `@astrojs/react`
 - [Tailwind CSS](https://tailwindcss.com/) 3
 - Astro content collections (Zod-validated YAML/Markdown)
-- [Motion One](https://motion.dev/) for staggered word reveals
-- Astro View Transitions for cross-page navigation
-- Fraunces + Instrument Sans + JetBrains Mono via `@fontsource`
-- Deployed to GitHub Pages via GitHub Actions
+- [Motion One](https://motion.dev/) for staggered word reveals; `marked` for inline Markdown
+- Astro View Transitions for cross-page navigation; `@astrojs/sitemap`
+- **Archivo + Newsreader + Spline Sans Mono** via `@fontsource`
+- Deployed to GitHub Pages via GitHub Actions (Node 20, `npm ci && npm run build`)
 
 **MethodoSync** (`methodosync/`)
-- Vite 7 + React 18 + TypeScript, Tailwind CSS v3, Zustand, Radix UI
+- Vite + React 18 + TypeScript, Tailwind CSS v3
 - Built output committed alongside source
 
 **research-methods/**: R Bookdown — static HTML textbook
-**theories/**: Parcel 2 + GSAP animations
+**Theory map**: native to the Astro site (`src/pages/theories/`) — a build-time SVG constellation + a React filter island, not a separate app
 
 ---
 
@@ -112,10 +139,12 @@ The AURA Lab visual identity is maintained by the lab director. Headline summary
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321
-npm run build    # output to ./dist (also copies legacy pages via postbuild)
-npm run check    # type-check + Astro diagnostics
-npm run preview  # serve ./dist locally
+npm run dev               # http://localhost:4321
+npm run build             # output to ./dist (postbuild copies the standalone apps)
+npm run check             # type-check + Astro diagnostics
+npm run preview           # serve ./dist locally
+npm run validate:theories # validate src/data/theories.json against its schema
+npm test                  # vitest (theory filter + utils)
 ```
 
 ### Content workflow
@@ -129,9 +158,9 @@ npm run preview  # serve ./dist locally
 
 ### Deployment
 
-Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds the Astro site and deploys to GitHub Pages. **One-time setup:** GitHub → Settings → Pages → Source: "GitHub Actions".
+Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds the Astro site and publishes it to GitHub Pages at [aura-lab-siue.github.io](https://aura-lab-siue.github.io). **One-time setup:** GitHub → Settings → Pages → Source: "GitHub Actions".
 
-A future migration to `aura-lab.siue.edu` will add a `public/CNAME` once SIUE IT provisions the subdomain.
+The public URL, [aura-lab.siue.edu](https://aura-lab.siue.edu), is a **separately hosted SIUE mirror** (not a GitHub Pages custom domain). It serves the same build output and is refreshed from the same source; it is not updated by the Pages deploy, so a release is complete only once both targets are in sync.
 
 ### MethodoSync (separate sub-app)
 
