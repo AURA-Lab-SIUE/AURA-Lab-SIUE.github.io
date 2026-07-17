@@ -18,7 +18,7 @@
   --paper-2: #efe9dc;
   --ink: #1e1b18;
   --ink-2: #6b6357;
-  --ink-3: #8f887b;
+  --ink-3: #736b5d;  /* tertiary ink — darkened to clear WCAG AA (4.75:1 on paper) */
   --rule: #ddd7c8;
   --rule-strong: #1e1b18;
   --accent: #a8322a; /* brick — the site's one working accent */

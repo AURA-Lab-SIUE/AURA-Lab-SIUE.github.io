@@ -14,6 +14,11 @@
   --brick:      #a8322a;  /* working accent — collegiate red, ~6:1 on paper */
   --brick-deep: #872619;  /* hover / pressed                                */
   --brick-wash: #f1e4e1;  /* faint tint for callouts / badges               */
+  /* Solid fills that carry WHITE text. Kept distinct from --brick so dark
+     mode can darken the fill (white on the lifted --brick fails AA). Light
+     mode: white on #a8322a = 6.66:1, on #872619 = 9:1. */
+  --brick-fill:      var(--brick);
+  --brick-fill-deep: var(--brick-deep);
   --siue:       #e5182d;  /* EXACT SIUE red — institutional mark ONLY       */
   --line:       rgba(30, 27, 24, 0.14);  /* hairlines, borders             */
   --grid:       rgba(30, 27, 24, 0.05);  /* faint graph-paper grid          */
@@ -58,9 +63,12 @@
   --card:       #191b1e;  /* raised surface                                */
   --ink:        #ECEDEF;  /* body text (cool off-white)                    */
   --ink-soft:   #A6A9AE;  /* secondary text                                */
-  --brick:      #d64a3c;  /* working accent — lifted red, reads on charcoal */
+  --brick:      #e05a4a;  /* working accent — lifted so brick TEXT clears AA
+                             (4.71:1 on card, 5.16:1 on paper). See a11y note. */
   --brick-deep: #e0705f;  /* hover / pressed (lighter on dark)             */
   --brick-wash: #2b1a17;  /* faint tint for callouts / badges              */
+  --brick-fill:      #c33d2e;  /* darker than --brick so WHITE text clears AA (5.2:1) */
+  --brick-fill-deep: #b0301f;  /* pressed/hover solid fill (white 6.4:1)             */
   --siue:       #e5182d;  /* EXACT SIUE red — institutional mark ONLY       */
   --line:       rgba(236, 237, 239, 0.15);
   --grid:       rgba(236, 237, 239, 0.05);
@@ -72,7 +80,8 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #101113; --card: #191b1e; --ink: #ECEDEF; --ink-soft: #A6A9AE;
-    --brick: #d64a3c; --brick-deep: #e0705f; --brick-wash: #2b1a17; --siue: #e5182d;
+    --brick: #e05a4a; --brick-deep: #e0705f; --brick-wash: #2b1a17; --siue: #e5182d;
+    --brick-fill: #c33d2e; --brick-fill-deep: #b0301f;
     --line: rgba(236,237,239,0.15); --grid: rgba(236,237,239,0.05);
     --shadow-card: 0 1px 2px rgba(0,0,0,0.4); --shadow-card-hover: 0 16px 34px -18px rgba(0,0,0,0.75);
     color-scheme: dark;

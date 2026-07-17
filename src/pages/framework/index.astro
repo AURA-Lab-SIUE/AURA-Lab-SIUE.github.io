@@ -46,7 +46,7 @@ const field = [
       — across platforms, games, and virtual worlds.
     </p>
 
-    <div class="stage" role="img" aria-label="The four AURA dimensions the lab studies">
+    <div class="stage">
       <div class="apbody" id="apbody">
         <div class="apk" id="apk">{dims[0].k}</div>
         <h2 class="aptitle" id="aptitle">{dims[0].title}</h2>
@@ -59,12 +59,19 @@ const field = [
         {dims.map((_, i) => <div class="tick" style={`left:${(6 + 88 * i / (dims.length - 1)).toFixed(2)}%`}></div>)}
         <div class="dia" id="dia" style="left:6%"></div>
       </div>
-      <div class="stations" id="stations" role="tablist" aria-label="AURA dimensions">
+      <div class="stations" id="stations" role="group" aria-label="Choose an AURA dimension">
         {dims.map((d, i) => (
-          <button type="button" class="station" data-i={i} role="tab"
+          <button type="button" class="station" data-i={i}
+            aria-pressed={i === 0 ? 'true' : 'false'}
+            aria-label={`Show ${d.title}`}
             style={`left:${(6 + 88 * i / (dims.length - 1)).toFixed(2)}%`}>{d.label}</button>
         ))}
       </div>
+      <button type="button" class="ap-pause" id="ap-pause" aria-pressed="false"
+        aria-label="Pause automatic rotation" hidden>
+        <span class="ap-pause-ico" aria-hidden="true"></span>
+        <span class="ap-pause-txt">Pause</span>
+      </button>
     </div>
   </section>
 
@@ -119,14 +126,24 @@ const field = [
         words = Array.from(document.querySelectorAll('#auraword span[data-i]'));
   const fields = { k: $('apk'), t: $('aptitle'), g: $('aptag'), a: $('apask'), w: $('apwhere') };
   const btns = Array.from(document.querySelectorAll('.station'));
-  btns.forEach((b, i) => b.addEventListener('click', () => { go(i); pause(); }));
+  const pauseBtn = $('ap-pause');
+  const stage = document.querySelector('.stage');
   let cur = -1, timer = null;
+  // userPaused = explicit pause via the control (persists); hoverPaused =
+  // transient pause while the pointer/keyboard is in the instrument so the
+  // content never shifts out from under someone reading or clicking.
+  let userPaused = false, hoverPaused = false;
+
   function paint(i) {
     const d = dims[i];
     fields.k.textContent = d.k; fields.t.textContent = d.title; fields.g.textContent = d.tag;
     fields.a.textContent = d.ask; fields.w.textContent = d.where;
     dia.style.left = xOf(i) + '%';
-    btns.forEach((b, j) => b.classList.toggle('on', j === i));
+    btns.forEach((b, j) => {
+      const on = j === i;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
     words.forEach((w, j) => w.classList.toggle('on', j === i));
   }
   function go(i) {
@@ -135,10 +152,41 @@ const field = [
     body.style.opacity = '0';
     setTimeout(() => { cur = i; paint(i); body.style.opacity = '1'; }, 220);
   }
-  function play() { clearInterval(timer); timer = setInterval(() => go((cur + 1) % N), 3600); }
-  function pause() { clearInterval(timer); timer = null; }
+  function stopTimer() { clearInterval(timer); timer = null; }
+  function refresh() {
+    // Run the auto-rotation only when nothing is holding it.
+    if (RM || userPaused || hoverPaused) { stopTimer(); return; }
+    if (!timer) timer = setInterval(() => go((cur + 1) % N), 3600);
+  }
+  function setUserPaused(state) {
+    userPaused = state;
+    if (pauseBtn) {
+      pauseBtn.setAttribute('aria-pressed', String(state));
+      pauseBtn.setAttribute('aria-label', state ? 'Resume automatic rotation' : 'Pause automatic rotation');
+      pauseBtn.classList.toggle('is-paused', state);
+      const txt = pauseBtn.querySelector('.ap-pause-txt');
+      if (txt) txt.textContent = state ? 'Play' : 'Pause';
+    }
+    refresh();
+  }
+
+  btns.forEach((b, i) => b.addEventListener('click', () => { go(i); setUserPaused(true); }));
+
+  if (!RM && pauseBtn) {
+    pauseBtn.hidden = false;
+    pauseBtn.addEventListener('click', () => setUserPaused(!userPaused));
+  }
+  if (!RM && stage) {
+    const hold = () => { hoverPaused = true; refresh(); };
+    const release = () => { hoverPaused = false; refresh(); };
+    stage.addEventListener('pointerenter', hold);
+    stage.addEventListener('pointerleave', release);
+    stage.addEventListener('focusin', hold);
+    stage.addEventListener('focusout', release);
+  }
+
   cur = 0; paint(0);
-  if (!RM) play();
+  refresh();
 </script>
 
 <style>
@@ -185,6 +233,23 @@ const field = [
   .stations button:hover { color: var(--ink); }
   .stations button.on { color: var(--brick); }
 
+  /* Pause/resume control for the auto-rotating instrument (WCAG 2.2.2). Shown
+     only when auto-rotation is actually running (unhidden by JS; hidden under
+     reduced-motion, where nothing rotates). */
+  .ap-pause {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 26px;
+    background: none; border: 1px solid var(--line); border-radius: 999px;
+    padding: 5px 12px 5px 10px; cursor: pointer; color: var(--ink-soft);
+    font-family: theme('fontFamily.mono'); font-size: 0.68rem; letter-spacing: 0.06em;
+    text-transform: uppercase; min-height: 24px;
+    transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out); }
+  .ap-pause:hover { color: var(--ink); border-color: var(--brick); }
+  .ap-pause-ico { width: 9px; height: 10px; flex: none;
+    border-left: 3px solid currentColor; border-right: 3px solid currentColor; }
+  .ap-pause.is-paused .ap-pause-ico { width: 0; height: 0; border: none;
+    border-left: 9px solid currentColor; border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent; }
+
   .seclbl { font-family: theme('fontFamily.sans'); color: var(--ink-soft); font-size: 0.72rem;
     font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 1.2rem; }
   .dims-sec, .field-sec { padding-top: 40px; }
@@ -215,7 +280,7 @@ const field = [
   .chips { display: flex; flex-wrap: wrap; gap: 7px; }
   .chip { font-family: theme('fontFamily.mono'); font-size: 0.68rem; letter-spacing: 0.03em;
     padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-soft); }
-  .chip.hot { color: #fff; background: var(--brick); border-color: var(--brick); }
+  .chip.hot { color: #fff; background: var(--brick-fill); border-color: var(--brick-fill); }
   .chip.all { color: var(--brick); border-color: var(--brick); background: var(--brick-wash); }
 
   @media (max-width: 760px) { .pillars, .mrow { grid-template-columns: 1fr; } }
