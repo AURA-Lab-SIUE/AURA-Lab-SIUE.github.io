@@ -153,7 +153,10 @@ textarea:focus-visible, [tabindex]:focus-visible, summary:focus-visible{
 .feature-grid.two{ grid-template-columns:repeat(2,1fr); }
 .feature{ background:#fff; border:1px solid var(--line); border-top:4px solid var(--red);
   padding:1.6rem 1.6rem 1.8rem; display:flex; flex-direction:column; }
-.feature img{ width:100%; height:9.5rem; object-fit:cover; margin:-1.6rem -1.6rem 1.1rem; width:calc(100% + 3.2rem); }
+/* Full-bleed top image: the negative margins cancel the card's 1.6rem padding
+   and the width spans it. max-width:none overrides the global `.mc-scope img
+   { max-width:100% }`, which would otherwise cap the width and inset the image. */
+.feature img{ width:calc(100% + 3.2rem); max-width:none; height:9.5rem; object-fit:cover; margin:-1.6rem -1.6rem 1.1rem; display:block; }
 .feature .num{ font-family:var(--serif); font-weight:700; color:var(--red-deep); font-size:1.05rem; }
 .feature h3{ font-family:var(--serif); font-weight:700; font-size:1.4rem; color:var(--ink); margin:.3rem 0 .6rem; }
 .feature p{ color:var(--muted); line-height:1.6; margin:0 0 1rem; }

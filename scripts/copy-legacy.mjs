@@ -34,6 +34,10 @@ const items = [
 
 await mkdir(dist, { recursive: true });
 
+// Never deploy `_source/` folders (working design source kept in the repo for
+// versioning but not served — e.g. masscomm-preview/_source).
+const isSource = (p) => /[\\/]_source([\\/]|$)/.test(p);
+
 for (const item of items) {
   const src = path.join(root, item);
   if (!existsSync(src)) {
@@ -41,6 +45,6 @@ for (const item of items) {
     continue;
   }
   const dst = path.join(dist, item);
-  await cp(src, dst, { recursive: true });
+  await cp(src, dst, { recursive: true, filter: (s) => !isSource(s) });
   console.log(`copied: ${item}`);
 }
