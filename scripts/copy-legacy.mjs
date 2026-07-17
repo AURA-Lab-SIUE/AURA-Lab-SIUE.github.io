@@ -12,6 +12,12 @@ const items = [
   'captionizer.html',
   'countdown.html',
   'app_form.html',
+  // Mass Comm redesign mockups + the body stylesheet SIUE Cascade pages
+  // reference. Served at /masscomm-preview/ and /mc-body.css. Previously
+  // uploaded to the server by hand (and outside git) — now versioned here
+  // and carried by the build so a deploy can't drop them.
+  'masscomm-preview',
+  'mc-body.css',
   // Legacy stylesheets/scripts the standalone HTML pages above load by
   // relative path (css/style.css, js/countdown.js, …). Without these the
   // Captionizer and Countdown pages render unstyled.
