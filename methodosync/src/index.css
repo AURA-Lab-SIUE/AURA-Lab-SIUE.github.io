@@ -25,6 +25,12 @@
     --line:       rgba(30, 27, 24, 0.14);  /* hairlines, borders             */
     --grid:       rgba(30, 27, 24, 0.05);  /* faint graph-paper grid          */
 
+    /* Solid fills that carry WHITE text — kept distinct from --brick so dark
+       mode can darken the fill (white on the lifted dark --brick fails AA).
+       Light mode: fill == accent. */
+    --brick-fill:      var(--brick);
+    --brick-fill-deep: var(--brick-deep);
+
     /* legacy aliases still referenced by a few utilities */
     --stroke:     var(--line);
 
@@ -34,6 +40,38 @@
     --shadow-card: 0 1px 2px rgba(30, 27, 24, 0.05);
     --shadow-card-hover: 0 14px 32px -18px rgba(30, 27, 24, 0.38);
     --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  /* Dark theme — ported from the site's src/styles/tokens.css so the tool
+     matches the AURA Lab dark surface. --brick is lifted so brick TEXT clears
+     AA; --brick-fill is darkened so WHITE text on solid fills still clears AA. */
+  :root[data-theme="dark"] {
+    --paper:      #101113;
+    --card:       #191b1e;
+    --ink:        #ECEDEF;
+    --ink-soft:   #A6A9AE;
+    --brick:      #e05a4a;
+    --brick-deep: #e0705f;
+    --brick-wash: #2b1a17;
+    --brick-fill:      #c33d2e;  /* white text clears AA (5.2:1) */
+    --brick-fill-deep: #b0301f;  /* white text 6.4:1            */
+    --siue:       #e5182d;
+    --line:       rgba(236, 237, 239, 0.15);
+    --grid:       rgba(236, 237, 239, 0.05);
+    --shadow-card:       0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 16px 34px -18px rgba(0, 0, 0, 0.75);
+    color-scheme: dark;
+  }
+  /* No-JS / OS-dark users get dark automatically unless they've toggled light. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #101113; --card: #191b1e; --ink: #ECEDEF; --ink-soft: #A6A9AE;
+      --brick: #e05a4a; --brick-deep: #e0705f; --brick-wash: #2b1a17; --siue: #e5182d;
+      --brick-fill: #c33d2e; --brick-fill-deep: #b0301f;
+      --line: rgba(236,237,239,0.15); --grid: rgba(236,237,239,0.05);
+      --shadow-card: 0 1px 2px rgba(0,0,0,0.4); --shadow-card-hover: 0 16px 34px -18px rgba(0,0,0,0.75);
+      color-scheme: dark;
+    }
   }
 
   html { background: var(--paper); scroll-behavior: smooth; }
@@ -60,7 +98,7 @@
     letter-spacing: -0.02em;
   }
 
-  ::selection { background: var(--brick); color: #fff; }
+  ::selection { background: var(--brick-fill); color: #fff; }
   :focus-visible {
     outline: 2px solid var(--brick);
     outline-offset: 2px;
@@ -124,12 +162,12 @@
     font-family: theme('fontFamily.sans');
     font-weight: 600;
     letter-spacing: 0.01em;
-    background: var(--brick);
+    background: var(--brick-fill);
     color: #fff;
-    border: 1px solid var(--brick);
+    border: 1px solid var(--brick-fill);
     transition: background 200ms var(--ease-out), transform 200ms var(--ease-out);
   }
-  .btn-primary:hover { background: var(--brick-deep); border-color: var(--brick-deep); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--brick-fill-deep); border-color: var(--brick-fill-deep); transform: translateY(-1px); }
   .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
   .btn-secondary {
