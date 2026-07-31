@@ -116,6 +116,7 @@ Beyea, D., Foxman, M., Ratan, R., Klebig, B., Leith, A. P., & Chen, V. H. H. (20
 
 **NSF FINDERS FOUNDRY (NSF 26-507)**, Planning Grant, PI. *Co-Designing AI Learning Supports with K-5 Paraprofessionals for Students Who Receive IEP Services.* $50,000; SIUE. Submitted 2026-05-27.
 
+<!-- INTERNAL-ONLY-START -->
 ### External Funding (Submitted, Not Funded)
 
 **NSF Future CoRe (HCC)**, PI. *Distributed AI Agents for Scalable Interaction Modeling and Feedback Aggregation in Technical Learning.* $476,892; 01/2026 – 12/2030; SIUE. Submitted 2025-09-11; declined 2026-05-03.
@@ -125,6 +126,7 @@ Beyea, D., Foxman, M., Ratan, R., Klebig, B., Leith, A. P., & Chen, V. H. H. (20
 **Spencer Foundation**, PI. *Innovating for Inclusivity: Mixed Reality and Digital Learning Modalities as Educational Equalizers.* $249,884; 2025.
 
 **NEH Dangers and Opportunities of Technology**, Co-PI (with A. Speno, Co-PI). $149,975; 2024.
+<!-- INTERNAL-ONLY-END -->
 
 ### Internal Funding
 
@@ -205,6 +207,18 @@ Leith, A. P. When Watching Isn't Enough: Viewer Agency and the Convergent Expans
 
 ---
 
+## Technical & Methodological Skills
+
+**Methods.** Experimental and survey design · content analysis with intercoder reliability · meta-analysis · equivalence testing · sentiment and NLP text analysis · large-scale social-media data collection · mixed-method case study · focus groups in VR.
+
+**Languages & environments.** R (package authorship, Quarto/Bookdown) · Python · SQL / DuckDB · TypeScript / Next.js · Git.
+
+**Platforms & tooling.** Social VR and XR research environments (VRChat) · virtual meeting platforms · local/offline LLM pipelines · reproducible research and courseware toolchains.
+
+**Accessibility.** WCAG 2.1 AA remediation · tagged-PDF / PDF-UA workflows · Blackboard Ally compliance.
+
+---
+
 ## Open-Source Software & Datasets
 
 ### Open-Source Software
@@ -258,7 +272,7 @@ Leith, A. P. (2019, October). Playing games for others: Constructing a gameplay 
 
 ---
 
-## Invited Talks
+## Panels
 
 Leith, A. P., Freberg, K., Wall, M., & Dalton, S. (2020, May). How to teach digital and social media marketing well. Panel presented at the *Midwest Digital Marketing Conference.* St. Louis, MO.
 
@@ -319,12 +333,43 @@ McKendree University: JRN 372: Web and Print Publication Design (Spring 2012) ·
 
 ---
 
+## Curriculum Development
+
+- **Vibes to Variables (V2V)** — OER courseware umbrella for teaching research methods to students new to statistics, methods, and coding. Funded twice by the SIUE OER Faculty Incentive Program. 2023 – present.
+- **MC 451** — authored the open textbook *Quantitative Research in Mass Communications: R and RStudio*; revised for modularity, 2024.
+- **MC 471 Special Topics** — new course preparation, graduate and undergraduate sections, 2024.
+- **MC 427** — course-material development under contract, Fall 2026.
+- **Accessibility remediation** — MC 451 and MC 501 brought to 100% Blackboard Ally compliance, 2026; WCAG 2.1 AA conformance across the V2V materials.
+
+---
+
+## Certifications & Professional Development
+
+- **Designing Learner-Centered and Equitable Courses** — ACUE microcredential (6 modules). 2026.
+- **Core Curriculum** — National Center for Faculty Development & Diversity (NCFDD). 2023.
+
+---
+
+## Professional Memberships
+
+- International Communication Association (ICA) — Game Studies Division
+- National Communication Association (NCA)
+- Digital Games Research Association (DiGRA)
+
+---
+
 ## Service
+
+### Guest Editorships
+
+Both arising from the Meaningful XR conference; each is a single special issue / research topic, not a standing masthead appointment.
+
+- Guest Editor, ***Frontiers in Virtual Reality***. Research Topic: *Exploring Meaningful Extended Reality (XR) Experiences: Psychological, Educational, and Data-Driven Perspectives.* 2026.
+- Guest Co-Editor, ***Journal of Media Psychology*** (Hogrefe). Special Issue: *Metaverse-Mediated Communication.* 2023 – 2025.
 
 ### Research Culture & Convening (cross-unit / interdisciplinary)
 
 - Co-Founding Organizer, **Meaningful XR** (meaningfulxr.org). Beyond Meet Space initiative; annual conference convening researchers and practitioners around virtual presence, social VR, and mediated communication. 2023 – present. Stanford convening Jun 2023 – May 2024.
-- Editor, **Journal of Media Psychology** (Hogrefe; Theories, Methods, and Applications). Mar 2023 – present. Co-Editor of Special Issue on Metaverse-Mediated Communication, 2024.
 - **ICA Game Studies Division**, Student & Early Career Representative. Spring 2022 – Summer 2024.
 - **ICA Game Studies Division**, Board Member. Oct 2021 – Jun 2024.
 - **ICA**, Discord Moderator. Oct 2021 – present. Community-facing role moderating year-round scholarly discussion across ICA divisions.

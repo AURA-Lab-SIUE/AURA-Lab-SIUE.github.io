@@ -11,3 +11,7 @@ scripts/_source-notes/
 
 # Python bytecode cache
 __pycache__/
+
+# Internal-only CV render (declined grants included) — this repo is public.
+resume-cv/Leith_CV_internal.pdf
+resume-cv/_CV_external.md
