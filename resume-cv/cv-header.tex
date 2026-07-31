@@ -1,31 +1,68 @@
 % LaTeX header for CV.md → PDF rendering via pandoc + xelatex
 % Pairs with CV.md in this directory. Usage:
 %   pandoc CV.md -o Leith_CV.pdf --pdf-engine=xelatex \
-%     --include-in-header=cv-header.tex -V geometry:margin=0.65in \
-%     -V mainfont="Cambria" -V sansfont="Calibri" -V monofont="Consolas" \
-%     -V fontsize=10.5pt -V colorlinks=true -V linkcolor=auraviolet \
-%     -V urlcolor=auraviolet
+%     --include-in-header=cv-header.tex -V geometry:margin=0.6in \
+%     -V fontsize=10.5pt -V lang=en-US
+%
+% Fonts are declared HERE via fontspec, not on the command line. The eight
+% static faces in ./fonts/ are instanced from the Google Fonts variable
+% originals by ../make_fonts.py. Both families are SIL OFL, same as on the site.
 %
 % Section hierarchy from the CV.md:
 %   \subsection (## in markdown) — major sections: Academic Appointments, Publications, etc.
 %   \subsubsection (### in markdown) — sub-buckets: Editorials, External Funding (Completed), etc.
 
-% ── Colors (AURA Lab palette) ───────────────────────────────────────────────
-\usepackage{xcolor}
-\definecolor{auraviolet}{HTML}{7C3AED}
-\definecolor{deepgraphite}{HTML}{0E0E12}
-\definecolor{ambersignal}{HTML}{F59E0B}
-\definecolor{rulegrey}{HTML}{D6D3D1}
+% ── Identity ────────────────────────────────────────────────────────────────
+% "Instrument" — the shared AURA Lab x SIM DAD design system from apleith.com,
+% rendered in light for print. Display face Archivo, body face Jakarta (Plus
+% Jakarta Sans): the same pair the site self-hosts.
+%
+% Accessibility: WCAG 2.1 AA. Contrast measured against the white page —
+%   ink   #101113  18.89:1  body text   (the site's ground colour, inverted)
+%   blue  #0072B2   5.19:1  headings, links   (Okabe-Ito, colour-blind safe)
+%   slate #646E7C   5.17:1  secondary text
+% All three clear 4.5:1, so each is safe at NORMAL text size, not merely large.
+% Colour is never the sole cue: headings also carry weight, size, and a rule,
+% and every link's URL is spelled out as visible text.
+%
+% Deliberately NOT carried over from the site spectrum — each fails AA for
+% normal text on a light ground:
+%   amber #E69F00 2.25:1 · pink #CC79A7 3.06:1 · teal #009E73 3.42:1
+%   brick #E05A4A 3.66:1 · indigo #7A79C0 3.94:1 · siue-red #E5182D 4.67:1
+% Several would pass for large text only. The CV needs no second accent, and a
+% single accent keeps the light rendering calm.
 
-% ── Section styling: lift \subsection visually to act as the top-level section ─
+% ── Colors ──────────────────────────────────────────────────────────────────
+\usepackage{xcolor}
+\definecolor{instink}{HTML}{101113}    % body text
+\definecolor{instblue}{HTML}{0072B2}   % accent: headings, links
+\definecolor{instslate}{HTML}{646E7C}  % secondary text
+\definecolor{instrule}{HTML}{C9CDD3}   % hairlines (decorative, non-text)
+
+% ── Fonts ───────────────────────────────────────────────────────────────────
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+\setmainfont{Jakarta}[
+  Path = ./fonts/, Extension = .ttf,
+  UprightFont = *-Regular, BoldFont = *-Bold,
+  ItalicFont = *-Italic, BoldItalicFont = *-BoldItalic,
+]
+\setsansfont{Archivo}[
+  Path = ./fonts/, Extension = .ttf,
+  UprightFont = *-Regular, BoldFont = *-Bold,
+  ItalicFont = *-Italic, BoldItalicFont = *-BoldItalic,
+]
+
+% ── Section styling: lift \subsection to act as the top-level section ───────
 \usepackage{titlesec}
 \titleformat{\subsection}
-  {\Large\bfseries\sffamily\color{auraviolet}}{}{0pt}
-  {}[\vspace{-3pt}\color{rulegrey}\titlerule]
+  {\Large\bfseries\sffamily\color{instblue}}{}{0pt}
+  {}[\vspace{-3pt}\color{instrule}\titlerule]
 \titlespacing*{\subsection}{0pt}{14pt}{6pt}
 
 \titleformat{\subsubsection}
-  {\normalsize\bfseries\sffamily\color{deepgraphite}}{}{0pt}{}
+  {\normalsize\bfseries\sffamily\color{instslate}}{}{0pt}{}
 \titlespacing*{\subsubsection}{0pt}{8pt}{2pt}
 
 % ── Paragraph + list rhythm ─────────────────────────────────────────────────
@@ -33,34 +70,45 @@
 \setlength{\parskip}{4pt plus 1pt minus 0.5pt}
 
 \usepackage{enumitem}
-\setlist[itemize]{nosep, leftmargin=14pt, label=\textcolor{ambersignal}{\textbullet}}
+\setlist[itemize]{nosep, leftmargin=14pt, label=\textcolor{instblue}{\textbullet}}
 
 % ── Footer: name + page number, no header line ──────────────────────────────
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot[L]{\footnotesize\color{deepgraphite}Alex P. Leith, PhD --- CV}
-\fancyfoot[R]{\footnotesize\color{deepgraphite}\thepage}
+\fancyfoot[L]{\footnotesize\color{instslate}Alex P. Leith, PhD --- CV}
+\fancyfoot[R]{\footnotesize\color{instslate}\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
 \fancypagestyle{plain}{%
   \fancyhf{}
-  \fancyfoot[L]{\footnotesize\color{deepgraphite}Alex P. Leith, PhD --- CV}
-  \fancyfoot[R]{\footnotesize\color{deepgraphite}\thepage}
+  \fancyfoot[L]{\footnotesize\color{instslate}Alex P. Leith, PhD --- CV}
+  \fancyfoot[R]{\footnotesize\color{instslate}\thepage}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }
 
-% ── Link styling: subtle, on-brand ──────────────────────────────────────────
-% Defer to \AtBeginDocument because pandoc loads hyperref after this header.
+% ── Body colour ─────────────────────────────────────────────────────────────
+\AtBeginDocument{\color{instink}}
+
+% ── Links + PDF metadata ────────────────────────────────────────────────────
+% Deferred because pandoc loads hyperref after this header. pdflang and
+% pdftitle let assistive technology announce the document correctly; the
+% pandoc/xelatex path emits no full tag tree, so this is the accessible
+% ceiling for this pipeline (see repo README).
 \AtBeginDocument{%
   \hypersetup{
     colorlinks=true,
-    linkcolor=auraviolet,
-    urlcolor=auraviolet,
-    citecolor=auraviolet,
-    pdfborder={0 0 0}
+    linkcolor=instblue,
+    urlcolor=instblue,
+    citecolor=instblue,
+    pdfborder={0 0 0},
+    pdftitle={Alex P. Leith, PhD --- Curriculum Vitae},
+    pdfauthor={Alex P. Leith},
+    pdfsubject={Curriculum Vitae},
+    pdflang={en-US},
+    pdfdisplaydoctitle=true
   }%
   \urlstyle{same}%
 }
@@ -80,5 +128,7 @@
 % negative vspace so the body lands within ~16pt of the subtitle.
 \usepackage{titling}
 \setlength{\droptitle}{-40pt}
-\predate{\par\begin{center}}
+\pretitle{\begin{center}\sffamily\bfseries\Huge}
+\posttitle{\par\end{center}\vspace{-4pt}}
+\predate{\par\begin{center}\sffamily\color{instslate}}
 \postdate{\par\end{center}\vspace{-44pt}}
