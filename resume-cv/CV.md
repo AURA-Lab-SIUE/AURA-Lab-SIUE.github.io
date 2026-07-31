@@ -272,7 +272,7 @@ Leith, A. P. (2019, October). Playing games for others: Constructing a gameplay 
 
 ---
 
-## Panels
+## Invited Talks
 
 Leith, A. P., Freberg, K., Wall, M., & Dalton, S. (2020, May). How to teach digital and social media marketing well. Panel presented at the *Midwest Digital Marketing Conference.* St. Louis, MO.
 
