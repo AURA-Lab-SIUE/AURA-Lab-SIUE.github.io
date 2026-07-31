@@ -98,6 +98,8 @@ Leith, A. P., Ratan, R. A., & Wohn, D. Y. (2016). The (de-)evolution of evolutio
 
 ### Editorials
 
+Foxman, M., Ratan, R. A., Peña, J., Beyea, D., Leith, A. P., & Klebig, B. (2026). Editorial: Exploring meaningful extended reality (XR) experiences: Psychological, educational, and data-driven perspectives. *Frontiers in Virtual Reality, 7*, 1935335. https://doi.org/10.3389/frvir.2026.1935335
+
 Beyea, D., Foxman, M., Ratan, R., Klebig, B., Leith, A. P., & Chen, V. H. H. (2025). Metaverse-mediated communication: A call for theory-driven XR research [Editorial]. *Journal of Media Psychology: Theories, Methods, and Applications, 37*(2), 61–63. https://doi.org/10.1027/1864-1105/a000465
 
 ---
