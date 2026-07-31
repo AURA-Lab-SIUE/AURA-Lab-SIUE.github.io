@@ -36,12 +36,16 @@ Graduate Assistant, Southern Illinois University Edwardsville — Aug 2010 – M
 **Founder & Principal Research Consultant** — SIM-DAD LLC
 Independent research and data consulting practice | Remote · Jun 2024 – present
 
-Applied behavioral research, UX/user research, and data analytics consulting for technology, media, and gaming clients. Open-source NLP and AI tooling.
+Applied behavioral research, UX/user research, and data analytics consulting for technology, media, and gaming clients.
 
-- Built **TASS** (Text Analysis & Sentiment System), a Python/R NLP package for word count and sentiment analysis with extensible custom dictionaries — github.com/SIM-DAD/TASS
-- Deployed **The Cage**, a production Next.js / TypeScript web application with dual-database architecture (PostgreSQL + MySQL / Prisma ORM), Docker Compose, REST API, QR checkout, and Microsoft Entra SSO — github.com/SIM-DAD/the-cage
-- Developed **Open WebUI Launcher for Local LLMs**: one-click Python/Docker tool automating LLM setup (Ollama + Open WebUI) with hardware checks and classroom-safe defaults — github.com/apleith/open-webui-launcher
-- Maintaining **DeepSeek-R1 monorepo** of Open WebUI tools for research and instructional AI workflows — github.com/SIM-DAD/DeepSeek-R1-Monorepo
+Ships a suite of local-first, privacy-preserving research and authoring tools. All processing runs on the user's machine; no cloud dependency, no per-token metering.
+
+- **TASS** (Text Analysis & Sentiment System) — dictionary-based text analysis on open, citable dictionaries, with statistical group comparisons and APA-cited exports. Open-core: the Community Edition engine, CLI, and MCP server are Apache-2.0 (github.com/SIM-DAD/tass); the no-code Windows desktop application is commercial. usetass.app
+- **GearOut** — equipment reservation and checkout platform for universities; Next.js / TypeScript / PostgreSQL production web application, deployed at SIUE as *MassComm Checkout*. Sole developer.
+- **Ibis** — fully offline audio transcription for Windows. useibis.app
+- **Lector** — authoring environment with integrated text-to-speech. uselector.app
+- **Orator** — converts documents into locally voiced narrated video. useorator.app
+- **Resero** — the workbench that houses the suite. useresero.app
 
 **Marketing Manager** — Brigham Young University–Idaho
 Marketing & Communications | Rexburg, ID · Aug 2008 – Aug 2009
@@ -68,19 +72,19 @@ Brigham Young University – Idaho
 
 ## Publications
 
-Leith, A. P., Lim, C., Foxman, M., Beyea, D., & Jeong, D. C. (2025). Stress and coping in VRChat: A mixed-method case study of the use of VRChat as a coping tool during the COVID-19 pandemic. *Computers in Human Behavior Reports, 20*(100843). https://doi.org/10.1016/j.chbr.2025.100843
+Leith, A. P., Lim, C., Foxman, M., Beyea, D., & Jeong, D. (2025). Stress and coping in VRChat: A mixed-method case study of the use of VRChat as a coping tool during the COVID-19 pandemic. *Computers in Human Behavior Reports, 20*(100843). https://doi.org/10.1016/j.chbr.2025.100843
 
 Bouzek, D., Foxman, M., Lim, C., & Leith, A. P. (2025). Balancing fun and professionalism in game development: the dark and light side of play in virtual meetings. *Frontiers in Communication, 10*. https://doi.org/10.3389/fcomm.2025.1609776
 
-Ratan, R. A., Lin, Q., Lim, C., Park, R., Lover, A., Han, E., Jang, D., Leith, A. P., & Bailenson, J. N. (2025). Time matters in VR: Students benefit from longer VR class duration, but certain outcomes decline after 45 minutes, with large individual variance. *Computers & Education, 14*(3), 466–477. https://doi.org/10.1016/j.compedu.2025.105328
+Ratan, R. A., Lin, Q., Lim, C., Park, R., Lover, A., Han, E., Jang, D., Leith, A. P., & Bailenson, J. N. (2025). Time matters in VR: Students benefit from longer VR class duration, but certain outcomes decline after 45 minutes, with large individual variance. *Computers & Education, 235*, 105328. https://doi.org/10.1016/j.compedu.2025.105328
 
-Lim, C., Leith, A. P., Ratan, R., & Bouzek, D. (2025). Meeting needs: How social interaction anxiety, zoom fatigue, relatedness, and demographics predict virtual meeting feature preferences. *Computers in Human Behavior Reports, 18*, 100673. https://doi.org/10.1016/j.chbr.2025.100673
+Lim, C., Leith, A. P., Ratan, R., Foxman, M., & Bouzek, D. (2025). Meeting needs: How social interaction anxiety, zoom fatigue, relatedness, and demographics predict virtual meeting feature preferences. *Computers in Human Behavior Reports, 18*, 100673. https://doi.org/10.1016/j.chbr.2025.100673
 
 Lim, C., Ratan, R., Foxman, M., Beyea, D., Jeong, D., & Leith, A. P. (2025). Examining attitudes about the virtual workplace: Associations between Zoom fatigue, Impression management, and virtual meeting adoption intent. *PLOS One*. https://doi.org/10.1371/journal.pone.0312354
 
 Beyea, D., Lim, C., Lover, A., Foxman, M., Ratan, R., & Leith, A. P. (2025). Zoom fatigue in review: A meta-analytical examination of videoconferencing fatigue's antecedents. *Computers in Human Behavior Reports, 17*(100571). https://doi.org/10.1016/j.chbr.2024.100571
 
-Foxman, M., Beyea, D., Leith, A. P., Ratan, R. A., Chen, V. H. H., & Klebig, B. (2022). Beyond genre: Classifying virtual reality experiences. *IEEE Transactions on Games, 14*(3), 466–477. https://doi.org/10.1109/TG.2021.3119521
+Foxman, M., Beyea, D., Leith, A. P., Ratan, R. A., Chen, V. H. H., & Klebig, B. (2021). Beyond genre: Classifying virtual reality experiences. *IEEE Transactions on Games, 14*(3), 466–477. https://doi.org/10.1109/TG.2021.3119521
 
 Leith, A. P., & Gheen, E. (2022). Twitch in the time of quarantine: The role of engagement in needs fulfillment. *Psychology of Popular Media, 11*(3), 275–280. https://doi.org/10.1037/ppm0000372
 
@@ -106,15 +110,15 @@ Beyea, D., Foxman, M., Ratan, R., Klebig, B., Leith, A. P., & Chen, V. H. H. (20
 
 ### External Funding (Under Review)
 
-**Spencer Foundation Racial Equity Research Grants**, PI. *At the Margins of Two Systems: Paraprofessionals, AI Tools, and Multilingual Neurodiverse Learners in K-5 Classrooms.* $75,000 (no-IDC ceiling); 09/2026 – 08/2028. ITA submitted 2026-05-04; full proposal due 2026-07-01.
+**Spencer Foundation Racial Equity Research Grant**, PI. *At the Margins of Two Systems: Paraprofessionals, AI Tools, and Multilingual Neurodiverse Learners in K-5 Classrooms.* $74,911 (direct costs, no indirect); 01/2027 – 12/2028; SIUE. Submitted 2026-07-01.
 
-**Wellcome Discovery Award**, Co-Investigator (SIUE Lead, with University of Zambia PI). *AI-Driven and IoT-Enabled Innovations for Malaria and Insect Vector Surveillance and Control.* $800,044; 01/2026 – 12/2030.
+**NSF FINDERS FOUNDRY (NSF 26-507)**, Planning Grant, PI. *Co-Designing AI Learning Supports with K-5 Paraprofessionals for Students Who Receive IEP Services.* $50,000; SIUE. Submitted 2026-05-27.
 
 ### External Funding (Submitted, Not Funded)
 
-**NSF Future CoRe (HCC)**, PI. *Distributed AI Agents for Scalable Interaction Modeling and Feedback Aggregation in Technical Learning.* $496,521; 06/2026 – 05/2030; SIUE. Submitted 2025-09-11; decision 2026-05-03.
+**NSF Future CoRe (HCC)**, PI. *Distributed AI Agents for Scalable Interaction Modeling and Feedback Aggregation in Technical Learning.* $476,892; 01/2026 – 12/2030; SIUE. Submitted 2025-09-11; declined 2026-05-03.
 
-**NSF Collaborative Research**, PI (SIUE site). *Improving Equity and Wellbeing in Virtual Classrooms via AI-enhanced Avatars.* $49,999; 05/2025 – 05/2028; SIUE.
+**NSF Collaborative Research**, PI (SIUE site). *Improving Equity and Wellbeing in Virtual Classrooms via AI-enhanced Avatars.* $562,180 collaborative total (SIUE site $49,999); 05/2025 – 05/2028.
 
 **Spencer Foundation**, PI. *Innovating for Inclusivity: Mixed Reality and Digital Learning Modalities as Educational Equalizers.* $249,884; 2025.
 
@@ -122,13 +126,15 @@ Beyea, D., Foxman, M., Ratan, R., Klebig, B., Leith, A. P., & Chen, V. H. H. (20
 
 ### Internal Funding
 
-Leith, A. P. (2025–2026). OER Faculty Incentive Program: Vibes to Variables (V2V) Courseware Umbrella. $7,792.37. SIUE Online Services & Educational Outreach.
+Leith, A. P. (2025–2026). OER Faculty Incentive Program: Vibes to Variables (V2V) Courseware Umbrella. $7,792.36. SIUE Online Services & Educational Outreach.
 
-Leith, A. P. (2024). OER Faculty Incentive Program. $5,110.74. SIUE.
-
-Leith, A. P. (2023–2024). OER Adoption, Adaptation, and Implementation Incentive Program. $6,088. SIUE.
+Leith, A. P. (2023–2024). OER Faculty Incentive Program: MC 451 open textbook. $6,559.71. SIUE.
 
 Leith, A. P. (2021–2022). New Faculty Incentive Program. $2,000. SIUE.
+
+### Contracts
+
+Southern Illinois University Edwardsville. *MC 427 course-material development.* $3,000 (flat); payout Fall 2026.
 
 ---
 
@@ -183,7 +189,7 @@ Cross-unit mentoring at SIUE spanning Mass Communications, Applied Communication
 
 ## Intellectual Property & Technology Transfer (SIUE)
 
-**GearOut** (formerly Control Room / The Cage). Equipment reservation and checkout platform for universities; deployed at SIUE as "MassComm Checkout." 155 files, 21.5K LoC, 57 API routes, 21 models. Sole developer (300+ hours). Disclosed via SIUE OTMIR (Office of Technology Management & Industry Relations); IP package, commercial viability analysis, and licensing-back proposal submitted; OTMIR review meeting 2026-04-13. Repository: github.com/SIM-DAD/gearout.
+**GearOut** (formerly Control Room / The Cage). Equipment reservation and checkout platform for universities; deployed at SIUE as "MassComm Checkout." 155 files, 21.5K LoC, 57 API routes, 21 models. Sole developer (300+ hours). Disclosed via SIUE OTMIR (Office of Technology Management & Industry Relations); IP package, commercial viability analysis, and licensing-back proposal submitted; OTMIR review meeting 2026-04-13. Repository private pending the SIUE IP determination.
 
 **BMS Selective Muting Evaluation** (with team). MSU Technologies-led Invention Disclosure submitted 2026-05-08; Alex as 1 of 8 contributors at 15% SIUE-affiliated contribution per SIU IP policy. Cross-institutional patent disclosure originating from FW-HTF-R research.
 
@@ -191,19 +197,9 @@ Cross-unit mentoring at SIUE spanning Mass Communications, Applied Communication
 
 ## Intellectual Contributions in Submission (Under Review)
 
-Leith, A. P., Lim, C., Foxman, M., Beyea, D., & Jeong, D. Dreaming a Virtual Reality: Identifying Interpersonal and Intrapersonal Motivations in VRChat During the COVID-19 Pandemic. *International Journal of Communication*.
+Leith, A. P. Asymmetric Ties: A Convergence Model of Parasocial and Interpersonal Relationships in Platformed Media. *Mass Communication & Society.* Submitted 2026-07-29.
 
-Lim, C., Ratan, R., Foxman, M., Beyea, D., Jeong, D., & Leith, A. P. Virtual Touch-up: Examining how use of Impression Management features in virtual meetings relates to Zoom Fatigue and VM Perceptions. *Behaviour & Information Technology*.
-
-Leith, A. P. When watching isn't enough: Human agents and their influence of gameplay through synchronous text chats. *Journal of Gaming & Virtual Worlds*.
-
-Ratan, R., Lin, Q., Lim, C., Lover, A., Han, E., Jang, D., Park, R., Leith, A. P., & Bailenson, J. N. Virtual reality enhances online classes due to social presence, but benefits diminish after about 30 minutes due to fatigue: A longitudinal study of undergraduates. *Computers & Education*.
-
-Lim, C., Leith, A. P., Ratan, R., Foxman, M., & Bouzek, D. Supporting underrepresented workers' well-being in virtual meetings: An exploratory study linking uses and gratification, self-determination theory to usage of virtual meeting features. *Computers in Human Behavior Reports*.
-
-Beyea, D., Lim, C., Foxman, M., Ratan, R., & Leith, A. P. Videoconferencing fatigue: An analysis of antecedents and the ZEF Scale. *Computers in Human Behavior Reports*.
-
-Leith, A. P., Foxman, M., et al. The Platform Flattening of Gendered Affect (P5). *Information, Communication & Society*. Submitted 2026-04-25.
+Leith, A. P. When Watching Isn't Enough: Viewer Agency and the Convergent Expansion of Gamespace in Gameplay Livestreaming. *Convergence: The International Journal of Research into New Media Technologies.*
 
 ---
 
@@ -211,13 +207,10 @@ Leith, A. P., Foxman, M., et al. The Platform Flattening of Gendered Affect (P5)
 
 ### Open-Source Software
 
-- **TASS** (Text Analysis & Sentiment System, Python/R NLP package) — 2024–present. github.com/SIM-DAD/TASS
-- **Open WebUI Launcher for Local LLMs** (Python/Docker) — 2025–present. github.com/apleith/open-webui-launcher
-- **GearOut** (formerly Control Room / The Cage) — Equipment reservation and checkout platform for universities; Next.js / TypeScript / PostgreSQL / MySQL / Docker production web app, deployed at SIUE as "MassComm Checkout." 2024–present. github.com/SIM-DAD/gearout
+- **TASS Community Edition** (deterministic, provenance-first text analysis for social scientists: engine, CLI, and MCP server; TypeScript, Apache-2.0) — 2026–present. github.com/SIM-DAD/tass
 - **Mass Communications Careers Dashboard** (SvelteKit) — 2025–present. github.com/AURA-Lab-SIUE/mc-careers-dashboard
-- **mccoursepack** (R package for reproducible course delivery; component of the Vibes to Variables (V2V) courseware umbrella, an OER toolkit for teaching research methods to students new to statistics, methods, and coding) — 2025–present. github.com/AURA-Lab-SIUE/mccoursepack
+- **mccoursepack** (R package for reproducible course delivery; component of the Vibes to Variables (V2V) courseware umbrella, an OER toolkit for teaching research methods to students new to statistics, methods, and coding) — 2025–present.
 - **V2V Hub** (supplemental research methods website; rebrand and redesign of the legacy Open Methods Hub site) — 2025–present.
-- **DeepSeek-R1 Monorepo** (Open WebUI research/instructional AI tools) — 2025–present. github.com/SIM-DAD/DeepSeek-R1-Monorepo
 
 ### Research Datasets (restricted access; ToS/IRB governed)
 
@@ -245,7 +238,7 @@ Leith, A. P., & Ratan, R. A. (2017). Super Smash Bros.: Fight with the one that 
 
 ## Refereed Proceedings
 
-Lim, C., Leith, A. P., Foxman, M., Ratan, R., & Klebig, B. (2025, January). The Hyperpersonal Model of Communication in virtual meetings. *Proceedings of the 58th Hawaii International Conference on System Sciences.*
+Lim, C., Beyea, D., Leith, A. P., Foxman, M., Klebig, B., & Ratan, R. (2025, January). The Hyperpersonal Model of Communication in virtual meetings: Exploring the roles of fatigue, social interaction anxiety, muting, and avatar use in meeting engagement. *Proceedings of the 58th Hawaii International Conference on System Sciences.*
 
 Milik, O., Jang, D., Foxman, M., Klebig, B., Beyea, D., Leith, A. P., & Ratan, R. (2024, November). Focusing on virtual groups: A method for focus group interviews in XR/VR group settings. *AoIR Selected Papers of Internet Research, 2024.*
 
@@ -259,7 +252,7 @@ Leith, A., Foxman, M., Onuche, M., Ratan, R., & Lim, C. (2023, June). Mixed Feel
 
 Foxman, M., Leith, A. P., Beyea, D., Klebig, B., Chen, V. H. H., & Ratan, R. (2020, November). Virtual reality genres: Comparing preferences in immersive experiences and games. *CHI PLAY '20: Extended Abstracts* (pp. 237–241). ACM. https://doi.org/10.1145/3383668.3419881
 
-Leith, A. P. (2019, October). Playing games for others: Constructing a gameplay livestreaming taxonomy. *Proceedings of Meaningful Play 2018* (pp. 372–379). ETC Press. https://doi.org/10.1184/R1/9995969
+Leith, A. P. (2019, October). Playing games for others: Constructing a gameplay livestreaming typology. *Proceedings of Meaningful Play 2018* (pp. 372–379). ETC Press. https://doi.org/10.17613/xtgds-c0853
 
 ---
 
@@ -304,13 +297,14 @@ DeGroot, J. M., & Leith, A. P. (2011, November). R.I.P. Kutner: Parasocial relat
 ### Southern Illinois University Edwardsville (Assistant/Associate Professor)
 
 - **MC 590:** Independent Study in Mass Communications (Fall 2020)
-- **MC 501:** Research Methods for Mass Communications (Fall 2024)
+- **MC 501:** Research Methods for Mass Communications (Fall 2024, Fall 2025)
 - **MC 471:** Special Topics — Introduction to Data Analytics in Journalism and Mass Communications (Fall 2019)
 - **MC 471:** Special Topics — Social Media Analytics (Spring 2024)
-- **MC 451:** Research Methods in Mass Media (Spring 2021, Spring 2022 – Spring 2024)
+- **MC 451:** Research Methods in Mass Media (Spring 2021, Spring 2022 – Spring 2026)
 - **MC 422:** Strategic Media Writing (Fall 2025 – Spring 2026)
+- **MC 342:** Digital Imagery (Spring 2025)
 - **MC 327:** Design and Writing for the World Wide Web (Fall 2019 – Spring 2023, Spring 2024)
-- **MC 323:** Digital Publishing and Design (Spring 2023 – Fall 2023)
+- **MC 323:** Digital Publishing and Design (Spring 2023 – Fall 2023, Fall 2024 – Spring 2025)
 - **FST 101:** Succeeding & Engaging at SIUE (Fall 2023)
 
 ### Teaching Assistant — Michigan State University
@@ -344,12 +338,12 @@ ACM SIGCHI · AEJMC · CHI PLAY · DiGRA · Global Fusion · HICSS · ICA · Mea
 ### Departmental Service (SIUE)
 
 - Program Coordinator, Faculty Discord Server (Dec 2023 – present). Department-internal cross-unit convening space for faculty.
-- Technology Committee, Chair (Spring 2024 – Summer 2024); Member (Apr 2024 – present).
+- Technology Committee, Chair (Apr 2024 – present).
 - Grant Committee, Member (Feb 2024 – present).
 - ACEJMC Reaccreditation Committee, Member (Sep 2022 – Jan 2024).
 - Mass Communications Week, Chair (Spring 2021 – Spring 2023). Annual department research-and-industry convening event.
-- Website Committee, Member (Sept 2021 – present).
-- Library Liaison (Aug 2020 – Spring 2024).
+- Website Committee, Member (Sept 2021 – Apr 2024). Merged into the Technology Committee on its creation.
+- Library Liaison (Aug 2020 – May 2024).
 - Global Fusion Conference Committee, Member (Apr – Nov 2020).
 
 ### College Service (SIUE)
