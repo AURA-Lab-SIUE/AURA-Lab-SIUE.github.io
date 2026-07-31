@@ -1,7 +1,7 @@
 % LaTeX header for CV.md → PDF rendering via pandoc + xelatex
 % Pairs with CV.md in this directory. Usage:
 %   pandoc CV.md -o Leith_CV.pdf --pdf-engine=xelatex \
-%     --include-in-header=cv-header.tex -V geometry:margin=0.6in \
+%     --include-in-header=cv-header.tex -V geometry:margin=0.75in \
 %     -V fontsize=10.5pt -V lang=en-US
 %
 % Fonts are declared HERE via fontspec, not on the command line. The eight
@@ -54,23 +54,37 @@
   ItalicFont = *-Italic, BoldItalicFont = *-BoldItalic,
 ]
 
+% ── Even out justification ──────────────────────────────────────────────────
+% pandoc's template already loads microtype, so options go through
+% PassOptionsToPackage — loading it again here is an option clash. Protrusion
+% pulls punctuation slightly into the margin; expansion stays off because
+% xelatex does not support it.
+\PassOptionsToPackage{protrusion=true, expansion=false}{microtype}
+
+% Let the line breaker work a little harder before it opens up word gaps.
+% emergencystretch gives it a last-resort slack line rather than a river.
+\tolerance=1400
+\emergencystretch=1.2em
+\hyphenpenalty=120
+
 % ── Section styling: lift \subsection to act as the top-level section ───────
 \usepackage{titlesec}
 \titleformat{\subsection}
   {\Large\bfseries\sffamily\color{instblue}}{}{0pt}
   {}[\vspace{-3pt}\color{instrule}\titlerule]
-\titlespacing*{\subsection}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{18pt}{8pt}
 
 \titleformat{\subsubsection}
   {\normalsize\bfseries\sffamily\color{instslate}}{}{0pt}{}
-\titlespacing*{\subsubsection}{0pt}{8pt}{2pt}
+\titlespacing*{\subsubsection}{0pt}{11pt}{3pt}
 
 % ── Paragraph + list rhythm ─────────────────────────────────────────────────
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{4pt plus 1pt minus 0.5pt}
+\setlength{\parskip}{5.5pt plus 1.5pt minus 0.5pt}
 
 \usepackage{enumitem}
-\setlist[itemize]{nosep, leftmargin=14pt, label=\textcolor{instblue}{\textbullet}}
+\setlist[itemize]{itemsep=2.5pt, topsep=4pt, parsep=0pt, leftmargin=15pt,
+                  label=\textcolor{instblue}{\textbullet}}
 
 % ── Footer: name + page number, no header line ──────────────────────────────
 \usepackage{fancyhdr}
@@ -118,7 +132,7 @@
 \clubpenalty=10000
 
 % ── Inter-paragraph rhythm for entry-style content ──────────────────────────
-\linespread{1.05}
+\linespread{1.12}
 
 % ── Tighten title block spacing ─────────────────────────────────────────────
 % Default pandoc \maketitle leaves an enormous gap between the subtitle line
