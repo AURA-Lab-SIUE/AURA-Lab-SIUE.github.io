@@ -63,9 +63,14 @@
   --card:       #191b1e;  /* raised surface                                */
   --ink:        #ECEDEF;  /* body text (cool off-white)                    */
   --ink-soft:   #A6A9AE;  /* secondary text                                */
-  --brick:      #e05a4a;  /* working accent — lifted so brick TEXT clears AA
-                             (4.71:1 on card, 5.16:1 on paper). See a11y note. */
-  --brick-deep: #e0705f;  /* hover / pressed (lighter on dark)             */
+  --brick:      #e3685a;  /* working accent — lifted again 2026-08-01 to clear the
+                             owner's 5:1 floor, not just AA's 4.5. Measured from
+                             RENDERED pixels: 5.25:1 on --card, 5.75:1 on --paper.
+                             Hue + saturation are unchanged; only lightness moved,
+                             so this is still the AURA brick, not a new colour. */
+  --brick-deep: #e67a6d;  /* hover / pressed — lifted in step with --brick so the
+                             hover affordance survives (+0.80 ratio, was +0.76).
+                             Keeping the old #e0705f would have left a +0.21 gap. */
   --brick-wash: #2b1a17;  /* faint tint for callouts / badges              */
   --brick-fill:      #c33d2e;  /* darker than --brick so WHITE text clears AA (5.2:1) */
   --brick-fill-deep: #b0301f;  /* pressed/hover solid fill (white 6.4:1)             */
@@ -80,7 +85,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #101113; --card: #191b1e; --ink: #ECEDEF; --ink-soft: #A6A9AE;
-    --brick: #e05a4a; --brick-deep: #e0705f; --brick-wash: #2b1a17; --siue: #e5182d;
+    --brick: #e3685a; --brick-deep: #e67a6d; --brick-wash: #2b1a17; --siue: #e5182d;
     --brick-fill: #c33d2e; --brick-fill-deep: #b0301f;
     --line: rgba(236,237,239,0.15); --grid: rgba(236,237,239,0.05);
     --shadow-card: 0 1px 2px rgba(0,0,0,0.4); --shadow-card-hover: 0 16px 34px -18px rgba(0,0,0,0.75);
