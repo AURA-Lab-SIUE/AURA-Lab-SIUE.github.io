@@ -225,8 +225,13 @@ Leith, A. P. When Watching Isn't Enough: Viewer Agency and the Convergent Expans
 
 - **TASS Community Edition** (deterministic, provenance-first text analysis for social scientists: engine, CLI, and MCP server; TypeScript, Apache-2.0) — 2026–present. github.com/SIM-DAD/tass
 - **Mass Communications Careers Dashboard** (SvelteKit) — 2025–present. github.com/AURA-Lab-SIUE/mc-careers-dashboard
-- **mccoursepack** (R package for reproducible course delivery; component of the Vibes to Variables (V2V) courseware umbrella, an OER toolkit for teaching research methods to students new to statistics, methods, and coding) — 2025–present.
-- **V2V Hub** (supplemental research methods website; rebrand and redesign of the legacy Open Methods Hub site) — 2025–present.
+- **v2v** (R package for reproducible course delivery; ships the Twitch teaching corpus and the pedagogical helpers introduced chapter by chapter in the V2V textbook, including `reliability()` for intercoder agreement and a colorblind-safe figure theme; component of the Vibes to Variables (V2V) courseware umbrella, an OER toolkit for teaching research methods to students new to statistics, methods, and coding; formerly *mccoursepack*/*coursepackR*) — 2025–present. github.com/AURA-Lab-SIUE/v2v-r
+- **V2V Hub** (supplemental research methods course website; rebrand and redesign of the legacy Open Methods Hub site) — 2025–present. github.com/AURA-Lab-SIUE/v2v-hub
+- **V2V Course Workspace** (VS Code and Git template repository giving students a version-controlled research workspace: journals, literature notes, codebook, and project drafts in one folder) — 2026–present. github.com/AURA-Lab-SIUE/v2v-workspace
+
+### Open Teaching Datasets
+
+- **Twitch Chat and Stream Practice Corpus** (`twitch_chat_sample`, `twitch_streams_sample`): redistributable teaching sample of live-stream chat and channel metadata, 50 channels with 8 anchor channels, shipped in the `v2v` R package for classroom content-analysis work. Access: Open.
 
 ### Research Datasets (restricted access; ToS/IRB governed)
 
@@ -237,6 +242,12 @@ Leith, A. P. When Watching Isn't Enough: Viewer Agency and the Convergent Expans
 ---
 
 ## Books & OER
+
+### Open Educational Resources
+
+Leith, A. P. (2026). *Vibes to variables: A methods package for students new to research, stats, and code.* AURA Lab @ SIUE. https://aura-lab-siue.github.io/v2v/
+
+  Fourteen-chapter open textbook in content-analytic research methods, published as an accessible website with a tagged PDF edition. Issued in two profiles from one source: an undergraduate edition (*Vibes to Variables*) and a graduate supplement (*Beyond Vibes*) surfaced through a reader-controlled toggle. Every figure is reproducible from shipped data, carries alternative text, and is colorblind-safe. Each chapter is additionally available as narrated audio. WCAG 2.1 AA conformant, verified by automated audit at 90 pages with zero violations. Supported by the `v2v` R package, the V2V Hub course site, and the V2V Course Workspace template.
 
 ### Reviewed Book
 
@@ -335,11 +346,12 @@ McKendree University: JRN 372: Web and Print Publication Design (Spring 2012) ·
 
 ## Curriculum Development
 
-- **Vibes to Variables (V2V)** — OER courseware umbrella for teaching research methods to students new to statistics, methods, and coding. Funded twice by the SIUE OER Faculty Incentive Program. 2023 – present.
+- **Vibes to Variables (V2V)** — OER courseware umbrella for teaching research methods to students new to statistics, methods, and coding. Funded twice by the SIUE OER Faculty Incentive Program. 2023 – present. Four integrated open components: the textbook, the `v2v` R package, the V2V Hub course site, and the V2V Course Workspace student template. Rebuilt in 2026 onto an original Twitch live-stream corpus, replacing the retired music dataset, and issued in paired undergraduate and graduate editions from a single source.
+- **MC 451 and MC 501** — full Fall 2026 course build on the V2V system: 42 lecture decks, paired syllabi, and Blackboard cartridges, with the graduate course differentiated by depth rather than by additional technique.
 - **MC 451** — authored the open textbook *Quantitative Research in Mass Communications: R and RStudio*; revised for modularity, 2024.
 - **MC 471 Special Topics** — new course preparation, graduate and undergraduate sections, 2024.
 - **MC 427** — course-material development under contract, Fall 2026.
-- **Accessibility remediation** — MC 451 and MC 501 brought to 100% Blackboard Ally compliance, 2026; WCAG 2.1 AA conformance across the V2V materials.
+- **Accessibility remediation** — MC 451 and MC 501 brought to 100% Blackboard Ally compliance, 2026; WCAG 2.1 AA conformance across the V2V materials, verified by automated audit of the rendered pages rather than the source.
 
 ---
 
