@@ -70,7 +70,7 @@ categories:
         what: Map a topic, an essay's structure, or a study plan as a branching visual before you write or review it.
         license: foss
         platforms: [Windows, macOS, Linux]
-        href: https://www.freeplane.org/
+        href: https://github.com/freeplane/freeplane/releases
 
   - slug: research
     name: Research & Citations
@@ -186,7 +186,7 @@ categories:
         what: The standard language and workbench for statistics and much social-science research. RStudio's free open-source edition is all you need.
         license: foss
         platforms: [Windows, macOS, Linux]
-        href: https://posit.co/download/rstudio-desktop/
+        href: https://posit.co/products/open-source/rstudio/
       - name: JupyterLab
         what: Interactive notebooks that mix code, charts, and writing in one document — the standard environment for data and analytics coursework.
         license: foss
