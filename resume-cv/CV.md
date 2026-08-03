@@ -117,11 +117,13 @@ Beyea, D., Foxman, M., Ratan, R., Klebig, B., Leith, A. P., & Chen, V. H. H. (20
 **NSF FINDERS FOUNDRY (NSF 26-507)**, Planning Grant, PI. *Co-Designing AI Learning Supports with K-5 Paraprofessionals for Students Who Receive IEP Services.* $50,000; SIUE. Submitted 2026-05-27.
 
 <!-- INTERNAL-ONLY-START -->
-### External Funding (Submitted, Not Funded)
+### External Funding (Submitted, Not Awarded)
 
-**NSF Future CoRe (HCC)**, PI. *Distributed AI Agents for Scalable Interaction Modeling and Feedback Aggregation in Technical Learning.* $476,892; 01/2026 – 12/2030; SIUE. Submitted 2025-09-11; declined 2026-05-03.
+**NSF Future CoRe (HCC)**, PI. *Distributed AI Agents for Scalable Interaction Modeling and Feedback Aggregation in Technical Learning.* $476,892; 01/2026 – 12/2030; SIUE. Submitted 2025-09-11; declined 2026-04-30.
 
-**NSF Collaborative Research**, PI (SIUE site). *Improving Equity and Wellbeing in Virtual Classrooms via AI-enhanced Avatars.* $562,180 collaborative total (SIUE site $49,999); 05/2025 – 05/2028.
+**NSF Collaborative Research**, PI (SIUE site; NSF Proposal 2507015). *Improving Equity and Wellbeing in Virtual Classrooms via AI-enhanced Avatars.* $562,180 collaborative total (SIUE site $49,999); 05/2025 – 05/2028. Submitted 2024-11-04; declined 2025-08-15.
+
+**Wellcome Discovery Research Award**, Co-Applicant (25% research time). *AI- and IoT-Driven Innovations for Malaria and Insect Vector Surveillance and Control.* $800,044; 2025. Partnership with the University of Zambia. Proposal fully prepared; withdrawn prior to an award decision.
 
 **Spencer Foundation**, PI. *Innovating for Inclusivity: Mixed Reality and Digital Learning Modalities as Educational Equalizers.* $249,884; 2025.
 
