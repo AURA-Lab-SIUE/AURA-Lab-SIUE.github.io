@@ -18,6 +18,12 @@ const items = [
   // and carried by the build so a deploy can't drop them.
   'masscomm-preview',
   'mc-body.css',
+  // Archived student senior-portfolio examples (HTTrack mirrors of six
+  // student-built sites + a landing index). Served verbatim at
+  // /sample-portfolios/ in their ORIGINAL student format — deliberately NOT
+  // reskinned to the lab theme. Committed to the repo but was missing from
+  // this copy list, so it never reached dist/ on either deploy target.
+  'sample-portfolios',
   // Legacy stylesheets/scripts the standalone HTML pages above load by
   // relative path (css/style.css, js/countdown.js, …). Without these the
   // Captionizer and Countdown pages render unstyled.
