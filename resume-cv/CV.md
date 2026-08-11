@@ -114,10 +114,10 @@ Beyea, D., Foxman, M., Ratan, R., Klebig, B., Leith, A. P., & Chen, V. H. H. (20
 
 **Spencer Foundation Racial Equity Research Grant**, PI. *At the Margins of Two Systems: Paraprofessionals, AI Tools, and Multilingual Neurodiverse Learners in K-5 Classrooms.* $74,911 (direct costs, no indirect); 01/2027 – 12/2028; SIUE. Submitted 2026-07-01.
 
-**NSF FINDERS FOUNDRY (NSF 26-507)**, Planning Grant, PI. *Co-Designing AI Learning Supports with K-5 Paraprofessionals for Students Who Receive IEP Services.* $50,000; SIUE. Submitted 2026-05-27.
-
 <!-- INTERNAL-ONLY-START -->
 ### External Funding (Submitted, Not Awarded)
+
+**NSF FINDERS FOUNDRY (NSF 26-507)**, Planning Grant, PI. *Co-Designing AI Learning Supports with K-5 Paraprofessionals for Students Who Receive IEP Services.* $50,000; SIUE. Submitted 2026-05-27; declined 2026-08-10.
 
 **NSF Future CoRe (HCC)**, PI. *Distributed AI Agents for Scalable Interaction Modeling and Feedback Aggregation in Technical Learning.* $476,892; 01/2026 – 12/2030; SIUE. Submitted 2025-09-11; declined 2026-04-30.
 
