@@ -359,7 +359,7 @@ McKendree University: JRN 372: Web and Print Publication Design (Spring 2012) ·
 
 ## Certifications & Professional Development
 
-- **Designing Learner-Centered and Equitable Courses** — ACUE microcredential (6 modules). 2026.
+- **Designing Learner-Centered and Equitable Courses** — Association of College and University Educators (ACUE) microcredential, Cohort I. Six-module online program completed over eight weeks, covering clear learning outcomes, aligned assessment, and equitable grading practice. March–April 2026.
 - **Core Curriculum** — National Center for Faculty Development & Diversity (NCFDD). 2023.
 
 ---
