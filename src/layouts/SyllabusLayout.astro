@@ -1,0 +1,83 @@
+---
+/**
+ * Course-syllabus layout.
+ *
+ * Wraps BaseLayout so a syllabus inherits the whole site: the theme toggle and
+ * its dark default, the skip link, the nav and footer landmarks, the token
+ * system that has already been contrast-audited to the 5:1 floor.
+ *
+ * What it adds is the three things a syllabus needs and no other page does:
+ *   1. syllabus.css, imported here rather than sitewide, so the layer only
+ *      ships to the pages that use it.
+ *   2. The print handler. Policy blocks are <details> and collapsed; without
+ *      this they are simply ABSENT from the printed page and from a browser
+ *      PDF export. CSS cannot substitute - Chrome hides details content with
+ *      content-visibility on a UA-level slot, not with display.
+ *   3. A "last updated" line. A syllabus that says which version you are
+ *      reading is the difference between a live document and a rumour.
+ */
+import BaseLayout from './BaseLayout.astro';
+import '../styles/syllabus.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  current?: string;
+  updated?: string;
+}
+const { title, description, current, updated } = Astro.props;
+---
+<BaseLayout title={title} description={description} current={current}>
+  <div class="container-page syl-wrap py-10 md:py-14">
+    <slot />
+    {updated && (
+      <p class="syl-updated">Page last updated {updated}. This page is the live
+      version of this syllabus; if a printed copy and this page disagree, this
+      page is correct.</p>
+    )}
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .syl-updated {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+    max-width: var(--measure);
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    /* Force every <details> open for printing, then restore. Registered on
+       every load, including Astro view-transition swaps. */
+    var opened = [];
+    function expand() {
+      opened = [];
+      document.querySelectorAll('details:not([open])').forEach(function (d) {
+        opened.push(d);
+        d.open = true;
+      });
+    }
+    function restore() {
+      opened.forEach(function (d) { d.open = false; });
+      opened = [];
+    }
+    function wire() {
+      if (window.__sylPrintWired) return;
+      window.__sylPrintWired = true;
+      window.addEventListener('beforeprint', expand);
+      window.addEventListener('afterprint', restore);
+      /* Safari and headless Chrome drive print through matchMedia only. */
+      if (window.matchMedia) {
+        var mq = window.matchMedia('print');
+        var onChange = function (m) { m.matches ? expand() : restore(); };
+        if (mq.addEventListener) mq.addEventListener('change', onChange);
+        else if (mq.addListener) mq.addListener(onChange);
+      }
+    }
+    wire();
+  })();
+</script>

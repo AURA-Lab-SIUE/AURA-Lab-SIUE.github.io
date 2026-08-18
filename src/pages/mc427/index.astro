@@ -1,0 +1,644 @@
+---
+/**
+ * MC 427 Social Media Analytics — course home / live syllabus.
+ *
+ * The section index IS the syllabus rather than a page of links to it. A
+ * landing page whose only job is to point at the real document adds a click
+ * and a second thing to keep in sync; the URL a student is given should open
+ * on the content.
+ *
+ * Content is the approved Fall 2026 syllabus. Structure follows the liquid
+ * syllabus pattern: what to DO first, then what the course is, then the
+ * numbers, then the required university boilerplate collapsed at the bottom.
+ */
+import SyllabusLayout from '../../layouts/SyllabusLayout.astro';
+import GettingHelp from '../../components/syllabus/GettingHelp.astro';
+import UniversityPolicies from '../../components/syllabus/UniversityPolicies.astro';
+
+const BOOKINGS =
+  'https://outlook.office.com/bookwithme/user/b5d8aa74215e488fbf4d85ab72761ecf@siue.edu?anonymous&ismsaljsauthenabled&ep=plink';
+---
+<SyllabusLayout
+  title="MC 427 Social Media Analytics"
+  description="MC 427 Social Media Analytics, Fall 2026 second eight weeks. Fully online and asynchronous. The analytical anchor of the AI Social Media Strategist Certificate at SIUE."
+  updated="August 17, 2026"
+>
+  <div class="syl-hero">
+    <span class="syl-course">MC 427 &middot; Fall 2026 &middot; Second eight weeks</span>
+    <h1 data-no-split>Social Media Analytics</h1>
+    <div class="syl-tagline">
+      You will learn the analytical methods AI tools automate, so you can
+      supervise and account for them when they do. You finish with a pitch-ready
+      campaign deck, an AI Workflow Appendix documenting how you built it, and a
+      governance practice you can carry into the workforce.
+    </div>
+  </div>
+
+  <div class="syl-actions syl-noprint">
+    <button type="button" class="syl-btn" id="syl-print">Print this syllabus</button>
+    <a class="syl-btn" href="/mc427/MC427_FA2026.pdf">Tagged PDF</a>
+    <a class="syl-btn" href="https://bb.siue.edu/">Blackboard</a>
+  </div>
+
+  <ul class="syl-facts">
+    <li>
+      <span class="syl-fact-label">Format</span>
+      <span class="syl-fact-value"><strong>Fully online, asynchronous</strong></span>
+      <span class="syl-fact-note">All lecture content is pre-recorded and posted before the module opens</span>
+    </li>
+    <li>
+      <span class="syl-fact-label">When</span>
+      <span class="syl-fact-value"><strong>Oct 19 to Dec 18, 2026</strong></span>
+      <span class="syl-fact-note">Eight modules in eight weeks. Modules open Mondays.</span>
+    </li>
+    <li>
+      <span class="syl-fact-label">Instructor</span>
+      <span class="syl-fact-value"><strong>Alex P. Leith, PhD</strong></span>
+      <span class="syl-fact-note">Alex, AP, or Dr. Leith. He / they.</span>
+    </li>
+    <li>
+      <span class="syl-fact-label">Office hours</span>
+      <span class="syl-fact-value"><strong>Tu / W / Th, 3:00 to 5:00 PM</strong></span>
+      <span class="syl-fact-note">1017 Dunham Hall, drop in. Remote by appointment. Never recorded.</span>
+    </li>
+    <li>
+      <span class="syl-fact-label">Email</span>
+      <span class="syl-fact-value"><a href="mailto:aleith@siue.edu">aleith@siue.edu</a></span>
+      <span class="syl-fact-note">Reply within 24 hours on weekdays</span>
+    </li>
+    <li>
+      <span class="syl-fact-label">Book a 1:1</span>
+      <span class="syl-fact-value"><a href={BOOKINGS}>Microsoft Bookings</a></span>
+      <span class="syl-fact-note">My calendar shows you only open times</span>
+    </li>
+  </ul>
+
+  <section class="syl-first-week">
+    <h2>Start here: your first module</h2>
+    <p>This is an eight-week course. It moves fast, and Module 1 is the setup
+    module for everything after it. Do these five things in the first week.</p>
+    <ol>
+      <li><strong>Take the Syllabus Quiz</strong> in Blackboard. It is untimed,
+        you get multiple attempts, and it is worth 6 points.</li>
+      <li><strong>Post to the Introduction Discussion</strong> (10 points, the
+        largest single item in Module 1).</li>
+      <li><strong>Install the stack</strong>: VS Code, R, and GitHub Copilot for
+        Students, authenticated, by the end of Module 1. There is a setup
+        walkthrough screencast and a confirmation submission. Module 5 cannot be
+        done on a phone or tablet.</li>
+      <li><strong>Pick your primary AI tool</strong> and a second one for
+        cross-checking, and file the AI Tool Inventory.</li>
+      <li><strong>Start your AI Use Log.</strong> It runs through every module
+        and it is the spine of this course, not an add-on.</li>
+    </ol>
+    <p>Read the <a href="#ai-use-policy">AI Use Policy</a> before you submit
+    anything. This course overrides SIUE's default prohibition: AI use here is
+    <strong>required</strong>, and undisclosed AI use is still academic
+    dishonesty.</p>
+  </section>
+
+  <div class="syl-prose">
+
+  <h2 id="how-to-reach-me">How to reach me</h2>
+
+  <p>The communication model in this course is built around <strong>weekly
+  office hours</strong>. Those are the canonical channel for instructor-student
+  support.</p>
+
+  <ul>
+    <li><strong>Office hours (synchronous, weekly)</strong> are the primary
+      support channel. In person Tuesday, Wednesday, and Thursday from 3:00 to
+      5:00 PM in 1017 Dunham Hall (drop-in, no appointment needed), or remotely
+      by appointment through <a href={BOOKINGS}>Microsoft Bookings</a>, which
+      shows you only my open times. Office hours are never recorded, so you can
+      speak freely about grades, accommodations, or anything else.</li>
+    <li><strong>Email</strong>
+      (<a href="mailto:aleith@siue.edu">aleith@siue.edu</a>) is for formal
+      requests, time-non-sensitive questions, and confidential issues (grades,
+      accommodations). Expect a response within 24 hours on weekdays.</li>
+    <li><strong>Course discussion forums (Blackboard)</strong> are the place for
+      student-to-student discussion. I participate periodically but do not
+      monitor continuously; bring instructor-directed questions to office hours
+      or email.</li>
+  </ul>
+
+  <p>There is no Discord channel for this section. The course's communication
+  architecture is intentionally narrow so the channels that exist work well.</p>
+
+  <p>In all communication, clearly stated needs save us both time. State what
+  you have tried, what is not working, and what kind of response you are hoping
+  for.</p>
+
+  <details class="syl-policy">
+    <summary>About me, and how I teach</summary>
+    <p>I am Alex P. Leith, also known as AP. Please feel free to call me Alex,
+    AP, or Dr. Leith. My pronouns are he/they. I have been at SIUE since Fall
+    2019. I am a social data scientist that specializes in digital social
+    platforms (livestreaming, virtual reality, and conversational AI). My
+    research uses natural language processing across platforms ranging from
+    Twitter to Twitch to long-form interview corpora. I am also the operator of
+    SIM DAD LLC, a small software company that builds local-first analytical
+    tools for researchers and strategists. AI-augmented analytical practice is
+    the daily work I do as both an academic and a builder.</p>
+    <p>My approach to teaching is direct. I believe that students learn in many
+    ways and that the best thing a teacher can do is be available. In an
+    asynchronous online course, "being available" looks different than in
+    person. It means dedicated weekly office hours, both in person and remotely
+    by appointment, written feedback delivered on schedule, recorded video
+    walkthroughs of common challenges, and discussion forums where I am a
+    regular participant rather than an absentee landlord.</p>
+    <p>Department of Mass Communications, SIUE. For advising on the certificate,
+    contact <a href="https://www.siue.edu/advising/">Academic Advising</a> or
+    your assigned advisor. Phone: +1 504 LEITH GO.</p>
+  </details>
+
+  <h2 id="what-this-course-is">What this course is</h2>
+
+  <p>Welcome to MC 427, Social Media Analytics, the analytical anchor of the
+  <strong>AI Social Media Strategist Certificate</strong>, a joint offering of
+  SIUE and SIUC. The certificate is designed for students who want to enter the
+  workforce as strategists who can supervise, govern, and account for
+  AI-augmented analytical work.</p>
+
+  <p>This course teaches you to use AI tools as collaborative partners for
+  analyzing social media data and designing strategy, and just as importantly,
+  to evaluate AI outputs with the critical eye of a strategist who is
+  accountable for what gets posted in their name. We treat AI logging and
+  governance as professional skills, not afterthoughts.</p>
+
+  <p><strong>From the SIUE catalog.</strong> This course focuses on the use of
+  analytics, including AI-powered tools, to evaluate and improve social media
+  performance. Students learn to collect, analyze, and interpret data from
+  multiple platforms using machine learning for pattern recognition and
+  predictive analytics. Emphasis is placed on connecting metrics to
+  organizational objectives, using insights to inform strategic decisions, and
+  critically assessing the impact and limitations of AI in social media
+  analytics.</p>
+
+  <p><strong>Where it sits in the certificate.</strong> MC 427 is the
+  <strong>methodological core</strong>: the course where you learn the
+  analytical methods AI tools automate, so you can supervise and account for
+  them when they do. Adjacent courses cover the workflow design that automates
+  analytics (MC 425), creative content production (MC 328), AI advertising
+  (JRNL 307), AI and misinformation (JRNL 438), and generative arts (AM 400).</p>
+
+  <details class="syl-policy">
+    <summary>Course goals, and how they map to ACEJMC competencies</summary>
+    <p>By the end of the course, students will be able to do the following. Each
+    goal expressly meets one or more ACEJMC professional values and
+    competencies.</p>
+    <ol>
+      <li><strong>Apply AI-augmented analytical methods</strong>, including basic
+        numerical and statistical concepts, to evaluate social media
+        performance, audience behavior, and campaign outcomes. <em>(ACEJMC #7
+        critical thinking in research, #8 numerical and statistical concepts,
+        #10 apply tools and technologies)</em></li>
+      <li><strong>Design data-driven social media strategies</strong> using AI
+        tools as collaborative partners, applying tools and technologies
+        appropriate for strategic communication work. <em>(ACEJMC #7, #10)</em></li>
+      <li><strong>Critically evaluate AI outputs and your own analytical
+        work</strong> for accuracy, fairness, and ethical implications, with
+        attention to the cultural and demographic dimensions of AI bias.
+        <em>(ACEJMC #3 culturally proficient communication, #6 ethical
+        principles, #9 critically evaluate own and others' work)</em></li>
+      <li><strong>Communicate analytical findings effectively</strong> in
+        written, visual, and presentation forms appropriate for the
+        communications professions, audiences, and purposes the work serves.
+        <em>(ACEJMC #4 present effectively using tools and technologies, #5
+        write clearly for the communications professions)</em></li>
+      <li><strong>Govern AI usage</strong> through documented logging, oversight,
+        and accountability practices that demonstrate professional ethical
+        principles in pursuit of truth, accuracy, fairness, and service.
+        <em>(ACEJMC #6, #9)</em></li>
+    </ol>
+    <p>The course goals above expressly meet ACEJMC competencies #3, 4, 5, 6, 7,
+    8, 9, and 10. Competency #2 (multicultural history of communications
+    professionals and institutions) is lightly addressed in Module 1's landscape
+    lecture. Competency #1 (freedom of speech and press) is primarily covered by
+    other courses in the major sequence and is touched only tangentially in
+    Module 3 (platform terms of service, content moderation).</p>
+    <div class="syl-table-scroll">
+      <table class="schedule-table">
+        <caption>ACEJMC competency coverage</caption>
+        <thead>
+          <tr><th scope="col">ACEJMC competency</th><th scope="col">Where the course covers it</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">#4 Present images and information effectively, using appropriate tools and technologies</th><td>Module 6 creative briefs; Module 8 Final Pitch Deck</td></tr>
+          <tr><th scope="row">#5 Write correctly and clearly for the communications professions</th><td>Every written submission across all modules</td></tr>
+          <tr><th scope="row">#6 Demonstrate ethical principles and work ethically</th><td>AI Use Policy; Module 3 IRB/TOS; Module 4 bias work; Goal 5 governance</td></tr>
+          <tr><th scope="row">#7 Apply critical thinking in research and evaluating information</th><td>Modules 3, 4, 7</td></tr>
+          <tr><th scope="row">#8 Apply numerical and statistical concepts</th><td>Module 5</td></tr>
+          <tr><th scope="row">#9 Critically evaluate own and others' work</th><td>Peer review (Module 6); AI Use Log governance decisions; Final Reflection</td></tr>
+          <tr><th scope="row">#10 Apply tools and technologies appropriate for the profession</th><td>Central skill across the entire course</td></tr>
+          <tr><th scope="row">#2 Multicultural history of communications professionals and institutions <em>(lightly addressed)</em></th><td>Module 1 landscape; institutional context of social platforms</td></tr>
+          <tr><th scope="row">#3 Culturally proficient communication <em>(lightly addressed)</em></th><td>Module 4 training-data bias; brand-voice work; platform reflection</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <h2 id="what-you-earn">What you earn</h2>
+
+  <p><strong>Primary credential: the AI Social Media Strategist Certificate
+  (Credly badge).</strong> The certificate program issues a Credly digital badge
+  upon completion of the certificate's required courses. MC 427 is one of the
+  courses that contributes to that badge. The Credly badge is the primary
+  verifiable credential the program offers; it is portable, shareable, and
+  verifiable by employers through the Credly platform.</p>
+
+  <p><strong>Industry certification, recommended and optional.</strong> Students
+  completing this course are well-prepared to earn industry-recognized social
+  media certifications. The recommended primary pathway is the <strong>HubSpot
+  Social Media Marketing Certification</strong>, offered free by HubSpot Academy
+  and completed in roughly five hours. Submit proof of completion during or
+  shortly after the course for a small bonus credit (+10 points). It is a
+  professional-practice extension, not a course requirement.</p>
+
+  <p>Alternative or follow-on certifications, for information only:</p>
+  <ul>
+    <li><strong>Hootsuite Social Media Marketing Certification</strong> ($199
+      standard; check Hootsuite Academy for current student pricing). Strong
+      industry recognition, covers multi-platform management.</li>
+    <li><strong>Meta Social Media Marketing Professional Certificate</strong>
+      (Coursera subscription, roughly five months). A long-form pathway with
+      AI-integrated curriculum and an ACE credit recommendation; suitable as a
+      post-course continuation.</li>
+  </ul>
+
+  <h2 id="ai-use-policy">AI use policy</h2>
+
+  <div class="syl-note">
+    <p class="syl-note-title">This course overrides SIUE's default AI policy</p>
+    <p>SIUE's default policy is that AI use is prohibited unless expressly
+    allowed. That default is <strong>expressly overridden for this
+    course</strong>. AI use here is not merely permitted, it is
+    <strong>required</strong> as a learning outcome. That override is specific to
+    MC 427; it does not carry to your other courses.</p>
+  </div>
+
+  <p><strong>What is required.</strong></p>
+  <ul>
+    <li>Use of one or more generative AI tools as collaborative partners across
+      all major assignments.</li>
+    <li><strong>Logging</strong> your AI use in the AI Use Log that runs through
+      every module: which tool, what prompts, what the AI produced, what you
+      kept, what you changed, what oversight decisions you made, and why.</li>
+    <li><strong>Critical evaluation</strong> of AI outputs in your own voice.
+      Submitting an AI output verbatim without critique earns a low grade even
+      if the output is correct.</li>
+    <li><strong>Governance discipline</strong>: every analytical step that
+      incorporates AI gets a documented decision about whether to accept,
+      modify, or reject the AI's contribution.</li>
+  </ul>
+
+  <p><strong>What is not permitted.</strong></p>
+  <ul>
+    <li>Submitting AI-generated work as your own without disclosure of AI
+      involvement. This is academic dishonesty.</li>
+    <li>Using AI to fabricate citations, data, or analytical results. The course
+      teaches that AI hallucinates and that strategists are accountable;
+      submitting fabricated material indicates this lesson did not land.</li>
+    <li>Using AI to circumvent learning objectives, for example having an AI
+      write your final reflection from your other submissions.</li>
+  </ul>
+
+  <p><strong>The strategist standard.</strong> In industry, a senior strategist
+  is accountable for AI-augmented work that goes out under their name. The same
+  standard applies here. You are accountable for what you submit, including
+  whatever role AI played in producing it.</p>
+
+  <p>The AI Use Log assignments are formative: they exist to build the habit,
+  not to penalize early-stage workflows. Quality of governance reasoning matters
+  more than quantity of logged interactions.</p>
+
+  <h2 id="how-the-course-works">How the course works</h2>
+
+  <p>Eight modules, 731 points, plus an optional 10-point bonus. Assignments
+  come in three types, and the type tells you how it is graded.</p>
+  <ul>
+    <li><strong>F, formative</strong> — graded on completion and genuine effort.
+      Revisable for full credit.</li>
+    <li><strong>S, summative</strong> — rubric-graded for mastery.</li>
+    <li><strong>P, participation</strong> — discussion and peer review.</li>
+  </ul>
+
+  <div class="syl-table-scroll">
+  <table class="syl-points">
+    <caption>Points by module, out of 731</caption>
+    <thead>
+      <tr>
+        <th scope="col">Module</th>
+        <th scope="col">Topic</th>
+        <th scope="col" class="syl-weight">Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">1</th><td>Foundations and AI governance for the working strategist</td><td class="syl-weight"><span class="syl-bar" style="--pct:11" aria-hidden="true"></span>31</td></tr>
+      <tr><th scope="row">2</th><td>Platforms and metrics: KPIs in the age of AI</td><td class="syl-weight"><span class="syl-bar" style="--pct:11" aria-hidden="true"></span>30</td></tr>
+      <tr><th scope="row">3</th><td>Data collection and AI-assisted research design</td><td class="syl-weight"><span class="syl-bar" style="--pct:21" aria-hidden="true"></span>60</td></tr>
+      <tr><th scope="row">4</th><td>Content and sentiment analysis with AI</td><td class="syl-weight"><span class="syl-bar" style="--pct:29" aria-hidden="true"></span>80</td></tr>
+      <tr><th scope="row">5</th><td>Statistical analysis with R, VS Code, and GitHub Copilot</td><td class="syl-weight"><span class="syl-bar" style="--pct:29" aria-hidden="true"></span>80</td></tr>
+      <tr><th scope="row">6</th><td>SMART goals and strategic application of AI creative</td><td class="syl-weight"><span class="syl-bar" style="--pct:27" aria-hidden="true"></span>75</td></tr>
+      <tr><th scope="row">7</th><td>Strategy synthesis: SWOT, timelines, stakeholder communication</td><td class="syl-weight"><span class="syl-bar" style="--pct:34" aria-hidden="true"></span>95</td></tr>
+      <tr><th scope="row">8</th><td>Final pitch: AI-augmented strategy presentation</td><td class="syl-weight"><span class="syl-bar" style="--pct:100" aria-hidden="true"></span>280</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><th scope="row">Total</th><td>Plus an optional +10 HubSpot certification bonus</td><td class="syl-weight">731</td></tr>
+    </tfoot>
+  </table>
+  </div>
+
+  <p><strong>Module 8 is 38% of the course.</strong> That is by design and it is
+  the thing to plan around: the Final Pitch Deck alone is 150 points. The AI
+  Workflow Appendix opens in Module 7 and the draft peer review sits in Module
+  7, so neither compresses into the final week, but the deck itself is one
+  focused week of work.</p>
+
+  <details class="syl-policy">
+    <summary>Every assignment, by module and point value</summary>
+    <div class="syl-table-scroll">
+      <table class="schedule-table">
+        <caption>All assignments, Modules 1 to 8</caption>
+        <thead>
+          <tr>
+            <th scope="col">Assignment</th>
+            <th scope="col">Mod</th>
+            <th scope="col">Type</th>
+            <th scope="col">Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Syllabus Quiz</th><td>1</td><td>F</td><td>6</td></tr>
+          <tr><th scope="row">Introduction Discussion</th><td>1</td><td>P</td><td>10</td></tr>
+          <tr><th scope="row">AI Tool Inventory</th><td>1</td><td>F</td><td>5</td></tr>
+          <tr><th scope="row">Tools Stack Setup + Confirmation</th><td>1</td><td>F</td><td>5</td></tr>
+          <tr><th scope="row">AI Use Log: Week 1</th><td>1</td><td>F</td><td>5</td></tr>
+          <tr><th scope="row"><em>Module 1 subtotal</em></th><td></td><td></td><td><strong>31</strong></td></tr>
+          <tr><th scope="row">KPI Mapping Exercise</th><td>2</td><td>S</td><td>15</td></tr>
+          <tr><th scope="row">Platform Reflection Discussion</th><td>2</td><td>P</td><td>10</td></tr>
+          <tr><th scope="row">AI Use Log: Week 2</th><td>2</td><td>F</td><td>5</td></tr>
+          <tr><th scope="row"><em>Module 2 subtotal</em></th><td></td><td></td><td><strong>30</strong></td></tr>
+          <tr><th scope="row">AI-Assisted Research Plan</th><td>3</td><td>S</td><td>50</td></tr>
+          <tr><th scope="row">AI Use Log: Week 3</th><td>3</td><td>F</td><td>10</td></tr>
+          <tr><th scope="row"><em>Module 3 subtotal</em></th><td></td><td></td><td><strong>60</strong></td></tr>
+          <tr><th scope="row">Coding Exercise (human + AI)</th><td>4</td><td>F</td><td>15</td></tr>
+          <tr><th scope="row">Content + Sentiment Comparison Memo</th><td>4</td><td>S</td><td>45</td></tr>
+          <tr><th scope="row">Disagreement Discussion</th><td>4</td><td>P</td><td>10</td></tr>
+          <tr><th scope="row">AI Use Log: Week 4</th><td>4</td><td>F</td><td>10</td></tr>
+          <tr><th scope="row"><em>Module 4 subtotal</em></th><td></td><td></td><td><strong>80</strong></td></tr>
+          <tr><th scope="row">Mini-Analysis Exercise</th><td>5</td><td>F</td><td>20</td></tr>
+          <tr><th scope="row">Statistical Analysis Memo</th><td>5</td><td>S</td><td>45</td></tr>
+          <tr><th scope="row">AI Use Log: Week 5</th><td>5</td><td>F</td><td>15</td></tr>
+          <tr><th scope="row"><em>Module 5 subtotal</em></th><td></td><td></td><td><strong>80</strong></td></tr>
+          <tr><th scope="row">SMART Goals + AI Creative Brief</th><td>6</td><td>S</td><td>50</td></tr>
+          <tr><th scope="row">Peer Review (classmate's brief)</th><td>6</td><td>P</td><td>10</td></tr>
+          <tr><th scope="row">AI Use Log: Week 6</th><td>6</td><td>F</td><td>15</td></tr>
+          <tr><th scope="row"><em>Module 6 subtotal</em></th><td></td><td></td><td><strong>75</strong></td></tr>
+          <tr><th scope="row">SWOT Draft</th><td>7</td><td>S</td><td>30</td></tr>
+          <tr><th scope="row">Campaign Timeline Draft</th><td>7</td><td>S</td><td>30</td></tr>
+          <tr><th scope="row">Peer Review (SWOT + Timeline drafts)</th><td>7</td><td>P</td><td>20</td></tr>
+          <tr><th scope="row">AI Use Log: Week 7</th><td>7</td><td>F</td><td>15</td></tr>
+          <tr><th scope="row"><em>Module 7 subtotal</em></th><td></td><td></td><td><strong>95</strong></td></tr>
+          <tr><th scope="row">Final Pitch Deck</th><td>8</td><td>S</td><td>150</td></tr>
+          <tr><th scope="row">AI Workflow Appendix</th><td>8</td><td>S</td><td>50</td></tr>
+          <tr><th scope="row">Elevator Pitch Video</th><td>8</td><td>S</td><td>30</td></tr>
+          <tr><th scope="row">Final Reflection on AI Governance</th><td>8</td><td>S</td><td>50</td></tr>
+          <tr><th scope="row"><em>Module 8 subtotal</em></th><td></td><td></td><td><strong>280</strong></td></tr>
+          <tr><th scope="row">HubSpot Social Media Certification (optional)</th><td>n/a</td><td>Bonus</td><td>+10</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><th scope="row">Total</th><td></td><td></td><td>731</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </details>
+
+  <p><strong>Submitting work.</strong> All submissions go through Blackboard.
+  Most major assignments require an AI Use Log excerpt or an attached chat
+  transcript; submission instructions specify the format.</p>
+
+  <h2 id="grading">Grading</h2>
+
+  <div class="syl-table-scroll">
+    <table>
+      <caption>Grade scale, out of 731 points</caption>
+      <thead>
+        <tr><th scope="col">Grade</th><th scope="col">Points</th><th scope="col">Percentage</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">A</th><td>658 to 731</td><td>90 to 100%</td></tr>
+        <tr><th scope="row">B</th><td>585 to 657</td><td>80 to 89%</td></tr>
+        <tr><th scope="row">C</th><td>512 to 584</td><td>70 to 79%</td></tr>
+        <tr><th scope="row">D</th><td>439 to 511</td><td>60 to 69%</td></tr>
+        <tr><th scope="row">F</th><td>below 439</td><td>below 60%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Rubrics are checklists.</strong> You start at full credit and lose
+  full or partial points for each item that is incorrect or missing. You are
+  welcome to raise point disputes during office hours. In special cases,
+  opportunities to address mistakes for partial credit are provided.</p>
+
+  <p><strong>Quizzes are untimed.</strong> The Syllabus Quiz and any Blackboard
+  quizzes in this course are untimed, and you may take multiple attempts. If any
+  timed element is ever added, it will be announced in advance with
+  ACCESS-coordinated lead time so that accommodations can be arranged.</p>
+
+  <p><strong>Feedback timeline.</strong> Grades with feedback are posted by the
+  Friday following the due date for formative assignments, and within 7 days for
+  summative assignments. Final Pitch Deck feedback arrives within 48 hours of
+  the due date, since final grades are due shortly after. Find your grades under
+  <strong>My Grades</strong> in the Blackboard course menu.</p>
+
+  <p><strong>Late work.</strong> Assignments are due before or on the date
+  specified. Late assignments lose 10% per business day for up to one week.
+  After one week, the assignment receives a zero unless an accommodation has
+  been arranged in writing before the original due date. An eight-week course
+  does not have the schedule flexibility of a sixteen-week course. If you are
+  experiencing an emergency, contact me as early as possible; I work with
+  students case by case when contacted proactively, but I cannot extend
+  deadlines retroactively.</p>
+
+  <p><strong>Rewrites.</strong> Formative assignments (type F) may be revised and
+  resubmitted within one week of grade posting for full credit. Summative
+  assignments (type S) with rubric scores below 70% may be revised and
+  resubmitted within one week; the final grade for a resubmission is averaged
+  between the original and the revised submission.</p>
+
+  <h2 id="module-schedule">Module schedule</h2>
+
+  <div class="syl-table-scroll">
+    <table class="schedule-table has-due">
+      <caption>Eight modules, October 19 to December 18</caption>
+      <thead>
+        <tr>
+          <th scope="col">Module</th>
+          <th scope="col">Dates</th>
+          <th scope="col">Topic</th>
+          <th scope="col">Due</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">1</th><td>Oct 19 to 25</td><td>Foundations and AI Governance for the Working Strategist</td><td>Syllabus Quiz &middot; Introduction Discussion &middot; AI Tool Inventory &middot; Tools Stack Setup &middot; AI Use Log Wk 1</td></tr>
+        <tr><th scope="row">2</th><td>Oct 26 to Nov 1</td><td>Platforms and Metrics: KPIs in the Age of AI</td><td>KPI Mapping Exercise &middot; Platform Reflection Discussion &middot; AI Use Log Wk 2</td></tr>
+        <tr><th scope="row">3</th><td>Nov 2 to 8</td><td>Data Collection and AI-Assisted Research Design</td><td>AI-Assisted Research Plan &middot; AI Use Log Wk 3</td></tr>
+        <tr><th scope="row">4</th><td>Nov 9 to 15</td><td>Content and Sentiment Analysis with AI</td><td>Coding Exercise &middot; Content + Sentiment Comparison Memo &middot; Disagreement Discussion &middot; AI Use Log Wk 4</td></tr>
+        <tr><th scope="row">5</th><td>Nov 16 to 22</td><td>Statistical Analysis with R, VS Code, and GitHub Copilot</td><td>Mini-Analysis Exercise &middot; Statistical Analysis Memo &middot; AI Use Log Wk 5</td></tr>
+        <tr><th scope="row">Break</th><td>Nov 23 to 29</td><td><strong>Thanksgiving Break, no module, no assignments</strong></td><td></td></tr>
+        <tr><th scope="row">6</th><td>Nov 30 to Dec 6</td><td>SMART Goals and Strategic Application of AI Creative</td><td>SMART Goals + AI Creative Brief &middot; Peer Review &middot; AI Use Log Wk 6</td></tr>
+        <tr><th scope="row">7</th><td>Dec 7 to 13</td><td>Strategy Synthesis: SWOT, Timelines, Stakeholder Communication</td><td>SWOT Draft &middot; Campaign Timeline Draft &middot; Peer Review &middot; AI Use Log Wk 7</td></tr>
+        <tr><th scope="row">8</th><td>Dec 14 to 18</td><td>Final Pitch: AI-Augmented Strategy Presentation</td><td><strong>Final Pitch Deck + AI Workflow Appendix</strong> &middot; Elevator Pitch Video &middot; Final Reflection on AI Governance</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>On the final weeks.</strong> Thanksgiving week (Nov 23 to 29) has no
+  module and no assignments. Modules 6, 7, and 8 each run for one week after the
+  break, and the term ends Friday, December 18. Module 8 is a single focused
+  week centered on the Final Pitch Deck; the AI Workflow Appendix opens in
+  Module 7, and the draft peer review sits in Module 7, so neither compresses
+  into the final week. Office hours continue throughout, and attendance is
+  strongly encouraged for students with questions about the pitch deck or
+  presentation.</p>
+
+  <p><em>Schedule subject to change with notice. See Blackboard for the current
+  version.</em></p>
+
+  <h2 id="materials-and-technology">Materials and technology</h2>
+
+  <p><strong>Textbook.</strong> This course uses an Open Educational Resource
+  (OER) adapted from the AURA Lab's <em>From Vibes to Variables</em> methodology
+  textbook. Until the AI Social Media Strategist edition is published, weekly
+  readings are linked through Blackboard. There is no textbook to purchase.</p>
+
+  <p><strong>Software.</strong> The course uses a mix of AI tools, social
+  listening tools, and analytical software. All required tools are free or have
+  free tiers sufficient for course use.</p>
+  <ul>
+    <li><strong>Generative AI</strong>: ChatGPT (free tier), Claude (free tier),
+      or equivalent. Pick one as your primary; use a second for cross-checking
+      on key assignments.</li>
+    <li><strong>GitHub Copilot for Students</strong> (required for Module 5):
+      free for verified students through the
+      <a href="https://education.github.com/pack">GitHub Education Pack</a>.
+      Works as an extension inside VS Code. As of March 2026, GitHub routes
+      student requests through Auto mode (the system selects from OpenAI,
+      Anthropic, or Google models on each request); premium-model selection is
+      no longer student-accessible. Auto mode is sufficient for the analytical
+      work in Module 5, and the variability is itself useful for the governance
+      focus of this course.</li>
+    <li><strong>VS Code</strong> with the R extension: free; replaces RStudio for
+      the analytical work in Module 5.</li>
+    <li><strong>R</strong>: free; install separately from VS Code.</li>
+    <li><strong>Canva</strong> with AI features (free tier).</li>
+    <li><strong>Social listening (free tier)</strong>: Brand24 trial, Sprout
+      free, or Hootsuite free.</li>
+  </ul>
+
+  <p>You are not expected to become an expert with any single tool. Fluency
+  across the AI-augmented workflow, plus the discipline to govern your own AI
+  use, is the goal.</p>
+
+  <p><strong>What you need to have.</strong> A reliable computer and internet
+  connection are required. Specific to this course:</p>
+  <ul>
+    <li>A webcam and microphone for the Module 8 Elevator Pitch video and remote
+      office-hour appointments.</li>
+    <li>A current version of a supported browser (Chrome, Edge, Firefox, or
+      Safari), kept updated, so the AI tool web interfaces work reliably.</li>
+    <li>If you use a pop-up blocker or a strict privacy extension, allow pop-up
+      windows from the AI tools used in this course. Several tools open
+      authentication or output windows that a blocker can silently suppress.</li>
+    <li>A desktop or laptop computer for Module 5. The analytical work there (R,
+      VS Code, and GitHub Copilot) cannot be completed on a phone or tablet.</li>
+    <li>Storage: the course produces roughly 1 to 2 GB of analytical artifacts.
+      Cloud storage (OneDrive, Google Drive, Dropbox) is recommended.</li>
+    <li>Microsoft Teams installed (free for SIUE and SIUC students through the
+      campus license).</li>
+    <li>VS Code, R, and Copilot installed and authenticated by the end of Module
+      1. Module 1 includes a setup walkthrough screencast and a confirmation
+      submission.</li>
+  </ul>
+
+  <p>Technical problems are not an excuse for missed deadlines, but they can
+  often be resolved quickly. See <a href="#getting-help">Getting help</a>.</p>
+
+  <h2 id="participation">Participation and interaction</h2>
+
+  <p>Regular and Substantive Interaction (RSI) is required for distance
+  education under U.S. Department of Education regulations. In this course, RSI
+  takes the form of:</p>
+  <ul>
+    <li>A weekly announcement video from me at the start of each module.</li>
+    <li>Weekly office hours as a live, confidential support channel: in person
+      Tuesday through Thursday afternoons, plus remote appointments through
+      Microsoft Bookings.</li>
+    <li>Substantive instructor responses on each discussion forum, on a weekly
+      cadence rather than continuously.</li>
+    <li>Personalized written feedback on graded submissions, on the timeline
+      above.</li>
+    <li>Optional 1:1 remote check-ins by appointment, particularly for Module 5
+      (Statistical Analysis) and the Final Pitch Deck.</li>
+  </ul>
+
+  <p>Your part is to engage with the course on a weekly cadence: read the
+  assigned materials, watch the lecture videos, post to discussions, come to an
+  office hour when you have questions, and submit work on time. Self-study is
+  rarely sufficient for material this new; consistent engagement is the
+  strongest predictor of a strong final pitch.</p>
+
+  <p>This course includes an anonymous mid-course pulse survey and an anonymous
+  end-of-course design-feedback survey. Your responses are read carefully and
+  shape how this course runs, both during the term and in future offerings, so
+  please take a few minutes to complete them.</p>
+
+  <p><strong>Course recordings.</strong> All lecture content is pre-recorded and
+  posted to the module before the module opens. Office hours are not recorded:
+  under FERPA, recording a support session where students raise grades,
+  accommodations, or personal circumstances would defeat its purpose, so those
+  conversations stay live and private. Elevator Pitch videos in Module 8 are
+  recorded by students and posted to the course discussion for peer review.</p>
+
+  <GettingHelp />
+
+  <UniversityPolicies>
+    <details class="syl-policy">
+      <summary>Academic integrity in a course that requires AI</summary>
+      <p>This course operates under a <strong>course-specific AI Use
+      Policy</strong> that authorizes and requires AI use as part of the
+      certificate program design. See <a href="#ai-use-policy">AI use policy</a>
+      above for documentation and evaluation expectations. <strong>The default
+      SIUE prohibition on AI use does not apply in this course.</strong> AI use
+      without disclosure, or AI use that fabricates citations, data, or
+      analytical results, remains academic dishonesty under the Student Academic
+      Code.</p>
+    </details>
+    <details class="syl-policy">
+      <summary>Reporting an inclusion concern</summary>
+      <p>Beyond the offices listed under
+      <a href="#getting-help">Getting help</a>, concerns about inclusion can be
+      directed to Lindy Wagner, Assistant Vice Chancellor for Inclusive
+      Excellence, Education and Development, at
+      <a href="tel:+16186503179">618-650-3179</a> or
+      <a href="mailto:linwagn@siue.edu">linwagn@siue.edu</a>.</p>
+    </details>
+  </UniversityPolicies>
+
+  </div>
+</SyllabusLayout>
+
+<script is:inline>
+  (function () {
+    function wire() {
+      var b = document.getElementById('syl-print');
+      if (b && !b.dataset.wired) {
+        b.dataset.wired = '1';
+        b.addEventListener('click', function () { window.print(); });
+      }
+    }
+    wire();
+    document.addEventListener('astro:page-load', wire);
+  })();
+</script>
