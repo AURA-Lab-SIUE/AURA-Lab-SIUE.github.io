@@ -2,23 +2,35 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/mc-careers-dashboard/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/mc-careers-dashboard/favicon.svg" />
+		<link rel="icon" href="/mc-careers-dashboard/favicon.ico" sizes="any" />
+		<link rel="apple-touch-icon" href="/mc-careers-dashboard/apple-touch-icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+			// Set theme before paint to avoid a flash of the wrong palette.
+			try {
+				var t = localStorage.getItem('mc-theme');
+				if (t !== 'light' && t !== 'dark') {
+					t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				}
+				document.documentElement.setAttribute('data-theme', t);
+			} catch (e) {}
+		</script>
 		
-		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/entry/start.BT8TE3-M.js">
-		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/tox3f0iW.js">
-		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/Bk6uc0n-.js">
-		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/BUN_Dseo.js">
-		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/BlXeWO1X.js">
-		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/entry/app.DHnUiFXQ.js">
+		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/entry/start.ML6aNb_V.js">
+		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/BQIa1L7e.js">
+		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/D5VG2GZT.js">
+		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/BpCmZ6G2.js">
+		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/C7QwOGD9.js">
+		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/entry/app.DkpqPe5-.js">
 		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/CWj6FrbW.js">
-		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/DS2NJMfR.js">
+		<link rel="modulepreload" href="/mc-careers-dashboard/_app/immutable/chunks/BHqM1m_U.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
 			<script>
 				{
-					__sveltekit_k592gv = {
+					__sveltekit_1cz77br = {
 						base: "/mc-careers-dashboard",
 						assets: "/mc-careers-dashboard"
 					};
@@ -26,8 +38,8 @@
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/mc-careers-dashboard/_app/immutable/entry/start.BT8TE3-M.js"),
-						import("/mc-careers-dashboard/_app/immutable/entry/app.DHnUiFXQ.js")
+						import("/mc-careers-dashboard/_app/immutable/entry/start.ML6aNb_V.js"),
+						import("/mc-careers-dashboard/_app/immutable/entry/app.DkpqPe5-.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});

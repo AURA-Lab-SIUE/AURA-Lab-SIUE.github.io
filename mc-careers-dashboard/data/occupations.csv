@@ -4,7 +4,7 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 11-2011,Advertising and Promotions Managers - Advertising Agency Manager,"Directs the operations and strategic vision of an advertising agency, ensuring client satisfaction and agency growth.",Advertising & Strategic Media
 11-2011,Advertising and Promotions Managers - Advertising Campaign Manager,"Plans and executes end-to-end advertising campaigns, aligning creative assets with targeted distribution strategies.",Advertising & Strategic Media
 11-2011,Advertising and Promotions Managers - Advertising Coordinator,"Supports the advertising team by managing schedules, communicating with vendors, and ensuring campaigns launch on time.",Advertising & Strategic Media
-11-2011,Advertising and Promotions Managers - Advertising Director,Leads the development and execution of an organization’s advertising strategy across multiple platforms.,Advertising & Strategic Media
+11-2011,Advertising and Promotions Managers - Advertising Director,Leads the development and execution of an organizationâ€™s advertising strategy across multiple platforms.,Advertising & Strategic Media
 11-2011,Advertising and Promotions Managers - Advertising Executive,"Oversees high-level advertising initiatives, managing client portfolios and driving campaign results.",Advertising & Strategic Media
 11-2011,Advertising and Promotions Managers - Advertising Manager,"Coordinates advertising activities to promote products or services, overseeing budgets, creatives, and media buys.",Advertising & Strategic Media
 11-2011,Advertising and Promotions Managers - Advertising Operations Manager,"Manages backend operations of digital advertising campaigns, ensuring smooth ad delivery and data accuracy.",Advertising & Strategic Media
@@ -33,7 +33,7 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 11-2021,Marketing Managers - Marketing Administrator,"Supports the marketing department through administrative tasks, vendor coordination, and project tracking.",Advertising & Strategic Media
 11-2021,Marketing Managers - Marketing Communications Manager,Integrates marketing and communication strategies to support brand messaging across channels.,Advertising & Strategic Media
 11-2021,Marketing Managers - Marketing Coordinator,"Organizes and tracks marketing projects, coordinating internal teams and external vendors.",Advertising & Strategic Media
-11-2021,Marketing Managers - Marketing Director,"Oversees the marketing department’s vision, team development, and campaign success.",Advertising & Strategic Media
+11-2021,Marketing Managers - Marketing Director,"Oversees the marketing departmentâ€™s vision, team development, and campaign success.",Advertising & Strategic Media
 11-2021,Marketing Managers - Marketing Executive,"Executes high-level marketing plans, often focused on strategic growth and stakeholder engagement.",Advertising & Strategic Media
 11-2021,Marketing Managers - Marketing Manager,"Plans, directs, and evaluates marketing campaigns to meet organizational objectives.",Advertising & Strategic Media
 11-2021,Marketing Managers - Marketing Operations Director,"Oversees marketing workflows, data systems, and operational infrastructure to improve campaign efficiency.",Advertising & Strategic Media
@@ -46,10 +46,6 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 11-2021,Marketing Managers - Sales and Marketing Vice President,"Leads strategic sales and marketing efforts at the executive level, focused on expansion and profitability.",Advertising & Strategic Media
 11-2021,Marketing Managers - Sales Marketing Director,Directs marketing initiatives that directly support and enhance sales functions.,Advertising & Strategic Media
 11-2021,Marketing Managers - Sustainable Products Marketing Manager,Specializes in marketing products with environmentally sustainable features or certifications.,Advertising & Strategic Media
-11-2022,Sales Managers - Marketing Sales Supervisor,"Oversees a sales team focused on marketing services or campaigns, ensuring productivity and compliance.",Advertising & Strategic Media
-11-2022,Sales Managers - Sales and Marketing Director,Drives revenue by coordinating both sales strategies and marketing campaigns.,Advertising & Strategic Media
-11-2022,Sales Managers - Sales and Marketing Manager,Balances marketing planning and sales execution to meet company targets.,Advertising & Strategic Media
-11-2022,Sales Managers - Sales and Marketing Vice President,"Oversees all sales and marketing divisions, setting executive strategy and driving organizational growth.",Advertising & Strategic Media
 11-2032,Public Relations Managers - Campaign Manager,Directs public-facing campaigns to shape public perception and ensure media coverage aligns with key messages.,Advertising & Strategic Media
 11-2032,Public Relations Managers - Marketing and Communications Manager,Integrates marketing initiatives with public relations to manage brand image and stakeholder messaging.,Advertising & Strategic Media
 11-2032,Public Relations Managers - Marketing Communications Manager,Coordinates communication strategies across platforms to reinforce brand identity and promote engagement.,Advertising & Strategic Media
@@ -59,11 +55,6 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 11-2033,Fundraising Managers - Campaign Manager,"Plans and leads fundraising initiatives, coordinating donors, messaging, and outreach events.",Advertising & Strategic Media
 11-2033,Fundraising Managers - Fundraising and Marketing Director,Develops strategies that align fundraising goals with marketing campaigns to maximize donor engagement.,Advertising & Strategic Media
 11-2033,Fundraising Managers - Fundraising Campaign Manager,"Executes large-scale fundraising campaigns with an emphasis on messaging, donor relations, and results tracking.",Advertising & Strategic Media
-11-9013,"Farmers, Ranchers, and Other Agricultural Managers - Aquaculture Cooperative Marketing Director","Oversees marketing and promotional efforts for aquaculture cooperatives, helping farmers reach broader markets.",Advertising & Strategic Media
-13-1011,"Agents and Business Managers of Artists, Performers, and Athletes - Athlete Marketing Agent","Promotes athletes through endorsement deals, brand partnerships, and personal branding strategies.",Advertising & Strategic Media
-13-1011,"Agents and Business Managers of Artists, Performers, and Athletes - Promotional Marketing Agent",Connects entertainers or artists with brands for cross-promotional campaigns and event sponsorships.,Advertising & Strategic Media
-13-1131,Fundraisers - Campaign Fundraiser,"Solicits donations through targeted outreach, building relationships with individuals and organizations.",Advertising & Strategic Media
-13-1131,Fundraisers - Capital Campaign Fundraiser,"Raises funds for long-term, high-cost projects by coordinating major gift efforts and donor relations.",Advertising & Strategic Media
 13-1161,Market Research Analysts and Marketing Specialists - Advertising Analyst,Evaluates advertising performance using data analytics to optimize campaigns and target audiences effectively.,Advertising & Strategic Media
 13-1161,Market Research Analysts and Marketing Specialists - Digital Marketing Specialist,"Develops and executes digital strategies using tools like SEO, SEM, and email marketing to reach target audiences.",Advertising & Strategic Media
 13-1161,Market Research Analysts and Marketing Specialists - Email Marketing Processor,"Creates and schedules email campaigns, manages mailing lists, and monitors delivery and response metrics.",Advertising & Strategic Media
@@ -110,14 +101,6 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 13-1161,Search Marketing Strategists - Social Media Strategist,Designs cross-platform social media campaigns that support broader digital marketing initiatives.,Advertising & Strategic Media
 13-1161,Search Marketing Strategists - Technical Marketing Specialist,"Focuses on technical aspects of product promotion, including specifications and system integration messaging.",Advertising & Strategic Media
 13-1161,Search Marketing Strategists - Web Marketing Strategist,"Develops and implements digital strategies for website traffic growth, lead generation, and brand visibility.",Advertising & Strategic Media
-15-2051,Data Scientists - Marketing Data Scientist,Uses machine learning and statistical models to uncover trends in consumer data and optimize marketing performance.,Advertising & Strategic Media
-15-2051,Business Intelligence Analysts - Marketing Database Analyst,"Manages and analyzes marketing databases to inform segmentation, targeting, and customer retention strategies.",Advertising & Strategic Media
-25-2032,"Career/Technical Education Teachers, Secondary School - Business and Marketing Teacher",Teaches students the fundamentals of business and marketing in a career-focused high school curriculum.,Advertising & Strategic Media
-25-2032,"Career/Technical Education Teachers, Secondary School - Marketing Education Teacher","Instructs secondary students in marketing concepts, preparing them for industry certifications and careers.",Advertising & Strategic Media
-27-1024,Graphic Designers - Advertising Designer,"Creates visual assets for advertising campaigns including digital banners, social media posts, and print ads.",Advertising & Strategic Media
-27-1024,Graphic Designers - Advertising Layout Worker,Assembles and formats print or digital ad layouts for publication according to design standards.,Advertising & Strategic Media
-27-1024,Graphic Designers - Marketing Graphic Designer,Designs graphics and layouts that support branding and promotional efforts across marketing channels.,Advertising & Strategic Media
-27-1026,Merchandise Displayers and Window Trimmers - In-Store Marketing Associate,Develops product displays and signage to attract customer attention and boost retail engagement.,Advertising & Strategic Media
 27-2012,Producers and Directors - Promotions Producer,"Oversees the creation of broadcast or digital promotional content to highlight upcoming products, shows, or events.",Advertising & Strategic Media
 27-3031,Public Relations Specialists - Communication Specialist,"Manages internal and external communications, ensuring consistent messaging and stakeholder alignment.",Advertising & Strategic Media
 27-3031,Public Relations Specialists - Content Marketing Specialist,"Produces and manages content strategies across blog, social, and web to engage audiences and drive conversions.",Advertising & Strategic Media
@@ -134,8 +117,6 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 27-3031,Public Relations Specialists - Public Relations Officer,"Manages communications and public messaging for a company, nonprofit, or public institution.",Advertising & Strategic Media
 27-3031,Public Relations Specialists - Public Relations Representative,"Acts as a liaison between a company and the media, delivering consistent and strategic messaging.",Advertising & Strategic Media
 27-3031,Public Relations Specialists - Public Relations Specialist,Plans and executes campaigns that influence public perception and support brand objectives.,Advertising & Strategic Media
-27-4021,Photographers - Advertising Photographer,"Captures compelling images for advertisements, product showcases, and branded content.",Advertising & Strategic Media
-41-1012,First-Line Supervisors of Non-Retail Sales Workers - Advertising Material Distributors Supervisor,Oversees staff responsible for distributing promotional materials to target audiences.,Advertising & Strategic Media
 41-3011,Advertising Sales Agents - Advertising Account Representative,Maintains client relationships and sells advertising services or space tailored to client goals.,Advertising & Strategic Media
 41-3011,Advertising Sales Agents - Advertising Agent,Markets and sells advertising opportunities across media platforms to help clients reach their audiences.,Advertising & Strategic Media
 41-3011,Advertising Sales Agents - Advertising Assistant,"Provides administrative support to advertising teams, helping organize assets and maintain schedules.",Advertising & Strategic Media
@@ -150,20 +131,6 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 41-3011,Advertising Sales Agents - Field Marketing Representative,Represents a brand in the field by promoting services and gathering consumer insights.,Advertising & Strategic Media
 41-3011,Advertising Sales Agents - Marketing Representative,Builds client relationships and pitches marketing solutions tailored to customer needs.,Advertising & Strategic Media
 41-3011,Advertising Sales Agents - Outdoor Advertising Leasing Agent,Negotiates leases and manages relationships with property owners for outdoor advertising locations like billboards.,Advertising & Strategic Media
-41-3021,Insurance Sales Agents - Field Marketing Representative,"Promotes insurance products in the field through outreach, events, and one-on-one consultations.",Advertising & Strategic Media
-41-3031,"Securities, Commodities, and Financial Services Sales Agents - Field Marketing Representative",Markets financial products and services by engaging prospects in targeted campaigns.,Advertising & Strategic Media
-41-4011,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products - Communication Equipment Sales Representative","Specializes in selling technical communications equipment, such as radio systems or teleconferencing tools.",Advertising & Strategic Media
-41-4011,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products - Field Marketing Representative",Promotes complex products through demonstrations and technical consultation in specialized industries.,Advertising & Strategic Media
-41-4011,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products - Marketing Representative","Serves as the face of technical products, tailoring messages to meet the needs of expert clients.",Advertising & Strategic Media
-41-4012,"Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products - Field Marketing Representative",Builds brand awareness and product interest through field campaigns targeting consumer or wholesale buyers.,Advertising & Strategic Media
-41-9031,Sales Engineers - Field Marketing Representative,Merges technical expertise with sales skills to promote engineering-based solutions in the field.,Advertising & Strategic Media
-41-9031,Sales Engineers - Technical Marketing Engineer,"Works at the intersection of engineering and marketing, translating technical specifications into compelling value propositions.",Advertising & Strategic Media
-43-1011,First-Line Supervisors of Office and Administrative Support Workers - Advertising Dispatch Clerks Supervisor,Manages dispatch clerks who coordinate the distribution and delivery of advertising materials.,Advertising & Strategic Media
-43-1011,First-Line Supervisors of Office and Administrative Support Workers - Classified Advertising Supervisor,"Oversees classified ad operations, ensuring accuracy and adherence to publication standards.",Advertising & Strategic Media
-43-9031,Desktop Publishers - Advertising Associate,Formats and prepares advertising materials for print and digital distribution using publishing software.,Advertising & Strategic Media
-43-9111,Statistical Assistants - Advertising Statistical Clerk,"Compiles and processes statistical data related to advertising performance, budgets, and audience reach.",Advertising & Strategic Media
-51-5111,Prepress Technicians and Workers - Advertising Layout Worker,Prepares and assembles final layouts for printed advertising using prepress equipment and software.,Advertising & Strategic Media
-27-1013,"Fine Artists, Including Painters, Sculptors, and Illustrators - Editorial Cartoonist","Creates satirical illustrations that provide visual commentary on current events, often blending humor with political or cultural critique.",Journalism
 27-2012,Producers and Directors - Broadcast News Producer,"Oversees the production and editorial flow of a live news broadcast, balancing breaking updates with scheduled segments.",Journalism
 27-2012,Producers and Directors - Morning News Producer,"Plans and executes early-morning news shows with a focus on timeliness, pacing, and viewer engagement.",Journalism
 27-2012,Producers and Directors - News Producer,"Manages the content, structure, and timing of a newscast, ensuring journalistic standards and deadlines are met.",Journalism
@@ -171,13 +138,6 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 27-2012,Producers and Directors - Television News Producer,"Shapes the tone and structure of televised news programs by selecting stories, writing scripts, and guiding anchors.",Journalism
 27-2012,Media Programming Directors - News Director,"Sets the editorial vision for a newsroom, making high-level decisions about story coverage, personnel, and broadcast integrity.",Journalism
 27-2012,Media Technical Directors/Managers - News Technical Director,Operates the switchboard and technical controls during a live news broadcast to ensure flawless transitions and visual flow.,Journalism
-27-3011,Broadcast Announcers and Radio Disc Jockeys - Anchor,"Presents news stories live on-air, often serving as the primary face and voice of a broadcast.",Journalism
-27-3011,Broadcast Announcers and Radio Disc Jockeys - Morning News Anchor,Delivers early-morning news with energy and clarity to inform and engage waking audiences.,Journalism
-27-3011,Broadcast Announcers and Radio Disc Jockeys - News Anchor,"Presents live or pre-recorded news stories, interviewing guests and providing real-time updates.",Journalism
-27-3011,Broadcast Announcers and Radio Disc Jockeys - News Broadcaster,"Delivers scripted and breaking news across radio or TV formats, often in a solo format.",Journalism
-27-3011,Broadcast Announcers and Radio Disc Jockeys - Sports Anchor,"Covers sports news and commentary, including game highlights, athlete profiles, and league analysis.",Journalism
-27-3011,Broadcast Announcers and Radio Disc Jockeys - Television News Anchor,"Serves as the central on-air personality for a television newscast, guiding viewers through daily headlines.",Journalism
-27-3011,Broadcast Announcers and Radio Disc Jockeys - Weather Anchor,"Interprets meteorological data and presents weather forecasts in an engaging, accessible manner.",Journalism
 27-3023,"News Analysts, Reporters, and Journalists - Anchor","Combines live reporting and editorial oversight, guiding broadcast coverage with poise and credibility.",Journalism
 27-3023,"News Analysts, Reporters, and Journalists - Breaking News Reporter","Reacts swiftly to unfolding events, often reporting live from the scene with developing information.",Journalism
 27-3023,"News Analysts, Reporters, and Journalists - Broadcast Journalist","Researches, writes, and delivers news stories for television or radio, often working in fast-paced environments.",Journalism
@@ -219,19 +179,6 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 27-3041,Editors - Advertising Editor,"Reviews and refines promotional content to ensure clarity, accuracy, and compliance with brand guidelines.",Journalism
 27-3041,Editors - Editorial Specialist,"Edits and manages editorial content for style, tone, and factual accuracy across publications.",Journalism
 27-3041,Editors - News Editor,"Supervises reporters and curates story lineups, often deciding what gets covered and how.",Journalism
-27-3043,Writers and Authors - Advertising Associate,"Assists in writing and editing advertising content, including taglines, scripts, and ad copy.",Journalism
-27-3043,Writers and Authors - Advertising Copywriter,Writes persuasive ad copy that aligns with brand voice and drives consumer action.,Journalism
-27-3043,Writers and Authors - Advertising Specialist,Crafts targeted messaging for campaigns across traditional and digital platforms.,Journalism
-27-3043,Writers and Authors - Advertising Writer,"Composes text for advertisements, promotions, and sponsored content.",Journalism
-27-3043,Writers and Authors - Marketing Copywriter,"Creates compelling copy for web, print, and social media to promote products or services.",Journalism
-27-3043,Writers and Authors - Marketing Writer,Develops written content that supports sales goals and engages target audiences.,Journalism
-27-3043,Writers and Authors - Search Engine Optimization Copywriter,Writes web content optimized for search engines to improve online visibility.,Journalism
-27-3043,"Poets, Lyricists and Creative Writers - Editorial Writer",Expresses opinions through columns or essays that engage public discourse.,Journalism
-27-3043,"Poets, Lyricists and Creative Writers - Film Writer","Develops screenplays, treatments, or critiques for motion pictures.",Journalism
-27-4012,Broadcast Technicians - News Gathering Technician,Operates field equipment to capture audio and video for broadcast news stories.,Journalism
-27-4012,Broadcast Technicians - News Production Assistant,"Supports newsroom operations through script formatting, teleprompter management, and studio coordination.",Journalism
-27-4021,Photographers - News Photographer,Captures still images that visually document current events for use in journalism.,Journalism
-27-4021,Photographers - Photo Journalist,Combines photographic skills with storytelling to convey the emotion and context of news events.,Journalism
 27-4031,"Camera Operators, Television, Video, and Film - Electronic News Gathering Camera Operator",Shoots video footage for live or recorded news broadcasts in the field.,Journalism
 27-4031,"Camera Operators, Television, Video, and Film - News Camera Operator",Operates professional video cameras to record or stream news coverage on location or in-studio.,Journalism
 27-4031,"Camera Operators, Television, Video, and Film - News Camera Person","Captures video of interviews and news events, often under tight deadlines and live conditions.",Journalism
@@ -246,15 +193,6 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 27-4032,Film and Video Editors - News Videotape Editor,Assembles and formats broadcast-ready news segments from recorded tape or digital sources.,Journalism
 27-4032,Film and Video Editors - Television News Video Editor,"Edits content specifically for television news, ensuring narrative clarity and visual coherence.",Journalism
 27-4032,Film and Video Editors - Video Production Editor,"Edits a range of video content, from promotional clips to interviews and event coverage.",Journalism
-43-9081,Proofreaders and Copy Markers - Editorial Assistant,"Provides editing and administrative support in newsrooms or publishing, including proofreading and content tracking.",Journalism
-43-9081,Proofreaders and Copy Markers - News Copy Editor,"Edits news stories for grammar, style, and accuracy before publication or broadcast.",Journalism
-13-1011,"Agents and Business Managers of Artists, Performers, and Athletes - Film Booker",Coordinates film distribution by securing screenings at theaters and negotiating with exhibitors on behalf of studios or artists.,Media Production
-15-1299,Digital Forensics Analysts - Cyber Digital Media Analyst,Investigates cybercrime by analyzing multimedia content and metadata within digital forensic cases.,Media Production
-15-1299,Digital Forensics Analysts - Digital Media Analyst,"Examines digital content trends, usage patterns, and user engagement across multimedia platforms for research or security.",Media Production
-17-3029,Photonics Technicians - Thin Film Technician,"Operates precision equipment to deposit and test thin film coatings used in optics, electronics, and display technologies.",Media Production
-25-4031,Library Technicians - Library Media Technician,"Maintains media collections, supports patrons with digital tools, and manages equipment within library systems.",Media Production
-25-4031,Library Technicians - Media Center Specialist,"Oversees school or institutional media centers, facilitating access to educational technology and audiovisual materials.",Media Production
-25-4031,Library Technicians - Media Specialist,"Curates and circulates media resources in educational or public libraries, assisting users with equipment and databases.",Media Production
 27-1011,Art Directors - Graphic Design and Art Production Manager,Leads teams of designers and production staff to execute visual projects from concept through final output.,Media Production
 27-1014,Special Effects Artists and Animators - Animation Artist,"Creates frame-by-frame or computer-generated visuals that bring characters, environments, or objects to life.",Media Production
 27-1014,Special Effects Artists and Animators - Animation Producer,"Oversees the production timeline and resources for animation projects, coordinating creative and technical teams.",Media Production
@@ -274,21 +212,10 @@ OCC_CODE,Title - Alt,Alt_Description,Track
 27-2012,Producers and Directors - Media Producer,"Manages the production of multimedia content, from videos to interactive exhibits, across diverse platforms.",Media Production
 27-2012,Media Programming Directors - Media Coordinator,Schedules programming and manages media logistics to ensure smooth content delivery across platforms.,Media Production
 27-2012,Media Technical Directors/Managers - Test Editing Director,Oversees the review and quality control of edited video content before final broadcast or release.,Media Production
-27-2041,Music Directors and Composers - Film Composer,"Writes original musical scores tailored to film narratives, collaborating closely with directors and editors.",Media Production
 27-4011,Audio and Video Technicians - Media Technician,"Installs, troubleshoots, and operates audio-visual equipment for live and recorded media events.",Media Production
 27-4011,Audio and Video Technicians - Video Production Assistant,"Assists with video shoots and post-production, handling equipment setup and file organization.",Media Production
 27-4011,Audio and Video Technicians - Video Production Specialist,"Plans, shoots, and edits professional video content for marketing, training, or entertainment purposes.",Media Production
-27-4012,Broadcast Technicians - Media Technician,Supports broadcast operations by managing transmission systems and ensuring content integrity.,Media Production
-27-4012,Broadcast Technicians - Video Production Assistant,Provides support on live or recorded broadcasts through equipment handling and logistics.,Media Production
 27-4014,Sound Engineering Technicians - Film Recordist,"Captures location audio on film sets, ensuring clean sound for dialogue and ambient scenes.",Media Production
 27-4014,Sound Engineering Technicians - Film Sound Coordinator,"Manages all aspects of film audio logistics, from on-set recording to post-production sound design.",Media Production
 27-4014,Sound Engineering Technicians - Film Sound Engineer,"Mixes and masters audio tracks for film, integrating dialogue, sound effects, and music with cinematic precision.",Media Production
 27-4031,"Camera Operators, Television, Video, and Film - Animation Camera Operator",Operates specialized cameras to capture stop-motion or traditional animation frames.,Media Production
-43-1011,First-Line Supervisors of Office and Administrative Support Workers - Film Vault Supervisor,"Manages storage and preservation of physical film reels, ensuring proper cataloging and environmental conditions.",Media Production
-49-2021,"Radio, Cellular, and Tower Equipment Installers and Repairers - Broadcasting Equipment Mechanic","Installs, maintains, and repairs transmitters, antennas, and audio-video equipment in broadcast facilities.",Media Production
-49-9061,Camera and Photographic Equipment Repairers - Photography Equipment Technician,"Repairs and calibrates professional photographic gear including lenses, flashes, and digital cameras.",Media Production
-51-1011,First-Line Supervisors of Production and Operating Workers - Film Processing Shift Supervisor,Oversees staff and workflow for chemical or digital film development during assigned production shifts.,Media Production
-51-1011,First-Line Supervisors of Production and Operating Workers - Film Processing Supervisor,"Manages overall film lab operations, ensuring quality control and processing standards are met.",Media Production
-51-5111,Prepress Technicians and Workers - Printing and Publishing Hand Etcher,Manually carves or etches images or text onto printing plates for specialty publications or art prints.,Media Production
-51-5111,Prepress Technicians and Workers - Printing and Publishing Plate Finisher,"Prepares metal or polymer plates for printing by cleaning, coating, and inspecting final surfaces.",Media Production
-51-5111,Prepress Technicians and Workers - Printing Film Stripper,Assembles film negatives or positives into composite layouts for offset printing plate creation.,Media Production
