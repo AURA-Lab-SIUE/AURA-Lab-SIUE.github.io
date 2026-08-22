@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 
-// Guiding principles — the habits that matter more than any single app.
+// Guiding principles: the habits that matter more than any single app.
 const principles = [
   {
     title: 'Back up everything, today',
@@ -10,7 +10,7 @@ const principles = [
   },
   {
     title: 'Use AI honestly',
-    body: 'AI is a real study partner — and an easy way to accidentally cheat. Follow each syllabus, disclose when you use it, and verify everything: it invents citations and gets math wrong.',
+    body: 'AI is a real study partner, and an easy way to accidentally cheat. Follow each syllabus, disclose when you use it, and verify everything: it invents citations and gets math wrong.',
   },
   {
     title: 'Keep private things private',
@@ -22,62 +22,66 @@ const principles = [
   },
 ];
 
-// The eight FST 101 weeks, each mapped to the tools that serve it and to a
-// course objective. Tools are examples — the toolkit page has the full set.
+// The eight FST 101 weeks. Titles and order follow the department course
+// shell (DEV-FST-101-ULTRA, exported 2026-08-18) so this page and Blackboard
+// agree; the previous list here was the pre-2026-08-18 theme list and had
+// weeks 2, 3 and 4 rotated out of order. Each week is paired with the tools
+// that serve THAT week's actual work. Tools are examples; the toolkit page
+// has the full set.
 const weeks = [
   {
     n: 1,
-    theme: 'Introduction',
-    focus: 'Get your digital life ready for college. Claim the free accounts you already have, set up a password manager, and get comfortable moving around Blackboard.',
-    tools: ['Bitwarden', 'Microsoft Copilot Chat', 'Firefox'],
+    theme: 'Introducing the Class',
+    focus: 'Get your digital life ready before the work starts. Claim the free accounts you already have, set up a password manager, and get comfortable moving around Blackboard.',
+    tools: ['Bitwarden', 'Firefox', 'Microsoft Copilot Chat'],
     objective: 'Academic expectations & working within Blackboard',
   },
   {
     n: 2,
-    theme: 'Reading, Notetaking & Time Management',
-    focus: 'Build a system to capture readings and lectures — and never miss a deadline. Pick a notes app, mark up your PDFs, and put every due date in one calendar.',
-    tools: ['Obsidian', 'Xournal++', 'Super Productivity', 'Thunderbird'],
-    objective: 'Skills to meet academic expectations',
+    theme: "The How's and Why's of College",
+    focus: 'Find your one thing, and be reachable when it finds you back. Get your SIUE mail and your calendar into one place, and claim the student accounts that are already free to you.',
+    tools: ['Thunderbird', 'GitHub Copilot'],
+    objective: 'Resources, support, and engagement at SIUE',
   },
   {
     n: 3,
+    theme: 'Preparing for Academic Success',
+    focus: 'Build a system that catches your readings and lectures, and never miss a deadline again. Pick a notes app, mark up your PDFs, and put every due date in one calendar.',
+    tools: ['Obsidian', 'Xournal++', 'Super Productivity'],
+    objective: 'Skills to meet academic expectations',
+  },
+  {
+    n: 4,
     theme: 'Effective Study Skills',
-    focus: 'Study smarter, not longer. Use spaced-repetition flashcards for what you need to memorize, and let a private AI quiz you over your own notes.',
+    focus: 'Study smarter, not longer. Use spaced-repetition flashcards for what you actually have to memorize, and let a private AI quiz you over your own notes.',
     tools: ['Anki', 'AnythingLLM', 'Whisper (Buzz)'],
     objective: 'Making the most of your efforts',
   },
   {
-    n: 4,
-    theme: 'Get Involved & Build Connections',
-    focus: 'Find your one thing. Use free tools to explore involvement, start a portfolio, and claim the GitHub Student Developer Pack. A research lab like AURA is one place to plug in.',
-    tools: ['GitHub Education', 'Zotero'],
-    objective: 'Resources, support, and engagement at SIUE',
-  },
-  {
     n: 5,
-    theme: 'Cougar Collaboration: Belonging through Inclusive Community',
-    focus: 'Do great group work and make it reach everyone. Collaborate in shared documents, sketch ideas together, and caption your media so no one is left out.',
-    tools: ['LibreOffice', 'Excalidraw', 'Captionizer'],
+    theme: 'Belonging at SIUE',
+    focus: 'Work well with people who are not like you, and make what you produce reach everyone. Collaborate in shared documents, sketch ideas together, and keep a clean copy of anything you drafted on paper.',
+    tools: ['LibreOffice', 'Excalidraw'],
     objective: 'Learning in a diverse community; common human dignity',
   },
   {
     n: 6,
-    theme: 'Personality, Major & Career — Defining Your Why',
-    focus: 'Explore who you are and where you are headed. Build a résumé and a portfolio, and try the production tools a communications career actually runs on.',
-    tools: ['OBS Studio', 'Audacity', 'GIMP', 'Inkscape'],
-    objective: 'Major and career options; defining your why',
-  },
-  {
-    n: 7,
-    theme: 'Advising, the SIUE Curriculum & Finding Your Path',
-    focus: 'Own your plan. Keep your advising notes, map your degree and the Lincoln Program requirements, and track your path from one semester to the next.',
-    tools: ['Freeplane', 'Joplin', 'Super Productivity'],
+    theme: 'The SIUE Curriculum and Finding Your Path',
+    focus: 'Map the degree, not just the semester. Lay out how a pathway, a major, and the general education requirements actually connect, then write down why you picked what you picked. If your path is a creative one, start with the media tools in the toolkit.',
+    tools: ['Freeplane', 'LibreOffice', 'Microsoft Copilot Chat'],
     objective: 'Structure, purpose, and value of SIUE’s curricula',
   },
   {
+    n: 7,
+    theme: 'Tailoring Your SIUE Experience',
+    focus: 'Own your plan. Keep your advising notes where you can find them again, walk into the appointment with real questions written down, and track your path from one semester to the next.',
+    tools: ['Joplin', 'Super Productivity', 'Freeplane'],
+    objective: 'Major and career options; defining your why',
+  },
+  {
     n: 8,
-    theme: 'Visioning Success — This Semester and Beyond',
-    focus: 'Make it last. Lock in automatic backups, tidy your systems, and carry these habits — and your rights and responsibilities as a student — into the rest of your degree.',
+    theme: 'Your Next Steps',
+    focus: 'Make it last. Lock in automatic backups, tidy up your systems, and carry these habits into the rest of your degree.',
     tools: ['Syncthing', 'Duplicati', 'KeePassXC'],
     objective: 'Your commitments, obligations, and rights as a student',
   },
@@ -87,20 +91,20 @@ const weeks = [
   title="New Students"
   current="students"
 
-  description="A free, open-source toolkit for new SIUE students — mapped to the eight weeks of FST 101. Works alongside Microsoft Copilot and GitHub Copilot.">
+  description="A free, open-source toolkit for new SIUE students, mapped to the eight weeks of FST 101. Works alongside Microsoft Copilot and GitHub Copilot.">
 
   <!-- Hero -->
   <section class="container-page pt-20 pb-10">
     <p class="text-muted uppercase tracking-ui text-sm">For new Cougars · FST 101</p>
     <h1 class="font-display text-5xl md:text-7xl mt-4 leading-none">Start college ready.</h1>
     <p class="mt-8 max-w-measure text-xl">
-      A kit of <strong>entirely free tools</strong> that will make you a better student —
-      on their own, or working alongside the <strong>Microsoft Copilot</strong> and
+      A kit of <strong>entirely free tools</strong> that will make you a better
+      student, on their own or working alongside the <strong>Microsoft Copilot</strong> and
       <strong>GitHub Copilot</strong> assistants you already get as an SIUE student.
     </p>
     <p class="mt-4 max-w-measure text-muted">
-      It is major-agnostic — useful whether you are studying mass communications,
-      nursing, engineering, or anything else — and it is organized to move with you
+      It is major-agnostic, useful whether you are studying mass communications,
+      nursing, engineering, or anything else, and it is organized to move with you
       through the eight weeks of your FST 101 first-year seminar. No credit card, no
       trials, no catch.
     </p>
@@ -138,6 +142,12 @@ const weeks = [
       afternoon. Do them in order and by week eight you will have a complete, free
       system for the rest of your degree.
     </p>
+    <p class="max-w-measure text-muted mb-10">
+      The week titles and their order match the FST 101 course shell in Blackboard,
+      so week five here is the same week five your instructor is teaching. Blackboard
+      is still the official source for assignments, points, and due dates. Nothing on
+      this page is graded.
+    </p>
     <ol class="weeks">
       {weeks.map((w) => (
         <li class="week card">
@@ -162,7 +172,7 @@ const weeks = [
   <SectionDivider kicker="Everything in one place" title="The full toolkit." />
   <section class="container-page">
     <p class="max-w-measure text-lg">
-      Nine categories, three dozen free tools — writing, notes, study, research,
+      Nine categories, three dozen free tools: writing, notes, study, research,
       AI, media, coding, organization, and security. Each one explains what it does
       and why it helps, with Windows and Mac options.
     </p>
@@ -178,7 +188,7 @@ const weeks = [
     <p class="max-w-measure text-lg">
       Getting involved is the surest predictor of a good first year. The AURA Lab
       studies how people communicate through streams, virtual worlds, and social
-      platforms — and it works with undergraduates from any background and no prior
+      platforms, and it works with undergraduates from any background and no prior
       experience. If any of this sparked something, that is a good enough reason to
       say hello.
     </p>
