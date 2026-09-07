@@ -22,6 +22,20 @@ the department name must be built by UMC (p.7).
 | `src/components/Nav.astro` | Site name is plain text. The red diamond emblem is gone. | Place the official signature line lockup per UMC guidance. |
 | `brand/_retired-2026-09/` | The old AURA logo and icon sources, retired for provenance. | Nothing. **Do not reuse or regenerate these.** |
 
+## Deliberately deferred — the GitHub org avatar
+
+`github.com/AURA-Lab-SIUE` still shows the old purple "A" monogram. **This is a known open
+item, left in place on purpose (owner, 2026-09-07). Do not swap it for a placeholder.**
+
+Verified against the live settings page on 2026-09-07: **GitHub provides no way to remove an
+organization avatar.** There is no form posting to an avatar route and no remove control; the
+profile-picture block offers only "Upload new picture." An org can replace its avatar but
+cannot clear it, so the browser-default fallback used for the favicon is not available here.
+
+That leaves only "upload something else," and the monogram is outdated regardless. Rather than
+spend one change on an interim tile and a second on the real artwork, it gets a single
+deliberate update once UMC answers question 2 below, which is exactly this case.
+
 ## Open questions with UMC (asked 2026-09-07)
 
 1. The official **Mass Communications signature line lockup**, in vector, in the approved
