@@ -1,13 +1,14 @@
 ---
-interface Props { date: Date; title: string; tags?: string[]; dimensions?: string[]; }
-const { date, title, tags = [], dimensions = [] } = Astro.props;
+interface Props { date: Date; title: string; tags?: string[]; dimensions?: string[]; level?: 2 | 3; }
+const { date, title, tags = [], dimensions = [], level = 3 } = Astro.props;
+const Heading = `h${level}`;
 const formatted = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 const iso = date.toISOString().slice(0, 10);
 ---
 <article class="news-item">
   <time class="date font-mono text-sm text-muted" datetime={iso}>{formatted}</time>
   <div>
-    <h3 class="font-display text-2xl leading-snug">{title}</h3>
+    <Heading class="font-display text-2xl leading-snug">{title}</Heading>
     {tags.length > 0 && (
       <ul class="mt-1 flex gap-2 text-xs uppercase tracking-ui text-muted">
         {tags.map(t => <li>#{t}</li>)}

@@ -14,14 +14,14 @@
 
 .theories-skin {
   /* paper + ink — aligned to the site's warm institutional theme */
-  --paper: #f6f3ec;
-  --paper-2: #efe9dc;
-  --ink: #1e1b18;
-  --ink-2: #6b6357;
-  --ink-3: #736b5d;  /* tertiary ink — darkened to clear WCAG AA (4.75:1 on paper) */
-  --rule: #ddd7c8;
-  --rule-strong: #1e1b18;
-  --accent: #a8322a; /* brick — the site's one working accent */
+  --paper: #ffffff;
+  --paper-2: #f7f7f7;
+  --ink: #000000;
+  --ink-2: #595959;
+  --ink-3: #666666;  /* tertiary ink, 5.7:1 on white (WCAG 2.1 AA) */
+  --rule: #cdd0cf;
+  --rule-strong: #000000;
+  --accent: #e5182d; /* SIUE Red (PMS 186 C), 4.67:1 on white = AA */
 
   /* Two-tone doctrine: fields are shown by POSITION (constellation clusters)
      + label, never by nine competing hues. All category vars collapse to one
@@ -38,17 +38,17 @@
   --c-pr: var(--ink-3);
 
   /* constellation ink — ink stars + warm hairlines on paper, textured ground */
-  --net-line: #d8d1c0;
-  --net-line-strong: #b7ac93;
-  --net-node: #3a3630;
-  --net-ground: #f6f3ec;
-  --net-dot: rgba(30, 27, 24, 0.05);
-  --net-glow: rgba(168, 50, 42, 0.20);
+  --net-line: #cdd0cf;
+  --net-line-strong: #9aa0a0;
+  --net-node: #000000;
+  --net-ground: #ffffff;
+  --net-dot: rgba(0, 0, 0, 0.05);
+  --net-glow: rgba(229, 24, 45, 0.20);
 
-  /* Site fonts (self-hosted): Archivo for display + UI, Newsreader for prose. */
-  --font-display: 'Archivo Variable', Archivo, system-ui, sans-serif;
-  --font-text: 'Archivo Variable', Archivo, system-ui, sans-serif;
-  --font-read: 'Newsreader Variable', Newsreader, Georgia, serif;
+  /* SIUE approved web typefaces (Visual Identity Requirements p.28, p.39). */
+  --font-display: 'Source Sans 3 Variable', 'Source Sans 3', Arial, Helvetica, sans-serif;
+  --font-text: 'Source Sans 3 Variable', 'Source Sans 3', Arial, Helvetica, sans-serif;
+  --font-read: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, serif;
   --measure: 66ch;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 

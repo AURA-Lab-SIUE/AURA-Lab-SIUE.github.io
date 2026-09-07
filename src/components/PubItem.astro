@@ -9,15 +9,18 @@ interface Props {
   status: 'published' | 'in-press' | 'preprint';
   areas: string[];
   dims?: string[];
+  /** Heading level, so the page outline stays in order (WCAG 2.1 AA). */
+  level?: 2 | 3;
 }
-const { title, authors, venue, year, doi, preprint, status, areas, dims } = Astro.props;
+const { title, authors, venue, year, doi, preprint, status, areas, dims, level = 3 } = Astro.props;
+const Heading = `h${level}`;
 const link = doi ?? preprint;
 const authorsRendered = authors.map(a => a.includes('Leith') ? `<strong>${a}</strong>` : a).join(', ');
 ---
 <article class="pub" data-areas={areas.join(' ')} data-dims={(dims ?? []).join(' ')}>
-  <h3 class="pub-title">
+  <Heading class="pub-title">
     {link ? <a class="link-underline" href={link}>{title}</a> : title}
-  </h3>
+  </Heading>
   {dims && dims.length > 0 && (
     <p class="pub-dims">{dims.map(d => <span class="pd">{d}</span>)}</p>
   )}

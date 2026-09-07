@@ -1,8 +1,6 @@
 @import './tokens.css';
-@import '@fontsource-variable/archivo/index.css';
-@import '@fontsource-variable/newsreader/index.css';
-@import '@fontsource/spline-sans-mono/400.css';
-@import '@fontsource/spline-sans-mono/500.css';
+@import '@fontsource-variable/source-sans-3/index.css';
+@import '@fontsource-variable/source-serif-4/index.css';
 
 @tailwind base;
 @tailwind components;
@@ -49,8 +47,8 @@
     font-family: theme('fontFamily.mono');
     font-size: 0.7rem;
     letter-spacing: 0.05em;
-    color: var(--brick);
-    border: 1px solid var(--brick);
+    color: var(--accent-text);
+    border: 1px solid var(--accent);
     padding: 3px 9px;
     border-radius: 3px;
     display: inline-block;
@@ -85,7 +83,7 @@
     transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out);
   }
   .pill:hover { color: var(--ink); border-color: var(--brick); }
-  .pill[aria-pressed="true"] { color: var(--brick); border-color: var(--brick); }
+  .pill[aria-pressed="true"] { color: var(--accent-text); border-color: var(--accent); }
 
   .link-underline {
     background-image: linear-gradient(var(--brick), var(--brick));

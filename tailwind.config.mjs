@@ -21,10 +21,10 @@ export default {
         line:          'var(--line)',
       },
       fontFamily: {
-        display: ['"Archivo Variable"', 'Archivo', 'system-ui', 'sans-serif'],
-        sans:    ['"Archivo Variable"', 'Archivo', 'system-ui', 'sans-serif'],
-        serif:   ['"Newsreader Variable"', 'Newsreader', 'Georgia', 'serif'],
-        mono:    ['"Spline Sans Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        display: ['"Source Sans 3 Variable"', '"Source Sans 3"', 'Arial', 'Helvetica', 'sans-serif'],
+        sans:    ['"Source Sans 3 Variable"', '"Source Sans 3"', 'Arial', 'Helvetica', 'sans-serif'],
+        serif:   ['"Source Serif 4 Variable"', '"Source Serif 4"', 'Georgia', 'serif'],
+        mono:    ['ui-monospace', 'SFMono-Regular', 'Consolas', 'monospace'],
       },
       maxWidth: {
         measure: '68ch',

@@ -49,7 +49,7 @@ const field = [
     <div class="stage">
       <div class="apbody" id="apbody">
         <div class="apk" id="apk">{dims[0].k}</div>
-        <h2 class="aptitle" id="aptitle">{dims[0].title}</h2>
+        <h1 class="aptitle" id="aptitle">{dims[0].title}</h1>
         <p class="aptag" id="aptag">{dims[0].tag}</p>
         <p class="apask" id="apask">{dims[0].ask}</p>
         <div class="apwhere"><span class="dot" aria-hidden="true"></span><span id="apwhere">{dims[0].where}</span></div>
@@ -82,7 +82,7 @@ const field = [
         <a class="pillar" href={d.link}>
           <span class="letter" aria-hidden="true">{d.letter}</span>
           <span class="pk">{d.k}</span>
-          <h3>{d.title}</h3>
+          <h2>{d.title}</h2>
           <p>{d.tag}</p>
           <span class="plink">{d.where} →</span>
         </a>
@@ -263,7 +263,7 @@ const field = [
     font-weight: 800; font-size: 6.5rem; color: var(--brick); opacity: 0.10; line-height: 1; }
   .pillar .pk { font-family: theme('fontFamily.mono'); font-size: 0.66rem; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--brick); }
-  .pillar h3 { font-family: theme('fontFamily.display'); font-weight: 800; font-size: 1.5rem; margin: 6px 0 8px; color: var(--ink); }
+  .pillar h2 { font-family: theme('fontFamily.display'); font-weight: 800; font-size: 1.5rem; margin: 6px 0 8px; color: var(--ink); }
   .pillar p { color: var(--ink-soft); margin: 0; font-size: 0.98rem; max-width: 40ch; }
   .pillar .plink { font-family: theme('fontFamily.mono'); font-size: 0.72rem; color: var(--ink);
     margin-top: 16px; display: block; letter-spacing: 0.02em; }

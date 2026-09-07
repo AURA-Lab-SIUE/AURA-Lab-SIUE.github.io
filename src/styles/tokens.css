@@ -1,94 +1,105 @@
 :root {
   /* ---------------------------------------------------------------------
-     AURA Lab — "Instrument, in warm paper" theme.
-     A light, institutional, method-forward system: warm bone paper, near-
-     black ink, and a calm collegiate BRICK red as the working accent. The
-     exact SIUE University Red (--siue) is reserved for a single institutional
-     mark (the wordmark tick / footer rule) — the "one high-intent moment"
-     that ties the lab to SIUE without shouting. See DESIGN-NOTES.md.
-     --------------------------------------------------------------------- */
-  --paper:      #f6f3ec;  /* page ground (warm bone)                        */
-  --card:       #fcfbf7;  /* raised surface                                 */
-  --ink:        #1e1b18;  /* body text (warm near-black) ~15:1 on paper     */
-  --ink-soft:   #6b6357;  /* secondary text                                 */
-  --brick:      #a8322a;  /* working accent — collegiate red, ~6:1 on paper */
-  --brick-deep: #872619;  /* hover / pressed                                */
-  --brick-wash: #f1e4e1;  /* faint tint for callouts / badges               */
-  /* Solid fills that carry WHITE text. Kept distinct from --brick so dark
-     mode can darken the fill (white on the lifted --brick fails AA). Light
-     mode: white on #a8322a = 6.66:1, on #872619 = 9:1. */
-  --brick-fill:      var(--brick);
-  --brick-fill-deep: var(--brick-deep);
-  --siue:       #e5182d;  /* EXACT SIUE red — institutional mark ONLY       */
-  --line:       rgba(30, 27, 24, 0.14);  /* hairlines, borders             */
-  --grid:       rgba(30, 27, 24, 0.05);  /* faint graph-paper grid          */
+     SIUE approved palette (Visual Identity Requirements, p.25 "University
+     Colors"). White carries openness, black carries readability and
+     hierarchy, SIUE Red carries emphasis and calls to action, and gray/gold
+     are supporting accents only.
 
-  /* Semantic aliases the whole component library already reads. */
+     ACCESSIBILITY STANDARD: WCAG 2.1 Level AA, which is the floor SIUE is
+     held to as a public university (ADA Title II final rule, and the
+     Illinois IITAA), and the level the Visual Identity Requirements name.
+     AA is 4.5:1 for normal text, 3:1 for large text and UI components.
+
+     Measured against that:
+       SIUE Red on white ......... 4.67:1  passes AA for text
+       SIUE Red on true black .... 4.50:1  passes, but only just
+       SIUE Red on #1a1a1a card .. 3.73:1  large text / UI only
+       Gold on white ............. 2.75:1  never text
+       Gray on white ............. 1.55:1  never text
+     So red DOES carry text on the light theme, which is what the colour
+     usage section asks for. On the dark theme red is held to large text
+     and non-text accents, and small copy is carried by ink. Gold and gray
+     are supporting graphics only, per p.25.
+     --------------------------------------------------------------------- */
+  --paper:      #ffffff;  /* page ground — white, per "openness"            */
+  --card:       #f7f7f7;  /* raised surface (neutral)                       */
+  --ink:        #000000;  /* body text — black, 21:1                        */
+  --ink-soft:   #595959;  /* secondary text, 7.0:1                          */
+  --siue:       #e5182d;  /* EXACT SIUE Red (PMS 186 C)                     */
+  --siue-deep:  #b31223;  /* darker shade of SIUE Red, for hover/pressed    */
+  --siue-wash:  #fdecee;  /* faint red tint for callouts                    */
+  --gold:       #b9975b;  /* PMS 465 — supporting accent, NON-TEXT only     */
+  --gray:       #cdd0cf;  /* PMS 427 — rules, borders, supporting graphics  */
+  --line:       #cdd0cf;  /* hairlines and borders                          */
+  --grid:       transparent; /* decorative grid retired (p.4 "avoid
+                                decorative flourishes")                     */
+
+  /* Semantic aliases the component library reads. */
   --bg:        var(--paper);
   --surface:   var(--card);
   --text:      var(--ink);
   --text-dark: var(--ink);
   --muted:     var(--ink-soft);
-  --accent:      var(--brick);
-  --accent-text: var(--brick);   /* brick text clears AA on paper; one red */
   --chalk:     var(--paper);
 
-  /* Back-compat aliases: the New Students pages + StudentToolCard reference
-     these older names. Pointed at the new palette so they restyle for free. */
+  /* --accent = NON-TEXT red (rules, bars, borders, fills).
+     --accent-text = red where AA allows it (light), ink where it does not (dark). */
+  --accent:      var(--siue);
+  --accent-text: var(--siue);
+
+  /* Solid fills that carry WHITE text (calls to action). White on #e5182d
+     is 4.67:1, AA for normal text; these are used at button weight/size. */
+  --accent-fill:      var(--siue);
+  --accent-fill-deep: var(--siue-deep);
+
+  /* Back-compat aliases so existing components restyle without edits. */
+  --brick:           var(--accent);
+  --brick-deep:      var(--siue-deep);
+  --brick-wash:      var(--siue-wash);
+  --brick-fill:      var(--accent-fill);
+  --brick-fill-deep: var(--accent-fill-deep);
+  --siue-red:        var(--siue);
+  --siue-red-ink:    var(--siue-deep);
+  --siue-red-wash:   var(--siue-wash);
   --paper-raise: var(--card);
   --paper-ink:   var(--ink);
   --paper-muted: var(--ink-soft);
   --paper-line:  var(--line);
-  --siue-red:      var(--brick);
-  --siue-red-ink:  var(--brick-deep);
-  --siue-red-wash: var(--brick-wash);
 
   --measure: 68ch;
   --radius-card: 10px;
   --radius-pill: 999px;
-  --shadow-card: 0 1px 2px rgba(30, 27, 24, 0.05);
-  --shadow-card-hover: 0 14px 32px -18px rgba(30, 27, 24, 0.38);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 14px 32px -18px rgba(0, 0, 0, 0.32);
 
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 /* ---------------------------------------------------------------------
-   Dark mode — cool charcoal (from the director's headshot; not warm brown).
-   Only the BASE tokens are overridden; every semantic alias is late-bound
-   var(), so the whole component library restyles for free. The true SIUE
-   red (--siue) is kept as the one institutional mark. See DESIGN-NOTES.
+   Dark theme. The requirements do not define one, so this stays within the
+   approved palette: black ground, white ink, PMS 427 gray for secondary
+   text (13.5:1), and SIUE Red again restricted to non-text accents.
    --------------------------------------------------------------------- */
 :root[data-theme="dark"] {
-  --paper:      #101113;  /* page ground (cool near-black)                  */
-  --card:       #191b1e;  /* raised surface                                */
-  --ink:        #ECEDEF;  /* body text (cool off-white)                    */
-  --ink-soft:   #A6A9AE;  /* secondary text                                */
-  --brick:      #e3685a;  /* working accent — lifted again 2026-08-01 to clear the
-                             owner's 5:1 floor, not just AA's 4.5. Measured from
-                             RENDERED pixels: 5.25:1 on --card, 5.75:1 on --paper.
-                             Hue + saturation are unchanged; only lightness moved,
-                             so this is still the AURA brick, not a new colour. */
-  --brick-deep: #e67a6d;  /* hover / pressed — lifted in step with --brick so the
-                             hover affordance survives (+0.80 ratio, was +0.76).
-                             Keeping the old #e0705f would have left a +0.21 gap. */
-  --brick-wash: #2b1a17;  /* faint tint for callouts / badges              */
-  --brick-fill:      #c33d2e;  /* darker than --brick so WHITE text clears AA (5.2:1) */
-  --brick-fill-deep: #b0301f;  /* pressed/hover solid fill (white 6.4:1)             */
-  --siue:       #e5182d;  /* EXACT SIUE red — institutional mark ONLY       */
-  --line:       rgba(236, 237, 239, 0.15);
-  --grid:       rgba(236, 237, 239, 0.05);
-  --shadow-card:       0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-card-hover: 0 16px 34px -18px rgba(0, 0, 0, 0.75);
+  --paper:     #000000;
+  --card:      #1a1a1a;
+  --ink:       #ffffff;
+  --ink-soft:  #cdd0cf;
+  --siue-wash: #2a0b0f;
+  --line:      rgba(255, 255, 255, 0.22);
+  --grid:      transparent;
+  --accent-text: var(--ink);
+  --shadow-card:       0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 16px 34px -18px rgba(0, 0, 0, 0.8);
   color-scheme: dark;
 }
-/* No-JS users on a dark OS still get dark (unless they've toggled to light). */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #101113; --card: #191b1e; --ink: #ECEDEF; --ink-soft: #A6A9AE;
-    --brick: #e3685a; --brick-deep: #e67a6d; --brick-wash: #2b1a17; --siue: #e5182d;
-    --brick-fill: #c33d2e; --brick-fill-deep: #b0301f;
-    --line: rgba(236,237,239,0.15); --grid: rgba(236,237,239,0.05);
-    --shadow-card: 0 1px 2px rgba(0,0,0,0.4); --shadow-card-hover: 0 16px 34px -18px rgba(0,0,0,0.75);
+    --paper: #000000; --card: #1a1a1a; --ink: #ffffff; --ink-soft: #cdd0cf;
+    --siue-wash: #2a0b0f; --line: rgba(255,255,255,0.22); --grid: transparent;
+    --accent-text: var(--ink);
+    --shadow-card: 0 1px 2px rgba(0,0,0,0.5);
+    --shadow-card-hover: 0 16px 34px -18px rgba(0,0,0,0.8);
     color-scheme: dark;
   }
 }

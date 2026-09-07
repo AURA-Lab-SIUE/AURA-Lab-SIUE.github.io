@@ -44,7 +44,7 @@ const filters = [
     </div>
 
     <div id="pub-list" class="mt-10 max-w-3xl">
-      {pubsWithDims.map(p => <PubItem {...p} />)}
+      {pubsWithDims.map(p => <PubItem {...p} level={2} />)}
     </div>
 
     <p id="empty" class="hidden mt-6 text-muted">No publications in this dimension yet.</p>

@@ -13,8 +13,7 @@ const items = [
 ---
 <header class="topbar" aria-label="Site">
   <div class="container-page flex items-center justify-between py-4">
-    <a href="/" class="brand inline-flex items-baseline gap-2.5">
-      <span class="tick" aria-hidden="true"></span>
+    <a href="/" class="brand inline-flex items-baseline">
       <span class="name">AURA&nbsp;Lab</span>
     </a>
     <div class="flex items-center gap-4 lg:gap-6">
@@ -68,20 +67,14 @@ const items = [
     background: color-mix(in srgb, var(--paper) 84%, transparent);
     border-bottom: 1px solid var(--line);
   }
+  /* Plain text site name. Deliberately NOT a stylised wordmark: SIUE units
+     may not create their own marks (Visual Identity Requirements p.7). */
   .brand .name {
     font-family: theme('fontFamily.display');
-    font-weight: 800;
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    letter-spacing: 0;
     font-size: 1.15rem;
     color: var(--ink);
-  }
-  /* the one place the EXACT SIUE red appears — the institutional mark */
-  .tick {
-    width: 9px; height: 9px;
-    background: var(--siue);
-    transform: rotate(45deg);
-    border-radius: 1px;
-    align-self: center;
   }
   .affil {
     font-family: theme('fontFamily.sans');

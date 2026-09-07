@@ -8,14 +8,12 @@ interface Props {
   title: string;
   description?: string;
   current?: string;
-  image?: string;
 }
 
 const {
   title,
   description = 'AURA Lab at SIUE — studying the lived experience of platforms, games, and virtual worlds as social phenomena, and bringing methods to the questions that arise there.',
   current,
-  image = '/img/og-image.png',
 } = Astro.props;
 
 const fullTitle = title === 'AURA Lab' ? title : `${title} — AURA Lab`;
@@ -52,17 +50,28 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
       })();
     </script>
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    {/* PLACEHOLDER - NO SITE ICON.
+        The favicon, touch icon and app icons were an AURA Lab mark. SIUE units
+        may not create their own logos, icons or visual identities (Visual
+        Identity Requirements, effective 2026-09-01, p.7-p.8), so they were
+        removed on 2026-09-07 rather than redrawn in-house.
+        TO DO: restore <link rel="icon"> here once University Marketing and
+        Communications supplies official artwork. Requested 2026-09-07.
+        See BRAND-PENDING-UMC.md. */}
     <link rel="manifest" href="/site.webmanifest" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.site).toString()} />
+    {/* PLACEHOLDER - NO SOCIAL CARD IMAGE.
+        The og:image was an AURA Lab logo lockup. Removed 2026-09-07 for the
+        same reason as the site icons; a link preview now falls back to the
+        page title and description, which is text only and compliant.
+        TO DO: restore og:image and switch twitter:card back to
+        summary_large_image once UMC supplies official artwork.
+        See BRAND-PENDING-UMC.md. */}
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
 
     <ClientRouter />
     <slot name="head" />

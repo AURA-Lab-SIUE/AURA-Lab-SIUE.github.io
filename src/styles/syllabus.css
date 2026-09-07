@@ -37,8 +37,8 @@
    imported per page rather than through the Tailwind entry, so theme() is not
    available to it. */
 :root {
-  --syl-sans: "Archivo Variable", Archivo, system-ui, sans-serif;
-  --syl-mono: "Spline Sans Mono", ui-monospace, SFMono-Regular, monospace;
+  --syl-sans: "Source Sans 3 Variable", "Source Sans 3", Arial, Helvetica, sans-serif;
+  --syl-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
 }
 
 /* --- Hero ----------------------------------------------------------------- */
