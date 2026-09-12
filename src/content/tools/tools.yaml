@@ -18,14 +18,14 @@ entries:
 
   # ── GearOut — its own thing ───────────────────────────────────────────
   - name: "GearOut"
-    blurb: "Equipment-reservation platform, deployed at SIUE as MassComm Checkout: students reserve cameras, audio kits, and gear against a shared inventory."
-    href: "https://github.com/AURA-Lab-SIUE/equipment-checkout"
+    blurb: "Equipment-reservation platform, deployed at SIUE as MassComm Checkout: students reserve cameras, audio kits, and gear against a shared inventory. The source is not public."
+    href: "https://masscomm-checkout.siue.edu/"
     language: "TypeScript"
     group: "gearout"
 
   # ── Live apps served on the lab site ──────────────────────────────────
-  - name: "Mass Comm Careers Dashboard"
-    blurb: "Interactive dashboard mapping career outcomes, occupations, and pathways for Mass Communications graduates. The live version served on the SIUE Mass Communications site."
+  - name: "Career Pathfinder"
+    blurb: "Pick a professional track, answer a short survey, and see matched careers with Illinois wage data, the tools each role expects, and the SIUE courses that prepare you for it. Shows the degree requirements for your track and builds a printable plan to bring to advising."
     href: "https://aura-lab.siue.edu/mc-careers-dashboard/"
     language: "SvelteKit"
     group: "apps"
@@ -37,3 +37,13 @@ entries:
     group: "apps"
     repo: "https://github.com/AURA-Lab-SIUE/banned-word-checker"
     seeAlso: { label: "Concordance ↗", href: "https://github.com/AURA-Lab-SIUE/concordance" }
+  - name: "MethodoSync"
+    blurb: "Qualitative to quantitative coding: turn an open-coding pass into a codebook and a coded dataset, in the browser."
+    href: "https://aura-lab.siue.edu/methodosync/"
+    language: "Web"
+    group: "apps"
+  - name: "Concordance"
+    blurb: "Configurable term discovery across a corpus, for when the Banned-Word Checker fixed list is too blunt."
+    href: "https://github.com/AURA-Lab-SIUE/concordance"
+    language: "Web"
+    group: "apps"
