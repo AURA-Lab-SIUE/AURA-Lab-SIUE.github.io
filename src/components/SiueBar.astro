@@ -1,0 +1,72 @@
+---
+/**
+ * University signature line bar.
+ *
+ * The SIUE signature line is the PRIMARY brand identifier for this site
+ * (Philip Sherrill, Director of Creative and Design, UMC, 2026-09-11). The lab
+ * and department are identified through page content and hierarchy instead of
+ * through a mark of their own.
+ *
+ * It sits in its own band ABOVE the site nav on purpose. Departments and units
+ * may not place their names above, below or alongside the signature line except
+ * through an officially approved lockup (Visual Identity Requirements p.7), so
+ * "AURA Lab" must not sit adjacent to it. The band, the rule beneath it and the
+ * clearspace keep the institutional mark and the site name visibly separate.
+ *
+ * Clearspace (p.19): no page element enters a margin equal to the height of the
+ * signature line. Rendered at 34px tall with 30px of padding on every side, and
+ * the bar owns its own padding rather than inheriting the narrower page gutter.
+ *
+ * Artwork is the official file, unmodified, from
+ * siue.edu/marketing-and-communications/services/graphic-design/wordmarks-for-download.shtml
+ * Never redraw, recolour or crop it.
+ */
+---
+
+<div class="siue-bar">
+  <a class="siue-bar__link" href="https://www.siue.edu" aria-label="Southern Illinois University Edwardsville home">
+    <img
+      class="siue-bar__mark siue-bar__mark--light"
+      src="/img/siue-signature-line-black.png"
+      alt="Southern Illinois University Edwardsville"
+      width="1155" height="251" />
+    <img
+      class="siue-bar__mark siue-bar__mark--dark"
+      src="/img/siue-signature-line-white.png"
+      alt="Southern Illinois University Edwardsville"
+      width="720" height="156" />
+  </a>
+</div>
+
+<style>
+  .siue-bar {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 30px;
+  }
+  .siue-bar__link {
+    display: inline-block;
+    line-height: 0;
+  }
+  .siue-bar__link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+  .siue-bar__mark {
+    height: 34px;
+    width: auto;
+    display: block;
+  }
+  /* Light is the default; dark swaps in via the theme attribute or the OS. */
+  .siue-bar__mark--dark { display: none; }
+  :root[data-theme="dark"] .siue-bar__mark--light { display: none; }
+  :root[data-theme="dark"] .siue-bar__mark--dark { display: block; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .siue-bar__mark--light { display: none; }
+    :root:not([data-theme="light"]) .siue-bar__mark--dark { display: block; }
+  }
+  @media (max-width: 640px) {
+    .siue-bar { padding: 24px; }
+    .siue-bar__mark { height: 26px; }
+  }
+</style>

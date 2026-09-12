@@ -54,7 +54,7 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brick);
+  color: var(--accent-text);
   margin-bottom: 0.5rem;
 }
 .syl-hero h1 {
@@ -96,7 +96,7 @@
   text-decoration: none;
   transition: border-color 0.15s var(--ease-out), color 0.15s var(--ease-out);
 }
-.syl-btn:hover { color: var(--brick); border-color: var(--brick); }
+.syl-btn:hover { color: var(--accent-text); border-color: var(--brick); }
 
 /* --- Fact cards ----------------------------------------------------------- */
 .syl-facts {
@@ -129,7 +129,7 @@
   line-height: 1.45;
   color: var(--ink);
 }
-.syl-fact-value a { color: var(--brick); text-decoration: underline; }
+.syl-fact-value a { color: var(--accent-text); text-decoration: underline; }
 .syl-fact-note {
   display: block;
   margin-top: 0.35rem;
@@ -175,7 +175,7 @@
 .syl-prose li::marker { color: var(--muted); }
 .syl-prose li { margin-bottom: 0.45rem; }
 .syl-prose a {
-  color: var(--brick);
+  color: var(--accent-text);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -267,7 +267,7 @@
 }
 .schedule-table.has-due tbody td:last-child:not(:empty)::before {
   content: "\25C6\00a0";
-  color: var(--brick);
+  color: var(--accent-text);
   font-weight: 400;
 }
 
@@ -302,7 +302,7 @@ details.syl-policy > summary {
   font-weight: 700;
   color: var(--ink);
 }
-details.syl-policy > summary:hover { color: var(--brick); }
+details.syl-policy > summary:hover { color: var(--accent-text); }
 details.syl-policy > *:not(summary) { padding: 0 1.1rem; }
 details.syl-policy > *:last-child { padding-bottom: 1rem; }
 

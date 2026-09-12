@@ -35,7 +35,10 @@ const items = [
   'fonts',
   'fontawesome',
   'vendor',
-  '_archive',
+  // '_archive' is NOT published (owner, 2026-09-11). Old draft pages kept in
+  // the repo for provenance; they were publicly served and carried stale
+  // layouts and broken heading order. Removed from this list rather than
+  // deleted, so nothing is lost.
 ];
 
 await mkdir(dist, { recursive: true });

@@ -41,7 +41,7 @@ const authorsRendered = authors.map(a => a.includes('Leith') ? `<strong>${a}</st
   .pub-dims { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 0.5rem; }
   .pd {
     font-family: theme('fontFamily.mono'); font-size: 0.62rem; letter-spacing: 0.04em;
-    color: var(--brick); border: 1px solid color-mix(in srgb, var(--brick) 35%, transparent);
+    color: var(--accent-text); border: 1px solid color-mix(in srgb, var(--brick) 35%, transparent);
     background: var(--brick-wash); padding: 2px 8px; border-radius: 999px;
   }
   .pub-title {
@@ -58,7 +58,7 @@ const authorsRendered = authors.map(a => a.includes('Leith') ? `<strong>${a}</st
     margin-left: 0.6rem;
     padding: 0.1rem 0.5rem;
     border: 1px solid var(--accent);
-    color: var(--accent);
+    color: var(--accent-text);
     border-radius: 999px;
     font-size: 0.72rem;
     letter-spacing: 0.12em;

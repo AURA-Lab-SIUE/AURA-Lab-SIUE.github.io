@@ -66,7 +66,7 @@
   outline-offset: 3px;
 }
 .theories-skin a {
-  color: var(--accent);
+  color: var(--accent-text);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
@@ -108,7 +108,7 @@
 }
 .theories-skin .t-masthead h1 em {
   font-style: normal;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .theories-skin .t-dek {
   font-family: var(--font-read);
@@ -386,7 +386,7 @@
   margin-top: 14px;
   font-size: 0.76rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-text);
   display: inline-flex;
   gap: 6px;
 }
@@ -405,7 +405,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* ====================== DETAIL: marginalia layout ====================== */
@@ -428,7 +428,7 @@
   text-decoration: none;
 }
 .theories-skin .t-back:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .theories-skin .t-layout {
@@ -549,7 +549,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 8px;
 }
 .theories-skin .t-tldr p {
@@ -580,7 +580,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 8px;
 }
 .theories-skin .t-lens-tag::before {
@@ -909,7 +909,7 @@
   font-size: 0.96rem;
 }
 .theories-skin .t-list-links a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .theories-skin .t-list-links a .aka {
   font-size: 0.78rem;
@@ -963,7 +963,7 @@
 }
 .theories-skin .t-sky-masthead h1 em {
   font-style: normal;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .theories-skin .t-sky-masthead .t-dek {
   font-size: 0.98rem;
@@ -1039,7 +1039,7 @@
   text-decoration: none;
 }
 .theories-skin .t-modal-full:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .theories-skin .t-modal-close {
   font-family: var(--font-text);

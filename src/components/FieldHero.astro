@@ -117,10 +117,10 @@
     font-size: clamp(40px, 6.6vw, 92px); max-width: 14ch; margin: 20px 0 0;
     animation: fh-rise 0.7s var(--ease-out) both;
   }
-  .fh-content h1 .u { color: var(--brick); position: relative; white-space: nowrap; }
+  .fh-content h1 .u { color: var(--accent-text); position: relative; white-space: nowrap; }
   .fh-content h1 .u::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0.05em; height: 0.08em; background: var(--brick); opacity: 0.35; }
   .fh-sub { position: relative; font-family: theme('fontFamily.serif'); font-size: clamp(18px, 1.8vw, 23px); color: var(--ink); max-width: 44ch; margin-top: 22px; }
-  .fh-sub em { color: var(--brick); font-style: italic; }
+  .fh-sub em { color: var(--accent-text); font-style: italic; }
   .fh-hint { position: relative; font-family: theme('fontFamily.mono'); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--ink-soft); margin-top: 28px; display: flex; align-items: center; gap: 8px; }
   .fh-hint .d { width: 7px; height: 7px; background: var(--siue); border-radius: 1px; transform: rotate(45deg); display: inline-block; }
   .fh-gauge {
@@ -132,7 +132,7 @@
   .fh-gauge .lbl { color: var(--ink-soft); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.62rem; }
   .fh-gauge .bar { width: 110px; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; justify-self: end; }
   .fh-gauge .fill { height: 100%; background: var(--brick); width: 0%; }
-  .fh-gauge .val { color: var(--brick); min-width: 3ch; }
+  .fh-gauge .val { color: var(--accent-text); min-width: 3ch; }
   @media (max-width: 640px) { .fh-gauge { display: none; } }
   @keyframes fh-rise { from { opacity: 0; transform: translateY(0.4em); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .fh-content h1 { animation: none; } }

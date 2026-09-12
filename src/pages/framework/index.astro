@@ -198,7 +198,7 @@ const field = [
   }
   .aura-word span { color: var(--ink-soft); transition: color 400ms var(--ease-out); }
   .aura-word span.on { color: var(--ink); }
-  .aura-word span .i { color: var(--brick); }
+  .aura-word span .i { color: var(--accent-text); }
   .subhead {
     font-family: theme('fontFamily.serif'); font-size: clamp(19px, 1.9vw, 24px);
     line-height: 1.42; color: var(--ink); max-width: 56ch; margin-top: 22px;
@@ -209,7 +209,7 @@ const field = [
   .stage { margin-top: 36px; max-width: 720px; }
   .apbody { min-height: 208px; transition: opacity 250ms var(--ease-out); }
   .apk { font-family: theme('fontFamily.mono'); font-size: 0.7rem; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--brick); }
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-text); }
   .aptitle { font-family: theme('fontFamily.display'); font-weight: 800;
     font-size: clamp(30px, 4vw, 46px); margin: 8px 0 10px; line-height: 1.02; }
   .aptag { font-family: theme('fontFamily.serif'); font-size: clamp(18px, 1.6vw, 22px);
@@ -217,7 +217,7 @@ const field = [
   .apask { font-family: theme('fontFamily.mono'); font-size: 0.86rem; color: var(--ink-soft);
     margin-top: 14px; max-width: 58ch; line-height: 1.5; }
   .apwhere { display: flex; align-items: center; gap: 9px; margin-top: 16px;
-    font-family: theme('fontFamily.mono'); font-size: 0.74rem; letter-spacing: 0.03em; color: var(--brick); }
+    font-family: theme('fontFamily.mono'); font-size: 0.74rem; letter-spacing: 0.03em; color: var(--accent-text); }
   .dot { width: 7px; height: 7px; background: var(--siue); border-radius: 1px;
     transform: rotate(45deg); display: inline-block; flex: none; }
   .instr { position: relative; height: 34px; margin: 26px 0 4px; }
@@ -231,7 +231,7 @@ const field = [
     padding: 4px 2px; cursor: pointer; font-family: theme('fontFamily.mono'); font-size: 0.72rem;
     color: var(--ink-soft); transition: color 300ms var(--ease-out); white-space: nowrap; }
   .stations button:hover { color: var(--ink); }
-  .stations button.on { color: var(--brick); }
+  .stations button.on { color: var(--accent-text); }
 
   /* Pause/resume control for the auto-rotating instrument (WCAG 2.2.2). Shown
      only when auto-rotation is actually running (unhidden by JS; hidden under
@@ -260,16 +260,16 @@ const field = [
     transition: transform 250ms var(--ease-out), box-shadow 250ms var(--ease-out), border-color 250ms var(--ease-out); }
   .pillar:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); border-color: color-mix(in srgb, var(--brick) 40%, var(--line)); }
   .pillar .letter { position: absolute; right: 16px; top: -18px; font-family: theme('fontFamily.display');
-    font-weight: 800; font-size: 6.5rem; color: var(--brick); opacity: 0.10; line-height: 1; }
+    font-weight: 800; font-size: 6.5rem; color: var(--accent-text); opacity: 0.10; line-height: 1; }
   .pillar .pk { font-family: theme('fontFamily.mono'); font-size: 0.66rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--brick); }
+    text-transform: uppercase; color: var(--accent-text); }
   .pillar h2 { font-family: theme('fontFamily.display'); font-weight: 800; font-size: 1.5rem; margin: 6px 0 8px; color: var(--ink); }
   .pillar p { color: var(--ink-soft); margin: 0; font-size: 0.98rem; max-width: 40ch; }
   .pillar .plink { font-family: theme('fontFamily.mono'); font-size: 0.72rem; color: var(--ink);
     margin-top: 16px; display: block; letter-spacing: 0.02em; }
 
   .fdeck { font-family: theme('fontFamily.serif'); font-size: 1.15rem; color: var(--ink-soft); max-width: 60ch; margin: 0 0 1.6rem; }
-  .fdeck em { color: var(--brick); font-style: italic; }
+  .fdeck em { color: var(--accent-text); font-style: italic; }
   .matrix { border: 1px solid var(--line); border-radius: var(--radius-card); overflow: hidden; }
   .mrow { display: grid; grid-template-columns: 1.4fr 2fr; gap: 16px; padding: 18px 22px;
     border-top: 1px solid var(--line); align-items: center; }
@@ -281,7 +281,7 @@ const field = [
   .chip { font-family: theme('fontFamily.mono'); font-size: 0.68rem; letter-spacing: 0.03em;
     padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-soft); }
   .chip.hot { color: #fff; background: var(--brick-fill); border-color: var(--brick-fill); }
-  .chip.all { color: var(--brick); border-color: var(--brick); background: var(--brick-wash); }
+  .chip.all { color: var(--accent-text); border-color: var(--brick); background: var(--brick-wash); }
 
   @media (max-width: 760px) { .pillars, .mrow { grid-template-columns: 1fr; } }
   @media (prefers-reduced-motion: reduce) { .apbody, .instr .dia, .aura-word span { transition: none; } }

@@ -16,10 +16,13 @@
        SIUE Red on #1a1a1a card .. 3.73:1  large text / UI only
        Gold on white ............. 2.75:1  never text
        Gray on white ............. 1.55:1  never text
-     So red DOES carry text on the light theme, which is what the colour
-     usage section asks for. On the dark theme red is held to large text
-     and non-text accents, and small copy is carried by ink. Gold and gray
-     are supporting graphics only, per p.25.
+     RESOLVED 2026-09-11 by Philip Sherrill (Director of Creative and
+     Design, UMC): where there is any contrast concern, use BLACK or WHITE
+     for text depending on the background, rather than introducing colour
+     variations outside the approved palette. So red carries NO text here,
+     on either theme. It is reserved for rules, borders and solid fills.
+     That is stricter than AA requires on the light theme, and it is what
+     UMC asked for.
      --------------------------------------------------------------------- */
   --paper:      #ffffff;  /* page ground — white, per "openness"            */
   --card:       #f7f7f7;  /* raised surface (neutral)                       */
@@ -45,7 +48,7 @@
   /* --accent = NON-TEXT red (rules, bars, borders, fills).
      --accent-text = red where AA allows it (light), ink where it does not (dark). */
   --accent:      var(--siue);
-  --accent-text: var(--siue);
+  --accent-text: var(--ink);
 
   /* Solid fills that carry WHITE text (calls to action). White on #e5182d
      is 4.67:1, AA for normal text; these are used at button weight/size. */

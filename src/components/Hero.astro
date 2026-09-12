@@ -89,7 +89,7 @@ const stats = [
     color: var(--ink);
     animation: rise 0.7s var(--ease-out) both;
   }
-  .hero h1 .u { color: var(--brick); position: relative; white-space: nowrap; }
+  .hero h1 .u { color: var(--accent-text); position: relative; white-space: nowrap; }
   .hero h1 .u::after {
     content: ""; position: absolute; left: 0; right: 0; bottom: 0.05em;
     height: 0.08em; background: var(--brick); opacity: 0.35;
@@ -102,12 +102,12 @@ const stats = [
     margin-top: 24px;
     color: var(--ink);
   }
-  .deck em { font-style: italic; color: var(--brick); }
+  .deck em { font-style: italic; color: var(--accent-text); }
   .stats { display: flex; flex-wrap: wrap; gap: 38px; margin-top: 34px; }
   .stat .n {
     font-family: theme('fontFamily.mono');
     font-size: 1.5rem; font-weight: 500;
-    color: var(--brick);
+    color: var(--accent-text);
   }
   .stat .k {
     font-family: theme('fontFamily.sans');
@@ -124,7 +124,7 @@ const stats = [
     display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline;
     transition: opacity 0.22s var(--ease-out);
   }
-  .aura-read .ak { color: var(--brick); font-weight: 500; letter-spacing: 0.08em; }
+  .aura-read .ak { color: var(--accent-text); font-weight: 500; letter-spacing: 0.08em; }
   .aura-read .at { color: var(--ink-soft); }
   .aura-line { position: relative; height: 30px; border-top: 1px solid var(--ink); }
   .aura-dia {
@@ -145,7 +145,7 @@ const stats = [
     width: 1px; height: 8px; background: var(--ink);
   }
   .aura-lab:hover { color: var(--ink); }
-  .aura-lab.on { color: var(--brick); }
+  .aura-lab.on { color: var(--accent-text); }
 
   @keyframes rise { from { opacity: 0; transform: translateY(0.4em); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) {
