@@ -24,6 +24,12 @@ const items = [
   // reskinned to the lab theme. Committed to the repo but was missing from
   // this copy list, so it never reached dist/ on either deploy target.
   'sample-portfolios',
+  // Faculty tool, deliberately NOT linked from /tools/ or the nav: it asks
+  // eleven named colleagues to confirm which careers their own courses prepare
+  // students for, and the answers feed Career Pathfinder. Reached by the link
+  // sent to them. Its Send button only appears where the collector behind
+  // /course-fit-api/ answers, so this copy is harmless if that is not running.
+  'course-fit',
   // Legacy stylesheets/scripts the standalone HTML pages above load by
   // relative path (css/style.css, js/countdown.js, …). Without these the
   // Captionizer and Countdown pages render unstyled.

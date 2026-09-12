@@ -1,0 +1,486 @@
+<title>Course Fit Review</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FAF8F7; --surface:#FFFFFF; --sunk:#F2EDEB;
+  --ink:#1B1719; --muted:#6E6461; --faint:#938784;
+  --line:#E3DEDC; --line-strong:#CFC6C3;
+  --accent:#C8102E; --accent-soft:#FBE9EC; --accent-ink:#8E0A20;
+  --keep:#2F6F4E; --keep-soft:#E7F1EB;
+  --shadow:0 1px 2px rgba(27,23,25,.06),0 8px 24px -16px rgba(27,23,25,.35);
+  --step:clamp(1rem,.9rem + .4vw,1.15rem);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141112; --surface:#1D191A; --sunk:#242021;
+    --ink:#F2EEEC; --muted:#B3A8A5; --faint:#8A7E7B;
+    --line:#332D2E; --line-strong:#463E3F;
+    --accent:#F06176; --accent-soft:#35191E; --accent-ink:#FFB3BF;
+    --keep:#6FC49A; --keep-soft:#1B2B23;
+    --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141112; --surface:#1D191A; --sunk:#242021;
+  --ink:#F2EEEC; --muted:#B3A8A5; --faint:#8A7E7B;
+  --line:#332D2E; --line-strong:#463E3F;
+  --accent:#F06176; --accent-soft:#35191E; --accent-ink:#FFB3BF;
+  --keep:#6FC49A; --keep-soft:#1B2B23;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:400 var(--step)/1.55 "Public Sans","Segoe UI",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:960px;margin:0 auto;padding-inline:20px;padding-block:28px 72px}
+h1,h2,h3{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.8rem,1.4rem + 1.9vw,2.6rem);letter-spacing:-.012em;line-height:1.12}
+h2{font-size:1.5rem;line-height:1.2}
+h3{font-size:1.16rem;line-height:1.25}
+p{margin:0}
+.lede{color:var(--muted);max-width:63ch;margin-top:10px}
+.eyebrow{
+  font:700 .68rem/1 "Public Sans",sans-serif;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);
+}
+header.top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.note{
+  margin-top:20px;border-left:3px solid var(--accent);background:var(--accent-soft);
+  color:var(--ink);padding:11px 15px;font-size:.92rem;border-radius:0 6px 6px 0;max-width:63ch;
+}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}
+.btn{
+  border:1px solid var(--line-strong);background:var(--surface);border-radius:7px;
+  padding:9px 16px;font-weight:500;transition:border-color .12s,background .12s;
+}
+.btn:hover{border-color:var(--ink)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-ink);border-color:var(--accent-ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* ---------- name picker ---------- */
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:10px;margin-top:22px}
+.person{
+  display:flex;flex-direction:column;gap:3px;align-items:flex-start;text-align:left;
+  border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:13px 15px;
+  transition:border-color .12s,transform .12s;
+}
+.person:hover{border-color:var(--accent);transform:translateY(-1px)}
+.person b{font-weight:500}
+.person span{font-size:.82rem;color:var(--faint);font-variant-numeric:tabular-nums}
+
+/* ---------- rail + card ---------- */
+.stage{display:grid;grid-template-columns:150px 1fr;gap:28px;margin-top:26px;align-items:start}
+@media (max-width:720px){.stage{grid-template-columns:1fr;gap:16px}}
+.rail{display:flex;flex-direction:column;gap:2px;position:sticky;top:22px}
+@media (max-width:720px){.rail{position:static;flex-direction:row;flex-wrap:wrap;gap:6px}}
+.rail button{
+  display:flex;gap:9px;align-items:baseline;padding:7px 9px;border-radius:6px;
+  color:var(--muted);font-size:.9rem;text-align:left;width:100%;
+}
+@media (max-width:720px){.rail button{width:auto}}
+.rail button.on{background:var(--sunk);color:var(--ink);font-weight:500}
+.rail .num{font-variant-numeric:tabular-nums;font-size:.76rem;color:var(--faint)}
+.rail .dot{width:7px;height:7px;border-radius:50%;background:var(--line-strong);flex:none;align-self:center}
+.rail .dot.done{background:var(--keep)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.card-head{padding:20px 22px 16px;border-bottom:1px solid var(--line)}
+.course-no{font-family:"Newsreader",serif;font-size:.98rem;color:var(--accent);font-weight:600}
+.desc{color:var(--muted);font-size:.93rem;margin-top:7px;max-width:62ch}
+.block{padding:18px 22px;border-bottom:1px solid var(--line)}
+.block:last-child{border-bottom:none}
+.block > .eyebrow{display:block;margin-bottom:3px}
+.hint{color:var(--faint);font-size:.86rem;margin-bottom:11px;max-width:60ch}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  border:1px solid var(--line-strong);border-radius:999px;padding:6px 14px;font-size:.9rem;
+  background:var(--surface);transition:.12s;
+}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]:hover{border-color:var(--accent-ink);background:var(--accent-ink)}
+
+.track-group{margin-top:14px}
+.track-group:first-of-type{margin-top:4px}
+.track-name{font-weight:700;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:5px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:7px 9px;border-radius:7px;font-size:.93rem;cursor:pointer}
+.opt:hover{background:var(--sunk)}
+.opt input{margin:4px 0 0;accent-color:var(--accent);flex:none;width:15px;height:15px}
+.opt.seeded{background:var(--accent-soft)}
+.opt.seeded:hover{background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.seedtag{font-size:.67rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-left:auto;padding-left:8px;flex:none;align-self:center}
+.empty{color:var(--faint);font-size:.9rem;font-style:italic}
+
+.skip{display:flex;gap:10px;align-items:center;font-size:.92rem;color:var(--muted);padding:14px 22px;background:var(--sunk)}
+.skip input{accent-color:var(--accent);width:15px;height:15px}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:18px;flex-wrap:wrap}
+
+/* ---------- careers keep/drop ---------- */
+.kd{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.kd:last-child{border-bottom:none}
+.kd .title{font-size:.95rem}
+.kd .btns{display:flex;gap:6px}
+.kd .btns button{border:1px solid var(--line-strong);border-radius:6px;padding:4px 13px;font-size:.85rem;background:var(--surface)}
+.kd .btns button[aria-pressed="true"][data-v="keep"]{background:var(--keep-soft);border-color:var(--keep);color:var(--keep)}
+.kd .btns button[aria-pressed="true"][data-v="drop"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+
+.out{
+  margin-top:14px;background:var(--sunk);border:1px solid var(--line);border-radius:9px;
+  padding:14px;font:400 .8rem/1.5 ui-monospace,"Cascadia Mono",Menlo,monospace;
+  white-space:pre-wrap;word-break:break-word;max-height:300px;overflow:auto;color:var(--muted);
+}
+.tabs{display:flex;gap:4px;margin-top:20px;border-bottom:1px solid var(--line)}
+.tabs button{padding:9px 15px;font-size:.93rem;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--accent);font-weight:500}
+.why{max-width:64ch;margin-top:12px;display:flex;flex-direction:column;gap:9px;color:var(--muted);font-size:.95rem}
+.why strong{color:var(--ink);font-weight:700}
+.why em{font-style:normal;font-weight:700;color:var(--ink)}
+.alts-note{border-left:3px solid var(--line-strong);padding-left:12px;font-size:.9rem}
+.kd .alts{color:var(--faint);font-size:.8rem;margin-top:2px;line-height:1.4}
+textarea{
+  width:100%;margin-top:4px;padding:10px 12px;border:1px solid var(--line-strong);border-radius:7px;
+  background:var(--paper);color:var(--ink);font:inherit;font-size:.93rem;resize:vertical;
+}
+textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.hide{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">Mass Communications &middot; curriculum</p>
+      <h1>Course Fit Review</h1>
+      <p class="lede">Confirm which careers your courses actually prepare students for. Your answers
+        feed Career Pathfinder, the advising tool students use to plan a schedule.</p>
+    </div>
+    <button class="btn" id="theme" title="Switch theme">Theme</button>
+  </header>
+
+  <div class="note" id="beta">
+    <strong>Beta.</strong> Submissions are not wired up on this copy, so nothing you do here is sent
+    anywhere. Work through it as a faculty member would and note where it fights you. Your progress is
+    kept in this browser only.
+  </div>
+
+  <!-- STEP 1 -->
+  <section id="s-who">
+    <h2 style="margin-top:30px">Who are you?</h2>
+    <p class="lede">Names come from the syllabus bank, three academic years. Courses required of every
+      track are left out: every student takes those regardless, so there is nothing to decide.</p>
+    <div class="people" id="people"></div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section id="s-rate" class="hide">
+    <div class="tabs">
+      <button id="tab-courses" class="on">Your courses</button>
+      <button id="tab-careers">Career list</button>
+    </div>
+
+    <div id="pane-courses">
+      <div class="stage">
+        <nav class="rail" id="rail" aria-label="Your courses"></nav>
+        <div>
+          <div class="card" id="card"></div>
+          <div class="nav">
+            <button class="btn" id="prev">Back</button>
+            <button class="btn btn-primary" id="next">Next course</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pane-careers" class="hide">
+      <h2 style="margin-top:24px">Does this career belong on the list?</h2>
+      <div class="why">
+        <p><strong>What this list is.</strong> These are the careers Career Pathfinder offers students
+          as Mass Communications outcomes. Choose one and the tool shows Illinois wage data, the
+          software that work expects, and the courses that prepare for it.</p>
+        <p><strong>Where it came from, and why we are asking.</strong> It was assembled from federal
+          occupation data, not by this department. Nobody here has ever checked it. So some entries may
+          be a stretch for our graduates, and obvious ones may be missing entirely.</p>
+        <p><strong>What keep and drop do.</strong> <em>Drop</em> removes it from what students are
+          shown. <em>Keep</em> is a vote to defend it if someone else drops it. Most rows should stay
+          untouched, and untouched means no opinion, not agreement.</p>
+        <p class="alts-note">The greyed titles under each career are the job titles students will
+          actually meet in postings. They are what a search returns, so judge the career by them as
+          much as by its formal name.</p>
+      </div>
+      <div id="kd"></div>
+      <div class="block" style="border:1px solid var(--line);border-radius:10px;margin-top:22px;background:var(--surface)">
+        <span class="eyebrow">Anything missing?</span>
+        <p class="hint">A career our graduates go into that is not listed above. One per line.</p>
+        <textarea id="missing" rows="3" placeholder="e.g. Content Strategist"></textarea>
+      </div>
+      <div class="nav">
+        <button class="btn" id="finish">Review my answers</button>
+        <button class="btn btn-primary hide" id="send">Send my answers</button>
+      </div>
+      <p class="hint" id="sendnote" style="margin-top:10px"></p>
+      <div class="out hide" id="out"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+window.DATA = {"careers": {"Advertising & Strategic Media": [{"title": "Advertising Sales Agents", "alts": ["Advertising Account Representative", "Advertising Agent", "Advertising Assistant", "Advertising Consultant", "Advertising Coordinator", "Advertising Representative", "Advertising Sales Representative", "Advertising Solicitor", "Digital Advertising Sales Representative", "Directory Advertising Sales Representative", "Display Advertising Sales Representative", "Field Marketing Representative", "Marketing Representative", "Outdoor Advertising Leasing Agent"]}, {"title": "Advertising and Promotions Managers", "alts": ["Advertising Account Executive", "Advertising Account Manager", "Advertising Agency Manager", "Advertising Campaign Manager", "Advertising Coordinator", "Advertising Director", "Advertising Executive", "Advertising Manager", "Advertising Operations Manager", "Advertising Sales Manager", "Advertising Vice President", "Campaign Director", "Campaign Manager", "Campaign Program Manager", "Classified Advertising Manager", "Digital Advertising Director", "Digital Advertising Manager", "Digital Marketing Coordinator", "Marketing and Promotions Manager", "Marketing Coordinator", "Marketing Director", "Marketing Manager", "Media Director", "Media Promoter", "Online Advertising Director", "Promotions Director", "Promotions Executive Producer", "Promotions Manager", "Promotions Vice President"]}, {"title": "Fundraising Managers", "alts": ["Campaign Manager", "Fundraising and Marketing Director", "Fundraising Campaign Manager"]}, {"title": "Market Research Analysts and Marketing Specialists", "alts": ["Advertising Analyst", "Digital Marketing Specialist", "Email Marketing Processor", "Email Marketing Specialist", "Marketing Analyst", "Marketing Associate", "Marketing Consultant", "Marketing Forecaster", "Marketing Representative", "Marketing Research Analyst", "Marketing Researcher", "Marketing Specialist", "Marketing Support Specialist", "Social Media Specialist", "Technical Marketing Consultant", "Technical Marketing Specialist"]}, {"title": "Marketing Managers", "alts": ["Digital Marketing Manager", "Internet Marketing Manager", "Marketing Administrator", "Marketing Communications Manager", "Marketing Coordinator", "Marketing Director", "Marketing Executive", "Marketing Manager", "Marketing Operations Director", "Marketing Product Manager", "Marketing Sales Supervisor", "Media Marketing Director", "Product Marketing Manager", "Sales and Marketing Director", "Sales and Marketing Manager", "Sales and Marketing Vice President", "Sales Marketing Director", "Sustainable Products Marketing Manager"]}, {"title": "Producers and Directors", "alts": ["Promotions Producer"]}, {"title": "Public Relations Managers", "alts": ["Campaign Manager", "Marketing and Communications Manager", "Marketing Communications Manager", "Public Relations Director", "Public Relations Manager", "Public Relations Supervisor"]}, {"title": "Public Relations Specialists", "alts": ["Communication Specialist", "Content Marketing Specialist", "Marketing Communications Coordinator", "Marketing Communications Specialist", "Marketing Coordinator", "Media Buyer", "Media Planner", "Media Relations Specialist", "Media Specialist", "Public Relations Consultant", "Public Relations Coordinator", "Public Relations Counselor", "Public Relations Officer", "Public Relations Representative", "Public Relations Specialist"]}, {"title": "Search Marketing Strategists", "alts": ["Digital Marketing Strategist", "Digital Media Planner", "Interactive Marketing Strategist", "Interactive Media Marketing Specialist", "Interactive Media Marketing Strategist", "Internet Marketing Specialist", "Internet Marketing Strategist", "Internet Media Planner", "Marketing Communications Specialist", "Marketing Consultant", "Marketing Specialist", "New Media Strategist", "Online Marketing Consultant", "Online Marketing Strategist", "Paid Search Marketing Strategist", "Search Advertising Strategist", "Search Engine Marketing Specialist", "Search Engine Marketing Strategist", "Search Engine Optimization Analyst", "Search Engine Optimization Consultant", "Search Engine Optimization Specialist", "Search Engine Optimizer", "Search Engineer Marketing Specialist", "Search Marketing Analyst", "Search Marketing Specialist", "Search Engine Optimization Strategist", "Social Media Specialist", "Social Media Strategist", "Technical Marketing Specialist", "Web Marketing Strategist"]}], "Journalism": [{"title": "Camera Operators, Television, Video, and Film", "alts": ["Electronic News Gathering Camera Operator", "News Camera Operator", "News Camera Person", "News Reel Cameraman", "News Videographer", "Television News Photographer"]}, {"title": "Editors", "alts": ["Advertising Editor", "Editorial Specialist", "News Editor"]}, {"title": "Film and Video Editors", "alts": ["Digital Media Coordinator", "Electronic News Gathering Editor", "Film Editor", "News Editor", "News Video Editor", "News Videotape Editor", "Television News Video Editor", "Video Production Editor"]}, {"title": "Media Programming Directors", "alts": ["News Director"]}, {"title": "Media Technical Directors/Managers", "alts": ["News Technical Director"]}, {"title": "News Analysts, Reporters, and Journalists", "alts": ["Anchor", "Breaking News Reporter", "Broadcast Journalist", "Broadcast News Advisor", "Correspondent", "Data Journalist", "Editorial Writer", "Environmental Journalist", "Fashion Journalist", "Film Critic", "Foreign Correspondent", "General Assignment Television News Reporter", "Journalist", "Magazine Journalist", "Market News Reporter", "Media Analyst", "Morning News Anchor", "Multimedia Journalist", "Music Journalist", "News Analyst", "News Anchor", "News Commentator", "News Correspondent", "News Reporter", "News Writer", "Newspaper Correspondent", "Newspaper Journalist", "Print Journalist", "Radio News Anchor", "Radio News Writer", "Sports Anchor", "Sports Journalist", "Television Anchor", "Television News Anchor", "Television News Reporter", "Travel Journalist", "Weather Anchor", "Weekend Anchor"]}, {"title": "Producers and Directors", "alts": ["Broadcast News Producer", "Morning News Producer", "News Producer", "News Production Supervisor", "Television News Producer"]}], "Media Production": [{"title": "Art Directors", "alts": ["Graphic Design and Art Production Manager"]}, {"title": "Audio and Video Technicians", "alts": ["Media Technician", "Video Production Assistant", "Video Production Specialist"]}, {"title": "Camera Operators, Television, Video, and Film", "alts": ["Animation Camera Operator"]}, {"title": "Media Programming Directors", "alts": ["Media Coordinator"]}, {"title": "Media Technical Directors/Managers", "alts": ["Test Editing Director"]}, {"title": "Producers and Directors", "alts": ["Animation Director", "Animation Producer", "Digital Media Manager", "Digital Media Producer", "Film Maker", "Film Producer", "Independent Film Maker", "Media Manager", "Media Producer"]}, {"title": "Sound Engineering Technicians", "alts": ["Film Recordist", "Film Sound Coordinator", "Film Sound Engineer"]}, {"title": "Special Effects Artists and Animators", "alts": ["Animation Artist", "Animation Producer", "Digital Media Designer", "Digital Media Specialist", "Interactive Digital Media Specialist", "Media Designer", "Media Producer"]}]}, "people": [{"email": "aatwood@siue.edu", "name": "Tom Atwood", "courses": [{"id": "MC 301", "title": "Advanced Audio Production", "desc": "Professional audio production across digital media platforms."}, {"id": "MC 332", "title": "Advanced News Production", "desc": "Extensive practice in writing, producing, and presenting broadcast news."}, {"id": "MC 454", "title": "Documentary Media Production", "desc": "Evolution of documentary filmmaking; emphasis on student production of original documentary films."}]}, {"email": "ubaasan@siue.edu", "name": "Undrah Baasanjav", "courses": [{"id": "MC 455", "title": "Media Ethics", "desc": "Critical examination and analysis of values, principles, and ethical decision-making in mass media."}, {"id": "MC 456", "title": "Identity and Emerging Media", "desc": "Students explore how people construct identities on various emerging media."}]}, {"email": "cobyers@siue.edu", "name": "Cory Byers", "courses": [{"id": "MC 326", "title": "Advertising Copywriting and Design", "desc": "Create ads for a variety of products using professional design and copywriting techniques."}, {"id": "MC 333", "title": "Advanced Video Production", "desc": "Students produce professional-quality video segments."}, {"id": "MC 422", "title": "Strategic Media Writing", "desc": "Analyzing and creating strategic communication materials for PR, marketing, and organizational contexts."}, {"id": "MC 433", "title": "Advanced Video Directing and Producing", "desc": "Advanced theory and practice in television directing and producing."}, {"id": "MC 435", "title": "Media Post-Production", "desc": "Theory and practice of post-production including video editing, color correction, and sound design."}, {"id": "MC 443", "title": "Narrative Media Production", "desc": "Write and produce short narrative films and web series."}, {"id": "MC 491", "title": "Advanced Practices", "desc": "Independent study in areas where student has completed all formal course work."}]}, {"email": "ghicks@siue.edu", "name": "Gary R. Hicks", "courses": [{"id": "MC 424", "title": "Literary Journalism", "desc": "Students develop skills in literary non-fiction writing."}, {"id": "MC 455", "title": "Media Ethics", "desc": "Critical examination and analysis of values, principles, and ethical decision-making in mass media."}]}, {"email": "mkapata@siue.edu", "name": "Musonda Kapatamoyo", "courses": [{"id": "MC 330", "title": "Advanced Media Writing", "desc": "Advanced writing techniques for various media platforms."}, {"id": "MC 441", "title": "Advanced Writing and Designing for Digital Media", "desc": "Provides a comprehensive overview of both writing and designing for digital media."}]}, {"email": "aleith@siue.edu", "name": "Alex P. Leith", "courses": [{"id": "MC 323", "title": "Digital Publishing and Design", "desc": "Digital publication design and production of layouts."}, {"id": "MC 342", "title": "Digital Imagery", "desc": "Capturing, editing, and presenting digital images for media applications."}, {"id": "MC 422", "title": "Strategic Media Writing", "desc": "Analyzing and creating strategic communication materials for PR, marketing, and organizational contexts."}, {"id": "MC 427", "title": "Social Media Analytics", "desc": "Focuses on the use of analytics, including AI-powered tools, to evaluate and improve social media performance. Students collect, analyze, and interpret data from multiple platforms using machine learn"}]}, {"email": "shli@siue.edu", "name": "Shi Li", "courses": [{"id": "MC 330", "title": "Advanced Media Writing", "desc": "Advanced writing techniques for various media platforms."}, {"id": "MC 334", "title": "Commercial Production", "desc": "Processes and practices in copywriting and production for radio, television, and digital commercials."}, {"id": "MC 342", "title": "Digital Imagery", "desc": "Capturing, editing, and presenting digital images for media applications."}, {"id": "MC 440", "title": "Visual Media Analysis", "desc": "Analysis of still and moving images for artistic and communicative purposes."}]}, {"email": "tmerret@siue.edu", "name": "Tammy Merrett", "courses": [{"id": "MC 322", "title": "Copy Editing For News Media", "desc": "Students build professional news editing skills."}, {"id": "MC 324", "title": "Advanced News Reporting", "desc": "Reporting for print and digital media about local and state government."}]}, {"email": "smishra@siue.edu", "name": "Suman Mishra", "courses": [{"id": "MC 453", "title": "Transnational Media", "desc": "Focus on media ownership, regulation, and cultural impact across national borders."}, {"id": "MC 472", "title": "Mass Media and Health", "desc": "Focuses on media literacy in the area of health."}]}, {"email": "mpoepse@siue.edu", "name": "Mark A. Poepsel", "courses": [{"id": "MC 328", "title": "Social Media Content Creation", "desc": "Examines the role of creators and influencers in the social media landscape. Students learn strategies for building a personal brand, producing engaging content, and growing an audience across platfor"}, {"id": "MC 330", "title": "Advanced Media Writing", "desc": "Advanced writing techniques for various media platforms."}, {"id": "MC 341", "title": "Sports Journalism", "desc": "Course provides overview of sports journalism and enhances students' skills."}, {"id": "MC 402", "title": "Media Management", "desc": "Focus on product development and project management in media industries."}]}, {"email": "jyu@siue.edu", "name": "Jason Yu", "courses": [{"id": "MC 325", "title": "Fundamentals of Advertising", "desc": "Provides an overview of advertising from the perspectives of marketing and social roles."}, {"id": "MC 389", "title": "Media Planning", "desc": "Basic principles of media planning, buying, and strategy for advertising campaigns."}]}], "seeds": {"MC 301": {"tracks": ["Media Production"], "careers": [], "broad": true}, "MC 322": {"tracks": ["Journalism"], "careers": ["Editors", "Film and Video Editors", "News Analysts, Reporters, and Journalists"], "broad": false}, "MC 323": {"tracks": ["Advertising & Strategic Media", "Media Production"], "careers": ["Art Directors", "Advertising and Promotions Managers", "Public Relations Specialists"]}, "MC 324": {"tracks": ["Journalism"], "careers": ["Editors", "Film and Video Editors", "News Analysts, Reporters, and Journalists"], "broad": false}, "MC 325": {"tracks": ["Advertising & Strategic Media"], "careers": [], "broad": true}, "MC 326": {"tracks": ["Advertising & Strategic Media"], "careers": [], "broad": true}, "MC 330": {"tracks": ["Journalism", "Media Production"], "careers": ["Editors", "Film and Video Editors", "News Analysts, Reporters, and Journalists"], "broad": false}, "MC 332": {"tracks": ["Journalism", "Media Production"], "careers": ["Editors", "Film and Video Editors", "News Analysts, Reporters, and Journalists"], "broad": false}, "MC 333": {"tracks": ["Media Production"], "careers": [], "broad": true}, "MC 334": {"tracks": ["Advertising & Strategic Media", "Media Production"], "careers": ["Advertising Sales Agents", "Advertising and Promotions Managers", "Fundraising Managers", "Market Research Analysts and Marketing Specialists", "Marketing Managers", "Public Relations Managers", "Public Relations Specialists", "Search Marketing Strategists"], "broad": false}, "MC 341": {"tracks": ["Journalism"], "careers": ["Editors", "Film and Video Editors", "News Analysts, Reporters, and Journalists"], "broad": false}, "MC 342": {"tracks": ["Advertising & Strategic Media", "Journalism", "Media Production"], "careers": ["Art Directors", "Special Effects Artists and Animators", "Advertising and Promotions Managers"]}, "MC 389": {"tracks": ["Advertising & Strategic Media"], "careers": [], "broad": true}, "MC 422": {"tracks": ["Advertising & Strategic Media"], "careers": ["Public Relations Specialists", "Public Relations Managers", "Marketing Managers", "Advertising and Promotions Managers", "Fundraising Managers"]}, "MC 424": {"tracks": ["Journalism"], "careers": ["Editors", "Film and Video Editors", "News Analysts, Reporters, and Journalists"], "broad": false}, "MC 427": {"tracks": ["Advertising & Strategic Media"], "careers": ["Market Research Analysts and Marketing Specialists", "Search Marketing Strategists", "Marketing Managers", "Public Relations Specialists"]}, "MC 433": {"tracks": ["Media Production"], "careers": [], "broad": true}, "MC 435": {"tracks": ["Media Production"], "careers": [], "broad": true}, "MC 443": {"tracks": ["Media Production"], "careers": [], "broad": true}, "MC 454": {"tracks": ["Journalism", "Media Production"], "careers": ["Camera Operators, Television, Video, and Film"], "broad": false}}};
+
+const DATA = window.DATA;
+const TRACKS = Object.keys(DATA.careers);
+const KEY = "cfr-v1";
+let state = load();
+let person = null, idx = 0;
+
+function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+/* theme toggle: respects the three-state model */
+document.getElementById("theme").onclick = () => {
+  const r = document.documentElement;
+  const dark = r.getAttribute("data-theme") === "dark" ||
+    (!r.getAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
+  r.setAttribute("data-theme", dark ? "light" : "dark");
+};
+
+/* ---------- step 1 ---------- */
+const peopleEl = document.getElementById("people");
+DATA.people.forEach(p => {
+  const b = document.createElement("button");
+  b.className = "person";
+  b.innerHTML = `<b>${p.name}</b><span>${p.courses.length} course${p.courses.length===1?"":"s"} to review</span>`;
+  b.onclick = () => start(p);
+  peopleEl.appendChild(b);
+});
+
+function start(p){
+  person = p; idx = 0;
+  state[p.email] = state[p.email] || { courses:{}, careers:{} };
+  document.getElementById("s-who").classList.add("hide");
+  document.getElementById("s-rate").classList.remove("hide");
+  buildKD();
+  render();
+}
+
+/* ---------- step 2: courses ---------- */
+function ans(cid){
+  const a = state[person.email].courses;
+  if(!a[cid]){
+    const seed = DATA.seeds[cid];
+    a[cid] = { tracks: seed ? seed.tracks.slice() : [], careers: seed ? seed.careers.slice() : [],
+               seeded: !!seed, skip:false, touched:false };
+  }
+  return a[cid];
+}
+function done(cid){ const a = ans(cid); return a.touched || a.skip; }
+
+function hint(cid, a){
+  const seed = DATA.seeds[cid];
+  if(!seed) return "We have no usable rating for this course, so nothing is pre-filled. Start from scratch.";
+  if(seed.broad) return "Today the tool treats this as a general " + seed.tracks.join(" and ") +
+    " course and scores every career in it the same, which is why nothing is checked. Pick the ones it genuinely prepares a student for.";
+  return "Shaded rows are what the tool already tells students. Uncheck what is wrong, add what we missed.";
+}
+
+function render(){
+  const c = person.courses[idx], a = ans(c.id);
+
+  const rail = document.getElementById("rail");
+  rail.innerHTML = "";
+  person.courses.forEach((cc,i) => {
+    const b = document.createElement("button");
+    b.className = i===idx ? "on" : "";
+    b.innerHTML = `<span class="dot ${done(cc.id)?"done":""}"></span>
+                   <span><span class="num">${i+1}</span> ${cc.id}</span>`;
+    b.onclick = () => { idx = i; render(); };
+    rail.appendChild(b);
+  });
+
+  const card = document.getElementById("card");
+  card.innerHTML = `
+    <div class="card-head">
+      <div class="course-no">${c.id}</div>
+      <h3>${c.title}</h3>
+      <p class="desc">${c.desc || ""}</p>
+    </div>
+    <div class="block">
+      <span class="eyebrow">Which tracks does it serve?</span>
+      <p class="hint">Pick every track a student on that path would benefit from taking it.</p>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="block">
+      <span class="eyebrow">Which careers does it prepare a student for?</span>
+      <p class="hint">${hint(c.id, a)}</p>
+      <div id="careers"></div>
+    </div>
+    <label class="skip">
+      <input type="checkbox" id="skip" ${a.skip?"checked":""}>
+      I do not really teach this course, or I am not the right person to judge it.
+    </label>`;
+
+  const chips = document.getElementById("chips");
+  TRACKS.forEach(t => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.textContent = t;
+    b.setAttribute("aria-pressed", a.tracks.includes(t));
+    b.onclick = () => {
+      const i = a.tracks.indexOf(t);
+      i < 0 ? a.tracks.push(t) : a.tracks.splice(i,1);
+      a.touched = true; save(); render();
+    };
+    chips.appendChild(b);
+  });
+
+  const wrap = document.getElementById("careers");
+  wrap.innerHTML = "";
+  if(!a.tracks.length){
+    wrap.innerHTML = `<p class="empty">Choose a track above and its careers appear here.</p>`;
+  } else {
+    a.tracks.forEach(t => {
+      const g = document.createElement("div"); g.className = "track-group";
+      g.innerHTML = `<div class="track-name">${t}</div>`;
+      const opts = document.createElement("div"); opts.className = "opts";
+      DATA.careers[t].forEach(jobObj => {
+        const job = jobObj.title;
+        const seeded = a.seeded && DATA.seeds[c.id].careers.includes(job);
+        const l = document.createElement("label");
+        l.className = "opt" + (seeded ? " seeded" : "");
+        l.innerHTML = `<input type="checkbox" ${a.careers.includes(job)?"checked":""}>
+                       <span>${job}</span>${seeded?'<span class="seedtag">our guess</span>':""}`;
+        l.querySelector("input").onchange = e => {
+          const i = a.careers.indexOf(job);
+          e.target.checked ? (i<0 && a.careers.push(job)) : (i>-1 && a.careers.splice(i,1));
+          a.touched = true; save(); refreshRail();
+        };
+        opts.appendChild(l);
+      });
+      g.appendChild(opts); wrap.appendChild(g);
+    });
+  }
+
+  document.getElementById("skip").onchange = e => { a.skip = e.target.checked; save(); render(); };
+  document.getElementById("prev").disabled = idx === 0;
+  document.getElementById("next").textContent =
+    idx === person.courses.length - 1 ? "Go to the career list" : "Next course";
+}
+function refreshRail(){
+  document.querySelectorAll("#rail .dot").forEach((d,i) =>
+    d.classList.toggle("done", done(person.courses[i].id)));
+}
+document.getElementById("prev").onclick = () => { if(idx>0){ idx--; render(); } };
+document.getElementById("next").onclick = () => {
+  if(idx < person.courses.length - 1){ idx++; render(); }
+  else showTab("careers");
+};
+
+/* ---------- step 2b: career keep / drop ---------- */
+function buildKD(){
+  const host = document.getElementById("kd"); host.innerHTML = "";
+  TRACKS.forEach(t => {
+    const h = document.createElement("div");
+    h.innerHTML = `<div class="track-name" style="margin-top:20px">${t}</div>`;
+    host.appendChild(h);
+    DATA.careers[t].forEach(job => {
+      const row = document.createElement("div"); row.className = "kd";
+      const shown = job.alts.slice(0,4).join(" &middot; ");
+      const more = job.alts.length > 4 ? ` &middot; and ${job.alts.length-4} more` : "";
+      row.innerHTML = `<div><div class="title">${job.title}</div>` +
+                      (job.alts.length ? `<div class="alts">${shown}${more}</div>` : "") + `</div>`;
+      const btns = document.createElement("div"); btns.className = "btns";
+      ["keep","drop"].forEach(v => {
+        const b = document.createElement("button");
+        b.type="button"; b.dataset.v=v; b.textContent = v==="keep"?"Keep":"Drop";
+        const cur = state[person.email].careers[job.title];
+        b.setAttribute("aria-pressed", cur === v);
+        b.onclick = () => {
+          state[person.email].careers[job.title] = (cur === v) ? undefined : v;
+          if(state[person.email].careers[job.title] === undefined) delete state[person.email].careers[job.title];
+          save(); buildKD();
+        };
+        btns.appendChild(b);
+      });
+      row.appendChild(btns); host.appendChild(row);
+    });
+  });
+}
+
+/* ---------- tabs + output ---------- */
+function showTab(which){
+  document.getElementById("tab-courses").classList.toggle("on", which==="courses");
+  document.getElementById("tab-careers").classList.toggle("on", which==="careers");
+  document.getElementById("pane-courses").classList.toggle("hide", which!=="courses");
+  document.getElementById("pane-careers").classList.toggle("hide", which==="careers"?false:true);
+  scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("tab-courses").onclick = () => showTab("courses");
+document.getElementById("tab-careers").onclick = () => showTab("careers");
+/* The collector sits behind the site's own Apache at /course-fit-api/. A copy
+   with no collector (the review link, or the file opened locally) fails the
+   health check and stays a preview. */
+const API = "/course-fit-api";
+let live = false;
+fetch(API + "/health", {cache: "no-store"})
+  .then(r => r.ok ? r.json() : null)
+  .then(j => {
+    if (!j || !j.ok) return;
+    live = true;
+    document.getElementById("send").classList.remove("hide");
+    document.getElementById("beta").innerHTML =
+      "<strong>Nothing leaves this page until you press Send.</strong> Your progress is kept in " +
+      "this browser, so you can stop and come back. Sending again later replaces what you sent.";
+  })
+  .catch(() => {});
+
+function buildPayload(){
+  const s = state[person.email];
+  return {
+    respondent: person.email,
+    submitted: new Date().toISOString().slice(0,10),
+    courses: Object.entries(s.courses)
+      .filter(([,v]) => v.touched || v.skip)
+      .map(([id,v]) => v.skip ? {course:id, skipped:true}
+                              : {course:id, tracks:v.tracks, careers:v.careers}),
+    career_opinions: s.careers,
+    careers_missing: (document.getElementById("missing").value || "")
+      .split(String.fromCharCode(10)).map(x => x.trim()).filter(Boolean)
+  };
+}
+
+document.getElementById("finish").onclick = () => {
+  const out = document.getElementById("out");
+  out.classList.remove("hide");
+  out.textContent = JSON.stringify(buildPayload(), null, 2);
+  document.getElementById("sendnote").textContent = live
+    ? "This is what will be sent. Press Send my answers when it reads right."
+    : "This copy has nowhere to send to, so this is as far as it goes.";
+};
+
+document.getElementById("send").onclick = async (e) => {
+  const btn = e.currentTarget, note = document.getElementById("sendnote");
+  btn.disabled = true;
+  note.textContent = "Sending...";
+  try {
+    const r = await fetch(API + "/submit", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(buildPayload())
+    });
+    const j = await r.json().catch(() => ({}));
+    note.textContent = (r.ok && j.ok)
+      ? "Received, thank you. Change an answer and send again whenever you like."
+      : "That did not go through: " + (j.error || r.status) + ". Your answers are safe in this " +
+        "browser. Press Review my answers and send Alex the text.";
+  } catch (err) {
+    note.textContent = "No answer from the server. Your answers are safe in this browser. " +
+      "Press Review my answers and send Alex the text.";
+  }
+  btn.disabled = false;
+};
+</script>
