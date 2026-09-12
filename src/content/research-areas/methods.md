@@ -3,7 +3,7 @@ title: "Computational Methods"
 slug: "methods"
 order: 3
 area: "methods"
-blurb: "Building the tools — STM, multi-instrument sentiment, network methods, LLMs — for communication research."
+blurb: "Building the tools (STM, multi-instrument sentiment, network methods, LLMs) for communication research."
 ---
 
 Computational methods only license the claims their assumptions support. The lab

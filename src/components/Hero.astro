@@ -15,13 +15,13 @@ const stats = [
 ];
 ---
 <section class="hero container-page" aria-label="AURA Lab">
-  <span class="figtag">FIG. 1 — WHAT WE STUDY</span>
+  <span class="figtag">FIG. 1 · WHAT WE STUDY</span>
 
   <h1 data-no-split>Bringing <span class="u">methods</span> to the places people live online.</h1>
 
   <p class="deck">
     Platforms, games, and virtual worlds are real social settings. We study what
-    happens inside them — <em>presence, performance, affect</em> — with
+    happens inside them (<em>presence, performance, affect</em>) with
     corpus-scale tools and honest claims.
   </p>
 
@@ -34,8 +34,8 @@ const stats = [
     ))}
   </div>
 
-  <div class="aura" role="img" aria-label="AURA — the four dimensions the lab studies: Avatars, Users, Relationships, Affect">
-    <p class="aura-read"><span class="ak" id="heroAk">A — AVATARS</span><span class="at" id="heroAt">how people show up when the body is rendered</span></p>
+  <div class="aura" role="img" aria-label="AURA · the four dimensions the lab studies: Avatars, Users, Relationships, Affect">
+    <p class="aura-read"><span class="ak" id="heroAk">A · AVATARS</span><span class="at" id="heroAt">how people show up when the body is rendered</span></p>
     <div class="aura-line">
       <span class="aura-dia" id="heroDia" style="left:6%"></span>
       {dims.map((d, i) => (
@@ -48,10 +48,10 @@ const stats = [
 <script>
   const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const readouts = [
-    { k: 'A — AVATARS',       t: 'how people show up when the body is rendered' },
-    { k: 'U — USERS',         t: 'who is in the room, and who gets left out' },
-    { k: 'R — RELATIONSHIPS', t: 'how connection forms across a screen' },
-    { k: 'A — AFFECT',        t: 'what it feels like, measured honestly' },
+    { k: 'A · AVATARS',       t: 'how people show up when the body is rendered' },
+    { k: 'U · USERS',         t: 'who is in the room, and who gets left out' },
+    { k: 'R · RELATIONSHIPS', t: 'how connection forms across a screen' },
+    { k: 'A · AFFECT',        t: 'what it feels like, measured honestly' },
   ];
   const pos = [6, 35.33, 64.67, 94];
   const dia = document.getElementById('heroDia');

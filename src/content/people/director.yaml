@@ -4,15 +4,15 @@ titles:
   - "Director, AURA Lab"
   - "Co-Founding Organizer, Meaningful XR"
 headshot: "/img/ap-headshot-512.png"
-headshotAlt: "Alex P. Leith, Director of AURA Lab — three-quarter portrait."
+headshotAlt: "Alex P. Leith, Director of AURA Lab, three-quarter portrait."
 bio: |
   My research sits at the intersection of three threads. First, **mediated presence
-  in virtual environments** — how communication changes when the channel is a VR
+  in virtual environments**: how communication changes when the channel is a VR
   headset, a livestream chat, a videoconference grid, or a 3D social world. Second,
-  **computational methods in communication research** — building and using
+  **computational methods in communication research**: building and using
   corpus-scale tools (sentiment, topic models, network methods, LLMs) on real
   social-media and platform data, with explicit attention to what the methods do and
-  don't license you to claim. Third, **open-research pedagogy** — translating the
+  don't license you to claim. Third, **open-research pedagogy**: translating the
   above into materials that make research methods learnable by undergraduates with
   no prior stats, methods, or coding background.
 

@@ -13,11 +13,11 @@ interface Props {
 
 const {
   title,
-  description = 'AURA Lab at SIUE — studying the lived experience of platforms, games, and virtual worlds as social phenomena, and bringing methods to the questions that arise there.',
+  description = 'AURA Lab at SIUE, studying the lived experience of platforms, games, and virtual worlds as social phenomena, and bringing methods to the questions that arise there.',
   current,
 } = Astro.props;
 
-const fullTitle = title === 'AURA Lab' ? title : `${title} — AURA Lab`;
+const fullTitle = title === 'AURA Lab' ? title : `${title} · AURA Lab`;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 <!doctype html>

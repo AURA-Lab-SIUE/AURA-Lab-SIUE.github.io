@@ -95,7 +95,7 @@ const byCategory = THEORY_CATEGORIES.map((category) => ({
 <BaseLayout
   title="Communication Theories"
   current="theories"
-  description="A navigable map of communication theory from AURA Lab — every framework is a star in a field you can explore.">
+  description="A navigable map of communication theory from AURA Lab. Every framework is a star in a field you can explore.">
   <div class="theories-skin">
     <section class="t-constellation" data-constellation aria-label="Map of communication theories">
       <div class="t-sky-masthead">
@@ -103,8 +103,8 @@ const byCategory = THEORY_CATEGORIES.map((category) => ({
         <h1 data-no-split>Communication <em>Theories</em></h1>
         <p class="t-dek">
           The whole field as one sky. Each star is a theory, tethered to every area it belongs to;
-          related theories are linked. Drag to pan, scroll to zoom, click a cluster to focus an area —
-          open any star to read it.
+          related theories are linked. Drag to pan, scroll to zoom, click a cluster to focus an area.
+          Open any star to read it.
         </p>
         <div class="t-sky-tools">
           <div class="t-progress" data-progress-meter aria-label="Your reading progress">
@@ -183,7 +183,7 @@ const byCategory = THEORY_CATEGORIES.map((category) => ({
         <h2>All theories by area</h2>
         <p data-global-empty hidden class="t-empty">No theories match that search.</p>
       </div>
-      <p class="net-noscript">The complete index — also the place to land if you would rather read a list than fly the map.</p>
+      <p class="net-noscript">The complete index, also the place to land if you would rather read a list than fly the map.</p>
 
       {byCategory.map((group) => (
         <section class="t-list-cat" data-cat-section={group.category}>

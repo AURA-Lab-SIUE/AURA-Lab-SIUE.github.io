@@ -3,7 +3,7 @@ title: "Streaming Platforms"
 slug: "streaming"
 order: 2
 area: "streaming"
-blurb: "Livestreams as interpersonal channels — parasocial ties, chat dynamics, and identity tagging on Twitch."
+blurb: "Livestreams as interpersonal channels: parasocial ties, chat dynamics, and identity tagging on Twitch."
 ---
 
 Livestreaming compresses a parasocial relationship into a real-time channel: the

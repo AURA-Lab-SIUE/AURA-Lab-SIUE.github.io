@@ -27,13 +27,13 @@ const rendered = await Promise.all(areas.map(async (area) => {
 }));
 ---
 <BaseLayout title="Research" current="research"
-  description="AURA Lab research threads — virtual environments, streaming platforms, computational methods, and virtual meetings.">
+  description="AURA Lab research threads: virtual environments, streaming platforms, computational methods, and virtual meetings.">
 
   <section class="container-page pt-24 pb-8">
     <p class="text-muted uppercase tracking-ui text-sm">What the lab studies</p>
     <h1 class="font-display text-5xl md:text-7xl mt-4 leading-none">Research at AURA Lab.</h1>
     <p class="mt-8 max-w-measure text-lg text-muted">
-      We read four dimensions of social experience online —
+      We read four dimensions of social experience online:
       <a href="/framework/" class="link-underline text-accent-text">Avatars, Users, Relationships, and Affect</a>.
       The settings below are where we study them: each is a context that foregrounds
       some dimensions more than others, and our methods measure across all four.
@@ -42,7 +42,7 @@ const rendered = await Promise.all(areas.map(async (area) => {
 
   {rendered.map(({ area, Content, areaProjects, areaPubs, dims }) => (
     <article id={area.data.area}>
-      <SectionDivider kicker={`Setting 0${area.data.order} — where we study it`} title={area.data.title} />
+      <SectionDivider kicker={`Setting 0${area.data.order} · where we study it`} title={area.data.title} />
       <div class="container-page dim-row">
         <span class="dt-label">AURA</span>
         {dims[0] === 'ALL'

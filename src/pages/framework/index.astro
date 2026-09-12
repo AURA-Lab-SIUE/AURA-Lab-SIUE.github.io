@@ -4,20 +4,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 // AURA — the lab's organizing framework. Four dimensions of social experience
 // online; the research settings sit underneath as the "where".
 const dims = [
-  { label: 'avatars', letter: 'A', k: 'A — AVATARS', title: 'Avatars',
+  { label: 'avatars', letter: 'A', k: 'A · AVATARS', title: 'Avatars',
     tag: 'How people show up when the body is rendered.',
-    ask: 'What does an avatar carry — posture, gaze, proximity, identity — that a profile photo can’t?',
+    ask: 'What does an avatar carry (posture, gaze, proximity, identity) that a profile photo can’t?',
     where: 'Virtual environments · social VR', link: '/research/' },
-  { label: 'users', letter: 'U', k: 'U — USERS', title: 'Users',
+  { label: 'users', letter: 'U', k: 'U · USERS', title: 'Users',
     tag: 'Who is in the room, and who gets left out.',
     ask: 'How do audiences and communities form, tag identity, and include or exclude?',
     where: 'Streaming · virtual meetings', link: '/research/' },
-  { label: 'relationships', letter: 'R', k: 'R — RELATIONSHIPS', title: 'Relationships',
+  { label: 'relationships', letter: 'R', k: 'R · RELATIONSHIPS', title: 'Relationships',
     tag: 'How connection forms across a screen.',
     ask: 'How do parasocial and interpersonal ties hold in mixed sync / async spaces?',
     where: 'Streaming · shared rooms', link: '/research/' },
-  { label: 'affect', letter: 'A', k: 'A — AFFECT', title: 'Affect',
-    tag: 'What it feels like — measured honestly.',
+  { label: 'affect', letter: 'A', k: 'A · AFFECT', title: 'Affect',
+    tag: 'What it feels like, measured honestly.',
     ask: 'How do we read presence, emotion, and well-being at corpus scale?',
     where: 'Computational methods · all settings', link: '/research/' },
 ];
@@ -31,10 +31,10 @@ const field = [
 ];
 ---
 <BaseLayout title="Framework" current="framework"
-  description="AURA is the lab's framework — Avatars, Users, Relationships, and Affect: four dimensions of social experience when life moves online.">
+  description="AURA is the lab's framework: Avatars, Users, Relationships, and Affect. Four dimensions of social experience when life moves online.">
 
   <section class="container-page aura-hero">
-    <span class="figtag">FIG. — THE FRAMEWORK</span>
+    <span class="figtag">FIG. · THE FRAMEWORK</span>
     <div class="aura-word" id="auraword" aria-label="Avatars, Users, Relationships, Affect">
       {dims.map((d, i) => (
         <span data-i={i}><span class="i">{d.letter}</span>{d.title.slice(1)}</span>
@@ -42,8 +42,8 @@ const field = [
     </div>
     <p class="subhead">
       Four questions the lab asks about people online. The name is the framework:
-      <strong>how people show up, who is in the room, how they connect, and what it feels like</strong>
-      — across platforms, games, and virtual worlds.
+      <strong>how people show up, who is in the room, how they connect, and what it feels like</strong>,
+      across platforms, games, and virtual worlds.
     </p>
 
     <div class="stage">
@@ -111,13 +111,13 @@ const field = [
 <script>
   const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const dims = [
-    { label: 'avatars', k: 'A — AVATARS', title: 'Avatars', tag: 'How people show up when the body is rendered.',
-      ask: 'What does an avatar carry — posture, gaze, proximity, identity — that a profile photo can’t?', where: 'Virtual environments · social VR' },
-    { label: 'users', k: 'U — USERS', title: 'Users', tag: 'Who is in the room, and who gets left out.',
+    { label: 'avatars', k: 'A · AVATARS', title: 'Avatars', tag: 'How people show up when the body is rendered.',
+      ask: 'What does an avatar carry (posture, gaze, proximity, identity) that a profile photo can’t?', where: 'Virtual environments · social VR' },
+    { label: 'users', k: 'U · USERS', title: 'Users', tag: 'Who is in the room, and who gets left out.',
       ask: 'How do audiences and communities form, tag identity, and include or exclude?', where: 'Streaming · virtual meetings' },
-    { label: 'relationships', k: 'R — RELATIONSHIPS', title: 'Relationships', tag: 'How connection forms across a screen.',
+    { label: 'relationships', k: 'R · RELATIONSHIPS', title: 'Relationships', tag: 'How connection forms across a screen.',
       ask: 'How do parasocial and interpersonal ties hold in mixed sync / async spaces?', where: 'Streaming · shared rooms' },
-    { label: 'affect', k: 'A — AFFECT', title: 'Affect', tag: 'What it feels like — measured honestly.',
+    { label: 'affect', k: 'A · AFFECT', title: 'Affect', tag: 'What it feels like, measured honestly.',
       ask: 'How do we read presence, emotion, and well-being at corpus scale?', where: 'Computational methods · all settings' },
   ];
   const N = dims.length, pad = 6, span = 88, xOf = (i) => pad + span * i / (N - 1);

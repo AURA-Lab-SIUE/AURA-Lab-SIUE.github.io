@@ -1,6 +1,6 @@
 entries:
   - name: "MethodoSync"
-    blurb: "Browser-based qualitative coding tool — code a YouTube video moment by moment, cluster into categories and themes, and build a quantitative codebook."
+    blurb: "Browser-based qualitative coding tool: code a YouTube video moment by moment, cluster into categories and themes, and build a quantitative codebook."
     href: "/methodosync/"
     language: "Web"
   - name: "Captionizer"
