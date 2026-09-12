@@ -85,14 +85,19 @@
   .pill:hover { color: var(--ink); border-color: var(--brick); }
   .pill[aria-pressed="true"] { color: var(--accent-text); border-color: var(--accent); }
 
+  /* Underline is PERSISTENT, not hover-only. Two reasons: the requirements ask
+     for underlined hyperlinks (p.39), and links no longer carry a colour of
+     their own since red stopped being a text colour, so the underline is the
+     only thing distinguishing them from body text (WCAG 1.4.1, Use of Colour).
+     Hover thickens it rather than introducing it. Do not revert to 0%. */
   .link-underline {
-    background-image: linear-gradient(var(--brick), var(--brick));
-    background-size: 0% 1px;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-size: 100% 1px;
     background-position: 0 100%;
     background-repeat: no-repeat;
     transition: background-size 250ms var(--ease-out);
   }
-  .link-underline:hover { background-size: 100% 1px; }
+  .link-underline:hover { background-size: 100% 2px; }
 
   .card {
     background: var(--surface);
