@@ -31,19 +31,32 @@ name visibly distinct. Do not "tidy" them onto one line.
 line. The bar owns its own 30px padding rather than inheriting the narrower page gutter. Do not
 reduce it.
 
+## Icons: RESOLVED 2026-09-14
+
+**Approved twice, in writing.** Philip Sherrill (Director of Creative and Design) named the mark
+and scoped it: "typically, for favicons, etc. you can use the single 'E' ... this is about the
+only use the 'E' is available for." Keith Harris approved it outright: "I approve using the
+single 'E' for this purpose. A PNG should work fine rather than a vector format."
+
+**The artwork is SIUE's own.** The E is not on the Wordmarks for Download page and
+`siue.edu/favicon.ico` is only 16x16, so the usable source is the **official SIUE Android app
+icon** at 512px, from the `com.dub.app.siue` listing. Every size shipped here is a downscale of
+that one file, so the rule above still holds: nothing was invented, traced or redrawn.
+
+Restored: `<link rel="icon">` for `.ico` and 32px, `apple-touch-icon` at 180, and the manifest
+`icons` array at 192 and 512. Masters kept at
+`m4:/Volumes/One Touch/80-service-hr/service/masscomm-website-redesign/siue-brand-e/`.
+
 ## The one item still open
 
-**Browser tab icon and app icon.** A signature line is not legible at 32 pixels, and the
-requirements do not cover the case. Phil referred this to **Keith Harris and the web team**; a
-note is drafted and not yet sent. Until they answer:
+**The social card.** Both approvals are about icons. Whether a card counts as the same purpose
+is a separate question that went to Keith and has not come back, so there is still **no
+`og:image`** and `twitter:card` remains `summary`. A link preview falls back to title and
+description, which is text only and compliant. Do not restore it on the strength of the icon
+approval; ask.
 
-- There is **no** `<link rel="icon">` and no `og:image`; `twitter:card` is `summary`.
-- `site.webmanifest` has an empty `icons` array.
-- Do not invent an icon to fill the gap. A homemade one is still a unit-created mark.
-
-Two related questions went to Keith with it: whether vector files exist, since the download page
-publishes raster only while the guidelines ask for vector in digital applications, and whether a
-social card pairing the signature line with the site name reads as an unapproved lockup.
+The related question about vector files also went unanswered, and is now moot: the app icon is
+raster and UMC approved raster explicitly.
 
 ## Colour rule, from UMC directly
 

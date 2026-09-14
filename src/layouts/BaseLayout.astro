@@ -51,14 +51,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
       })();
     </script>
     <link rel="canonical" href={canonical} />
-    {/* PLACEHOLDER - NO SITE ICON.
-        The favicon, touch icon and app icons were an AURA Lab mark. SIUE units
-        may not create their own logos, icons or visual identities (Visual
-        Identity Requirements, effective 2026-09-01, p.7-p.8), so they were
-        removed on 2026-09-07 rather than redrawn in-house.
-        TO DO: restore <link rel="icon"> here once University Marketing and
-        Communications supplies official artwork. Requested 2026-09-07.
-        See BRAND-PENDING-UMC.md. */}
+    {/* Icons are the SIUE single E, approved for this use by Philip Sherrill and
+        Keith Harris (UMC) on 2026-09-14. The source is SIUE's own Android app
+        icon at 512px; every size here is a downscale of it, so nothing is
+        unit-created. See BRAND-PENDING-UMC.md. */}
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <meta property="og:type" content="website" />
