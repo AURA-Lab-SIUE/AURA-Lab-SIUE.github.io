@@ -1,4 +1,15 @@
 <title>Course Fit Review</title>
+<!-- Keep this page out of search results. It is a task sent to eleven named people and it lists
+     each of them against the courses they teach, which the Chair asked us not to publish. The URL
+     stays reachable on purpose: people need to open it from an email, and the collector is
+     roster-gated so a stranger finding it cannot submit anything.
+
+     noindex rather than a robots.txt Disallow, deliberately. Disallow blocks CRAWLING, so a
+     crawler never fetches the page, never sees this tag, and the URL can still be indexed from an
+     external link with nothing but its title. noindex only works if the page stays fetchable. Do
+     not "also" add a Disallow for this path; it would defeat the tag it is meant to reinforce. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;700&display=swap">
 <style>
