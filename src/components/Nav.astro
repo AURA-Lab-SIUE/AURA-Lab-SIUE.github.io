@@ -1,4 +1,22 @@
 ---
+/**
+ * Site header, modelled on siue.edu's own pages (2026-09-15): the University
+ * signature line sits at the left of the navigation row and the unit name is
+ * a separate header block BELOW the row, never beside the mark.
+ *
+ * Why this shape: the signature line is the site's primary identifier
+ * (Philip Sherrill, UMC, 2026-09-11) and must appear on official University
+ * websites, upper left where possible (Visual Identity Requirements p.8).
+ * Departments may not place their names above, below or alongside it except
+ * through a UMC lockup (p.7); the same page allows the unit name "as a main
+ * header". So "AURA Lab" lives in its own band under the nav row, separated
+ * from the mark by the row's padding and border.
+ *
+ * Clearspace (p.19): no element within one mark-height of the mark. The mark
+ * renders at 22px and the row pads 22px above and below it; the nav links sit
+ * far to the right. Artwork is the official file from the UMC wordmarks
+ * download page, unmodified. Never redraw, recolour or crop it.
+ */
 const { current } = Astro.props;
 const items = [
   { href: '/framework/', label: 'Framework', key: 'framework' },
@@ -12,9 +30,18 @@ const items = [
 ];
 ---
 <header class="topbar" aria-label="Site">
-  <div class="container-page flex items-center justify-between py-4">
-    <a href="/" class="brand inline-flex items-baseline">
-      <span class="name">AURA&nbsp;Lab</span>
+  <div class="container-page flex items-center justify-between">
+    <a class="siue-link" href="https://www.siue.edu" aria-label="Southern Illinois University Edwardsville home">
+      <img
+        class="siue-mark siue-mark--light"
+        src="/img/siue-signature-line-black.png"
+        alt="Southern Illinois University Edwardsville"
+        width="1155" height="251" />
+      <img
+        class="siue-mark siue-mark--dark"
+        src="/img/siue-signature-line-white.png"
+        alt="Southern Illinois University Edwardsville"
+        width="720" height="156" />
     </a>
     <div class="flex items-center gap-4 lg:gap-6">
       <nav aria-label="Primary" class="hidden md:block">
@@ -39,6 +66,15 @@ const items = [
     </div>
   </div>
 </header>
+
+<div class="sitename" aria-label="AURA Lab">
+  <div class="container-page">
+    <a href="/" class="brand">
+      <span class="name">AURA&nbsp;Lab</span>
+      <span class="expand" aria-hidden="true">Avatars · Users · Relationships · Affect</span>
+    </a>
+  </div>
+</div>
 
 <script is:inline>
   (function () {
@@ -67,24 +103,56 @@ const items = [
     background: color-mix(in srgb, var(--paper) 84%, transparent);
     border-bottom: 1px solid var(--line);
   }
-  /* Plain text site name. Deliberately NOT a stylised wordmark: SIUE units
-     may not create their own marks (Visual Identity Requirements p.7). */
+  /* 22px of padding above and below a 22px mark = the p.19 clearspace. */
+  .topbar > .container-page { padding-block: 22px; }
+  .siue-link { display: inline-block; line-height: 0; }
+  .siue-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .siue-mark { height: 22px; width: auto; display: block; }
+  .siue-mark--dark { display: none; }
+  :root[data-theme="dark"] .siue-mark--light { display: none; }
+  :root[data-theme="dark"] .siue-mark--dark { display: block; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .siue-mark--light { display: none; }
+    :root:not([data-theme="light"]) .siue-mark--dark { display: block; }
+  }
+  @media (max-width: 640px) {
+    .topbar > .container-page { padding-block: 18px; }
+    .siue-mark { height: 18px; }
+  }
+
+  /* The unit name as its own header block under the row, the way siue.edu
+     places "Academics" under its navigation. Plain text, deliberately NOT a
+     stylised wordmark: units may not create their own marks (p.7). */
+  .sitename {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .sitename > .container-page { padding-block: 14px; }
+  .brand {
+    display: inline-flex; align-items: baseline; gap: 14px;
+    text-decoration: none;
+  }
   .brand .name {
     font-family: theme('fontFamily.display');
     font-weight: 600;
     letter-spacing: 0;
-    font-size: 1.15rem;
+    font-size: 1.6rem;
+    line-height: 1.1;
     color: var(--ink);
   }
-  .affil {
+  .brand .expand {
     font-family: theme('fontFamily.sans');
-    font-size: 0.62rem;
+    font-size: 0.66rem;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink-soft);
   }
-  @media (max-width: 1440px) { .affil { display: none; } }
+  @media (max-width: 640px) {
+    .brand .name { font-size: 1.3rem; }
+    .brand .expand { display: none; }
+  }
+
   .navlink {
     white-space: nowrap;
     font-family: theme('fontFamily.sans');
