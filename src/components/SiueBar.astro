@@ -17,8 +17,10 @@
  * Layout (2026-09-15): the mark shares the page container with the nav so the
  * two left edges align, and the band is only as tall as the clearspace needs.
  * Clearspace (p.19): no page element enters a margin equal to the height of
- * the signature line. Rendered at 26px tall with 26px of padding above and
- * below; the container gutter supplies the horizontal clearspace.
+ * the signature line. Rendered at 26px tall. The nav below carries 16px of
+ * its own top padding (py-4), so the bar adds only 10px beneath the mark to
+ * make the 26px clearspace to "AURA Lab" exactly, and 12px above it where
+ * nothing competes. The container gutter supplies the horizontal clearspace.
  *
  * Artwork is the official file, unmodified, from
  * siue.edu/marketing-and-communications/services/graphic-design/wordmarks-for-download.shtml
@@ -46,14 +48,14 @@
 <style>
   .siue-bar {
     background: var(--paper);
-    padding-block: 26px 0;
+    padding-block: 12px 0;
   }
   .siue-bar__link {
     display: inline-block;
     line-height: 0;
-    /* The clearspace below the mark is the bar's bottom padding; keeping it on
-       the link means the container gutter alone sets the horizontal inset. */
-    padding-bottom: 26px;
+    /* 10px here + the nav's 16px top padding = the 26px clearspace (p.19).
+       Keeping it on the link means the container gutter alone sets the inset. */
+    padding-bottom: 10px;
   }
   .siue-bar__link:focus-visible {
     outline: 2px solid var(--accent);
@@ -73,8 +75,8 @@
     :root:not([data-theme="light"]) .siue-bar__mark--dark { display: block; }
   }
   @media (max-width: 640px) {
-    .siue-bar { padding-block: 22px 0; }
-    .siue-bar__link { padding-bottom: 22px; }
+    .siue-bar { padding-block: 10px 0; }
+    .siue-bar__link { padding-bottom: 6px; }
     .siue-bar__mark { height: 22px; }
   }
 </style>
