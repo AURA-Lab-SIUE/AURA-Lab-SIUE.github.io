@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+
+// Office hours live here and nowhere else on this page. Update this block each
+// term; the printed office-door sign carries a QR code to this page precisely so
+// the paper never has to be reprinted when these change.
+const term = 'Fall 2026';
+const hours = [
+  { days: 'Tuesday & Thursday', time: '12:30 to 1:45 p.m.' },
+  { days: 'Tuesday & Thursday', time: '3:30 to 5:00 p.m.' },
+];
+const office = 'Dunham Hall 1017';
+---
+<BaseLayout title="Alex P. Leith" current={undefined}
+  description="Alex P. Leith, Associate Professor of Mass Communications at SIUE and Director of AURA Lab. Office hours, office location, and how to get in touch.">
+
+  <section class="container-page pt-24 pb-8">
+    <p class="text-muted uppercase tracking-ui text-sm">Mass Communications, SIUE</p>
+    <h1 class="font-display text-5xl md:text-7xl mt-4 leading-none">Alex P. Leith.</h1>
+    <p class="mt-8 max-w-measure text-xl">
+      Associate Professor of Mass Communications and Director of AURA Lab at
+      Southern Illinois University Edwardsville. My office is {office}.
+    </p>
+  </section>
+
+  <SectionDivider kicker={`Office hours, ${term}`} title="When to just show up." />
+  <section class="container-page max-w-page">
+    <ul class="hours">
+      {hours.map((h) => (
+        <li>
+          <span class="days">{h.days}</span>
+          <span class="time font-display">{h.time}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-8 max-w-measure text-lg">
+      Held in {office}. No appointment needed during those windows, and you do not
+      need a reason that sounds important enough. If none of it works for you,
+      email me and we will find another time, in person or on Teams.
+    </p>
+    <p class="mt-4 max-w-measure text-muted">
+      Hours are set each term and occasionally shift for travel or a meeting. This
+      page is the current version.
+    </p>
+  </section>
+
+  <SectionDivider kicker="Reach out" title="Email is the fastest path." />
+  <section class="container-page max-w-measure text-lg">
+    <p>
+      <a href="mailto:aleith@siue.edu" class="link-underline text-accent-text">aleith@siue.edu</a>.
+      Short messages are fine. If you are a student in one of my courses, say which
+      course in the first line and you will get a faster answer.
+    </p>
+    <p class="mt-6">
+      For lab work, research collaboration, or a project you want to start, the
+      <a href="/join/" class="link-underline text-accent-text">Join</a> page covers
+      how people usually plug in.
+    </p>
+  </section>
+
+  <SectionDivider kicker="What I work on" title="Three threads." />
+  <section class="container-page grid lg:grid-cols-2 gap-x-12 gap-y-10 max-w-page">
+    <article>
+      <h3 class="font-display text-2xl">Mediated presence in virtual environments</h3>
+      <p class="mt-3 text-muted max-w-measure">
+        How communication changes when the channel is a VR headset, a livestream
+        chat, a videoconference grid, or a 3D social world.
+      </p>
+    </article>
+    <article>
+      <h3 class="font-display text-2xl">Computational methods in communication research</h3>
+      <p class="mt-3 text-muted max-w-measure">
+        Building and using corpus-scale tools (sentiment, topic models, network
+        methods, LLMs) on real social-media and platform data, with explicit
+        attention to what the methods do and do not license you to claim.
+      </p>
+    </article>
+    <article>
+      <h3 class="font-display text-2xl">Open-research pedagogy</h3>
+      <p class="mt-3 text-muted max-w-measure">
+        Translating the above into materials that make research methods learnable
+        by undergraduates with no prior stats, methods, or coding background.
+      </p>
+    </article>
+    <article>
+      <h3 class="font-display text-2xl">Where the lab works</h3>
+      <p class="mt-3 text-muted max-w-measure">
+        Virtual environments, streaming platforms, computational methods, and
+        virtual meetings. The
+        <a href="/research/" class="link-underline text-accent-text">Research</a>
+        page has the detail.
+      </p>
+    </article>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hours {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+  .hours li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+  .hours li:last-child {
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+  .hours .days {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hours .time {
+    font-size: clamp(2rem, 6vw, 3.25rem);
+    line-height: 1.05;
+  }
+</style>
