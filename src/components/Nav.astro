@@ -13,7 +13,7 @@
  * from the mark by the row's padding and border.
  *
  * Clearspace (p.19): no element within one mark-height of the mark. The mark
- * renders at 22px and the row pads 22px above and below it; the nav links sit
+ * renders at 30px and the row pads 30px above and below it; the nav links sit
  * far to the right. Artwork is the official file from the UMC wordmarks
  * download page, unmodified. Never redraw, recolour or crop it.
  */
@@ -103,11 +103,11 @@ const items = [
     background: color-mix(in srgb, var(--paper) 84%, transparent);
     border-bottom: 1px solid var(--line);
   }
-  /* 22px of padding above and below a 22px mark = the p.19 clearspace. */
-  .topbar > .container-page { padding-block: 22px; }
+  /* 30px of padding above and below a 30px mark = the p.19 clearspace. */
+  .topbar > .container-page { padding-block: 30px; }
   .siue-link { display: inline-block; line-height: 0; }
   .siue-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-  .siue-mark { height: 22px; width: auto; display: block; }
+  .siue-mark { height: 30px; width: auto; display: block; }
   .siue-mark--dark { display: none; }
   :root[data-theme="dark"] .siue-mark--light { display: none; }
   :root[data-theme="dark"] .siue-mark--dark { display: block; }
@@ -116,8 +116,8 @@ const items = [
     :root:not([data-theme="light"]) .siue-mark--dark { display: block; }
   }
   @media (max-width: 640px) {
-    .topbar > .container-page { padding-block: 18px; }
-    .siue-mark { height: 18px; }
+    .topbar > .container-page { padding-block: 22px; }
+    .siue-mark { height: 22px; }
   }
 
   /* The unit name as its own header block under the row, the way siue.edu
