@@ -32,7 +32,7 @@ function GapCard({ gap, chosen }: { gap: Gap; chosen: boolean }) {
         >
           {gapParagraph(gap, clause)}
           {!clause.trim() && (
-            <span style={{ color: 'var(--brick)' }}> [what your study does about it]</span>
+            <span style={{ color: 'var(--brick-text)' }}> [what your study does about it]</span>
           )}
         </div>
 
@@ -66,7 +66,7 @@ export function GapsPanel() {
   if (!report.ready) {
     return (
       <section className="card card-pad max-w-measure">
-        <div className="seclabel mb-4">Not yet</div>
+        <h2 className="seclabel mb-4">Not yet</h2>
         <p className="text-sm mb-3">
           You have {report.keptCount} {report.keptCount === 1 ? 'source' : 'sources'} logged.
           Gaps are found by looking for concentration across your columns, and below{' '}
@@ -86,7 +86,7 @@ export function GapsPanel() {
         className="card card-pad flex items-start gap-3"
         style={{ borderColor: 'var(--brick)' }}
       >
-        <AlertTriangle size={18} aria-hidden className="mt-0.5 shrink-0" style={{ color: 'var(--brick)' }} />
+        <AlertTriangle size={18} aria-hidden className="mt-0.5 shrink-0" style={{ color: 'var(--brick-text)' }} />
         <div>
           <h2 className="font-display font-extrabold text-base tracking-display mb-1">
             Read this before you use any of it
@@ -101,7 +101,7 @@ export function GapsPanel() {
 
       {report.gaps.length === 0 ? (
         <section className="card card-pad max-w-measure">
-          <div className="seclabel mb-4">No concentration found</div>
+          <h2 className="seclabel mb-4">No concentration found</h2>
           <p className="text-sm">
             Your {report.keptCount} sources are spread across methods, populations, contexts and
             lenses, and none of them contradict each other on a shared pair of constructs. That is

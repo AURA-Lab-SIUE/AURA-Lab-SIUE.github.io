@@ -42,7 +42,7 @@ export function SourceForm({ source }: { source: Source }) {
     <section className="card card-pad">
       <div className="flex items-start justify-between gap-3 mb-5">
         <div className="min-w-0">
-          <div className="seclabel mb-2">Source {s.examinedAt}</div>
+          <h2 className="seclabel mb-2">Source {s.examinedAt}</h2>
           <h3 className="font-display font-extrabold text-lg tracking-display truncate">
             {s.title || citeLabel(s)}
           </h3>
@@ -180,7 +180,7 @@ export function SourceForm({ source }: { source: Source }) {
             <Hint>
               Leave it blank if none was named, which is itself worth knowing. Unsure what a
               named theory is?{' '}
-              <a className="link-underline" style={{ color: 'var(--brick)' }}
+              <a className="link-underline" style={{ color: 'var(--brick-text)' }}
                 href="https://aura-lab.siue.edu/theories/" target="_blank" rel="noreferrer">
                 Look it up in the theory explorer
               </a>.
@@ -314,7 +314,7 @@ export function SourceForm({ source }: { source: Source }) {
       </div>
 
       <div className="mt-6 pt-4 border-t flex items-center justify-between gap-3" style={{ borderColor: 'var(--line)' }}>
-        <span className="inline-flex items-center gap-2 text-sm" style={{ color: complete ? 'var(--brick)' : 'var(--ink-soft)' }}>
+        <span className="inline-flex items-center gap-2 text-sm" style={{ color: complete ? 'var(--brick-text)' : 'var(--ink-soft)' }}>
           {complete ? <Check size={15} aria-hidden /> : null}
           {complete
             ? 'Logged'

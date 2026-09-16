@@ -54,7 +54,7 @@ export function ConceptBuilder({ onUse }: { onUse: (query: string) => void }) {
 
   return (
     <section className="card card-pad">
-      <div className="seclabel mb-4">No search yet? Build one</div>
+      <h2 className="seclabel mb-4">No search yet? Build one</h2>
       <p className="text-sm max-w-measure mb-2">
         A search is not your interest typed into a box. It is two or three separate ideas, joined
         by AND, each holding the different words scholars use for that idea, joined by OR.
@@ -124,7 +124,7 @@ export function ConceptBuilder({ onUse }: { onUse: (query: string) => void }) {
 
       {query && (
         <div className="mt-5">
-          <div className="seclabel mb-2">Your search string</div>
+          <h2 className="seclabel mb-2">Your search string</h2>
           <pre
             className="rounded-lg p-3 text-xs font-mono whitespace-pre-wrap break-words"
             style={{ background: 'var(--paper)', border: '1px solid var(--line)' }}
@@ -139,9 +139,9 @@ export function ConceptBuilder({ onUse }: { onUse: (query: string) => void }) {
           {advice.map((a, i) => (
             <li key={i} className="text-xs inline-flex items-start gap-1.5">
               {a.level === 'warn'
-                ? <AlertCircle size={12} aria-hidden className="mt-0.5 shrink-0" style={{ color: 'var(--brick)' }} />
+                ? <AlertCircle size={12} aria-hidden className="mt-0.5 shrink-0" style={{ color: 'var(--brick-text)' }} />
                 : <Check size={12} aria-hidden className="mt-0.5 shrink-0" style={{ color: 'var(--ink-soft)' }} />}
-              <span style={{ color: a.level === 'warn' ? 'var(--brick)' : 'var(--ink-soft)' }}>{a.text}</span>
+              <span style={{ color: a.level === 'warn' ? 'var(--brick-text)' : 'var(--ink-soft)' }}>{a.text}</span>
             </li>
           ))}
         </ul>

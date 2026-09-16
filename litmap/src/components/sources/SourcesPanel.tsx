@@ -42,7 +42,7 @@ function ImportDropzone() {
           background: over ? 'var(--brick-wash)' : 'transparent',
         }}
       >
-        <Upload size={20} aria-hidden className="mx-auto mb-2" style={{ color: 'var(--brick)' }} />
+        <Upload size={20} aria-hidden className="mx-auto mb-2" style={{ color: 'var(--brick-text)' }} />
         <p className="text-sm mb-1">Drop a Zotero export here</p>
         <p className="text-xs mb-3" style={{ color: 'var(--ink-soft)' }}>
           CSL JSON, BibTeX, or RIS. In Zotero: right-click a collection, Export Collection.
@@ -64,7 +64,7 @@ function ImportDropzone() {
         />
       </div>
       {error && (
-        <p className="mt-2 text-xs inline-flex items-start gap-1.5" style={{ color: 'var(--brick)' }}>
+        <p className="mt-2 text-xs inline-flex items-start gap-1.5" style={{ color: 'var(--brick-text)' }}>
           <AlertCircle size={13} aria-hidden className="mt-0.5 shrink-0" /> {error}
         </p>
       )}
@@ -98,7 +98,7 @@ function SourceRow({ s }: { s: Source }) {
           <span className="min-w-0 flex-1">
             <span className="flex items-center gap-1.5 flex-wrap">
               <span className="font-sans font-semibold text-sm">{citeLabel(s)}</span>
-              {s.keystone && <Star size={12} aria-hidden fill="currentColor" style={{ color: 'var(--brick)' }} />}
+              {s.keystone && <Star size={12} aria-hidden fill="currentColor" style={{ color: 'var(--brick-text)' }} />}
               {state === 'aside' && <span className="pill-muted">{STATE_LABEL.aside}</span>}
             </span>
             <span className="block text-xs truncate" style={{ color: 'var(--ink-soft)' }}>
@@ -114,7 +114,7 @@ function SourceRow({ s }: { s: Source }) {
           </span>
           <span className="shrink-0 mt-1">
             {done
-              ? <Check size={14} aria-hidden style={{ color: 'var(--brick)' }} />
+              ? <Check size={14} aria-hidden style={{ color: 'var(--brick-text)' }} />
               : <AlertCircle size={14} aria-hidden style={{ color: 'var(--ink-soft)' }} />}
           </span>
         </div>
@@ -133,7 +133,7 @@ export function SourcesPanel() {
     <div className="grid gap-6 lg:grid-cols-[380px_minmax(0,1fr)] items-start">
       <div className="space-y-4">
         <section className="card card-pad">
-          <div className="seclabel mb-4">Add sources</div>
+          <h2 className="seclabel mb-4">Add sources</h2>
           <ImportDropzone />
           <button className="btn-primary w-full mt-3" onClick={() => store.addBlankSource()}>
             <Plus size={15} aria-hidden /> Add one by hand
@@ -141,9 +141,9 @@ export function SourcesPanel() {
         </section>
 
         <section className="card card-pad">
-          <div className="seclabel mb-4">
+          <h2 className="seclabel mb-4">
             Reading list ({kept.length} logged, {aside.length} set aside, {pile.length} unread)
-          </div>
+          </h2>
           {sources.length === 0 ? (
             <p className="text-sm" style={{ color: 'var(--ink-soft)' }}>
               Nothing here yet.
@@ -161,7 +161,7 @@ export function SourcesPanel() {
           <SourceForm source={editing} />
         ) : (
           <section className="card card-pad">
-            <div className="seclabel mb-4">The eight questions</div>
+            <h2 className="seclabel mb-4">The eight questions</h2>
             <p className="text-sm max-w-measure mb-4">
               Pick a source from the list, or add one. Every source gets the same eight
               questions, which is the point: the answers only become useful when they are

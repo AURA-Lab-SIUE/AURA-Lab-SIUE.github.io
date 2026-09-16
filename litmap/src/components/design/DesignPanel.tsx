@@ -77,7 +77,7 @@ export function DesignPanel() {
     <div className="space-y-6">
       {/* ── the question ── */}
       <section className="card card-pad">
-        <div className="seclabel mb-4">1. The question</div>
+        <h2 className="seclabel mb-4">1. The question</h2>
         <p className="text-sm max-w-measure mb-5">
           A research question has a shape: a thing you measure, a relationship or pattern, and a
           bounded population. Fill the slots and it assembles. Nothing here is written for you, and
@@ -209,7 +209,7 @@ export function DesignPanel() {
         </div>
 
         <div className="mt-6">
-          <div className="seclabel mb-2">Assembled</div>
+          <h2 className="seclabel mb-2">Assembled</h2>
           <p
             className="rounded-lg p-4 text-base leading-relaxed"
             style={{ background: 'var(--paper)', border: '1px solid var(--line)' }}
@@ -227,7 +227,7 @@ export function DesignPanel() {
 
       {/* ── the five criteria ── */}
       <section className="card card-pad">
-        <div className="seclabel mb-4">2. Does it hold up?</div>
+        <h2 className="seclabel mb-4">2. Does it hold up?</h2>
         <p className="text-sm max-w-measure mb-4">
           Chapter 6's five criteria. Three of them can be checked. Two cannot, and are marked as
           such rather than quietly ticked.
@@ -241,7 +241,7 @@ export function DesignPanel() {
                   width: 18, height: 18,
                   background: c.state === 'pass' ? 'var(--brick-fill)' : 'transparent',
                   border: c.state === 'pass' ? 'none' : '1.5px solid var(--line)',
-                  color: c.state === 'pass' ? '#fff' : c.state === 'fail' ? 'var(--brick)' : 'var(--ink-soft)',
+                  color: c.state === 'pass' ? '#fff' : c.state === 'fail' ? 'var(--brick-text)' : 'var(--ink-soft)',
                 }}
               >
                 {STATE_ICON[c.state]}
@@ -260,7 +260,7 @@ export function DesignPanel() {
 
       {/* ── the three failure modes ── */}
       <section className="card card-pad">
-        <div className="seclabel mb-4">3. The three ways this goes wrong</div>
+        <h2 className="seclabel mb-4">3. The three ways this goes wrong</h2>
         <p className="text-sm max-w-measure mb-5">
           These recur often enough that Chapter 6 names them. Only you can answer these, so they
           are questions rather than detections.
@@ -299,7 +299,7 @@ export function DesignPanel() {
 
       {/* ── theory ── */}
       <section className="card card-pad">
-        <div className="seclabel mb-4">4. The lens</div>
+        <h2 className="seclabel mb-4">4. The lens</h2>
         <p className="text-sm max-w-measure mb-4">
           A theory tells you what to look for and what to make of it. Search the lab's own 55, or
           type one that is not there.
@@ -315,7 +315,7 @@ export function DesignPanel() {
 
       {/* ── method ── */}
       <section className="card card-pad">
-        <div className="seclabel mb-4">5. The method</div>
+        <h2 className="seclabel mb-4">5. The method</h2>
         <p className="text-sm max-w-measure mb-4">
           A method is not a preference. It either reaches the thing your question asks about or it
           does not, and what you can get hold of decides the rest.
@@ -397,13 +397,13 @@ export function DesignPanel() {
       {/* ── export ── */}
       <section className="card card-pad flex flex-col md:flex-row md:items-center gap-4 justify-between">
         <div>
-          <div className="seclabel mb-2">Take the design with you</div>
+          <h2 className="seclabel mb-2">Take the design with you</h2>
           <p className="text-sm max-w-measure" style={{ color: 'var(--ink-soft)' }}>
             The question, what held up and what did not, the lens, the method and the arithmetic,
             as one Markdown file.
           </p>
           {question.includes('[') && (
-            <p className="text-xs mt-2" style={{ color: 'var(--brick)' }}>
+            <p className="text-xs mt-2" style={{ color: 'var(--brick-text)' }}>
               The question still has empty slots in it.
             </p>
           )}
@@ -443,7 +443,7 @@ function FeasibilityMeter() {
 
   return (
     <section className="card card-pad">
-      <div className="seclabel mb-4">6. Will it fit in a semester?</div>
+      <h2 className="seclabel mb-4">6. Will it fit in a semester?</h2>
       <p className="text-sm max-w-measure mb-5">
         Chapter 6 says to narrow until it hurts a little, then narrow a bit more. This is that
         instruction as arithmetic. Every number is your estimate, and every step is shown, so you
@@ -478,7 +478,7 @@ function FeasibilityMeter() {
         >
           <div style={{ width: `${pct}%`, height: '100%', background: colour, transition: 'width 200ms' }} />
         </div>
-        <p className="mt-3 text-sm max-w-measure" style={{ color: r.verdict === 'over' || r.verdict === 'impossible' ? 'var(--brick)' : 'var(--ink)' }}>
+        <p className="mt-3 text-sm max-w-measure" style={{ color: r.verdict === 'over' || r.verdict === 'impossible' ? 'var(--brick-text)' : 'var(--ink)' }}>
           {r.headline}
         </p>
       </div>
@@ -509,10 +509,10 @@ function FeasibilityMeter() {
 
       {r.remedies.length > 0 && (
         <div className="mt-5">
-          <div className="seclabel mb-2 inline-flex items-center gap-2">
-            <AlertTriangle size={13} aria-hidden style={{ color: 'var(--brick)' }} />
+          <h2 className="seclabel mb-2 inline-flex items-center gap-2">
+            <AlertTriangle size={13} aria-hidden style={{ color: 'var(--brick-text)' }} />
             Any one of these would make it fit
-          </div>
+          </h2>
           <ul className="space-y-1.5">
             {r.remedies.map((x) => (
               <li key={x} className="text-sm max-w-measure">{x}</li>

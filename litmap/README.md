@@ -192,6 +192,45 @@ folder into `dist/litmap/`. After any source change, re-run `npm run build`,
 delete the stale `assets/index-*` from the previous build, commit the output,
 and push to `main`.
 
+## Accessibility
+
+Audited on **rendered pixels**, not token values: computed colour, alpha,
+cumulative opacity and composited ancestor backgrounds, across both themes, all
+six stages and the open source form. The floor is **5:1**, not WCAG AA's 4.5.
+
+Three things failed and are fixed:
+
+- **Placeholders were `--ink-soft` at `opacity: 0.6`** — 3.48 dark, 2.52 light.
+  These placeholders carry worked examples a student is meant to read, so the
+  opacity is gone.
+- **`--brick` as TEXT measured 4.71 on `--card` in dark.** A new `--brick-text`
+  token is lifted to `#e66a5a` (5.91 paper / 5.40 card / 5.21 wash). `--brick`
+  itself is untouched, so borders, fills and the accent stay byte-identical to
+  the rest of the site.
+- **Light `--ink-soft` measured 4.77 on `--brick-wash`**, which is the Next Step
+  banner, the most prominent surface in the app. Darkened to `#655d51`
+  (5.85 / 6.26 / 5.23). This diverges from the site's own value on purpose.
+
+Also: the page had **no `h1`** and every section label was a `<div>`, so the
+document had no navigable structure. The brand is now the `h1`, section labels
+are `h2`, card titles `h3`, no level jumps. All 40 controls have accessible
+names, no positive `tabindex`, skip link present, `lang` set, live region for
+announcements.
+
+**Measured with a script, not a linter**, because the failures worth finding
+were composited (opacity over a tinted card) and no static check sees those.
+Two cautions if you re-run it: switching `data-theme` mid-life leaves Chrome's
+computed values stale for descendants resolving `var()` inside `@layer`, so set
+the theme and RELOAD before measuring; and walk text nodes, not every element,
+or the audit freezes the renderer.
+
+**Not verified:** real phone-width rendering. The browser tooling here reports a
+successful window resize while the viewport stays at 1920, so it could not be
+checked honestly. Statically the layout is sound — every grid has a
+single-column base before its breakpoint, there are no fixed pixel widths, and
+the code blocks wrap and break words — but that is not the same as having
+looked at it on a phone.
+
 ## Known rough edges
 
 - A finding typed with a leading capital renders with that capital mid-sentence

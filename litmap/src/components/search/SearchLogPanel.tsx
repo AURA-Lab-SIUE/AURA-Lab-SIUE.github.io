@@ -51,7 +51,7 @@ export function SearchLogPanel() {
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px] items-start">
       <div className="space-y-6">
         <section className="card card-pad">
-          <div className="seclabel mb-4">The project</div>
+          <h2 className="seclabel mb-4">The project</h2>
           <div className="space-y-4">
             <div>
               <label className="field-label" htmlFor="ptitle">Working title</label>
@@ -86,7 +86,7 @@ export function SearchLogPanel() {
         <ConceptBuilder onUse={(q) => setQueryString(q)} />
 
         <section className="card card-pad">
-          <div className="seclabel mb-4">Log a search</div>
+          <h2 className="seclabel mb-4">Log a search</h2>
           <form onSubmit={submit} className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
@@ -135,15 +135,25 @@ export function SearchLogPanel() {
                   onChange={(e) => setNKept(e.target.value)} />
               </div>
             </div>
-            <button type="submit" className="btn-primary" disabled={!queryString.trim()}>
-              <Plus size={15} aria-hidden /> Log this search
-            </button>
+            <div>
+              <button type="submit" className="btn-primary" disabled={!queryString.trim()}>
+                <Plus size={15} aria-hidden /> Log this search
+              </button>
+              {/* A disabled button that refuses a click and says nothing reads as
+                  a broken button. Say why instead. */}
+              {!queryString.trim() && (
+                <p className="mt-2 text-xs" style={{ color: 'var(--ink-soft)' }}>
+                  Paste the search string first. Build one on the left if you have not run a
+                  search yet.
+                </p>
+              )}
+            </div>
           </form>
         </section>
       </div>
 
       <section className="card card-pad">
-        <div className="seclabel mb-4">Searches logged ({searches.length})</div>
+        <h2 className="seclabel mb-4">Searches logged ({searches.length})</h2>
         {searches.length === 0 ? (
           <p className="text-sm" style={{ color: 'var(--ink-soft)' }}>
             Nothing yet. Build a search on the left, run it in a database, then record

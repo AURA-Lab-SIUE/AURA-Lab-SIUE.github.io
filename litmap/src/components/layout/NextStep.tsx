@@ -251,7 +251,7 @@ export function NextStep() {
         style={{ borderColor: 'var(--brick)', background: 'var(--brick-wash)' }}
       >
         <div className="flex-1 min-w-0">
-          <div className="seclabel mb-2">Next step</div>
+          <p className="seclabel mb-2">Next step</p>
           <h2 className="text-lg md:text-xl font-display font-extrabold tracking-display mb-1">
             {action.title}
           </h2>

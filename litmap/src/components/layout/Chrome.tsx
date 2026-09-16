@@ -114,8 +114,8 @@ export function AppHeader() {
       <div className="mx-auto max-w-page px-4 md:px-6 py-3 flex items-center justify-between gap-4 flex-wrap">
         <div className="flex items-baseline gap-3">
           <span className="inline-flex items-center gap-2">
-            <BookOpen size={18} aria-hidden style={{ color: 'var(--brick)' }} />
-            <span className="font-display font-extrabold tracking-display text-lg">LitMap</span>
+            <BookOpen size={18} aria-hidden style={{ color: 'var(--brick-text)' }} />
+            <h1 className="font-display font-extrabold tracking-display text-lg m-0">LitMap</h1>
           </span>
           <span className="text-xs font-sans" style={{ color: 'var(--ink-soft)' }}>
             AURA Lab · SIUE
@@ -155,7 +155,7 @@ export function AppHeader() {
         <div
           role="alert"
           className="mx-auto max-w-page px-4 md:px-6 pb-3 text-sm"
-          style={{ color: 'var(--brick)' }}
+          style={{ color: 'var(--brick-text)' }}
         >
           {error}
         </div>

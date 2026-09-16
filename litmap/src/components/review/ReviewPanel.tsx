@@ -63,10 +63,10 @@ export function ReviewPanel() {
       {/* ── saturation ── */}
       <section className="card card-pad">
         <div className="flex items-baseline justify-between gap-3 flex-wrap mb-4">
-          <div className="seclabel">Saturation</div>
+          <h2 className="seclabel">Saturation</h2>
           <span
             className="text-xs font-sans font-bold uppercase tracking-ui"
-            style={{ color: report.status === 'saturated' ? 'var(--brick)' : 'var(--ink-soft)' }}
+            style={{ color: report.status === 'saturated' ? 'var(--brick-text)' : 'var(--ink-soft)' }}
           >
             {STATUS_COPY[report.status]}
           </span>
@@ -77,7 +77,7 @@ export function ReviewPanel() {
         <SaturationChart report={report} />
 
         <div className="mt-6 space-y-3">
-          <div className="seclabel">The three signs</div>
+          <h2 className="seclabel">The three signs</h2>
           {report.tests.map((t) => (
             <div key={t.id} className="flex items-start gap-2.5">
               <span
@@ -123,7 +123,7 @@ export function ReviewPanel() {
 
         {report.core.length > 0 && (
           <div className="mt-6">
-            <div className="seclabel mb-3">Works your sources keep citing</div>
+            <h2 className="seclabel mb-3">Works your sources keep citing</h2>
             <ul className="flex flex-wrap gap-1.5">
               {report.core.map((c) => (
                 <li key={c.work} className="pill-tag">{c.work} · {c.count}</li>
@@ -139,7 +139,7 @@ export function ReviewPanel() {
 
       {/* ── minimum viable review ── */}
       <section className="card card-pad">
-        <div className="seclabel mb-4">Three sources and a gap</div>
+        <h2 className="seclabel mb-4">Three sources and a gap</h2>
 
         {eligible.length < MVLR_SIZE ? (
           <p className="text-sm" style={{ color: 'var(--ink-soft)' }}>
@@ -199,7 +199,7 @@ export function ReviewPanel() {
                   {store.gapSentence.trim() ? (
                     <span>{store.gapSentence.trim()}</span>
                   ) : (
-                    <span style={{ color: 'var(--brick)' }}>
+                    <span style={{ color: 'var(--brick-text)' }}>
                       [your gap sentence goes here]
                     </span>
                   )}
@@ -207,7 +207,7 @@ export function ReviewPanel() {
 
                 {mvlr.shared.length > 0 && (
                   <div className="mb-4">
-                    <div className="seclabel mb-2">What these three share</div>
+                    <h2 className="seclabel mb-2">What these three share</h2>
                     <ul className="space-y-2">
                       {mvlr.shared.map((sh) => (
                         <li key={sh.field} className="text-xs">

@@ -60,7 +60,7 @@ export function SynthesisPanel() {
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px] items-start">
       <section className="card card-pad">
-        <div className="seclabel mb-4">Synthesis outline</div>
+        <h2 className="seclabel mb-4">Synthesis outline</h2>
         <p className="text-sm max-w-measure mb-5">
           One paragraph per claim, not one per source. Sources are grouped where they name the same
           pair of constructs, because that is the honest signal that two studies are talking about
@@ -86,7 +86,7 @@ export function SynthesisPanel() {
                     {g.kind === 'divergent' ? 'they disagree' : 'they converge'}
                   </span>
                 </div>
-                <p className="text-xs mb-2" style={{ color: 'var(--brick)' }}>
+                <p className="text-xs mb-2" style={{ color: 'var(--brick-text)' }}>
                   Your claim here.
                 </p>
                 <ul className="space-y-1">
@@ -104,7 +104,7 @@ export function SynthesisPanel() {
 
         {report.orphans.length > 0 && (
           <div className="mt-6">
-            <div className="seclabel mb-2">Not yet grouped ({report.orphans.length})</div>
+            <h2 className="seclabel mb-2">Not yet grouped ({report.orphans.length})</h2>
             <p className="text-xs mb-2" style={{ color: 'var(--ink-soft)' }}>
               Nothing else names the same constructs as these. Either you have more to read, or
               they belong to a different argument.
@@ -121,7 +121,7 @@ export function SynthesisPanel() {
 
         {report.unpaired.length > 0 && (
           <div className="mt-5">
-            <div className="seclabel mb-2">No relationship recorded ({report.unpaired.length})</div>
+            <h2 className="seclabel mb-2">No relationship recorded ({report.unpaired.length})</h2>
             <ul className="space-y-1">
               {report.unpaired.map((s) => (
                 <li key={s.id} className="text-xs" style={{ color: 'var(--ink-soft)' }}>
@@ -135,7 +135,7 @@ export function SynthesisPanel() {
 
       <div className="space-y-4">
         <section className="card card-pad">
-          <div className="seclabel mb-4">Take it with you</div>
+          <h2 className="seclabel mb-4">Take it with you</h2>
           <div className="space-y-3">
             <button className="btn-secondary w-full" onClick={exportOutline} disabled={!report.ready}>
               <Download size={14} aria-hidden /> Synthesis outline
@@ -151,14 +151,14 @@ export function SynthesisPanel() {
             scaffold that filled them would be handing you a prospectus you never wrote.
           </p>
           {!chosenGap && (
-            <p className="mt-2 text-xs" style={{ color: 'var(--brick)' }}>
+            <p className="mt-2 text-xs" style={{ color: 'var(--brick-text)' }}>
               No gap chosen yet, so section 4 will fall back to your four-sentence review.
             </p>
           )}
         </section>
 
         <section className="card card-pad">
-          <div className="seclabel mb-4">Hand off to MethodoSync</div>
+          <h2 className="seclabel mb-4">Hand off to MethodoSync</h2>
           <p className="text-sm mb-4">
             Turns every construct you met in the literature into a candidate codebook variable,
             inside this project's file. Nothing already in the codebook is touched, and running it
@@ -178,7 +178,7 @@ export function SynthesisPanel() {
           )}
           <p className="mt-3 text-xs" style={{ color: 'var(--ink-soft)' }}>
             Then <strong>Save</strong> at the top, and open that file in{' '}
-            <a className="link-underline" style={{ color: 'var(--brick)' }} href="/methodosync/">
+            <a className="link-underline" style={{ color: 'var(--brick-text)' }} href="/methodosync/">
               MethodoSync
             </a>. Variables arrive as binary, which is its own default for a row nobody has
             classified yet. The measurement level is a Chapter 9 decision and it stays yours.

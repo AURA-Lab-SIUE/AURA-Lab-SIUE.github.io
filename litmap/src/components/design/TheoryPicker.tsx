@@ -196,7 +196,7 @@ export function TheoryPicker({
             {picked.summary}{' '}
             <a
               className="link-underline inline-flex items-center gap-1"
-              style={{ color: 'var(--brick)' }}
+              style={{ color: 'var(--brick-text)' }}
               href={theoryUrl(picked.slug)}
               target="_blank"
               rel="noreferrer"
