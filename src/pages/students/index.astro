@@ -60,9 +60,18 @@ const weeks = [
   {
     n: 5,
     theme: 'Belonging at SIUE',
-    focus: 'Work well with people who are not like you, and make what you produce reach everyone. Collaborate in shared documents, sketch ideas together, and keep a clean copy of anything you drafted on paper.',
-    tools: ['LibreOffice', 'Excalidraw'],
+    focus: 'Belonging is built by specific repeated contact, not by deciding to feel included. In class you make two pieces of contact real, one thing and one person, each with a place and a time attached. These are the same steps, so you can run them again for anything you keep meaning to go to.',
+    tools: ['Your phone calendar', 'Excalidraw'],
     objective: 'Learning in a diverse community; common human dignity',
+    procedure: "Two contacts",
+    steps: [
+      "Open <code>siue.edu/calendar</code>. Pick <strong>one</strong> event in the next two weeks you would actually go to",
+      "Check it has a <strong>date, a time and a place</strong>. If any is missing, pick another",
+      "Put it in your phone calendar <strong>with the location in it</strong>",
+      "Open any <strong>syllabus</strong>. Find that instructor's <strong>office hours</strong>",
+      "Add <strong>one</strong> office-hours visit to the same calendar, with the room",
+      "Set <strong>both</strong> to remind you the day before",
+    ],
   },
   {
     n: 6,
@@ -156,6 +165,14 @@ const weeks = [
             <p class="week-kicker">Week {w.n}</p>
             <h3 class="week-theme font-display">{w.theme}</h3>
             <p class="week-focus text-muted">{w.focus}</p>
+            {w.steps && (
+              <div class="week-steps">
+                <p class="week-steps-label">{w.procedure}</p>
+                <ol>
+                  {w.steps.map((st) => <li set:html={st} />)}
+                </ol>
+              </div>
+            )}
             <div class="week-meta">
               <div class="week-tools">
                 {w.tools.map((t) => <span class="chip">{t}</span>)}
@@ -253,6 +270,35 @@ const weeks = [
     max-width: 30ch;
   }
   .week-focus { max-width: 62ch; }
+  .week-steps {
+    margin: 0.9rem 0 0;
+    padding: 0.75rem 0 0.1rem;
+    border-top: 1px solid var(--paper-line);
+    max-width: 62ch;
+  }
+  .week-steps-label {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent-text);
+    margin: 0 0 0.4rem;
+  }
+  .week-steps ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 0.3rem;
+  }
+  .week-steps li {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--paper-muted);
+  }
+  .week-steps code {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.88em;
+  }
   .week-meta {
     margin-top: 1rem;
     display: flex;
