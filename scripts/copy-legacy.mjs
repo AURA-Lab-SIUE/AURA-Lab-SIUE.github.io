@@ -7,6 +7,10 @@ const dist = path.join(root, 'dist');
 
 const items = [
   'methodosync',
+  // LitMap: the literature-review stage upstream of MethodoSync. Same
+  // pre-built-and-committed pattern - npm run build writes index.html and
+  // assets/ into litmap/ itself, and this list is what carries them to dist/.
+  'litmap',
   'banned-words',
   'mc-careers-dashboard',
   'captionizer.html',
