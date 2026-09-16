@@ -1,4 +1,8 @@
 entries:
+  - name: "LitMap"
+    blurb: "Browser-based literature-review companion: log sources against eight questions, see when your searching has run dry, find the gap your reading exposed, and build a research question that survives Chapter 6's five criteria."
+    href: "/litmap/"
+    language: "Web"
   - name: "MethodoSync"
     blurb: "Browser-based qualitative coding tool: code a YouTube video moment by moment, cluster into categories and themes, and build a quantitative codebook."
     href: "/methodosync/"

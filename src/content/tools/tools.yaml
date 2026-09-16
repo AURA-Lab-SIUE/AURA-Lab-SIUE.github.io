@@ -37,11 +37,18 @@ entries:
     group: "apps"
     repo: "https://github.com/AURA-Lab-SIUE/banned-word-checker"
     seeAlso: { label: "Concordance ↗", href: "https://github.com/AURA-Lab-SIUE/concordance" }
+  - name: "LitMap"
+    blurb: "Narrow a research topic by reading. Log each source against the same eight questions, watch the saturation curve flatten, and let the gap, the question and a feasibility budget fall out of the columns. Runs in the browser; nothing leaves your machine."
+    href: "https://aura-lab.siue.edu/litmap/"
+    language: "Web"
+    group: "apps"
+    seeAlso: { label: "MethodoSync \u2197", href: "https://aura-lab.siue.edu/methodosync/" }
   - name: "MethodoSync"
     blurb: "Qualitative to quantitative coding: turn an open-coding pass into a codebook and a coded dataset, in the browser."
     href: "https://aura-lab.siue.edu/methodosync/"
     language: "Web"
     group: "apps"
+    seeAlso: { label: "LitMap \u2197", href: "https://aura-lab.siue.edu/litmap/" }
   - name: "Concordance"
     blurb: "Configurable term discovery across a corpus, for when the Banned-Word Checker fixed list is too blunt."
     href: "https://github.com/AURA-Lab-SIUE/concordance"

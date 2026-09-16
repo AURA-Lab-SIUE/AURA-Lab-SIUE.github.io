@@ -304,7 +304,13 @@ export function DesignPanel() {
           A theory tells you what to look for and what to make of it. Search the lab's own 55, or
           type one that is not there.
         </p>
-        <TheoryPicker value={store.chosenTheory} onChange={store.setChosenTheory} showRelated />
+        <label className="field-label" htmlFor="design-theory">Theory</label>
+        <TheoryPicker
+          id="design-theory"
+          value={store.chosenTheory}
+          onChange={store.setChosenTheory}
+          showRelated
+        />
       </section>
 
       {/* ── method ── */}

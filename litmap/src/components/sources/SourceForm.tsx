@@ -170,8 +170,9 @@ export function SourceForm({ source }: { source: Source }) {
         {/* ── 4 & 5. theory and method ── */}
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label className="field-label">4. What theory did they use?</label>
+            <label className="field-label" htmlFor={`th-${s.id}`}>4. What theory did they use?</label>
             <TheoryPicker
+              id={`th-${s.id}`}
               value={s.theory}
               onChange={(v) => set({ theory: v })}
               placeholder="Search 55 theories, type one, or leave blank"
