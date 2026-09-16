@@ -12,6 +12,8 @@ import { MIN_KEPT_FOR_SATURATION } from '../../lib/saturation'
 import { partition, missingRefOnly } from '../../lib/sourceState'
 import { detectGaps, MIN_SOURCES_FOR_GAPS } from '../../lib/gaps'
 import { buildSynthesis } from '../../lib/synthesis'
+import { finalQuestion, judgeQuestion } from '../../lib/question'
+import { computeFeasibility } from '../../lib/feasibility'
 
 export interface NextAction {
   title: string
@@ -160,12 +162,83 @@ export function useNextAction(): NextAction {
     }
   }
 
+  // ── the design ──
+  const q = store.question
+  const feas = computeFeasibility(store.feasibility)
+  const jq = judgeQuestion(q, sources, feas)
+
+  if (!q.focus.trim()) {
+    return {
+      title: 'Now write the question',
+      detail:
+        'Your reading has done its work. A research question has a shape, and the slots fill from what you have already logged.',
+      cta: 'Build the question',
+      go: () => store.setStage(6),
+    }
+  }
+
+  if (jq.checks.find((c) => c.id === 'specific')?.state === 'fail') {
+    return {
+      title: 'The question is still unbounded',
+      detail: jq.checks.find((c) => c.id === 'specific')?.detail ?? '',
+      cta: 'Finish it',
+      go: () => store.setStage(6),
+    }
+  }
+
+  if (jq.unanswered > 0) {
+    return {
+      title: `Answer the ${jq.unanswered} question${jq.unanswered === 1 ? '' : 's'} about how this goes wrong`,
+      detail:
+        'Self-selected comparisons, circular questions and false binaries are the three that recur. A minute each, and they are what catches a bad question before you code 4,000 cases.',
+      cta: 'Check it',
+      go: () => store.setStage(6),
+    }
+  }
+
+  if (jq.triggered.length > 0) {
+    return {
+      title: jq.triggered[0].question.replace(/\?$/, ' — and you said yes'),
+      detail: jq.triggered[0].fix,
+      cta: 'Look at it',
+      go: () => store.setStage(6),
+    }
+  }
+
+  if (feas.verdict === 'empty') {
+    return {
+      title: 'Find out whether it fits in a semester',
+      detail:
+        'How many units, how long each takes, how many weeks are left. Chapter 6 says to narrow until it hurts; this is that instruction as arithmetic.',
+      cta: 'Do the numbers',
+      go: () => store.setStage(6),
+    }
+  }
+
+  if (feas.verdict === 'over' || feas.verdict === 'impossible') {
+    return {
+      title: 'It does not fit yet',
+      detail: `${feas.headline} ${feas.remedies[0] ?? ''}`,
+      cta: 'Narrow it',
+      go: () => store.setStage(6),
+    }
+  }
+
+  if (!store.chosenMethod) {
+    return {
+      title: 'Choose the method',
+      detail:
+        'A method either reaches the thing your question asks about or it does not. Say what you can get hold of and the list sorts itself.',
+      cta: 'Choose',
+      go: () => store.setStage(6),
+    }
+  }
+
   return {
-    title: 'Build the outline and take it with you',
-    detail:
-      'You have enough to group sources by claim rather than list them one by one, and enough to scaffold a prospectus. Both export as Markdown.',
-    cta: 'Go to synthesis',
-    go: () => store.setStage(5),
+    title: 'You have a question, a lens, a method and a budget',
+    detail: `"${finalQuestion(q)}" Export the design brief and the prospectus, and take both to your instructor.`,
+    cta: 'Export',
+    go: () => store.setStage(6),
   }
 }
 

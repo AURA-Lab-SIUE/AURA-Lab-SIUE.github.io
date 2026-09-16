@@ -9,6 +9,7 @@ import { Check, Star, Trash2, X } from 'lucide-react'
 import { useAppStore } from '../../store/useAppStore'
 import { METHODS, DIRECTIONS, citeLabel, type Source } from '../../types/source'
 import { isComplete, needsRef as needsRefFor } from '../../lib/sourceState'
+import { TheoryPicker } from '../design/TheoryPicker'
 
 function Hint({ children }: { children: React.ReactNode }) {
   return (
@@ -169,10 +170,12 @@ export function SourceForm({ source }: { source: Source }) {
         {/* ── 4 & 5. theory and method ── */}
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label className="field-label" htmlFor={`th-${s.id}`}>4. What theory did they use?</label>
-            <input id={`th-${s.id}`} className="field-input" value={s.theory}
-              onChange={(e) => set({ theory: e.target.value })}
-              placeholder="Uses and gratifications, or leave blank" />
+            <label className="field-label">4. What theory did they use?</label>
+            <TheoryPicker
+              value={s.theory}
+              onChange={(v) => set({ theory: v })}
+              placeholder="Search 55 theories, type one, or leave blank"
+            />
             <Hint>
               Leave it blank if none was named, which is itself worth knowing. Unsure what a
               named theory is?{' '}

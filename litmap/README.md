@@ -32,7 +32,7 @@ no search yet.
   supplies no vocabulary, because thinking of the synonyms is the conceptual
   work. One button drops the result into the search log.
 
-## The five stages
+## The six stages
 
 1. **Search log (FIG.1).** Name the project, say what you are interested in as
    vaguely as it honestly is, then log every search: date, database, the exact
@@ -58,6 +58,12 @@ no search yet.
    into claim paragraphs with the claim line blank, the Chapter 6 prospectus
    scaffold, and a handoff that seeds MethodoSync's codebook from the
    constructs met in the reading.
+6. **From gap to question (FIG.6).** The half that actually narrows. A slot
+   builder that assembles a research question or hypothesis in Chapter 6's own
+   shape, filled from constructs and populations already logged; the five
+   criteria; the three named failure modes; a theory picker over the lab's own
+   55; method fit against what the student can actually get hold of; and the
+   feasibility meter.
 
 ## What it computes, and what it refuses to
 
@@ -93,7 +99,25 @@ Every derived number is a **count**. There is no model and no API.
   they are counts over what the student logged, not facts about the field. A
   detector that always finds something is a horoscope, so the thresholds are
   set where a spread of methods or populations fires nothing.
-- **The prospectus fills three of six sections.** The gap, the framework and the
+- **The feasibility meter is the narrowing instrument.** Units × minutes ×
+  coders, plus a reliability subsample and reconciliation, against weeks left
+  times honest hours per week. Every line is shown, because the total is not
+  the point: the point is seeing which input is the one making it impossible.
+  When it does not fit it solves for what would fit, each remedy independently,
+  and the suggested sample is tested to actually land inside the budget with
+  headroom rather than exactly on the ceiling.
+- **Three of Chapter 6's five criteria are checked and two are not.** "Has this
+  already been answered" and "does it matter" are reported as uncheckable
+  rather than quietly ticked. A checklist showing five ticks when it tested
+  three is worse than no checklist.
+- **The three failure modes are asked, not detected.** Self-selected
+  comparisons, circular questions and false binaries cannot be found by pattern
+  matching prose without guessing. The student answers three yes/no questions
+  and gets Chapter 6's explanation and a concrete fix for any they trip.
+- **Method fit is authored from Chapter 5, not inferred.** Each method carries
+  what it reaches and what it is structurally blind to, and is ruled in or out
+  by the question type and what the student can get hold of.
+- **The prospectus fills three of six sections**, or more once FIG.6 has run. The gap, the framework and the
   key sources come from the reading. The research question, the method and the
   contribution ship as marked blanks, because a scaffold that filled all six
   would hand back a prospectus the student never wrote.
@@ -101,6 +125,21 @@ Every derived number is a **count**. There is no model and no API.
 It also cannot tell whether the student searched *well*, and cannot judge
 whether the question matters. Both limits are stated in the footer rather than
 left for a student to discover after trusting a green light.
+
+## The vendored theory dataset
+
+`src/data/theories.min.json` is a reduced copy of the site's own
+`src/data/theories.json`: the fields a picker needs, not the full prose, so 55
+theories filter offline in 42 KB rather than 424. The explorer at
+[`/theories/`](https://aura-lab.siue.edu/theories/) is the authority and every
+theory deep-links back to it.
+
+A copy is a copy and copies drift. Regenerate with:
+
+```bash
+node scripts/sync-theories.mjs                       # from the repo on main
+node scripts/sync-theories.mjs ../path/theories.json # from a local file
+```
 
 ## Tech
 
@@ -137,6 +176,7 @@ npx tsc src/lib/*.ts src/types/source.ts --outDir .test \
 find .test -name '*.js' -exec sed -i -E "s@(from '(\.\.?/[^']*[^.][^j][^s])')@from '\2.js'@g" {} \;
 node .test/run.mjs      # 85 checks: parsers, saturation, review, export
 node .test/gaps.mjs     # 59 checks: gaps, synthesis, prospectus, handoff
+node .test/design.mjs   # 84 checks: feasibility, question, method fit, theories
 node .test/export.mjs   # prints a full exported literature map
 ```
 

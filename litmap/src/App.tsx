@@ -6,6 +6,7 @@ import { SourcesPanel } from './components/sources/SourcesPanel'
 import { ReviewPanel } from './components/review/ReviewPanel'
 import { GapsPanel } from './components/gaps/GapsPanel'
 import { SynthesisPanel } from './components/synthesis/SynthesisPanel'
+import { DesignPanel } from './components/design/DesignPanel'
 
 export default function App() {
   const stage = useAppStore((s) => s.stage)
@@ -21,6 +22,7 @@ export default function App() {
         {stage === 3 && <ReviewPanel />}
         {stage === 4 && <GapsPanel />}
         {stage === 5 && <SynthesisPanel />}
+        {stage === 6 && <DesignPanel />}
       </main>
       <footer
         className="mx-auto max-w-page px-4 md:px-6 py-8 text-xs"

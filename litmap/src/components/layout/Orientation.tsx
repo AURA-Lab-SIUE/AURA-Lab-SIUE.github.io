@@ -33,8 +33,13 @@ const STEPS: { fig: string; title: string; body: string }[] = [
   },
   {
     fig: 'FIG.5',
-    title: 'Leave with a prospectus scaffold',
-    body: 'Sources grouped by claim rather than listed one by one, and the Chapter 6 prospectus with the parts you can honestly fill already filled.',
+    title: 'Group the sources by claim, not one by one',
+    body: 'A synthesis outline where each paragraph is an argument with several sources under it, rather than a list of summaries. Plus a handoff into MethodoSync when you start coding.',
+  },
+  {
+    fig: 'FIG.6',
+    title: 'Write the question, and find out if it fits',
+    body: 'Build the question from its parts, check it against Chapter 6’s five criteria and the three ways it usually goes wrong, choose a lens and a method, and see in hours whether it fits in the weeks you have left.',
   },
 ]
 
@@ -67,7 +72,7 @@ export function Orientation() {
           <p className="text-sm max-w-measure mb-6" style={{ color: 'var(--ink-soft)' }}>
             That is the part nobody tells you. A research question is the <em>output</em> of about
             ten well-logged sources, not something you are supposed to produce before you start.
-            LitMap holds the structure while you read, and hands you the question at the end.
+            LitMap holds the structure while you read, and helps you build the question at the end.
             Everything stays in this browser; nothing is uploaded.
           </p>
 
@@ -95,8 +100,8 @@ export function Orientation() {
           </div>
 
           <p className="mt-4 text-xs" style={{ color: 'var(--ink-soft)' }}>
-            The method is Chapter 4 of <em>Vibes to Variables</em>, "Intelligence Gathering".
-            If a step here is confusing, that chapter is the long version.
+            The method is Chapters 4 and 6 of <em>Vibes to Variables</em>, "Intelligence Gathering"
+            and "The Prospectus". If a step here is confusing, those chapters are the long version.
           </p>
         </div>
       )}

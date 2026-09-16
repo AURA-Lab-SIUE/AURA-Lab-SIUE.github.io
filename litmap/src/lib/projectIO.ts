@@ -1,4 +1,7 @@
 import type { ProjectFile, SearchEvent, Source } from '../types/source'
+import { EMPTY_DRAFT, type QuestionDraft } from './question'
+import { DEFAULT_FEASIBILITY, type FeasibilityInput } from './feasibility'
+import type { Access } from './methodFit'
 import { downloadBlob } from '../utils/downloadBlob'
 
 export interface LiteratureSnapshot {
@@ -11,6 +14,11 @@ export interface LiteratureSnapshot {
   predictableAbstracts: boolean
   chosenGapId: string | null
   gapClauses: Record<string, string>
+  question: QuestionDraft
+  feasibility: FeasibilityInput
+  chosenTheory: string
+  access: Access[]
+  chosenMethod: string
 }
 
 /** Anything MethodoSync owns, carried through untouched so that one file can
@@ -55,10 +63,15 @@ export function slugify(title: string, fallback: string): string {
   return out.length > 0 ? out.join('-') : words[0].slice(0, 48)
 }
 
+/** What `parseProject` guarantees: the loose on-disk shape, normalised. */
+export interface ParsedProject extends Omit<ProjectFile, 'literature'> {
+  literature: LiteratureSnapshot
+}
+
 /** Parse a project file. A file written by MethodoSync alone is valid and
  *  simply has no literature section yet, which is the normal way a student
  *  arrives here from the other direction. */
-export function parseProject(text: string): ProjectFile {
+export function parseProject(text: string): ParsedProject {
   let data: unknown
   try {
     data = JSON.parse(text)
@@ -84,6 +97,13 @@ export function parseProject(text: string): ProjectFile {
       predictableAbstracts: Boolean(lit?.predictableAbstracts),
       chosenGapId: lit?.chosenGapId ?? null,
       gapClauses: lit?.gapClauses ?? {},
+      // Merged onto the defaults so a project file written before FIG.6
+      // existed opens with a complete draft rather than undefined fields.
+      question: { ...EMPTY_DRAFT, ...((lit?.question ?? {}) as Partial<QuestionDraft>) },
+      feasibility: { ...DEFAULT_FEASIBILITY, ...((lit?.feasibility ?? {}) as Partial<FeasibilityInput>) },
+      chosenTheory: lit?.chosenTheory ?? '',
+      access: (lit?.access ?? []) as Access[],
+      chosenMethod: lit?.chosenMethod ?? '',
     },
     videoUrl: p.videoUrl,
     videoId: p.videoId,

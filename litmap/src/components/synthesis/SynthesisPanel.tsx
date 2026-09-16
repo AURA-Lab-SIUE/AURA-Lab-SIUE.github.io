@@ -4,6 +4,7 @@ import { useAppStore } from '../../store/useAppStore'
 import { buildSynthesis, synthesisMarkdown } from '../../lib/synthesis'
 import { detectGaps } from '../../lib/gaps'
 import { buildProspectus } from '../../lib/handoff'
+import { computeFeasibility } from '../../lib/feasibility'
 import { buildMvlr, mvlrMarkdown } from '../../lib/mvlr'
 import { slugify } from '../../lib/projectIO'
 import { downloadBlob } from '../../utils/downloadBlob'
@@ -35,6 +36,10 @@ export function SynthesisPanel() {
         gap: chosenGap,
         gapClause: chosenGap ? store.gapClauses[chosenGap.id] ?? '' : '',
         reviewParagraph: mvlrMarkdown(mvlr, store.gapSentence),
+        question: store.question,
+        theory: store.chosenTheory,
+        method: store.chosenMethod,
+        feasibility: computeFeasibility(store.feasibility),
       }),
       'prospectus'
     )

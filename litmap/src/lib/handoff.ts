@@ -16,6 +16,11 @@ import { citeLabel } from '../types/source'
 import { partition } from './sourceState'
 import type { Gap } from './gaps'
 import { gapParagraph } from './gaps'
+import type { QuestionDraft } from './question'
+import { finalQuestion } from './question'
+import type { FeasibilityReport } from './feasibility'
+import { findTheory, theoryUrl } from './theories'
+import { METHODS } from '../types/source'
 
 // ── the prospectus scaffold ───────────────────────────────────────────
 
@@ -28,6 +33,11 @@ export interface ProspectusInput {
   gapClause: string
   /** The four-sentence review, if it has been assembled. */
   reviewParagraph: string
+  /** FIG.6's output, when the student has got that far. */
+  question?: QuestionDraft | null
+  theory?: string
+  method?: string
+  feasibility?: FeasibilityReport | null
 }
 
 const BLANK = '_[write this]_'
@@ -38,6 +48,11 @@ function seenInGap(gap: Gap | null, s: Source): boolean {
 
 export function buildProspectus(input: ProspectusInput): string {
   const { projectTitle, sources, gap, gapClause, reviewParagraph } = input
+  const draft = input.question ?? null
+  const writtenQuestion = draft && draft.focus.trim() ? finalQuestion(draft) : ''
+  const chosenTheory = (input.theory ?? '').trim()
+  const chosenMethod = (input.method ?? '').trim()
+  const feas = input.feasibility ?? null
   const kept = partition(sources).kept
 
   // The sources the gap RESTS ON come first. An earlier version listed only
@@ -81,18 +96,33 @@ export function buildProspectus(input: ProspectusInput): string {
 
   out.push('## 2. Research question or hypothesis')
   out.push('')
-  out.push(BLANK)
-  out.push('')
-  out.push(
-    '> One to three, not five and not ten. A question when you are exploring or describing; ' +
-    'a hypothesis when theory makes a specific prediction. LitMap will not draft this: the ' +
-    'gap below is what it is an answer to, and getting from one to the other is the work.'
-  )
+  if (writtenQuestion) {
+    out.push(writtenQuestion)
+    out.push('')
+    out.push('> Yours, written in FIG.6 and checked against Chapter 6’s five criteria.')
+  } else {
+    out.push(BLANK)
+    out.push('')
+    out.push(
+      '> One to three, not five and not ten. A question when you are exploring or describing; ' +
+      'a hypothesis when theory makes a specific prediction. LitMap will not draft this: the ' +
+      'gap below is what it is an answer to, and getting from one to the other is the work.'
+    )
+  }
   out.push('')
 
   out.push('## 3. Theoretical framework')
   out.push('')
-  if (topTheory) {
+  if (chosenTheory) {
+    const t = findTheory(chosenTheory)
+    out.push(t ? `${t.name}${t.originator ? ` (${t.originator}, ${t.year})` : ''}` : chosenTheory)
+    out.push('')
+    if (t) {
+      out.push(`${t.summary} <${theoryUrl(t.slug)}>`)
+      out.push('')
+    }
+    out.push(`${BLANK} Two to three sentences: what the theory claims, and how it bears on your question.`)
+  } else if (topTheory) {
     out.push(
       `${topTheory[0]} — used by ${topTheory[1]} of the ${kept.length} sources you logged.`
     )
@@ -138,12 +168,17 @@ export function buildProspectus(input: ProspectusInput): string {
 
   out.push('## 5. Method')
   out.push('')
-  out.push(BLANK)
+  if (chosenMethod) {
+    out.push(METHODS.find((m) => m.value === chosenMethod)?.label ?? chosenMethod)
+    out.push('')
+  }
+  if (feas && feas.verdict !== 'empty') {
+    out.push(feas.headline)
+    out.push('')
+  }
+  out.push(`${BLANK} Three to four sentences: the data, the coding or measurement, and the number of cases.`)
   out.push('')
-  out.push(
-    '> Three to four sentences: the data, the coding or measurement, and the number of cases. ' +
-    'If you are heading into a content analysis, MethodoSync picks up from here.'
-  )
+  out.push('> If you are heading into a content analysis, MethodoSync picks up from here.')
   out.push('')
 
   out.push('## 6. Expected contribution')

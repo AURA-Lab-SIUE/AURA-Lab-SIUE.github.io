@@ -62,6 +62,11 @@ export function AppHeader() {
         predictableAbstracts: store.predictableAbstracts,
         chosenGapId: store.chosenGapId,
         gapClauses: store.gapClauses,
+        question: store.question,
+        feasibility: store.feasibility,
+        chosenTheory: store.chosenTheory,
+        access: store.access,
+        chosenMethod: store.chosenMethod,
       },
       store.passthrough
     )
@@ -72,7 +77,7 @@ export function AppHeader() {
     setError('')
     try {
       const p = parseProject(await file.text())
-      const lit = p.literature!
+      const lit = p.literature
       store.loadProject({
         projectTitle: lit.projectTitle,
         topic: lit.topic,
@@ -83,6 +88,11 @@ export function AppHeader() {
         predictableAbstracts: lit.predictableAbstracts,
         chosenGapId: lit.chosenGapId ?? null,
         gapClauses: lit.gapClauses ?? {},
+        question: lit.question,
+        feasibility: lit.feasibility,
+        chosenTheory: lit.chosenTheory,
+        access: lit.access,
+        chosenMethod: lit.chosenMethod,
         passthrough: {
           videoUrl: p.videoUrl,
           videoId: p.videoId,
@@ -162,6 +172,7 @@ const STAGES: { id: Stage; fig: string; label: string }[] = [
   { id: 3, fig: 'FIG.3', label: 'Saturation and first review' },
   { id: 4, fig: 'FIG.4', label: 'The gap' },
   { id: 5, fig: 'FIG.5', label: 'Synthesis and handoff' },
+  { id: 6, fig: 'FIG.6', label: 'From gap to question' },
 ]
 
 export function StageNav() {

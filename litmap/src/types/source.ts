@@ -146,6 +146,11 @@ export interface ProjectFile {
     predictableAbstracts: boolean
     chosenGapId?: string | null
     gapClauses?: Record<string, string>
+    question?: unknown
+    feasibility?: unknown
+    chosenTheory?: string
+    access?: string[]
+    chosenMethod?: string
   }
   /** MethodoSync's sections, passed through untouched. */
   videoUrl?: string

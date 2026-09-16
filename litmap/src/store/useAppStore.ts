@@ -5,8 +5,11 @@ import type { ImportedRef } from '../lib/bibImport'
 import type { PassthroughSections } from '../lib/projectIO'
 import { newId } from '../utils/id'
 import { seedCodebookFromConstructs, type CodebookRow } from '../lib/handoff'
+import { EMPTY_DRAFT, type QuestionDraft } from '../lib/question'
+import { DEFAULT_FEASIBILITY, type FeasibilityInput } from '../lib/feasibility'
+import type { Access } from '../lib/methodFit'
 
-export type Stage = 1 | 2 | 3 | 4 | 5
+export type Stage = 1 | 2 | 3 | 4 | 5 | 6
 
 interface AppState {
   stage: Stage
@@ -21,6 +24,13 @@ interface AppState {
   chosenGapId: string | null
   /** Their own "what this study does about it" clause, per gap. */
   gapClauses: Record<string, string>
+  /** FIG.6: the design. */
+  question: QuestionDraft
+  feasibility: FeasibilityInput
+  /** Theory slug from the explorer's dataset, or free text they typed. */
+  chosenTheory: string
+  access: Access[]
+  chosenMethod: string
   /** MethodoSync's half of the project file, held so a round trip cannot eat it. */
   passthrough: PassthroughSections
   /** Source currently open in the form; null means the form is closed. */
@@ -47,6 +57,11 @@ interface AppState {
   setPredictable: (v: boolean) => void
   chooseGap: (id: string | null) => void
   setGapClause: (id: string, v: string) => void
+  patchQuestion: (patch: Partial<QuestionDraft>) => void
+  patchFeasibility: (patch: Partial<FeasibilityInput>) => void
+  setChosenTheory: (v: string) => void
+  toggleAccess: (v: Access) => void
+  setChosenMethod: (v: string) => void
   handOffToMethodoSync: () => number
 
   announce: (msg: string) => void
@@ -60,6 +75,11 @@ interface AppState {
     predictableAbstracts: boolean
     chosenGapId: string | null
     gapClauses: Record<string, string>
+    question: QuestionDraft
+    feasibility: FeasibilityInput
+    chosenTheory: string
+    access: Access[]
+    chosenMethod: string
     passthrough: PassthroughSections
   }) => void
   resetProject: () => void
@@ -78,6 +98,11 @@ const partializeForTypes = (s: AppState) => ({
   predictableAbstracts: s.predictableAbstracts,
   chosenGapId: s.chosenGapId,
   gapClauses: s.gapClauses,
+  question: s.question,
+  feasibility: s.feasibility,
+  chosenTheory: s.chosenTheory,
+  access: s.access,
+  chosenMethod: s.chosenMethod,
   passthrough: s.passthrough,
 })
 
@@ -121,6 +146,11 @@ const EMPTY = {
   predictableAbstracts: false,
   chosenGapId: null as string | null,
   gapClauses: {} as Record<string, string>,
+  question: EMPTY_DRAFT,
+  feasibility: DEFAULT_FEASIBILITY,
+  chosenTheory: '',
+  access: [] as Access[],
+  chosenMethod: '',
   passthrough: {} as PassthroughSections,
   editingId: null as string | null,
   announcement: '',
@@ -214,6 +244,14 @@ export const useAppStore = create<AppState>()(
       setPredictable: (predictableAbstracts) => set({ predictableAbstracts }),
 
       chooseGap: (chosenGapId) => set({ chosenGapId }),
+      patchQuestion: (patch) => set((st) => ({ question: { ...st.question, ...patch } })),
+      patchFeasibility: (patch) => set((st) => ({ feasibility: { ...st.feasibility, ...patch } })),
+      setChosenTheory: (chosenTheory) => set({ chosenTheory }),
+      toggleAccess: (v) =>
+        set((st) => ({
+          access: st.access.includes(v) ? st.access.filter((a) => a !== v) : [...st.access, v],
+        })),
+      setChosenMethod: (chosenMethod) => set({ chosenMethod }),
       setGapClause: (id, v) =>
         set((st) => ({ gapClauses: { ...st.gapClauses, [id]: v } })),
 
