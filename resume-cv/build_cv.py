@@ -31,7 +31,7 @@ MARKED = re.compile(
 )
 
 PANDOC = [
-    "pandoc", "-o", None, "--pdf-engine=xelatex",
+    "pandoc", "-f", "markdown+autolink_bare_uris", "-o", None, "--pdf-engine=xelatex",
     "--include-in-header=cv-header.tex",
     "-V", "geometry:margin=0.75in",
     "-V", "fontsize=10.5pt",

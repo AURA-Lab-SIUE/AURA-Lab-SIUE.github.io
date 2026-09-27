@@ -110,11 +110,13 @@ Beyea, D., Foxman, M., Ratan, R., Klebig, B., Leith, A. P., & Chen, V. H. H. (20
 
 **NSF FW-HTF-R Collaborative Research**, Co-PI. *Virtual Meeting Support for Enhanced Well-Being and Equity for Game Developers.* $1,599,851 (SIUE subaward $70,458); 2021–2025. Cross-institutional partnership with Michigan State, University of Oregon, and industry collaborators in the games and virtual-environment sector.
 
+<!-- INTERNAL-ONLY-START -->
 ### External Funding (Under Review)
 
 **Spencer Foundation Racial Equity Research Grant**, PI. *At the Margins of Two Systems: Paraprofessionals, AI Tools, and Multilingual Neurodiverse Learners in K-5 Classrooms.* $74,911 (direct costs, no indirect); 01/2027 – 12/2028; SIUE. Submitted 2026-07-01.
 
-<!-- INTERNAL-ONLY-START -->
+**Spencer Foundation Vision Grant**, PI (with L. Marianno, Co-PI). *Who Gets Told: Institutional Communication of Artificial Intelligence and the Distribution of Educational Opportunity.* $75,000 (direct costs, no indirect); 05/2027 – 10/2028; SIUE. Submitted 2026-09-16.
+
 ### External Funding (Submitted, Not Awarded)
 
 **NSF FINDERS FOUNDRY (NSF 26-507)**, Planning Grant, PI. *Co-Designing AI Learning Supports with K-5 Paraprofessionals for Students Who Receive IEP Services.* $50,000; SIUE. Submitted 2026-05-27; declined 2026-08-10.
@@ -201,11 +203,13 @@ Cross-unit mentoring at SIUE spanning Mass Communications, Applied Communication
 
 ---
 
+<!-- INTERNAL-ONLY-START -->
 ## Intellectual Contributions in Submission (Under Review)
 
 Leith, A. P. Asymmetric Ties: A Convergence Model of Parasocial and Interpersonal Relationships in Platformed Media. *Mass Communication & Society.* Submitted 2026-07-29.
 
 Leith, A. P. When Watching Isn't Enough: Viewer Agency and the Convergent Expansion of Gamespace in Gameplay Livestreaming. *Convergence: The International Journal of Research into New Media Technologies.*
+<!-- INTERNAL-ONLY-END -->
 
 ---
 
