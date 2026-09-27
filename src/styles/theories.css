@@ -1083,3 +1083,52 @@ html.t-modal-open .net-canvas {
   .theories-skin .t-modal-panel { animation: none; }
   html.t-modal-open .net-canvas { transition: none; }
 }
+
+/* =========================================================================
+   MOBILE LAYOUT (added 2026-09-27)
+   This stylesheet had exactly two layout media queries, both min-width:880px,
+   so below 880px the DESKTOP base styles applied unchanged. Measured on the
+   live site at a 500px viewport:
+     1. The desktop design OVERLAYS two absolutely-positioned blocks on the map:
+        .t-sky-masthead (kicker + h1 + dek + progress) at top:0, and
+        .net-controls (search + zoom) at top-right. There is width for that at
+        880px+. On a phone they land on top of each other and on the heading.
+        Both must rejoin normal flow, not just one - making only .net-controls
+        static drops it UNDER the masthead overlay and changes nothing.
+     2. touch-action:none on a 560px-tall element meant a swipe starting on the
+        map could not scroll the PAGE, so the text index below was unreachable.
+     3. Controls were 30px tall, under the 44px WCAG 2.5.5 target minimum.
+   ========================================================================= */
+@media (max-width: 879px) {
+  /* Stack: heading, then controls, then the map. The section can no longer be
+     a fixed-height stage, so the canvas takes an explicit height of its own. */
+  .theories-skin .t-constellation {
+    height: auto;
+    overflow: visible;
+    touch-action: pan-y pinch-zoom;   /* vertical gestures belong to the PAGE */
+  }
+  .theories-skin .t-sky-masthead {
+    position: static;
+    padding: 26px 16px 6px;
+    background: none;                 /* the scrim only exists to sit over the map */
+    pointer-events: auto;
+  }
+  .theories-skin .net-controls {
+    position: static;
+    max-width: none;
+    justify-content: flex-start;
+    margin: 0 0 14px;
+    padding: 0 16px;
+  }
+  .theories-skin .net-search { flex: 1 1 100%; }
+  .theories-skin .net-search input { min-width: 0; width: 100%; }
+  .theories-skin .net-canvas {
+    height: clamp(320px, 46vh, 520px);
+    background-color: var(--net-ground);
+  }
+
+  /* 44px targets (WCAG 2.5.5). */
+  .theories-skin .net-btn { min-height: 44px; min-width: 44px; }
+  .theories-skin .t-list-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .theories-skin .t-list-head { padding-top: 8px; }
+}
