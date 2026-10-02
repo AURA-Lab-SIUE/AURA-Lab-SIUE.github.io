@@ -6,6 +6,10 @@ const root = process.cwd();
 const dist = path.join(root, 'dist');
 
 const items = [
+  // Codebook Check: a plain static page, no build step. Listed here for the same
+  // reason sample-portfolios had to be - a directory at the repo root does not
+  // reach dist/ unless this list carries it, and the failure is a silent 404.
+  'codebook-check',
   'methodosync',
   // LitMap: the literature-review stage upstream of MethodoSync. Same
   // pre-built-and-committed pattern - npm run build writes index.html and

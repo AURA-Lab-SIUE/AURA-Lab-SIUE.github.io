@@ -43,6 +43,12 @@ entries:
     language: "Web"
     group: "apps"
     seeAlso: { label: "MethodoSync \u2197", href: "https://aura-lab.siue.edu/methodosync/" }
+  - name: "Codebook Check"
+    blurb: "Paste a content-analysis codebook and see what the assignment asks for that the draft does not have yet: a stated unit of analysis, both definitions, a level of measurement, a catch-all category, numbered decision rules, and worked examples. Runs in the browser; nothing is uploaded."
+    href: "https://aura-lab.siue.edu/codebook-check/"
+    language: "Web"
+    group: "apps"
+    seeAlso: { label: "MethodoSync ↗", href: "https://aura-lab.siue.edu/methodosync/" }
   - name: "MethodoSync"
     blurb: "Qualitative to quantitative coding: turn an open-coding pass into a codebook and a coded dataset, in the browser."
     href: "https://aura-lab.siue.edu/methodosync/"
