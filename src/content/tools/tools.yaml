@@ -43,6 +43,12 @@ entries:
     language: "Web"
     group: "apps"
     seeAlso: { label: "MethodoSync \u2197", href: "https://aura-lab.siue.edu/methodosync/" }
+  - name: "Agreement Check"
+    blurb: "Paste two columns of codes and get percent agreement, Cohen's kappa and Krippendorff's alpha, a confusion matrix, and the list of units the coders split on. Works for two coders, for one coder at two times, and for a human column against a model column. Runs in the browser; nothing is uploaded."
+    href: "https://aura-lab.siue.edu/agreement-check/"
+    language: "Web"
+    group: "apps"
+    seeAlso: { label: "Codebook Check ↗", href: "https://aura-lab.siue.edu/codebook-check/" }
   - name: "Codebook Check"
     blurb: "Paste a content-analysis codebook and see what the assignment asks for that the draft does not have yet: a stated unit of analysis, both definitions, a level of measurement, a catch-all category, numbered decision rules, and worked examples. Runs in the browser; nothing is uploaded."
     href: "https://aura-lab.siue.edu/codebook-check/"

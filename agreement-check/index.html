@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agreement Check — AURA Lab</title>
+<meta name="description" content="Browser tool that computes percent agreement, Cohen's kappa and Krippendorff's alpha from two columns of codes, and lists the units the coders disagree on. Runs entirely on your machine; nothing is uploaded.">
+<meta name="theme-color" content="#f6f3ec">
+<link rel="canonical" href="https://aura-lab.siue.edu/agreement-check/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/tool-theme.js"></script>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="wrap">
+  <p class="eyebrow">AURA Lab @ SIUE</p>
+  <h1>Agreement Check</h1>
+  <p class="lede">Paste a spreadsheet with two columns of codes and this page reports percent
+  agreement, Cohen&rsquo;s kappa and Krippendorff&rsquo;s alpha, then lists the units the two
+  columns split on. The statistic is the easy part. The list is the work.</p>
+  <p class="privacy"><strong>Nothing is uploaded.</strong> The arithmetic runs in this page, on
+  your machine. No account, no server, no network request once the page has loaded.</p>
+</header>
+
+<main id="main" class="wrap">
+  <section>
+    <h2 class="sr-only">Your coded data</h2>
+    <label class="lbl" for="src">Your coded data, with a header row (CSV, TSV, or pasted straight
+    out of a spreadsheet)</label>
+    <textarea id="src" rows="12" spellcheck="false"
+      placeholder="id,coder_a,coder_b&#10;msg_001,streamer,streamer&#10;msg_002,other viewer,streamer"></textarea>
+    <div class="row">
+      <label class="btn" for="file">Choose a file
+        <input id="file" type="file" accept=".csv,.tsv,.txt,text/csv,text/plain">
+      </label>
+      <button id="clear" type="button" class="btn ghost">Clear</button>
+    </div>
+  </section>
+
+  <section id="pick" hidden>
+    <h2 class="sr-only">Which columns to compare</h2>
+    <div class="grid">
+      <div><label class="lbl" for="col-id">Unit identifier</label>
+        <select id="col-id"></select></div>
+      <div><label class="lbl" for="col-a">First set of codes</label>
+        <select id="col-a"></select></div>
+      <div><label class="lbl" for="col-b">Second set of codes</label>
+        <select id="col-b"></select></div>
+      <div><label class="lbl" for="mode">What the two sets are</label>
+        <select id="mode">
+          <option value="two-coders">Two coders, same units (intercoder reliability)</option>
+          <option value="stability">One coder, two passes (intracoder stability)</option>
+        </select></div>
+    </div>
+  </section>
+
+  <section aria-live="polite">
+    <h2 class="sr-only">Results</h2>
+    <p id="summary" class="summary"></p>
+    <div id="results"></div>
+  </section>
+
+  <section class="what">
+    <h2>What the numbers mean</h2>
+    <ul>
+      <li><strong>Percent agreement</strong> is how often the two columns match. It takes no
+      account of the matches two coders would hit by guessing, so it always flatters.</li>
+      <li><strong>Cohen&rsquo;s kappa</strong> corrects for that chance agreement. Report it at
+      0.70 or above (Landis &amp; Koch, 1977); below it, revise and code a fresh sample.</li>
+      <li><strong>Krippendorff&rsquo;s alpha</strong> is reported alongside kappa because a
+      single statistic can mislead on skewed data (Lombard et al., 2002). This page computes the
+      nominal form.</li>
+      <li><strong>Agreement expected by chance</strong> is the honest warning label. When one
+      category covers nearly every unit, kappa falls even though the coders rarely differ, so
+      report the base rates with it.</li>
+      <li>A <strong>fresh</strong> reliability sample is what gets reported. Agreement measured on
+      the training set the coders already discussed is not reliability.</li>
+    </ul>
+    <p class="note">Serves the Codebook and Coding assignments in MC 451 and MC 501, and the
+    manual-against-model comparison in MC 427. Works on any two columns, including a human column
+    against a model column.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p><a href="/tools/">AURA Lab tools</a> · <a href="https://aura-lab.siue.edu/codebook-check/">Codebook Check</a> · <a href="https://aura-lab.siue.edu/v2v-hub/">V2V Hub</a></p>
+</footer>
+<script src="./agreement.js"></script>
+</body>
+</html>

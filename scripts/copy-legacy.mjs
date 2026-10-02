@@ -10,6 +10,8 @@ const items = [
   // reason sample-portfolios had to be - a directory at the repo root does not
   // reach dist/ unless this list carries it, and the failure is a silent 404.
   'codebook-check',
+  // Agreement Check: same plain static pattern as codebook-check.
+  'agreement-check',
   'methodosync',
   // LitMap: the literature-review stage upstream of MethodoSync. Same
   // pre-built-and-committed pattern - npm run build writes index.html and
