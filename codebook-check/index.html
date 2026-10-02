@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codebook Check — AURA Lab</title>
+<meta name="description" content="Browser tool that checks a content-analysis codebook for the structure the assignment requires. Runs entirely on your machine; nothing is uploaded.">
+<meta name="theme-color" content="#f6f3ec">
+<link rel="canonical" href="https://aura-lab.siue.edu/codebook-check/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/tool-theme.js"></script>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="wrap">
+  <p class="eyebrow">AURA Lab @ SIUE</p>
+  <h1>Codebook Check</h1>
+  <p class="lede">Paste your codebook and this page tells you what the assignment asks for that
+  your draft does not have yet. It checks structure. It cannot tell you whether a definition is a
+  good definition, and it does not grade.</p>
+  <p class="privacy"><strong>Nothing is uploaded.</strong> The check runs in this page, on your
+  machine. No account, no server, no network request once the page has loaded.</p>
+</header>
+
+<main id="main" class="wrap">
+  <section>
+    <h2 class="sr-only">Your codebook</h2>
+    <label class="lbl" for="src">Your codebook, in Markdown</label>
+    <textarea id="src" rows="14" spellcheck="false"
+      placeholder="Paste the contents of codebook.md here, or choose the file below."></textarea>
+    <div class="row">
+      <label class="btn" for="file">Choose a file
+        <input id="file" type="file" accept=".md,.markdown,.txt,text/plain,text/markdown">
+      </label>
+      <button id="clear" type="button" class="btn ghost">Clear</button>
+    </div>
+  </section>
+
+  <section aria-live="polite">
+    <h2 class="sr-only">Results</h2>
+    <p id="summary" class="summary"></p>
+    <div id="results"></div>
+  </section>
+
+  <section class="what">
+    <h2>What it checks</h2>
+    <ul>
+      <li>A unit of analysis stated once, and not left as the template placeholder</li>
+      <li>At least three variables, each with a conceptual and an operational definition</li>
+      <li>A level of measurement on every variable, and one of the four valid values</li>
+      <li>At least two substantive categories plus a catch-all, so the scheme is exhaustive</li>
+      <li>A description on every category, because a label is not a rule</li>
+      <li>Category pairs that may overlap, which is the failure that destroys reliability</li>
+      <li>Decision rules, and whether there are fewer than one per variable</li>
+      <li>Examples, and which categories have none</li>
+      <li>Template boilerplate and placeholders left in the file</li>
+    </ul>
+    <p class="note">Built for the codebook template in the V2V student workspace. It serves
+    MC 451 and MC 501 Codebook assignments and MC 427 Module 4.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p><a href="/tools/">AURA Lab tools</a> · <a href="https://aura-lab.siue.edu/v2v-hub/">V2V Hub</a></p>
+</footer>
+<script src="./checker.js"></script>
+</body>
+</html>
