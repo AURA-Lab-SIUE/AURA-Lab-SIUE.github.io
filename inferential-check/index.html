@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inferential Check — AURA Lab</title>
+<meta name="description" content="Browser tool that recomputes a chi-square test of independence or an independent-samples t test from your own numbers, with effect size, assumption warnings, and the APA sentence. Runs entirely on your machine; nothing is uploaded.">
+<meta name="theme-color" content="#f6f3ec">
+<link rel="canonical" href="https://aura-lab.siue.edu/inferential-check/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/tool-theme.js"></script>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="wrap">
+  <p class="eyebrow">AURA Lab @ SIUE</p>
+  <h1>Inferential Check</h1>
+  <p class="lede">Put in the numbers you are about to report and this page recomputes the test:
+  the statistic, the degrees of freedom, the p value, the effect size, and the assumptions your
+  data may be breaking. It is a second opinion on your own output, not a replacement for it.</p>
+  <p class="privacy"><strong>Nothing is uploaded.</strong> The arithmetic runs in this page, on
+  your machine. No account, no server, no network request once the page has loaded.</p>
+</header>
+
+<main id="main" class="wrap">
+  <div class="tabs" role="tablist" aria-label="Which test">
+    <button type="button" role="tab" data-panel="crosstab" aria-selected="true"
+      aria-controls="panel-crosstab" id="tab-crosstab">Two categories (chi-square)</button>
+    <button type="button" role="tab" data-panel="raw" aria-selected="false"
+      aria-controls="panel-raw" id="tab-raw" tabindex="-1">Two groups, raw data (t test)</button>
+    <button type="button" role="tab" data-panel="summary" aria-selected="false"
+      aria-controls="panel-summary" id="tab-summary" tabindex="-1">Two groups, means and SDs</button>
+  </div>
+
+  <section id="panel-crosstab" role="tabpanel" aria-labelledby="tab-crosstab">
+    <label class="lbl" for="crosstab">Your crosstab of counts. Labels in the first row and column
+    are optional.</label>
+    <textarea id="crosstab" rows="7" spellcheck="false"
+      placeholder=", positive, negative&#10;streamer, 30, 20&#10;other viewer, 10, 40"></textarea>
+    <p class="note">Counts of cases, never percentages. Chi-square asks whether two categorical
+    variables are related.</p>
+  </section>
+
+  <section id="panel-raw" role="tabpanel" aria-labelledby="tab-raw" hidden>
+    <label class="lbl" for="raw">Two columns: the group in the first, the number in the second.
+    A header row is fine.</label>
+    <textarea id="raw" rows="7" spellcheck="false"
+      placeholder="group, messages&#10;affiliate, 14&#10;affiliate, 9&#10;partner, 31&#10;partner, 27"></textarea>
+    <p class="note">The independent-samples t test asks whether two groups differ on one numeric
+    measure. Exactly two groups.</p>
+  </section>
+
+  <section id="panel-summary" role="tabpanel" aria-labelledby="tab-summary" hidden>
+    <div class="grid">
+      <div><label class="lbl" for="name1">Group 1 name</label>
+        <input id="name1" type="text" placeholder="Group 1"></div>
+      <div><label class="lbl" for="n1">Group 1 n</label><input id="n1" type="number" min="2" step="1"></div>
+      <div><label class="lbl" for="m1">Group 1 mean</label><input id="m1" type="number" step="any"></div>
+      <div><label class="lbl" for="s1">Group 1 SD</label><input id="s1" type="number" min="0" step="any"></div>
+      <div><label class="lbl" for="name2">Group 2 name</label>
+        <input id="name2" type="text" placeholder="Group 2"></div>
+      <div><label class="lbl" for="n2">Group 2 n</label><input id="n2" type="number" min="2" step="1"></div>
+      <div><label class="lbl" for="m2">Group 2 mean</label><input id="m2" type="number" step="any"></div>
+      <div><label class="lbl" for="s2">Group 2 SD</label><input id="s2" type="number" min="0" step="any"></div>
+    </div>
+    <p class="note">Use this to check a result a classmate, a textbook, or a published article
+    reports, when you have the summary statistics but not the data.</p>
+  </section>
+
+  <div class="row">
+    <button id="clear" type="button" class="btn ghost">Clear</button>
+  </div>
+
+  <section aria-live="polite">
+    <h2 class="sr-only">Results</h2>
+    <p id="summary" class="summary"></p>
+    <div id="results"></div>
+  </section>
+
+  <section class="what">
+    <h2>What this page will and will not tell you</h2>
+    <ul>
+      <li>It recomputes the test and the effect size, so a transcription slip between your output
+      and your write-up shows up here.</li>
+      <li>It flags the assumption problems that actually sink these two tests: expected counts
+      under 5, a table too small for the approximation, variances far apart, a group too small to
+      lean on normality.</li>
+      <li>It reports the effect size next to p, because a significant trivial difference and a
+      non-significant large one are both easy to write up wrongly.</li>
+      <li>It cannot tell you whether the test is the right test, whether your cases are
+      independent, or whether the variable means what you say it means. Those come from the
+      design, and they are what the codebook and the prospectus were for.</li>
+      <li>The t test shown is Welch&rsquo;s, which does not assume equal variances and is the
+      better default. Say in your write-up that you used it.</li>
+    </ul>
+    <p class="note">Serves the analysis stage in MC 451 and MC 501, and Module 6 in MC 427.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p><a href="/tools/">AURA Lab tools</a> · <a href="https://aura-lab.siue.edu/agreement-check/">Agreement Check</a> · <a href="https://aura-lab.siue.edu/codebook-check/">Codebook Check</a></p>
+</footer>
+<script src="./stats.js"></script>
+<script src="./ui.js"></script>
+</body>
+</html>
