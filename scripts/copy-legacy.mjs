@@ -13,6 +13,7 @@ const items = [
   // Agreement Check: same plain static pattern as codebook-check.
   'agreement-check',
   'inferential-check',
+  'sampling-check',
   'methodosync',
   // LitMap: the literature-review stage upstream of MethodoSync. Same
   // pre-built-and-committed pattern - npm run build writes index.html and

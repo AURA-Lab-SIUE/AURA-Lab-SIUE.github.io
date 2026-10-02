@@ -43,6 +43,12 @@ entries:
     language: "Web"
     group: "apps"
     seeAlso: { label: "MethodoSync \u2197", href: "https://aura-lab.siue.edu/methodosync/" }
+  - name: "Sampling Check"
+    blurb: "Three answers a sampling plan needs: how many units your own coding rate and hours actually support, how large the fresh reliability sample has to be once a rare category is accounted for, and the smallest effect a sample that size could detect. Runs in the browser; nothing is uploaded."
+    href: "https://aura-lab.siue.edu/sampling-check/"
+    language: "Web"
+    group: "apps"
+    seeAlso: { label: "Inferential Check ↗", href: "https://aura-lab.siue.edu/inferential-check/" }
   - name: "Inferential Check"
     blurb: "Recompute a chi-square test of independence or an independent-samples t test from your own numbers: statistic, degrees of freedom, p, effect size, the assumptions your data may be breaking, and the sentence to check your write-up against. Runs in the browser; nothing is uploaded."
     href: "https://aura-lab.siue.edu/inferential-check/"

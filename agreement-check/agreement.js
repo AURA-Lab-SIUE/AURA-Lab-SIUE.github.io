@@ -283,7 +283,7 @@ if (typeof document !== 'undefined') {
         h += '<h2 class="g">Take these to the discussion</h2><ul class="findings">';
         r.disagreements.forEach(function (d) {
           h += '<li class="warn"><span class="where">' + esc(d.label) + ' &middot; ' + d.count +
-               '</span>units ' + esc(d.ids.join(', ')) +
+               '</span> units ' + esc(d.ids.join(', ')) +
                (d.count > d.ids.length ? ' and ' + (d.count - d.ids.length) + ' more' : '') + '</li>';
         });
         h += '</ul>';

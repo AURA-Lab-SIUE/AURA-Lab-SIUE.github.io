@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sampling Check — AURA Lab</title>
+<meta name="description" content="Browser tool that turns your own coding rate into a defensible corpus size, sizes the reliability sample, and reports the smallest effect your sample could detect. Runs entirely on your machine; nothing is uploaded.">
+<meta name="theme-color" content="#f6f3ec">
+<link rel="canonical" href="https://aura-lab.siue.edu/sampling-check/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/tool-theme.js"></script>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="wrap">
+  <p class="eyebrow">AURA Lab @ SIUE</p>
+  <h1>Sampling Check</h1>
+  <p class="lede">A sampling plan has to survive three questions: how much you can actually code
+  in the hours you have, how many units the reliability sample needs, and how large a difference
+  a sample that size could even detect. This page answers all three from your own numbers.</p>
+  <p class="privacy"><strong>Nothing is uploaded.</strong> The arithmetic runs in this page, on
+  your machine. No account, no server, no network request once the page has loaded.</p>
+</header>
+
+<main id="main" class="wrap">
+  <section>
+    <h2>1. What your time budget buys</h2>
+    <div class="grid">
+      <div><label class="lbl" for="secondsPerUnit">Seconds to code one unit on one variable</label>
+        <input id="secondsPerUnit" type="number" min="1" step="1" value="20"></div>
+      <div><label class="lbl" for="variables">Variables in the codebook</label>
+        <input id="variables" type="number" min="1" step="1" value="3"></div>
+      <div><label class="lbl" for="hours">Hours you have for coding</label>
+        <input id="hours" type="number" min="0.5" step="0.5" value="10"></div>
+      <div><label class="lbl" for="coders">Coders</label>
+        <input id="coders" type="number" min="1" step="1" value="1"></div>
+    </div>
+    <div id="out-time" class="panel-out"></div>
+    <p class="note">Time yourself on twenty real units before trusting the first box. A guess
+    there is a guess everywhere downstream.</p>
+  </section>
+
+  <section>
+    <h2>2. How big the reliability sample has to be</h2>
+    <div class="grid">
+      <div><label class="lbl" for="corpus">Units in your corpus</label>
+        <input id="corpus" type="number" min="1" step="1" value="500"></div>
+      <div><label class="lbl" for="rarest">Expected share of your rarest category, in percent</label>
+        <input id="rarest" type="number" min="0" max="100" step="0.5" value="10"></div>
+    </div>
+    <div id="out-rel" class="panel-out"></div>
+  </section>
+
+  <section>
+    <h2>3. The smallest effect this sample could detect</h2>
+    <div class="grid">
+      <div><label class="lbl" for="n">Units you will analyze</label>
+        <input id="n" type="number" min="4" step="1" value="500"></div>
+      <div><label class="lbl" for="df">Degrees of freedom for the crosstab</label>
+        <select id="df">
+          <option value="1">1 (a 2 by 2 table)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6 or more</option>
+        </select></div>
+      <div><label class="lbl" for="alpha">Alpha</label>
+        <select id="alpha"><option value="0.05">.05</option><option value="0.01">.01</option></select></div>
+      <div><label class="lbl" for="power">Power</label>
+        <select id="power"><option value="0.8">.80</option><option value="0.9">.90</option></select></div>
+    </div>
+    <div id="out-power" class="panel-out"></div>
+  </section>
+
+  <section class="what">
+    <h2>How these numbers are produced</h2>
+    <ul>
+      <li>The time estimate charges full price for the first variable and 60 percent for each one
+      after it, because the coder reads the unit once, then holds back a fifth of the total for
+      the second reliability pass and the disagreement discussion. Both assumptions are stated so
+      you can argue with them in your methods section.</li>
+      <li>The reliability sample is the larger of 50 units, 10 percent of the corpus capped at
+      300, and whatever it takes for your rarest category to appear about ten times. The rare
+      category is usually what drives it, and it is the part students miss.</li>
+      <li>The detectable effect uses the normal approximation for a two-group comparison and the
+      noncentral chi-square for the crosstab. It is a planning figure, accurate enough to tell you
+      whether a sample is in the right order of magnitude.</li>
+      <li>Decide all of this before you look at the data. A sample size chosen after a result is
+      not a sampling plan.</li>
+    </ul>
+    <p class="note">Serves the Sampling Plan and Pilot assignment in MC 451 and MC 501, and the
+    sampling module in MC 427.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p><a href="/tools/">AURA Lab tools</a> · <a href="https://aura-lab.siue.edu/codebook-check/">Codebook Check</a> · <a href="https://aura-lab.siue.edu/agreement-check/">Agreement Check</a> · <a href="https://aura-lab.siue.edu/inferential-check/">Inferential Check</a></p>
+</footer>
+<script src="./sampling.js"></script>
+<script src="./ui.js"></script>
+</body>
+</html>
