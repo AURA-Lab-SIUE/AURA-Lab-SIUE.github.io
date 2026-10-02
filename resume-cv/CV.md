@@ -275,6 +275,10 @@ Lim, C., Beyea, D., Leith, A. P., Foxman, M., Klebig, B., & Ratan, R. (2025, Jan
 
 Milik, O., Jang, D., Foxman, M., Klebig, B., Beyea, D., Leith, A. P., & Ratan, R. (2024, November). Focusing on virtual groups: A method for focus group interviews in XR/VR group settings. *AoIR Selected Papers of Internet Research, 2024.*
 
+Milik, O., Foxman, M., Jang, D., Lin, Q., Waier, J., Zheng, A., Bouzek, D., Klebig, B., Leith, A. P., Beyea, D., & Ratan, R. A. (2024, October). Beyond Meet Space: Running a focus group study in VR. *Proceedings of Meaningful Play 2024.* Pittsburgh, PA.
+
+Key, L., Saqib, B., McDonald, W., Zheng, A., Lerner, K., Lover, A., Winn, B., Leith, A. P., Foxman, M., & Ratan, R. A. (2024, October). Designing a nondisruptive game mechanic for meetings in virtual reality. *Proceedings of Meaningful Play 2024.* Pittsburgh, PA.
+
 Foxman, M., Bouzek, D., Lim, C., Ratan, R., Klebig, B., Leith, A. P., & Beyea, D. (2024, July). Making a virtual playground: Values-based game design in meeting platforms. *DiGRA 2024 Conference: Playgrounds.*
 
 Lim, C., Foxman, M., Leith, A. P., Meshi, D., & Ratan, R. (2024, July). Wanting playfulness to counter fatigue from virtual meetings. *DiGRA 2024 Conference: Playgrounds.*
