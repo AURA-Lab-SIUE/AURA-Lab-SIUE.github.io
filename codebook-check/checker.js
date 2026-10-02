@@ -8,7 +8,16 @@ var NL = String.fromCharCode(10);
 var BOLDCOLON = /^[*:\s]+/;
 var LEVELS = ['nominal', 'ordinal', 'interval', 'ratio'];
 var PLACEHOLDER = /<[^<>\n]{1,60}>/;
-var CATCHALL = /unclassifiable|uncodable|other|none of the above|not applicable/i;
+// A catch-all is recognised from the WHOLE label, not a substring: an
+// unanchored /other/ matched "other viewer", which is a substantive category,
+// and the variable then read as having only one real category.
+var CATCHALL_HEAD = /^(unclassifiable|uncodable|unclear|cannot tell|undetermined|none of the above|not applicable|n\/a)\b/i;
+var CATCHALL_EXACT = ['other', 'others', 'none', 'other or none', 'other / none'];
+function isCatchAll(label) {
+  var s = String(label || '').trim().toLowerCase().replace(/^[*_`]+|[*_`.]+$/g, '');
+  if (CATCHALL_EXACT.indexOf(s) !== -1) return true;
+  return CATCHALL_HEAD.test(s);
+}
 var STOP = ['that','this','with','from','what','when','does','their','they',
             'counts','none','above','criteria','settle','question'];
 
@@ -92,7 +101,7 @@ function overlapPairs(cats) {
   for (var i = 0; i < cats.length; i++) {
     for (var j = i + 1; j < cats.length; j++) {
       var a = cats[i], b = cats[j];
-      if (CATCHALL.test(a.label) || CATCHALL.test(b.label)) continue;
+      if (isCatchAll(a.label) || isCatchAll(b.label)) continue;
       var la = wordSet(a.label), lb = wordSet(b.label);
       var subset = la.length && lb.length &&
         (la.every(function (w) { return lb.indexOf(w) !== -1; }) ||
@@ -137,17 +146,22 @@ function check(md) {
     if (isEmptyish(v.operational)) add('fail', who, 'No operational definition. This is what the coder actually does to produce a value.');
     var lv = String(v.level || '').toLowerCase();
     if (isEmptyish(v.level)) add('fail', who, 'No level of measurement declared.');
-    else if (!LEVELS.some(function (L) { return lv.indexOf(L) !== -1; }))
-      add('fail', who, 'Level of measurement reads: ' + v.level + '. It has to be nominal, ordinal, interval or ratio.');
+    else {
+      var named = LEVELS.filter(function (L) { return lv.indexOf(L) !== -1; });
+      if (named.length === 0)
+        add('fail', who, 'Level of measurement reads: ' + v.level + '. It has to be nominal, ordinal, interval or ratio.');
+      else if (named.length > 1)
+        add('fail', who, 'Level of measurement still lists ' + named.length + ' options (' + named.join(', ') + '). Pick the one that describes this variable.');
+    }
     if (isEmptyish(v.manifest)) add('warn', who, 'Manifest or latent is not stated. It decides how much judgment the coder is being asked for.');
 
-    var real = v.categories.filter(function (c) { return !CATCHALL.test(c.label); });
+    var real = v.categories.filter(function (c) { return !isCatchAll(c.label); });
     if (v.categories.length === 0) add('fail', who, 'No category table.');
     else {
       if (real.length < 2) add('fail', who, 'Fewer than two substantive categories.');
-      if (!v.categories.some(function (c) { return CATCHALL.test(c.label); }))
+      if (!v.categories.some(function (c) { return isCatchAll(c.label); }))
         add('fail', who, 'No catch-all category. Without one the scheme is not exhaustive, so some case cannot be coded.');
-      var nodesc = v.categories.filter(function (c) { return !CATCHALL.test(c.label) && isEmptyish(c.desc); });
+      var nodesc = v.categories.filter(function (c) { return !isCatchAll(c.label) && isEmptyish(c.desc); });
       if (nodesc.length)
         add('fail', who, nodesc.length + ' category rows have no description: ' +
             nodesc.map(function (c) { return c.label; }).join(', ') + '. A label is not a rule.');
@@ -175,7 +189,7 @@ function check(md) {
   else {
     var allCats = [], covered = {};
     vars.forEach(function (v) {
-      v.categories.forEach(function (c) { if (!CATCHALL.test(c.label)) allCats.push(c.label.toLowerCase()); });
+      v.categories.forEach(function (c) { if (!isCatchAll(c.label)) allCats.push(c.label.toLowerCase()); });
     });
     exRows.forEach(function (r) { covered[String(r[2] || '').toLowerCase().trim()] = 1; });
     var missing = allCats.filter(function (c, k) { return c && !covered[c] && allCats.indexOf(c) === k; });
