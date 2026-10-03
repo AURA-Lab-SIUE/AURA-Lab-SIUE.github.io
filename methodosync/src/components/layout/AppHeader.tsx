@@ -39,7 +39,7 @@ export function AppHeader() {
             <span className="font-display text-[1.15rem] font-extrabold tracking-tight text-ink">
               AURA&nbsp;Lab
             </span>
-            <span className="hidden font-sans text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-ink-soft sm:inline">
+            <span className="hidden font-sans text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-ink-soft sm:inline">
               SIUE&nbsp;·&nbsp;Mass&nbsp;Communications
             </span>
           </a>

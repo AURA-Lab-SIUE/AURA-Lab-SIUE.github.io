@@ -127,14 +127,14 @@ export const VideoPane = forwardRef<VideoPaneHandle, VideoPaneProps>(
 
         <div
           className="relative w-full overflow-hidden"
-          style={{ aspectRatio: '16/9', background: 'var(--ink)', borderRadius: 'var(--radius-card)', border: '1px solid var(--line)' }}
+          style={{ aspectRatio: '16/9', background: '#1e1b18', borderRadius: 'var(--radius-card)', border: '1px solid var(--line)' }}
         >
           {!videoId && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
               <div className="flex h-14 w-14 items-center justify-center rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
                 <Play size={24} style={{ color: 'rgba(255,255,255,0.5)' }} aria-hidden="true" />
               </div>
-              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
+              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.72)' }}>
                 Load a YouTube video to begin coding
               </p>
             </div>

@@ -73,7 +73,7 @@ export function TokenInput({ tags, onChange, inputValue, onInputChange, id }: To
         onBlur={() => { if (inputValue.trim()) commitTag(inputValue) }}
         placeholder={tags.length === 0 ? 'Type a code, press Enter or comma…' : ''}
         aria-describedby="token-hint"
-        className="min-w-[140px] flex-1 bg-transparent py-0.5 font-mono text-sm outline-none"
+        className="token-input min-w-[140px] flex-1 bg-transparent py-0.5 font-mono text-sm outline-none"
         style={{ color: 'var(--ink)' }}
       />
       <p id="token-hint" className="sr-only">

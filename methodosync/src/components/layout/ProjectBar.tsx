@@ -67,6 +67,7 @@ export function ProjectBar() {
             ref={fileInput}
             type="file"
             accept=".json,application/json"
+            aria-label="Open a saved project file"
             className="sr-only"
             onChange={(e) => {
               const f = e.target.files?.[0]

@@ -168,7 +168,7 @@ export function CodebookRowCard({ row, index }: { row: CodebookRow; index: numbe
               target="_blank"
               rel="noreferrer"
               className="link-underline font-mono text-xs"
-              style={{ color: 'var(--brick)' }}
+              style={{ color: 'var(--brick-text)' }}
             >
               ▸ linked to {formatTimestamp(row.anchorTimestamp)} ↗
             </a>

@@ -71,7 +71,7 @@ export function AnnotationList({ videoRef }: AnnotationListProps) {
               <button
                 onClick={() => videoRef.current?.seekTo(a.timestamp)}
                 className="link-underline shrink-0 font-mono text-sm font-medium"
-                style={{ color: 'var(--brick)' }}
+                style={{ color: 'var(--brick-text)' }}
                 title="Jump to this moment in the video"
               >
                 ▸ {formatTimestamp(a.timestamp)}

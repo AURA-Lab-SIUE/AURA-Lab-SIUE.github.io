@@ -37,8 +37,7 @@ export function StageNav({ panelRefs }: StageNavProps) {
       className="sticky top-[57px] z-30 border-y"
       style={{
         borderColor: 'var(--line)',
-        background: 'color-mix(in srgb, var(--paper) 90%, transparent)',
-        backdropFilter: 'blur(8px)',
+        background: 'var(--paper)',  /* opaque: tab labels must not sit on whatever scrolls behind */
       }}
     >
       <div className="mx-auto flex max-w-page px-2 md:px-8" role="tablist" aria-label="Coding stages">
@@ -56,12 +55,12 @@ export function StageNav({ panelRefs }: StageNavProps) {
               style={{ borderBottom: isActive ? '3px solid var(--brick)' : '3px solid transparent' }}
             >
               <span
-                className="block font-mono text-[0.62rem] tracking-wider"
-                style={{ color: isActive ? 'var(--brick)' : 'var(--ink-soft)' }}
+                className="block font-mono text-[0.7rem] tracking-wider"
+                style={{ color: isActive ? 'var(--brick-text)' : 'var(--ink-soft)' }}
               >
                 {stage.fig}
                 {counts[stage.id] > 0 && (
-                  <span className="ml-1.5 opacity-70">[{counts[stage.id]}]</span>
+                  <span className="ml-1.5">[{counts[stage.id]}]</span>
                 )}
               </span>
               <span
