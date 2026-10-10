@@ -6,11 +6,11 @@ import SectionDivider from '../components/SectionDivider.astro';
 // term; the printed office-door sign carries a QR code to this page precisely so
 // the paper never has to be reprinted when these change.
 const term = 'Fall 2026';
-const hours = [
-  { days: 'Tuesday & Thursday', time: '12:30 to 1:45 p.m.' },
-  { days: 'Tuesday & Thursday', time: '3:30 to 5:00 p.m.' },
-];
 const office = 'Dunham Hall 1017';
+const hours = [
+  { days: 'Tuesday & Thursday', time: '12:30 to 1:45 p.m.', where: `in person, ${office}` },
+  { days: 'Tuesday, Wednesday & Thursday', time: '3:00 to 5:00 p.m.', where: 'remote, over Teams' },
+];
 ---
 <BaseLayout title="Alex P. Leith" current={undefined}
   description="Alex P. Leith, Associate Professor of Mass Communications at SIUE and Director of AURA Lab. Office hours, office location, and how to get in touch.">
@@ -31,13 +31,14 @@ const office = 'Dunham Hall 1017';
         <li>
           <span class="days">{h.days}</span>
           <span class="time font-display">{h.time}</span>
+          <span class="where text-muted">{h.where}</span>
         </li>
       ))}
     </ul>
     <p class="mt-8 max-w-measure text-lg">
-      Held in {office}. No appointment needed during those windows, and you do not
-      need a reason that sounds important enough. If none of it works for you,
-      email me and we will find another time, in person or on Teams.
+      The midday block is in {office}; the afternoon block is remote, booked
+      through Microsoft Bookings. No reason is needed that sounds important enough.
+      If none of it works for you, email me and we will find another time.
     </p>
     <p class="mt-4 max-w-measure text-muted">
       Hours are set each term and occasionally shift for travel or a meeting. This
