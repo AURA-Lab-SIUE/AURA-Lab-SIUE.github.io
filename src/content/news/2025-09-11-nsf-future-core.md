@@ -6,5 +6,4 @@ dimensions: ["Relationships"]
 ---
 
 A sole-PI proposal to NSF 25-543 Future CoRe (*Reciprocal Human-Machine
-Learning*, $477K over four years) has been submitted. Decision window: June to
-August 2026.
+Learning*) has been submitted.
