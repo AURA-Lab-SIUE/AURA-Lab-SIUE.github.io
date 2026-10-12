@@ -3,18 +3,45 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 ---
 <BaseLayout title="Collaborate" current="join"
-  description="Collaborate with AURA Lab. Students and researchers from any institution are welcome as research collaborators and co-authors.">
+  description="Work with AURA Lab: co-authored research with academics, research partnerships with industry and community organizations, and lab roles for SIUE students.">
 
   <section class="container-page pt-24 pb-8">
     <p class="text-muted uppercase tracking-ui text-sm">Collaborate with the lab</p>
     <h1 class="font-display text-5xl md:text-7xl mt-4 leading-none">Collaborate.</h1>
     <p class="mt-8 max-w-measure text-xl">
-      Students and researchers, at SIUE and anywhere else, are welcome.
-      Cross-institutional and remote collaboration are normal. The lab works on
-      questions, not on credentials. Lab roles are unpaid research collaborations,
-      credited through co-authorship. Inquiries are welcome as collaborations, not
-      as applications for a position.
+      Researchers at any institution, industry and community partners, and SIUE
+      students are welcome. Cross-institutional and remote collaboration among
+      researchers is normal. The lab works on questions, not on credentials.
     </p>
+  </section>
+
+  <SectionDivider kicker="Working with the lab" title="Who the lab works with." />
+  <section id="working-with-the-lab" class="container-page grid lg:grid-cols-3 gap-x-12 gap-y-10 max-w-page">
+    <article>
+      <h3 class="font-display text-2xl">Researchers</h3>
+      <p class="mt-3 text-muted max-w-measure">
+        The lab collaborates as co-authors on studies of virtual environments,
+        streaming platforms, computational methods, and virtual meetings. Alex
+        Leith also joins research teams that need computational content analysis,
+        livestream and platform data, or VR and AI communication methods.
+      </p>
+    </article>
+    <article>
+      <h3 class="font-display text-2xl">Industry and community partners</h3>
+      <p class="mt-3 text-muted max-w-measure">
+        Research partnerships that produce published work, with data handled under
+        the partner's privacy requirements.
+      </p>
+    </article>
+    <article>
+      <h3 class="font-display text-2xl">Students</h3>
+      <p class="mt-3 text-muted max-w-measure">
+        Lab roles are for currently enrolled SIUE undergraduate and graduate
+        students, through URCA, independent study, and research assistantships when
+        funding allows. The lab does not offer remote positions, internships, or
+        employment to students at other institutions.
+      </p>
+    </article>
   </section>
 
   <SectionDivider kicker="Common paths in" title="Where people plug in." />
