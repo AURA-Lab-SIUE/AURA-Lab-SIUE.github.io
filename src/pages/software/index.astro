@@ -1,0 +1,273 @@
+---
+// Open and free software for Mass Communications.
+// Every entry lives in src/content/open-software/library.json; this page only
+// renders it. Kept as plain semantic HTML with no AURA Lab branding in the body,
+// so it can move to an official Mass Communications page unchanged.
+// Design brief: osslib-2026-10 report (six-line brief, web-qa skill).
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const lib = await getEntry('open-software', 'library');
+const entries = lib?.data.entries ?? [];
+const adobe = lib?.data.adobe ?? [];
+const checked = lib?.data.checked ?? '';
+
+const AUDIENCES = [
+  ['students', 'Students'],
+  ['faculty', 'Faculty'],
+  ['broadcast', 'Broadcast'],
+  ['journalism', 'Journalism'],
+  ['stratcomm', 'Strategic communication and advertising'],
+] as const;
+const audLabel = Object.fromEntries(AUDIENCES) as Record<string, string>;
+
+const CATEGORY_ORDER = [
+  'Video editing', 'Motion graphics and animation', '3D and immersive', 'Audio and podcasting',
+  'Live production and streaming', 'Captioning and transcription', 'Media utilities',
+  'Photo editing and management', 'Graphic design and layout', 'Diagrams and whiteboards',
+  'Presentations', 'Writing and office', 'Notes and study', 'Research and citations',
+  'PDF and documents', 'Data analysis and statistics', 'Data visualization and maps',
+  'Verification and OSINT', 'Web publishing', 'Email and newsletters',
+  'Social media and web analytics', 'Surveys and qualitative research', 'Security and privacy',
+  'Productivity, backup, and sync', 'Local AI', 'Coding', 'Accessibility',
+];
+const present = new Set(entries.map((e) => e.category));
+const categories = CATEGORY_ORDER.filter((c) => present.has(c));
+
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const monthYear = (d: string) =>
+  new Date(`${d}T12:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const checkedLabel = new Date(`${checked}T12:00:00Z`).toLocaleDateString('en-US', {
+  month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC',
+});
+
+const open = entries.filter((e) => e.access === 'open-source');
+const free = entries.filter((e) => e.access === 'free');
+const byName = Object.fromEntries(entries.map((e) => [e.name, e]));
+const groups = (list: typeof entries) =>
+  categories
+    .map((c) => ({ c, items: list.filter((e) => e.category === c).sort((a, b) => a.name.localeCompare(b.name)) }))
+    .filter((g) => g.items.length);
+---
+<BaseLayout
+  title="Open and free software for Mass Communications"
+  current="tools"
+  description={`${entries.length} no-cost software tools for Mass Communications students and faculty, with open and free alternatives to Adobe Creative Cloud apps.`}>
+
+  <div class="sw">
+    <header class="sw-head container-page">
+      <h1 class="font-display" data-no-split>Open and free software for Mass Communications</h1>
+      <p class="sw-lede">
+        {entries.length} software tools that cost nothing to use, for coursework, teaching, and
+        production across every Mass Communications track. {open.length} are open source.
+        The other {free.length} are free to use but not open source, and are listed in their own section.
+      </p>
+      <p>
+        Each entry links to the project's official site. Licenses, platforms, and latest release
+        dates were checked against each project's own site or code repository on
+        <time datetime={checked}>{checkedLabel}</time>. Tools without a release in the previous
+        12 months were left out.
+      </p>
+      <p class="sw-note">
+        <strong>On an SIUE-owned computer,</strong> installing software may need approval from ITS.
+        Ask <a href="mailto:Help@siue.edu">Help@siue.edu</a> before you install. Tools marked
+        <em>Server</em> run on a server that you or your organization hosts.
+      </p>
+    </header>
+
+    <section class="container-page sw-block" aria-labelledby="adobe-h">
+      <h2 id="adobe-h">Alternatives to Adobe Creative Cloud apps</h2>
+      <p>Open-source and free tools that do the same jobs. Each name jumps to its entry below.</p>
+      <div class="sw-tablewrap">
+        <table class="sw-adobe">
+          <thead>
+            <tr><th scope="col">Adobe app</th><th scope="col">What it is for</th><th scope="col">Open or free alternatives</th></tr>
+          </thead>
+          <tbody>
+            {adobe.map((row) => (
+              <tr>
+                <th scope="row">{row.adobe}</th>
+                <td>{row.job}</td>
+                <td>
+                  <ul class="sw-inline">
+                    {row.alternatives.map((n) => (
+                      <li>
+                        <a href={`#tool-${slug(n)}`} class="sw-jump">{n}</a>
+                        {byName[n]?.access === 'free' && <span class="sw-tag"> (free, not open source)</span>}
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="container-page sw-block" aria-labelledby="find-h">
+      <h2 id="find-h">Find software</h2>
+      <form class="sw-filters" id="sw-filters" aria-describedby="sw-count">
+        <fieldset>
+          <legend>Show software for</legend>
+          <div class="sw-radios">
+            <label><input type="radio" name="aud" value="all" checked /> Everyone</label>
+            {AUDIENCES.map(([v, l]) => (
+              <label><input type="radio" name="aud" value={v} /> {l}</label>
+            ))}
+          </div>
+        </fieldset>
+        <div class="sw-select">
+          <label for="sw-cat">Category</label>
+          <select id="sw-cat" name="cat">
+            <option value="all">All categories</option>
+            {categories.map((c) => <option value={slug(c)}>{c}</option>)}
+          </select>
+        </div>
+      </form>
+      <p id="sw-count" class="sw-count" aria-live="polite">Showing all {entries.length} tools.</p>
+    </section>
+
+    {[
+      { id: 'open', title: 'Open-source software', intro: 'Free to use, with source code published under the license shown.', list: open },
+      { id: 'free', title: 'Free, not open source', intro: 'Free to use, but the source code is not published. Some offer paid upgrades.', list: free },
+    ].map((part) => (
+      <section class="container-page sw-block sw-part" aria-labelledby={`${part.id}-h`} data-part>
+        <h2 id={`${part.id}-h`}>{part.title}</h2>
+        <p>{part.intro}</p>
+        {groups(part.list).map((g) => (
+          <section class="sw-cat" aria-labelledby={`${part.id}-${slug(g.c)}`} data-cat={slug(g.c)}>
+            <h3 id={`${part.id}-${slug(g.c)}`}>{g.c}</h3>
+            <ul class="sw-list">
+              {g.items.map((e) => (
+                <li id={`tool-${slug(e.name)}`} data-aud={e.audiences.join(' ')} data-cat={slug(e.category)} tabindex="-1">
+                  <div class="sw-main">
+                    <h4><a href={e.url}>{e.name}</a></h4>
+                    <p>{e.what}</p>
+                  </div>
+                  <dl class="sw-meta">
+                    <div><dt>For</dt><dd>{e.audiences.map((a) => audLabel[a]).join(', ')}</dd></div>
+                    <div><dt>License</dt><dd>{e.license ?? 'Free, not open source'}</dd></div>
+                    <div><dt>Runs on</dt><dd>{e.platforms.join(', ')}</dd></div>
+                    <div><dt>Latest release</dt><dd><time datetime={e.released}>{monthYear(e.released)}</time></dd></div>
+                  </dl>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+        <p class="sw-empty" hidden>Nothing in this section matches the filters.</p>
+      </section>
+    ))}
+  </div>
+
+  <script>
+    function setup() {
+      const form = document.getElementById('sw-filters') as HTMLFormElement | null;
+      if (!form || form.dataset.ready) return;
+      form.dataset.ready = '1';
+      const select = form.querySelector<HTMLSelectElement>('#sw-cat')!;
+      const count = document.getElementById('sw-count')!;
+      const items = Array.from(document.querySelectorAll<HTMLLIElement>('.sw-list > li'));
+      const total = items.length;
+
+      function apply() {
+        const aud = (form!.querySelector<HTMLInputElement>('input[name="aud"]:checked')?.value) ?? 'all';
+        const cat = select.value;
+        let shown = 0;
+        for (const li of items) {
+          const ok = (aud === 'all' || (li.dataset.aud ?? '').split(' ').includes(aud)) &&
+                     (cat === 'all' || li.dataset.cat === cat);
+          li.hidden = !ok;
+          if (ok) shown++;
+        }
+        document.querySelectorAll<HTMLElement>('.sw-cat').forEach((s) => {
+          s.hidden = !s.querySelector('li:not([hidden])');
+        });
+        document.querySelectorAll<HTMLElement>('[data-part]').forEach((p) => {
+          const empty = p.querySelector<HTMLElement>('.sw-empty');
+          if (empty) empty.hidden = !!p.querySelector('.sw-cat:not([hidden])');
+        });
+        count.textContent = shown === total ? `Showing all ${total} tools.` : `Showing ${shown} of ${total} tools.`;
+      }
+
+      form.addEventListener('change', apply);
+      form.addEventListener('submit', (e) => e.preventDefault());
+      // A jump from the Adobe table clears the filters so its target is visible.
+      document.querySelectorAll<HTMLAnchorElement>('a.sw-jump').forEach((a) => {
+        a.addEventListener('click', () => {
+          form.reset();
+          apply();
+          const target = document.querySelector<HTMLElement>(a.getAttribute('href')!);
+          if (target) requestAnimationFrame(() => target.focus({ preventScroll: true }));
+        });
+      });
+      apply();
+    }
+    setup();
+    document.addEventListener('astro:page-load', setup);
+  </script>
+
+  <style>
+    .sw { padding-bottom: 5rem; }
+    .sw p, .sw li, .sw td, .sw th, .sw dd, .sw dt, .sw legend, .sw label { color: var(--ink); }
+    .sw-head { padding-top: 4.5rem; padding-bottom: 1rem; }
+    .sw-head p { max-width: var(--measure); margin-top: 1rem; font-size: 1.0625rem; line-height: 1.6; }
+    .sw h1 { font-size: clamp(2.1rem, 5.5vw, 3.75rem); line-height: 1.08; max-width: 22ch; }
+    .sw .sw-lede { font-size: 1.25rem; margin-top: 1.5rem; }
+    .sw-note { border-left: 3px solid var(--accent); padding-left: 1rem; }
+    .sw a { color: var(--ink); text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+    .sw a:hover { text-decoration-thickness: 2px; text-decoration-color: var(--accent); }
+    .sw a:focus-visible, .sw input:focus-visible, .sw select:focus-visible, .sw li:focus-visible {
+      outline: 3px solid var(--ink); outline-offset: 3px;
+    }
+    .sw-block { margin-top: 3.5rem; }
+    .sw h2 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); line-height: 1.15; padding-bottom: 0.6rem; border-bottom: 2px solid var(--accent); }
+    .sw-block > p { max-width: var(--measure); margin-top: 0.9rem; line-height: 1.6; }
+
+    .sw-tablewrap { margin-top: 1.25rem; overflow-x: auto; }
+    .sw-adobe { width: 100%; border-collapse: collapse; font-size: 1rem; }
+    .sw-adobe th, .sw-adobe td { text-align: left; vertical-align: top; padding: 0.75rem 0.75rem 0.75rem 0; border-bottom: 1px solid var(--line); line-height: 1.45; }
+    .sw-adobe thead th { font-weight: 700; border-bottom: 2px solid var(--ink); }
+    .sw-adobe tbody th { font-weight: 700; white-space: nowrap; }
+    .sw-inline { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
+    .sw-tag { color: var(--muted); font-size: 0.9375rem; }
+    @media (max-width: 640px) {
+      .sw-adobe thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .sw-adobe, .sw-adobe tbody, .sw-adobe tr, .sw-adobe th, .sw-adobe td { display: block; }
+      .sw-adobe tr { padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+      .sw-adobe th, .sw-adobe td { border: 0; padding: 0.15rem 0; }
+      .sw-adobe tbody th { font-size: 1.125rem; }
+    }
+
+    .sw-filters { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 1.25rem 2.5rem; align-items: flex-end; }
+    .sw-filters fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+    .sw-filters legend, .sw-select label { font-weight: 700; margin-bottom: 0.5rem; display: block; }
+    .sw-radios { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .sw-radios label {
+      display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.85rem;
+      border: 1px solid var(--line); border-radius: 999px; cursor: pointer; min-height: 44px;
+    }
+    .sw-radios label:has(input:checked) { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); font-weight: 700; }
+    .sw-radios input { accent-color: var(--siue-deep); width: 1.05rem; height: 1.05rem; }
+    .sw-select select {
+      min-height: 44px; padding: 0.4rem 0.75rem; font: inherit; color: var(--ink);
+      background: var(--bg); border: 1px solid var(--ink); border-radius: 6px; max-width: 100%;
+    }
+    .sw-count { margin-top: 1rem; font-weight: 700; }
+
+    .sw-cat { margin-top: 2.25rem; }
+    .sw h3 { font-size: 1.375rem; line-height: 1.25; }
+    .sw-list { list-style: none; margin: 0.75rem 0 0; padding: 0; border-top: 1px solid var(--line); }
+    .sw-list > li { padding: 1rem 0; border-bottom: 1px solid var(--line); display: grid; gap: 0.6rem 2rem; scroll-margin-top: 6rem; }
+    @media (min-width: 900px) { .sw-list > li { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+    .sw h4 { font-size: 1.125rem; font-weight: 700; line-height: 1.3; }
+    .sw-main p { margin-top: 0.3rem; line-height: 1.5; max-width: 60ch; }
+    .sw-meta { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.2rem 0.9rem; font-size: 0.9375rem; line-height: 1.45; }
+    .sw-meta > div { display: contents; }
+    .sw-meta dt { color: var(--muted); }
+    .sw-meta dd { margin: 0; }
+    .sw-empty { font-style: italic; }
+    [hidden] { display: none !important; }
+  </style>
+</BaseLayout>

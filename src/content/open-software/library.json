@@ -1,0 +1,2646 @@
+{
+  "checked": "2026-10-16",
+  "entries": [
+    {
+      "name": "Kdenlive",
+      "what": "Multitrack video editor with titles, effects, keyframes, and proxy editing.",
+      "audiences": [
+        "students",
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Video editing",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://kdenlive.org/",
+      "version": "26.08.2",
+      "released": "2026-10-08"
+    },
+    {
+      "name": "Shotcut",
+      "what": "Video editor that opens almost any format without importing first.",
+      "audiences": [
+        "students",
+        "broadcast",
+        "stratcomm"
+      ],
+      "category": "Video editing",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://shotcut.org/",
+      "version": "26.9.27",
+      "released": "2026-09-28"
+    },
+    {
+      "name": "OpenShot",
+      "what": "Simple video editor with drag-and-drop titles and transitions, good for a first edit.",
+      "audiences": [
+        "students",
+        "broadcast",
+        "stratcomm"
+      ],
+      "category": "Video editing",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.openshot.org/",
+      "version": "4.0.1",
+      "released": "2026-09-27"
+    },
+    {
+      "name": "LosslessCut",
+      "what": "Trims and splits video and audio instantly without re-encoding.",
+      "audiences": [
+        "students",
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Video editing",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://github.com/mifi/lossless-cut",
+      "version": "3.69.0",
+      "released": "2026-06-04"
+    },
+    {
+      "name": "DaVinci Resolve",
+      "what": "Professional editing, color grading, Fusion compositing, and Fairlight audio in one app.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "stratcomm"
+      ],
+      "category": "Video editing",
+      "access": "free",
+      "license": null,
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.blackmagicdesign.com/products/davinciresolve",
+      "version": "21.1.1",
+      "released": "2026-10-02"
+    },
+    {
+      "name": "Blender",
+      "what": "3D modeling, animation, rendering, compositing, and a built-in video editor.",
+      "audiences": [
+        "students",
+        "broadcast",
+        "stratcomm"
+      ],
+      "category": "3D and immersive",
+      "access": "open-source",
+      "license": "GPL",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.blender.org/",
+      "version": "5.2.2",
+      "released": "2026-09-14"
+    },
+    {
+      "name": "Friction",
+      "what": "Vector motion graphics and keyframe animation for titles and explainers.",
+      "audiences": [
+        "broadcast",
+        "stratcomm"
+      ],
+      "category": "Motion graphics and animation",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://friction.graphics/",
+      "version": "1.0.0-rc.3",
+      "released": "2025-12-31"
+    },
+    {
+      "name": "Glaxnimate",
+      "what": "Simple vector animation editor that exports Lottie and animated SVG for web and social.",
+      "audiences": [
+        "broadcast",
+        "stratcomm"
+      ],
+      "category": "Motion graphics and animation",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://glaxnimate.org/",
+      "version": "0.6.0",
+      "released": "2026-03-01"
+    },
+    {
+      "name": "Synfig Studio",
+      "what": "2D vector animation with bones and tweening.",
+      "audiences": [
+        "broadcast"
+      ],
+      "category": "Motion graphics and animation",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.synfig.org/",
+      "version": "1.5.5",
+      "released": "2026-03-16"
+    },
+    {
+      "name": "OpenToonz",
+      "what": "2D animation and ink-and-paint software used in studio production.",
+      "audiences": [
+        "broadcast"
+      ],
+      "category": "Motion graphics and animation",
+      "access": "open-source",
+      "license": "BSD-3-Clause",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://opentoonz.github.io/e/",
+      "version": "1.8.0",
+      "released": "2026-06-19"
+    },
+    {
+      "name": "Pencil2D",
+      "what": "Hand-drawn frame-by-frame animation, easy to learn.",
+      "audiences": [
+        "students",
+        "broadcast"
+      ],
+      "category": "Motion graphics and animation",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.pencil2d.org/",
+      "version": "0.7.2",
+      "released": "2026-03-13"
+    },
+    {
+      "name": "Manim",
+      "what": "Python library for precise animated explainers of data, math, and diagrams.",
+      "audiences": [
+        "broadcast",
+        "journalism"
+      ],
+      "category": "Motion graphics and animation",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.manim.community/",
+      "version": "0.22.0",
+      "released": "2026-10-08"
+    },
+    {
+      "name": "Godot Engine",
+      "what": "Game engine for interactive stories, 2D and 3D experiences, and VR.",
+      "audiences": [
+        "students",
+        "broadcast"
+      ],
+      "category": "3D and immersive",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://godotengine.org/",
+      "version": "4.7.2",
+      "released": "2026-08-18"
+    },
+    {
+      "name": "Audacity",
+      "what": "Records and edits audio: cut, clean up noise, level, and export podcasts or voiceover.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Audio and podcasting",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.audacityteam.org/",
+      "version": "4.0.1",
+      "released": "2026-09-30"
+    },
+    {
+      "name": "Mixxx",
+      "what": "DJ software for live mixing, radio shows, and broadcasting a mix.",
+      "audiences": [
+        "students",
+        "broadcast"
+      ],
+      "category": "Audio and podcasting",
+      "access": "open-source",
+      "license": "GPL-2.0-or-later",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://mixxx.org/",
+      "version": "2.5.6",
+      "released": "2026-03-27"
+    },
+    {
+      "name": "MuseScore Studio",
+      "what": "Music notation for writing and playing back scores.",
+      "audiences": [
+        "students",
+        "broadcast"
+      ],
+      "category": "Audio and podcasting",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://musescore.org/",
+      "version": "4.7.5",
+      "released": "2026-09-08"
+    },
+    {
+      "name": "Castopod",
+      "what": "Self-hosted podcast hosting that publishes your RSS feed and episode pages.",
+      "audiences": [
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Audio and podcasting",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://castopod.org/",
+      "version": "1.15.5",
+      "released": "2026-02-24"
+    },
+    {
+      "name": "OBS Studio",
+      "what": "Records and live streams with scenes, overlays, multiple cameras, and screen capture.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Live production and streaming",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://obsproject.com/",
+      "version": "32.2.2",
+      "released": "2026-08-14"
+    },
+    {
+      "name": "VDO.Ninja",
+      "what": "Brings remote guests into OBS or a live show as clean video feeds, from a browser.",
+      "audiences": [
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Live production and streaming",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://vdo.ninja/",
+      "version": "30.2",
+      "released": "2026-05-12"
+    },
+    {
+      "name": "Bitfocus Companion",
+      "what": "Turns a Stream Deck or any button panel into a control surface for switchers, OBS, and graphics.",
+      "audiences": [
+        "broadcast"
+      ],
+      "category": "Live production and streaming",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://bitfocus.io/companion",
+      "version": "5.1.0",
+      "released": "2026-10-11"
+    },
+    {
+      "name": "CasparCG Server",
+      "what": "Broadcast graphics and video playout server used for on-air lower thirds and rundowns.",
+      "audiences": [
+        "broadcast"
+      ],
+      "category": "Live production and streaming",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "url": "https://casparcg.com/",
+      "version": "2.5.1",
+      "released": "2026-09-16"
+    },
+    {
+      "name": "SPX Graphics Controller",
+      "what": "Browser-based controller for live on-air graphics templates with OBS or CasparCG.",
+      "audiences": [
+        "broadcast"
+      ],
+      "category": "Live production and streaming",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Web"
+      ],
+      "url": "https://www.spx.graphics/",
+      "version": "1.4.1",
+      "released": "2026-05-25"
+    },
+    {
+      "name": "DistroAV",
+      "what": "Sends and receives NDI video over the network inside OBS.",
+      "audiences": [
+        "broadcast"
+      ],
+      "category": "Live production and streaming",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://distroav.org/",
+      "version": "6.2.2",
+      "released": "2026-10-14"
+    },
+    {
+      "name": "AzuraCast",
+      "what": "Web radio station suite: streaming server, playlists, and listener stats.",
+      "audiences": [
+        "broadcast"
+      ],
+      "category": "Live production and streaming",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://www.azuracast.com/",
+      "version": "0.23.8",
+      "released": "2026-08-09"
+    },
+    {
+      "name": "Jitsi Meet",
+      "what": "Video meetings in the browser with no account, for interviews and remote guests.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Live production and streaming",
+      "access": "open-source",
+      "license": "Apache-2.0",
+      "platforms": [
+        "Web",
+        "Server"
+      ],
+      "url": "https://jitsi.org/jitsi-meet/",
+      "version": "stable 11248",
+      "released": "2026-09-14"
+    },
+    {
+      "name": "Subtitle Edit",
+      "what": "Creates, syncs, and fixes captions and subtitles, with built-in speech-to-text.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "journalism"
+      ],
+      "category": "Captioning and transcription",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.nikse.dk/subtitleedit",
+      "version": "5.3.0",
+      "released": "2026-10-14"
+    },
+    {
+      "name": "Aegisub",
+      "what": "Precise subtitle timing and styled captions.",
+      "audiences": [
+        "broadcast"
+      ],
+      "category": "Captioning and transcription",
+      "access": "open-source",
+      "license": "BSD-3-Clause",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "url": "https://aegisub.org/",
+      "version": "3.5.0",
+      "released": "2026-10-05"
+    },
+    {
+      "name": "Buzz",
+      "what": "Transcribes and translates audio on your own computer with Whisper, no upload.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "journalism"
+      ],
+      "category": "Captioning and transcription",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://buzzcaptions.com/",
+      "version": "1.4.5",
+      "released": "2026-08-23"
+    },
+    {
+      "name": "noScribe",
+      "what": "Transcribes interviews on your own computer, with speaker labels and an editor.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "Captioning and transcription",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://github.com/kaixxx/noScribe",
+      "version": "0.8",
+      "released": "2026-10-06"
+    },
+    {
+      "name": "Vibe",
+      "what": "Desktop transcription with Whisper, offline, exporting captions and text.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "journalism"
+      ],
+      "category": "Captioning and transcription",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://thewh1teagle.github.io/vibe/",
+      "version": "3.2.2",
+      "released": "2026-09-05"
+    },
+    {
+      "name": "whisper.cpp",
+      "what": "Fast offline speech-to-text engine behind many transcription apps.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "Captioning and transcription",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://github.com/ggml-org/whisper.cpp",
+      "version": "1.9.5",
+      "released": "2026-10-06"
+    },
+    {
+      "name": "HandBrake",
+      "what": "Converts and compresses video for the web, Blackboard, or a phone.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Media utilities",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://handbrake.fr/",
+      "version": "1.11.2",
+      "released": "2026-06-07"
+    },
+    {
+      "name": "FFmpeg",
+      "what": "Command-line engine that converts, trims, and processes almost any audio or video.",
+      "audiences": [
+        "broadcast",
+        "journalism"
+      ],
+      "category": "Media utilities",
+      "access": "open-source",
+      "license": "LGPL-2.1-or-later",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://ffmpeg.org/",
+      "version": "9.0.2",
+      "released": "2026-09-18"
+    },
+    {
+      "name": "VLC",
+      "what": "Plays nearly every audio and video format, and converts files.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Media utilities",
+      "access": "open-source",
+      "license": "GPL-2.0-or-later",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.videolan.org/vlc/",
+      "version": "3.0.24",
+      "released": "2026-09-17"
+    },
+    {
+      "name": "mpv",
+      "what": "Lightweight video player with frame stepping, handy for review.",
+      "audiences": [
+        "broadcast"
+      ],
+      "category": "Media utilities",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://mpv.io/",
+      "version": "0.41.0",
+      "released": "2025-12-21"
+    },
+    {
+      "name": "yt-dlp",
+      "what": "Downloads and archives online video for verification and fair-use review.",
+      "audiences": [
+        "journalism"
+      ],
+      "category": "Media utilities",
+      "access": "open-source",
+      "license": "Unlicense",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://github.com/yt-dlp/yt-dlp",
+      "version": "2026.08.19",
+      "released": "2026-08-19"
+    },
+    {
+      "name": "ShareX",
+      "what": "Windows screen capture and recording with annotation and quick sharing.",
+      "audiences": [
+        "students",
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Media utilities",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows"
+      ],
+      "url": "https://getsharex.com/",
+      "version": "21.0.0",
+      "released": "2026-07-03"
+    },
+    {
+      "name": "Flameshot",
+      "what": "Screenshots with arrows, blur, and text, on any system.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Media utilities",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://flameshot.org/",
+      "version": "14.0.0",
+      "released": "2026-06-19"
+    },
+    {
+      "name": "GIMP",
+      "what": "Photo retouching and image editing with layers, masks, and filters.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Photo editing and management",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.gimp.org/",
+      "version": "3.2.6",
+      "released": "2026-09-10"
+    },
+    {
+      "name": "Krita",
+      "what": "Digital painting and illustration, with animation tools.",
+      "audiences": [
+        "students",
+        "broadcast",
+        "stratcomm"
+      ],
+      "category": "Photo editing and management",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://krita.org/",
+      "version": "6.0.4.1",
+      "released": "2026-10-01"
+    },
+    {
+      "name": "darktable",
+      "what": "Raw photo development and non-destructive editing, organized like Lightroom.",
+      "audiences": [
+        "students",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Photo editing and management",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.darktable.org/",
+      "version": "5.6.2",
+      "released": "2026-10-04"
+    },
+    {
+      "name": "RawTherapee",
+      "what": "Raw photo processing with detailed color and sharpening control.",
+      "audiences": [
+        "students",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Photo editing and management",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.rawtherapee.com/",
+      "version": "5.13",
+      "released": "2026-07-26"
+    },
+    {
+      "name": "Inkscape",
+      "what": "Vector illustration for logos, icons, infographics, and print.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Graphic design and layout",
+      "access": "open-source",
+      "license": "GPL-2.0-or-later",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://inkscape.org/",
+      "version": "1.4.4",
+      "released": "2026-05-05"
+    },
+    {
+      "name": "Scribus",
+      "what": "Page layout for newsletters, magazines, flyers, and print-ready PDF.",
+      "audiences": [
+        "students",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Graphic design and layout",
+      "access": "open-source",
+      "license": "GPL",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.scribus.net/",
+      "version": "1.6.6",
+      "released": "2026-04-13"
+    },
+    {
+      "name": "Penpot",
+      "what": "Design and prototyping in the browser for web pages, social posts, and design systems.",
+      "audiences": [
+        "students",
+        "stratcomm"
+      ],
+      "category": "Graphic design and layout",
+      "access": "open-source",
+      "license": "MPL-2.0",
+      "platforms": [
+        "Web",
+        "Server"
+      ],
+      "url": "https://penpot.app/",
+      "version": "2.18.3",
+      "released": "2026-10-06"
+    },
+    {
+      "name": "Affinity",
+      "what": "Photo editing, vector design, and page layout in one app.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Graphic design and layout",
+      "access": "free",
+      "license": null,
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "url": "https://www.affinity.studio/",
+      "version": "September 2026 update",
+      "released": "2026-09-15"
+    },
+    {
+      "name": "Canva",
+      "what": "Templates for social graphics, flyers, and short video in the browser.",
+      "audiences": [
+        "students",
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Graphic design and layout",
+      "access": "free",
+      "license": null,
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://www.canva.com/",
+      "version": "product update",
+      "released": "2026-10-15"
+    },
+    {
+      "name": "draw.io",
+      "what": "Flowcharts, org charts, and diagrams, in the browser or as a desktop app.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Diagrams and whiteboards",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Web"
+      ],
+      "url": "https://www.drawio.com/",
+      "version": "32.4.1",
+      "released": "2026-10-09"
+    },
+    {
+      "name": "Excalidraw",
+      "what": "Hand-drawn style whiteboard for sketching ideas together.",
+      "audiences": [
+        "students",
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Diagrams and whiteboards",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://excalidraw.com/",
+      "version": "0.18.1",
+      "released": "2026-04-21"
+    },
+    {
+      "name": "LibreOffice",
+      "what": "Full office suite: documents, spreadsheets, and slides that open Microsoft Office files.",
+      "audiences": [
+        "students",
+        "faculty",
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Writing and office",
+      "access": "open-source",
+      "license": "MPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.libreoffice.org/",
+      "version": "26.8.1",
+      "released": "2026-10-08"
+    },
+    {
+      "name": "ONLYOFFICE Desktop Editors",
+      "what": "Office suite with close Microsoft Office formatting compatibility.",
+      "audiences": [
+        "students",
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Writing and office",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.onlyoffice.com/desktop.aspx",
+      "version": "10.0.0",
+      "released": "2026-10-13"
+    },
+    {
+      "name": "LanguageTool",
+      "what": "Grammar, style, and spelling checker for English and many other languages.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Writing and office",
+      "access": "open-source",
+      "license": "LGPL-2.1",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Web"
+      ],
+      "url": "https://languagetool.org/",
+      "version": "6.8",
+      "released": "2026-05-05"
+    },
+    {
+      "name": "Zettlr",
+      "what": "Markdown writing app for long projects, with citations from Zotero.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism"
+      ],
+      "category": "Writing and office",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.zettlr.com/",
+      "version": "4.8.0",
+      "released": "2026-09-18"
+    },
+    {
+      "name": "Pandoc",
+      "what": "Converts documents between Word, Markdown, HTML, PDF, and more.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "Writing and office",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://pandoc.org/",
+      "version": "3.12.1",
+      "released": "2026-10-08"
+    },
+    {
+      "name": "Typst",
+      "what": "Typesetting for papers and reports, simpler than LaTeX.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Writing and office",
+      "access": "open-source",
+      "license": "Apache-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Web"
+      ],
+      "url": "https://typst.app/",
+      "version": "0.15.1",
+      "released": "2026-07-17"
+    },
+    {
+      "name": "Joplin",
+      "what": "Notes and to-dos that sync across devices, with encryption.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Notes and study",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://joplinapp.org/",
+      "version": "3.7.21",
+      "released": "2026-09-25"
+    },
+    {
+      "name": "Logseq",
+      "what": "Outliner for linked notes and daily journals.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Notes and study",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://logseq.com/",
+      "version": "2.0.2",
+      "released": "2026-10-07"
+    },
+    {
+      "name": "Trilium Notes",
+      "what": "Hierarchical notes for building a personal knowledge base.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Notes and study",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Server"
+      ],
+      "url": "https://triliumnotes.org/",
+      "version": "0.106.0",
+      "released": "2026-09-25"
+    },
+    {
+      "name": "Freeplane",
+      "what": "Mind maps for brainstorming and outlining.",
+      "audiences": [
+        "students",
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Notes and study",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://docs.freeplane.org/",
+      "version": "1.13.3",
+      "released": "2026-07-14"
+    },
+    {
+      "name": "Anki",
+      "what": "Spaced-repetition flashcards for memorizing anything.",
+      "audiences": [
+        "students"
+      ],
+      "category": "Notes and study",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://apps.ankiweb.net/",
+      "version": "26.09.3",
+      "released": "2026-09-23"
+    },
+    {
+      "name": "Obsidian",
+      "what": "Markdown notes stored as plain files on your own computer, with links between notes.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Notes and study",
+      "access": "free",
+      "license": null,
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://obsidian.md/",
+      "version": "1.14.4",
+      "released": "2026-10-05"
+    },
+    {
+      "name": "Zotero",
+      "what": "Collects sources, stores PDFs, and formats citations and bibliographies.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Research and citations",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.zotero.org/",
+      "version": "10.0.6",
+      "released": "2026-10-12"
+    },
+    {
+      "name": "Xournal++",
+      "what": "Handwrites notes and annotates PDFs with a pen or mouse.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Research and citations",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://xournalpp.github.io/",
+      "version": "1.3.8",
+      "released": "2026-09-26"
+    },
+    {
+      "name": "Okular",
+      "what": "Reads and annotates PDFs and e-books, and fills forms.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism"
+      ],
+      "category": "Research and citations",
+      "access": "open-source",
+      "license": "GPL-2.0-or-later",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "url": "https://okular.kde.org/",
+      "version": "26.08.2",
+      "released": "2026-10-08"
+    },
+    {
+      "name": "PDFsam Basic",
+      "what": "Merges, splits, rotates, and extracts PDF pages.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "PDF and documents",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://pdfsam.org/",
+      "version": "6.0.6",
+      "released": "2026-10-02"
+    },
+    {
+      "name": "Stirling-PDF",
+      "what": "Browser-based PDF toolbox: merge, convert, compress, sign, redact, and OCR.",
+      "audiences": [
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "PDF and documents",
+      "access": "open-source",
+      "license": "MIT (open core)",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Server"
+      ],
+      "url": "https://www.stirlingpdf.com/",
+      "version": "3.2.0",
+      "released": "2026-10-15"
+    },
+    {
+      "name": "PDF Arranger",
+      "what": "Rearranges, rotates, and combines PDF pages by drag and drop.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism"
+      ],
+      "category": "PDF and documents",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "url": "https://github.com/pdfarranger/pdfarranger",
+      "version": "1.14.0",
+      "released": "2026-05-23"
+    },
+    {
+      "name": "OCRmyPDF",
+      "what": "Adds searchable text to scanned PDFs, such as public records.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "PDF and documents",
+      "access": "open-source",
+      "license": "MPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://ocrmypdf.readthedocs.io/",
+      "version": "17.13.0",
+      "released": "2026-09-28"
+    },
+    {
+      "name": "SumatraPDF",
+      "what": "Fast, small PDF and e-book reader for Windows.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "PDF and documents",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows"
+      ],
+      "url": "https://www.sumatrapdfreader.org/",
+      "version": "3.6.1",
+      "released": "2026-04-06"
+    },
+    {
+      "name": "Docling",
+      "what": "Converts PDFs and Office files into clean text and tables for analysis.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "PDF and documents",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://github.com/docling-project/docling",
+      "version": "2.140.0",
+      "released": "2026-10-16"
+    },
+    {
+      "name": "Dangerzone",
+      "what": "Opens untrusted PDFs and documents safely by converting them to clean copies.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "PDF and documents",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://dangerzone.rocks/",
+      "version": "0.11.0",
+      "released": "2026-07-02"
+    },
+    {
+      "name": "Datashare",
+      "what": "Searches, tags, and organizes large document leaks and records on your own computer.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "PDF and documents",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://datashare.icij.org/",
+      "version": "21.23.1",
+      "released": "2026-10-16"
+    },
+    {
+      "name": "R",
+      "what": "Language for statistics, data cleaning, and graphics.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "GPL-2.0 or GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.r-project.org/",
+      "version": "4.6.1",
+      "released": "2026-06-24"
+    },
+    {
+      "name": "RStudio Desktop",
+      "what": "The standard workspace for writing and running R.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://posit.co/download/rstudio-desktop/",
+      "version": "2026.10.0",
+      "released": "2026-10-14"
+    },
+    {
+      "name": "Quarto",
+      "what": "Publishes reports, slides, and websites from R or Python code and text.",
+      "audiences": [
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://quarto.org/",
+      "version": "1.10.19",
+      "released": "2026-10-06"
+    },
+    {
+      "name": "Python",
+      "what": "General programming language for data, scraping, and automation.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "PSF-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.python.org/",
+      "version": "3.15.0",
+      "released": "2026-10-09"
+    },
+    {
+      "name": "JupyterLab",
+      "what": "Notebooks that mix code, results, and notes.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "BSD-3-Clause",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://jupyter.org/",
+      "version": "4.6.4",
+      "released": "2026-09-21"
+    },
+    {
+      "name": "JASP",
+      "what": "Point-and-click statistics with APA-style tables, an SPSS alternative.",
+      "audiences": [
+        "students",
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://jasp-stats.org/",
+      "version": "0.98.8",
+      "released": "2026-10-12"
+    },
+    {
+      "name": "jamovi",
+      "what": "Spreadsheet-style statistics built on R, an SPSS alternative.",
+      "audiences": [
+        "students",
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Web"
+      ],
+      "url": "https://www.jamovi.org/",
+      "version": "2.7.30",
+      "released": "2026-05-23"
+    },
+    {
+      "name": "PSPP",
+      "what": "Free replacement for SPSS that reads SPSS data files.",
+      "audiences": [
+        "students",
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "GPL",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.gnu.org/software/pspp/",
+      "version": "2.1.2",
+      "released": "2026-09-19"
+    },
+    {
+      "name": "OpenRefine",
+      "what": "Cleans and reshapes messy spreadsheets and public data.",
+      "audiences": [
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "BSD-3-Clause",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://openrefine.org/",
+      "version": "3.10.1",
+      "released": "2026-03-04"
+    },
+    {
+      "name": "Datasette",
+      "what": "Turns a spreadsheet or database into a searchable website to explore and publish data.",
+      "audiences": [
+        "journalism"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "Apache-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://datasette.io/",
+      "version": "0.65.5",
+      "released": "2026-09-16"
+    },
+    {
+      "name": "csvkit",
+      "what": "Command-line tools for converting and querying CSV files.",
+      "audiences": [
+        "journalism"
+      ],
+      "category": "Data analysis and statistics",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://csvkit.readthedocs.io/",
+      "version": "2.2.0",
+      "released": "2025-12-15"
+    },
+    {
+      "name": "RAWGraphs",
+      "what": "Builds unusual charts from a spreadsheet in the browser, exported as SVG.",
+      "audiences": [
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Data visualization and maps",
+      "access": "open-source",
+      "license": "Apache-2.0",
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://www.rawgraphs.io/",
+      "version": "2.1.0",
+      "released": "2026-10-08"
+    },
+    {
+      "name": "QGIS",
+      "what": "Professional mapping and geographic analysis.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "Data visualization and maps",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://qgis.org/",
+      "version": "4.2.3",
+      "released": "2026-09-25"
+    },
+    {
+      "name": "uMap",
+      "what": "Makes interactive web maps on OpenStreetMap and embeds them in a story.",
+      "audiences": [
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Data visualization and maps",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Web",
+        "Server"
+      ],
+      "url": "https://umap-project.org/",
+      "version": "3.8.1",
+      "released": "2026-08-19"
+    },
+    {
+      "name": "Gephi",
+      "what": "Visualizes and analyzes networks, such as who is connected to whom.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "Data visualization and maps",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://gephi.org/",
+      "version": "0.11.3",
+      "released": "2026-09-06"
+    },
+    {
+      "name": "TimelineJS",
+      "what": "Builds interactive timelines from a Google Sheet.",
+      "audiences": [
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Data visualization and maps",
+      "access": "open-source",
+      "license": "MPL-2.0",
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://timeline.knightlab.com/",
+      "version": "3.9.13",
+      "released": "2026-07-26"
+    },
+    {
+      "name": "Datawrapper",
+      "what": "Publishes clean, accessible charts, maps, and tables in a newsroom style.",
+      "audiences": [
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Data visualization and maps",
+      "access": "free",
+      "license": null,
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://www.datawrapper.de/",
+      "version": "product update",
+      "released": "2026-10-14"
+    },
+    {
+      "name": "InVID-WeVerify plugin",
+      "what": "Browser plugin for verifying video and images: keyframes, reverse search, and metadata.",
+      "audiences": [
+        "journalism"
+      ],
+      "category": "Verification and OSINT",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://weverify.eu/verification-plugin/",
+      "version": "0.93",
+      "released": "2026-07-28"
+    },
+    {
+      "name": "ExifTool",
+      "what": "Reads and edits hidden metadata in photos, video, and documents.",
+      "audiences": [
+        "broadcast",
+        "journalism"
+      ],
+      "category": "Verification and OSINT",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://exiftool.org/",
+      "version": "13.59",
+      "released": "2026-05-27"
+    },
+    {
+      "name": "ArchiveWeb.page",
+      "what": "Captures a web page exactly as you browsed it, as an archive you can replay.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "Verification and OSINT",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Web"
+      ],
+      "url": "https://archiveweb.page/",
+      "version": "0.17.1",
+      "released": "2026-09-04"
+    },
+    {
+      "name": "ArchiveBox",
+      "what": "Self-hosted archive that saves web pages, media, and links.",
+      "audiences": [
+        "journalism"
+      ],
+      "category": "Verification and OSINT",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://archivebox.io/",
+      "version": "0.9.73",
+      "released": "2026-10-06"
+    },
+    {
+      "name": "Sherlock",
+      "what": "Finds accounts using the same username across many social networks.",
+      "audiences": [
+        "journalism"
+      ],
+      "category": "Verification and OSINT",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://sherlockproject.xyz/",
+      "version": "0.16.2",
+      "released": "2026-09-08"
+    },
+    {
+      "name": "WordPress",
+      "what": "Builds websites, blogs, and news sites.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Web publishing",
+      "access": "open-source",
+      "license": "GPL",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://wordpress.org/",
+      "version": "7.1.3",
+      "released": "2026-10-06"
+    },
+    {
+      "name": "Ghost",
+      "what": "Publishing platform for news sites and paid or free newsletters.",
+      "audiences": [
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Web publishing",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://ghost.org/",
+      "version": "6.71.0",
+      "released": "2026-10-15"
+    },
+    {
+      "name": "Hugo",
+      "what": "Builds fast static websites from Markdown files.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "Web publishing",
+      "access": "open-source",
+      "license": "Apache-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://gohugo.io/",
+      "version": "0.168.0",
+      "released": "2026-10-13"
+    },
+    {
+      "name": "Astro",
+      "what": "Web framework for content sites and portfolios.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "Web publishing",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://astro.build/",
+      "version": "create-astro 5.3.0",
+      "released": "2026-10-15"
+    },
+    {
+      "name": "GrapesJS",
+      "what": "Drag-and-drop builder for web pages and HTML email templates.",
+      "audiences": [
+        "stratcomm"
+      ],
+      "category": "Web publishing",
+      "access": "open-source",
+      "license": "BSD-3-Clause",
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://grapesjs.com/",
+      "version": "0.23.8",
+      "released": "2026-10-15"
+    },
+    {
+      "name": "listmonk",
+      "what": "Self-hosted newsletter and mailing list manager.",
+      "audiences": [
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Email and newsletters",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://listmonk.app/",
+      "version": "6.2.0",
+      "released": "2026-06-26"
+    },
+    {
+      "name": "Mautic",
+      "what": "Marketing automation: email campaigns, segments, and landing pages.",
+      "audiences": [
+        "stratcomm"
+      ],
+      "category": "Email and newsletters",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://mautic.org/",
+      "version": "7.2.1",
+      "released": "2026-09-23"
+    },
+    {
+      "name": "Thunderbird",
+      "what": "Email, calendar, and contacts in one desktop app.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Email and newsletters",
+      "access": "open-source",
+      "license": "MPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.thunderbird.net/",
+      "version": "158.0",
+      "released": "2026-10-13"
+    },
+    {
+      "name": "Postiz",
+      "what": "Schedules and publishes posts across social networks, with analytics.",
+      "audiences": [
+        "stratcomm"
+      ],
+      "category": "Social media and web analytics",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://postiz.com/",
+      "version": "2.25.1",
+      "released": "2026-10-11"
+    },
+    {
+      "name": "Mixpost",
+      "what": "Self-hosted social media scheduling and management.",
+      "audiences": [
+        "stratcomm"
+      ],
+      "category": "Social media and web analytics",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://mixpost.app/",
+      "version": "2.6.0",
+      "released": "2026-03-16"
+    },
+    {
+      "name": "Matomo",
+      "what": "Website analytics you host yourself, a Google Analytics alternative.",
+      "audiences": [
+        "stratcomm"
+      ],
+      "category": "Social media and web analytics",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://matomo.org/",
+      "version": "5.14.1",
+      "released": "2026-10-04"
+    },
+    {
+      "name": "Plausible Analytics",
+      "what": "Simple, privacy-friendly website analytics.",
+      "audiences": [
+        "stratcomm"
+      ],
+      "category": "Social media and web analytics",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://plausible.io/",
+      "version": "3.2.1",
+      "released": "2026-05-15"
+    },
+    {
+      "name": "LimeSurvey",
+      "what": "Builds and runs online surveys with branching and quotas.",
+      "audiences": [
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Surveys and qualitative research",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://www.limesurvey.org/",
+      "version": "7.5.1",
+      "released": "2026-10-13"
+    },
+    {
+      "name": "Formbricks",
+      "what": "Surveys and feedback forms for websites and apps.",
+      "audiences": [
+        "stratcomm"
+      ],
+      "category": "Surveys and qualitative research",
+      "access": "open-source",
+      "license": "AGPL-3.0 (open core)",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://formbricks.com/",
+      "version": "6.0.2",
+      "released": "2026-10-01"
+    },
+    {
+      "name": "QualCoder",
+      "what": "Codes interviews, focus groups, images, and video for qualitative analysis.",
+      "audiences": [
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Surveys and qualitative research",
+      "access": "open-source",
+      "license": "LGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://github.com/ccbogel/QualCoder",
+      "version": "4.0",
+      "released": "2026-10-02"
+    },
+    {
+      "name": "Taguette",
+      "what": "Highlights and tags interview transcripts in the browser for qualitative coding.",
+      "audiences": [
+        "students",
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Surveys and qualitative research",
+      "access": "open-source",
+      "license": "BSD-3-Clause",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Web"
+      ],
+      "url": "https://www.taguette.org/",
+      "version": "1.5.2",
+      "released": "2025-12-08"
+    },
+    {
+      "name": "reveal.js",
+      "what": "Builds slide presentations as web pages.",
+      "audiences": [
+        "faculty"
+      ],
+      "category": "Presentations",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://revealjs.com/",
+      "version": "6.0.2",
+      "released": "2026-09-10"
+    },
+    {
+      "name": "Marp",
+      "what": "Writes slide decks in Markdown and exports PDF or PowerPoint.",
+      "audiences": [
+        "faculty"
+      ],
+      "category": "Presentations",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://marp.app/",
+      "version": "4.5.1",
+      "released": "2026-09-06"
+    },
+    {
+      "name": "Signal",
+      "what": "Encrypted messaging and calls for talking with sources.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism"
+      ],
+      "category": "Security and privacy",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://signal.org/",
+      "version": "8.31.0",
+      "released": "2026-10-15"
+    },
+    {
+      "name": "Tor Browser",
+      "what": "Browses anonymously and reaches .onion sites.",
+      "audiences": [
+        "journalism"
+      ],
+      "category": "Security and privacy",
+      "access": "open-source",
+      "license": "MPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.torproject.org/",
+      "version": "15.0.25",
+      "released": "2026-10-12"
+    },
+    {
+      "name": "OnionShare",
+      "what": "Shares and receives files anonymously over Tor.",
+      "audiences": [
+        "journalism"
+      ],
+      "category": "Security and privacy",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://onionshare.org/",
+      "version": "2.7",
+      "released": "2026-10-16"
+    },
+    {
+      "name": "VeraCrypt",
+      "what": "Encrypts drives and folders that hold sensitive files.",
+      "audiences": [
+        "faculty",
+        "journalism"
+      ],
+      "category": "Security and privacy",
+      "access": "open-source",
+      "license": "Apache-2.0 and TrueCrypt 3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://veracrypt.io/",
+      "version": "1.26.29",
+      "released": "2026-06-12"
+    },
+    {
+      "name": "KeePassXC",
+      "what": "Offline password manager.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism"
+      ],
+      "category": "Security and privacy",
+      "access": "open-source",
+      "license": "GPL-2.0 or GPL-3.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://keepassxc.org/",
+      "version": "2.7.12",
+      "released": "2026-03-10"
+    },
+    {
+      "name": "Bitwarden",
+      "what": "Password manager that syncs across devices.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Security and privacy",
+      "access": "open-source",
+      "license": "GPL-3.0 (open core)",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Web"
+      ],
+      "url": "https://bitwarden.com/",
+      "version": "desktop 2026.10.0",
+      "released": "2026-10-15"
+    },
+    {
+      "name": "Firefox",
+      "what": "Independent web browser with strong privacy controls.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Security and privacy",
+      "access": "open-source",
+      "license": "MPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://www.firefox.com/",
+      "version": "158.0",
+      "released": "2026-10-13"
+    },
+    {
+      "name": "uBlock Origin",
+      "what": "Blocks ads and trackers in the browser.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism"
+      ],
+      "category": "Security and privacy",
+      "access": "open-source",
+      "license": "GPL-3.0",
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://ublockorigin.com/",
+      "version": "1.75.0",
+      "released": "2026-09-16"
+    },
+    {
+      "name": "Super Productivity",
+      "what": "To-do list with time tracking and a focus timer.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Productivity, backup, and sync",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://super-productivity.com/",
+      "version": "19.2.0",
+      "released": "2026-10-11"
+    },
+    {
+      "name": "Syncthing",
+      "what": "Keeps folders in sync between your own devices, no cloud.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Productivity, backup, and sync",
+      "access": "open-source",
+      "license": "MPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://syncthing.net/",
+      "version": "2.1.6",
+      "released": "2026-10-06"
+    },
+    {
+      "name": "Duplicati",
+      "what": "Scheduled, encrypted backups to an external drive or cloud.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Productivity, backup, and sync",
+      "access": "open-source",
+      "license": "MIT (open core)",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://duplicati.com/",
+      "version": "2.4.0.1",
+      "released": "2026-10-07"
+    },
+    {
+      "name": "Nextcloud",
+      "what": "Self-hosted file sharing, calendars, and collaboration.",
+      "audiences": [
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Productivity, backup, and sync",
+      "access": "open-source",
+      "license": "AGPL-3.0",
+      "platforms": [
+        "Server"
+      ],
+      "url": "https://nextcloud.com/",
+      "version": "33.0.10",
+      "released": "2026-10-15"
+    },
+    {
+      "name": "Ollama",
+      "what": "Runs open AI language models on your own computer.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Local AI",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://ollama.com/",
+      "version": "0.40.5",
+      "released": "2026-10-14"
+    },
+    {
+      "name": "Jan",
+      "what": "Desktop chat app for open AI models that runs offline.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Local AI",
+      "access": "open-source",
+      "license": "Apache-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://jan.ai/",
+      "version": "0.8.6",
+      "released": "2026-10-09"
+    },
+    {
+      "name": "AnythingLLM",
+      "what": "Chats with your own documents using a local or chosen AI model.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism"
+      ],
+      "category": "Local AI",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://anythingllm.com/",
+      "version": "1.18.0",
+      "released": "2026-10-13"
+    },
+    {
+      "name": "LM Studio",
+      "what": "Finds, downloads, and runs open AI models on your computer.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Local AI",
+      "access": "free",
+      "license": null,
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://lmstudio.ai/",
+      "version": "0.4.0",
+      "released": "2026-01-28"
+    },
+    {
+      "name": "VSCodium",
+      "what": "Open-source build of the Visual Studio Code editor.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Coding",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://vscodium.com/",
+      "version": "1.140.06880",
+      "released": "2026-10-13"
+    },
+    {
+      "name": "Visual Studio Code",
+      "what": "Code editor with extensions for R, Python, web, and Git.",
+      "audiences": [
+        "students",
+        "faculty",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Coding",
+      "access": "free",
+      "license": null,
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://code.visualstudio.com/",
+      "version": "1.142",
+      "released": "2026-10-14"
+    },
+    {
+      "name": "Git",
+      "what": "Version control that tracks every change to a project.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Coding",
+      "access": "open-source",
+      "license": "GPL-2.0",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "url": "https://git-scm.com/",
+      "version": "2.56.0",
+      "released": "2026-09-27"
+    },
+    {
+      "name": "GitHub Desktop",
+      "what": "Uses Git and GitHub through buttons instead of commands.",
+      "audiences": [
+        "students",
+        "faculty"
+      ],
+      "category": "Coding",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "url": "https://desktop.github.com/",
+      "version": "3.6.7",
+      "released": "2026-10-14"
+    },
+    {
+      "name": "NVDA",
+      "what": "Screen reader for testing documents, slides, and pages the way blind users hear them.",
+      "audiences": [
+        "faculty",
+        "broadcast",
+        "journalism",
+        "stratcomm"
+      ],
+      "category": "Accessibility",
+      "access": "open-source",
+      "license": "GPL-2.0-or-later",
+      "platforms": [
+        "Windows"
+      ],
+      "url": "https://www.nvaccess.org/",
+      "version": "2026.2",
+      "released": "2026-08-31"
+    },
+    {
+      "name": "Accessibility Insights",
+      "what": "Browser checks for web accessibility problems, with guided manual tests.",
+      "audiences": [
+        "faculty",
+        "stratcomm"
+      ],
+      "category": "Accessibility",
+      "access": "open-source",
+      "license": "MIT",
+      "platforms": [
+        "Web"
+      ],
+      "url": "https://accessibilityinsights.io/",
+      "version": "web 2.49.0",
+      "released": "2026-09-08"
+    }
+  ],
+  "adobe": [
+    {
+      "adobe": "Premiere Pro",
+      "job": "Video editing",
+      "alternatives": [
+        "Kdenlive",
+        "Shotcut",
+        "OpenShot",
+        "DaVinci Resolve"
+      ]
+    },
+    {
+      "adobe": "After Effects",
+      "job": "Motion graphics and compositing",
+      "alternatives": [
+        "Blender",
+        "Friction",
+        "Glaxnimate",
+        "DaVinci Resolve"
+      ]
+    },
+    {
+      "adobe": "Audition",
+      "job": "Audio editing and cleanup",
+      "alternatives": [
+        "Audacity",
+        "DaVinci Resolve"
+      ]
+    },
+    {
+      "adobe": "Photoshop",
+      "job": "Photo editing and compositing",
+      "alternatives": [
+        "GIMP",
+        "Krita",
+        "Affinity"
+      ]
+    },
+    {
+      "adobe": "Illustrator",
+      "job": "Vector illustration",
+      "alternatives": [
+        "Inkscape",
+        "Affinity"
+      ]
+    },
+    {
+      "adobe": "InDesign",
+      "job": "Page layout",
+      "alternatives": [
+        "Scribus",
+        "Affinity"
+      ]
+    },
+    {
+      "adobe": "Lightroom",
+      "job": "Photo development and organizing",
+      "alternatives": [
+        "darktable",
+        "RawTherapee"
+      ]
+    },
+    {
+      "adobe": "Acrobat",
+      "job": "PDF editing, combining, and OCR",
+      "alternatives": [
+        "PDFsam Basic",
+        "Stirling-PDF",
+        "PDF Arranger",
+        "OCRmyPDF",
+        "Okular"
+      ]
+    },
+    {
+      "adobe": "Express",
+      "job": "Quick social graphics and short video",
+      "alternatives": [
+        "Canva",
+        "Penpot",
+        "Affinity",
+        "Shotcut"
+      ]
+    }
+  ]
+}

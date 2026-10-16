@@ -109,6 +109,35 @@ const studentToolkit = defineCollection({
   }),
 });
 
+
+// Open and free software for Mass Communications (/software/). One data file,
+// every entry checked against the project's own site or repository; see the
+// osslib-2026-10 report for the verification record.
+const AUDIENCE = z.enum(['students', 'faculty', 'broadcast', 'journalism', 'stratcomm']);
+const openSoftware = defineCollection({
+  type: 'data',
+  schema: z.object({
+    checked: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    entries: z.array(z.object({
+      name: z.string(),
+      what: z.string().max(140),
+      audiences: z.array(AUDIENCE).nonempty(),
+      category: z.string(),
+      access: z.enum(['open-source', 'free']),
+      license: z.string().nullable(),
+      platforms: z.array(z.enum(['Windows', 'macOS', 'Linux', 'Web', 'Server'])).nonempty(),
+      url: z.string().url(),
+      version: z.string(),
+      released: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    })).nonempty(),
+    adobe: z.array(z.object({
+      adobe: z.string(),
+      job: z.string(),
+      alternatives: z.array(z.string()).nonempty(),
+    })).nonempty(),
+  }),
+});
+
 export const collections = {
   publications,
   projects,
@@ -117,4 +146,5 @@ export const collections = {
   'research-areas': researchAreas,
   news,
   'student-toolkit': studentToolkit,
+  'open-software': openSoftware,
 };
