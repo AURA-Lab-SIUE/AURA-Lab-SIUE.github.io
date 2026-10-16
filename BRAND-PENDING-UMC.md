@@ -47,13 +47,13 @@ Restored: `<link rel="icon">` for `.ico` and 32px, `apple-touch-icon` at 180, an
 `icons` array at 192 and 512. Masters kept at
 `m4:/Volumes/One Touch/80-service-hr/service/masscomm-website-redesign/siue-brand-e/`.
 
-## The one item still open
+## The social card (settled 2026-10-16)
 
-**The social card.** Both approvals are about icons. Whether a card counts as the same purpose
-is a separate question that went to Keith and has not come back, so there is still **no
-`og:image`** and `twitter:card` remains `summary`. A link preview falls back to title and
-description, which is text only and compliant. Do not restore it on the strength of the icon
-approval; ask.
+**The social card** is treated as the same purpose as the favicon (owner ruling, 2026-10-16, on
+Keith Harris's 2026-09-14 approval of the single E). `public/og-card.png` is the 512px E,
+downscaled to 480px and centered on its own red field at 1200x630; nothing else is on it. The
+layout carries `og:image` and `twitter:card` is `summary_large_image`. No unit name or lockup
+may be added to the card.
 
 The related question about vector files also went unanswered, and is now moot: the app icon is
 raster and UMC approved raster explicitly.

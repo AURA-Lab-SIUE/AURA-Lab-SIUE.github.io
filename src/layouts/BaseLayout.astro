@@ -62,15 +62,16 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta property="og:type" content="website" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    {/* PLACEHOLDER - NO SOCIAL CARD IMAGE.
-        The og:image was an AURA Lab logo lockup. Removed 2026-09-07 for the
-        same reason as the site icons; a link preview now falls back to the
-        page title and description, which is text only and compliant.
-        TO DO: restore og:image and switch twitter:card back to
-        summary_large_image once UMC supplies official artwork.
-        See BRAND-PENDING-UMC.md. */}
+    {/* Social card: SIUE's single E (the approved favicon artwork, a downscale
+        of the 512px source) centered on its own red field, 1200x630. Keith
+        Harris approved the E 2026-09-14; the owner ruled 2026-10-16 that a
+        social card is the same purpose. No unit lockup. See BRAND-PENDING-UMC.md. */}
+    <meta property="og:image" content={new URL('/og-card.png', Astro.site).toString()} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SIUE E monogram" />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <ClientRouter />
     <slot name="head" />
