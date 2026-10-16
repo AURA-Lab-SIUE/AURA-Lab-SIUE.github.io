@@ -38,7 +38,7 @@ Independent research and data consulting practice | Remote · Jun 2024 – prese
 
 Applied behavioral research, UX/user research, and data analytics consulting for technology, media, and gaming clients.
 
-Ships a suite of local-first, privacy-preserving research and authoring tools. All processing runs on the user's machine; no cloud dependency, no per-token metering.
+Develops a suite of local-first, privacy-preserving research and authoring tools: GearOut runs in production at SIUE, TASS and Lector are in closed beta, and the others are in development. All processing runs on the user's machine; no cloud dependency, no per-token metering.
 
 - **TASS** (Text Analysis & Sentiment System) — dictionary-based text analysis on open, citable dictionaries, with statistical group comparisons and APA-cited exports. Open-core: the Community Edition engine, CLI, and MCP server are Apache-2.0 (github.com/SIM-DAD/tass); the no-code Windows desktop application is commercial. usetass.app
 - **GearOut** — equipment reservation and checkout platform for universities; Next.js / TypeScript / PostgreSQL production web application, deployed at SIUE as *MassComm Checkout*. Sole developer.
@@ -106,9 +106,9 @@ Beyea, D., Foxman, M., Ratan, R., Klebig, B., Leith, A. P., & Chen, V. H. H. (20
 
 ## Funding
 
-### External Funding (Completed)
+### External Funding (Awarded)
 
-**NSF FW-HTF-R Collaborative Research**, Co-PI. *Virtual Meeting Support for Enhanced Well-Being and Equity for Game Developers.* $1,599,851 (SIUE subaward $70,458); 2021–2025. Cross-institutional partnership with Michigan State, University of Oregon, and industry collaborators in the games and virtual-environment sector.
+**NSF FW-HTF-R Collaborative Research**, PI, SIUE award (NSF 2128813). *Virtual Meeting Support for Enhanced Well-Being and Equity for Game Developers.* $70,458 to SIUE, one of four collaborative awards totaling $1,599,851 (Michigan State University, lead; University of Oregon; University of Wisconsin–Whitewater; SIUE); 10/2021 – 04/2025.
 
 <!-- INTERNAL-ONLY-START -->
 ### External Funding (Under Review)
@@ -197,7 +197,7 @@ Cross-unit mentoring at SIUE spanning Mass Communications, Applied Communication
 
 ## Intellectual Property & Technology Transfer (SIUE)
 
-**GearOut** (formerly Control Room / The Cage). Equipment reservation and checkout platform for universities; deployed at SIUE as "MassComm Checkout." 155 files, 21.5K LoC, 57 API routes, 21 models. Sole developer (300+ hours). Disclosed via SIUE OTMIR (Office of Technology Management & Industry Relations); IP package, commercial viability analysis, and licensing-back proposal submitted; OTMIR review meeting 2026-04-13. Repository private pending the SIUE IP determination.
+**GearOut** (formerly Control Room / The Cage). Equipment reservation and checkout platform for universities; deployed at SIUE as "MassComm Checkout." 155 files, 21.5K LoC, 57 API routes, 21 models. Sole developer (300+ hours). Disclosed via SIU System OTMIR (Office of Technology Management & Industry Relations); SIUE retains the IP. Licensed to SIM-DAD LLC through OTMIR, 2026. Repository private.
 
 **BMS Selective Muting Evaluation** (with team). MSU Technologies-led Invention Disclosure submitted 2026-05-08; Alex as 1 of 8 contributors at 15% SIUE-affiliated contribution per SIU IP policy. Cross-institutional patent disclosure originating from FW-HTF-R research.
 
@@ -229,7 +229,6 @@ Leith, A. P. When Watching Isn't Enough: Viewer Agency and the Convergent Expans
 
 ### Open-Source Software
 
-- **TASS Community Edition** (deterministic, provenance-first text analysis for social scientists: engine, CLI, and MCP server; TypeScript, Apache-2.0) — 2026–present. github.com/SIM-DAD/tass
 - **Mass Communications Careers Dashboard** (SvelteKit) — 2025–present. github.com/AURA-Lab-SIUE/mc-careers-dashboard
 - **v2v** (R package for reproducible course delivery; ships the Twitch teaching corpus and the pedagogical helpers introduced chapter by chapter in the V2V textbook, including `reliability()` for intercoder agreement and a colorblind-safe figure theme; component of the Vibes to Variables (V2V) courseware umbrella, an OER toolkit for teaching research methods to students new to statistics, methods, and coding; formerly *mccoursepack*/*coursepackR*) — 2025–present. github.com/AURA-Lab-SIUE/v2v-r
 - **V2V Hub** (supplemental research methods course website; rebrand and redesign of the legacy Open Methods Hub site) — 2025–present. github.com/AURA-Lab-SIUE/v2v-hub
@@ -251,7 +250,7 @@ Leith, A. P. When Watching Isn't Enough: Viewer Agency and the Convergent Expans
 
 ### Open Educational Resources
 
-Leith, A. P. (2026). *Vibes to variables: A methods package for students new to research, stats, and code.* AURA Lab @ SIUE. https://aura-lab-siue.github.io/v2v/
+Leith, A. P. (2026). *Vibes to variables: A methods package for students new to research, stats, and code.* AURA Lab @ SIUE. https://aura-lab.siue.edu/v2v/
 
   Fourteen-chapter open textbook in content-analytic research methods, published as an accessible website with a tagged PDF edition. Issued in two profiles from one source: an undergraduate edition (*Vibes to Variables*) and a graduate supplement (*Beyond Vibes*) surfaced through a reader-controlled toggle. Every figure is reproducible from shipped data, carries alternative text, and is colorblind-safe. Each chapter is additionally available as narrated audio. WCAG 2.1 AA conformant, verified by automated audit at 90 pages with zero violations. Supported by the `v2v` R package, the V2V Hub course site, and the V2V Course Workspace template.
 
