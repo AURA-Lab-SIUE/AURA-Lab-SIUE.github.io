@@ -77,7 +77,7 @@ const groups = (list: typeof entries) =>
 
     <section class="container-page sw-block" aria-labelledby="adobe-h">
       <h2 id="adobe-h">Alternatives to Adobe Creative Cloud apps</h2>
-      <p>Open-source and free tools that do the same jobs. Each name jumps to its entry below.</p>
+      <p>Open-source and free tools that do the same jobs. Each name jumps to its entry below. <sup class="sw-mark" aria-hidden="true">&dagger;</sup> marks a tool that is free but not open source.</p>
       <div class="sw-tablewrap">
         <table class="sw-adobe">
           <thead>
@@ -93,7 +93,7 @@ const groups = (list: typeof entries) =>
                     {row.alternatives.map((n) => (
                       <li>
                         <a href={`#tool-${slug(n)}`} class="sw-jump">{n}</a>
-                        {byName[n]?.access === 'free' && <span class="sw-tag"> (free, not open source)</span>}
+                        {byName[n]?.access === 'free' && <><sup class="sw-mark" aria-hidden="true">&dagger;</sup><span class="sr-only"> (free, not open source)</span></>}
                       </li>
                     ))}
                   </ul>
@@ -232,6 +232,7 @@ const groups = (list: typeof entries) =>
     .sw-adobe tbody th { font-weight: 700; white-space: nowrap; }
     .sw-inline { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
     .sw-tag { color: var(--muted); font-size: 0.9375rem; }
+    .sw-mark { font-weight: 700; margin-left: 0.1em; }
     @media (max-width: 640px) {
       .sw-adobe thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
       .sw-adobe, .sw-adobe tbody, .sw-adobe tr, .sw-adobe th, .sw-adobe td { display: block; }
