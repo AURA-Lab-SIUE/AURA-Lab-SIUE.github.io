@@ -1,6 +1,6 @@
 ---
 /**
- * MC 427 Social Media Analytics — course home / live syllabus.
+ * MC 427 Social Media Analytics: course home / live syllabus.
  *
  * The section index IS the syllabus rather than a page of links to it. A
  * landing page whose only job is to point at the real document adds a click
@@ -15,6 +15,9 @@ import SyllabusLayout from '../../layouts/SyllabusLayout.astro';
 import GettingHelp from '../../components/syllabus/GettingHelp.astro';
 import UniversityPolicies from '../../components/syllabus/UniversityPolicies.astro';
 
+const COMPANION =
+  'https://marketplace.visualstudio.com/items?itemName=aura-lab-siue.r-companion';
+const BLACKBOARD = 'https://bb.siue.edu/';
 const BOOKINGS =
   'https://outlook.office.com/bookwithme/user/b5d8aa74215e488fbf4d85ab72761ecf@siue.edu?anonymous&ismsaljsauthenabled&ep=plink';
 ---
@@ -59,7 +62,7 @@ const BOOKINGS =
     <li>
       <span class="syl-fact-label">Office hours</span>
       <span class="syl-fact-value"><strong>Tu / W / Th, 3:00 to 5:00 PM</strong></span>
-      <span class="syl-fact-note">Held remotely by appointment through Microsoft Bookings. Never recorded.</span>
+      <span class="syl-fact-note">Held remotely over Teams by appointment through Microsoft Bookings. Never recorded.</span>
     </li>
     <li>
       <span class="syl-fact-label">Email</span>
@@ -82,12 +85,17 @@ const BOOKINGS =
         you get multiple attempts, and it is worth 6 points.</li>
       <li><strong>Post to the Introduction Discussion</strong> (10 points, the
         largest single item in Module 1).</li>
-      <li><strong>Install the stack</strong>: VS Code, R, the AURA Lab R
-        Companion extension, and GitHub Copilot Student, signed in, by the end
-        of Module 1. There is a setup walkthrough screencast and a confirmation
-        submission. Module 5 cannot be done on a phone or tablet.</li>
-      <li><strong>Pick your primary AI tool</strong> and a second one for
-        cross-checking, and file the AI Tool Inventory.</li>
+      <li><strong>Install the stack</strong>: VS Code, R, and GitHub Copilot
+        Student, signed in, by the end of Module 1. The
+        <a href={COMPANION}>AURA Lab R Companion</a> extension is optional. The
+        setup guides are in <a href={BLACKBOARD}>Blackboard</a> under Start
+        Here, Setting Up Your Course Software, and the full list is under
+        <a href="#materials-and-technology">Materials and technology</a>. There
+        is a confirmation submission. Module 5 cannot be done on a phone or
+        tablet.</li>
+      <li><strong>Pick one AI tool</strong> as your primary and file the
+        AI Tool Inventory in <a href={BLACKBOARD}>Blackboard</a>. One tool is
+        enough.</li>
       <li><strong>Start your AI Use Log.</strong> It runs through every module
         and it is the spine of this course, not an add-on.</li>
     </ol>
@@ -107,8 +115,8 @@ const BOOKINGS =
 
   <ul>
     <li><strong>Office hours (synchronous, weekly)</strong> are the primary
-      support channel. Tuesday, Wednesday and Thursday from 3:00 to 5:00 PM, held remotely
-      by appointment through <a href={BOOKINGS}>Microsoft Bookings</a>, which
+      support channel. Tuesday, Wednesday, and Thursday from 3:00 to 5:00 PM, held remotely
+      over Teams by appointment through <a href={BOOKINGS}>Microsoft Bookings</a>, which
       shows you only my open times. Office hours are never recorded, so you can
       speak freely about grades, accommodations, or anything else.</li>
     <li><strong>Email</strong>
@@ -148,7 +156,8 @@ const BOOKINGS =
     regular participant rather than an absentee landlord.</p>
     <p>Department of Mass Communications, SIUE. For advising on the certificate,
     contact <a href="https://www.siue.edu/advising/">Academic Advising</a> or
-    your assigned advisor. Phone: +1 504 LEITH GO.</p>
+    your assigned advisor. For office and phone, see the SIUE Mass
+    Communications department directory at siue.edu.</p>
   </details>
 
   <h2 id="what-this-course-is">What this course is</h2>
@@ -216,7 +225,7 @@ const BOOKINGS =
     lecture. Competency #1 (freedom of speech and press) is primarily covered by
     other courses in the major sequence and is touched only tangentially in
     Module 3 (platform terms of service, content moderation).</p>
-    <div class="syl-table-scroll">
+    <div class="syl-table-scroll" tabindex="0" role="region" aria-label="Scrollable table">
       <table class="schedule-table">
         <caption>ACEJMC competency coverage</caption>
         <thead>
@@ -322,7 +331,7 @@ const BOOKINGS =
     <li><strong>P, participation</strong>: discussion and peer review.</li>
   </ul>
 
-  <div class="syl-table-scroll">
+  <div class="syl-table-scroll" tabindex="0" role="region" aria-label="Scrollable table">
   <table class="syl-points">
     <caption>Points by module, out of 731</caption>
     <thead>
@@ -356,7 +365,7 @@ const BOOKINGS =
 
   <details class="syl-policy">
     <summary>Every assignment, by module and point value</summary>
-    <div class="syl-table-scroll">
+    <div class="syl-table-scroll" tabindex="0" role="region" aria-label="Scrollable table">
       <table class="schedule-table">
         <caption>All assignments, Modules 1 to 8</caption>
         <thead>
@@ -374,15 +383,15 @@ const BOOKINGS =
           <tr><th scope="row">Tools Stack Setup + Confirmation</th><td>1</td><td>F</td><td>5</td></tr>
           <tr><th scope="row">AI Use Log: Week 1</th><td>1</td><td>F</td><td>5</td></tr>
           <tr><th scope="row"><em>Module 1 subtotal</em></th><td></td><td></td><td><strong>31</strong></td></tr>
-          <tr><th scope="row">KPI Mapping Exercise</th><td>2</td><td>S</td><td>15</td></tr>
+          <tr><th scope="row">AI-Assisted KPI Mapping Exercise</th><td>2</td><td>S</td><td>15</td></tr>
           <tr><th scope="row">Platform Reflection Discussion</th><td>2</td><td>P</td><td>10</td></tr>
           <tr><th scope="row">AI Use Log: Week 2</th><td>2</td><td>F</td><td>5</td></tr>
           <tr><th scope="row"><em>Module 2 subtotal</em></th><td></td><td></td><td><strong>30</strong></td></tr>
           <tr><th scope="row">AI-Assisted Research Plan</th><td>3</td><td>S</td><td>50</td></tr>
           <tr><th scope="row">AI Use Log: Week 3</th><td>3</td><td>F</td><td>10</td></tr>
           <tr><th scope="row"><em>Module 3 subtotal</em></th><td></td><td></td><td><strong>60</strong></td></tr>
-          <tr><th scope="row">Coding Exercise (human + AI)</th><td>4</td><td>F</td><td>15</td></tr>
-          <tr><th scope="row">Content + Sentiment Comparison Memo</th><td>4</td><td>S</td><td>45</td></tr>
+          <tr><th scope="row">Coding Exercise</th><td>4</td><td>F</td><td>15</td></tr>
+          <tr><th scope="row">Comparison Memo</th><td>4</td><td>S</td><td>45</td></tr>
           <tr><th scope="row">Disagreement Discussion</th><td>4</td><td>P</td><td>10</td></tr>
           <tr><th scope="row">AI Use Log: Week 4</th><td>4</td><td>F</td><td>10</td></tr>
           <tr><th scope="row"><em>Module 4 subtotal</em></th><td></td><td></td><td><strong>80</strong></td></tr>
@@ -390,19 +399,19 @@ const BOOKINGS =
           <tr><th scope="row">Statistical Analysis Memo</th><td>5</td><td>S</td><td>45</td></tr>
           <tr><th scope="row">AI Use Log: Week 5</th><td>5</td><td>F</td><td>15</td></tr>
           <tr><th scope="row"><em>Module 5 subtotal</em></th><td></td><td></td><td><strong>80</strong></td></tr>
-          <tr><th scope="row">SMART Goals + AI Creative Brief</th><td>6</td><td>S</td><td>50</td></tr>
-          <tr><th scope="row">Peer Review (classmate's brief)</th><td>6</td><td>P</td><td>10</td></tr>
+          <tr><th scope="row">AI Creative Brief Exercise</th><td>6</td><td>S</td><td>50</td></tr>
+          <tr><th scope="row">Peer Review</th><td>6</td><td>P</td><td>10</td></tr>
           <tr><th scope="row">AI Use Log: Week 6</th><td>6</td><td>F</td><td>15</td></tr>
           <tr><th scope="row"><em>Module 6 subtotal</em></th><td></td><td></td><td><strong>75</strong></td></tr>
           <tr><th scope="row">SWOT Draft</th><td>7</td><td>S</td><td>30</td></tr>
-          <tr><th scope="row">Campaign Timeline Draft</th><td>7</td><td>S</td><td>30</td></tr>
-          <tr><th scope="row">Peer Review (SWOT + Timeline drafts)</th><td>7</td><td>P</td><td>20</td></tr>
+          <tr><th scope="row">Timeline Draft</th><td>7</td><td>S</td><td>30</td></tr>
+          <tr><th scope="row">Peer Review of Draft Strategy Work</th><td>7</td><td>P</td><td>20</td></tr>
           <tr><th scope="row">AI Use Log: Week 7</th><td>7</td><td>F</td><td>15</td></tr>
           <tr><th scope="row"><em>Module 7 subtotal</em></th><td></td><td></td><td><strong>95</strong></td></tr>
           <tr><th scope="row">Final Pitch Deck</th><td>8</td><td>S</td><td>150</td></tr>
           <tr><th scope="row">AI Workflow Appendix</th><td>8</td><td>S</td><td>50</td></tr>
-          <tr><th scope="row">Elevator Pitch Video</th><td>8</td><td>S</td><td>30</td></tr>
-          <tr><th scope="row">Final Reflection on AI Governance</th><td>8</td><td>S</td><td>50</td></tr>
+          <tr><th scope="row">Elevator Pitch</th><td>8</td><td>S</td><td>30</td></tr>
+          <tr><th scope="row">Final Reflection</th><td>8</td><td>S</td><td>50</td></tr>
           <tr><th scope="row"><em>Module 8 subtotal</em></th><td></td><td></td><td><strong>280</strong></td></tr>
           <tr><th scope="row">HubSpot Social Media Certification (optional)</th><td>n/a</td><td>Bonus</td><td>+10</td></tr>
         </tbody>
@@ -419,7 +428,7 @@ const BOOKINGS =
 
   <h2 id="grading">Grading</h2>
 
-  <div class="syl-table-scroll">
+  <div class="syl-table-scroll" tabindex="0" role="region" aria-label="Scrollable table">
     <table>
       <caption>Grade scale, out of 731 points</caption>
       <thead>
@@ -468,7 +477,7 @@ const BOOKINGS =
 
   <h2 id="module-schedule">Module schedule</h2>
 
-  <div class="syl-table-scroll">
+  <div class="syl-table-scroll" tabindex="0" role="region" aria-label="Scrollable table">
     <table class="schedule-table has-due">
       <caption>Eight modules, October 19 to December 18</caption>
       <thead>
@@ -481,17 +490,31 @@ const BOOKINGS =
       </thead>
       <tbody>
         <tr><th scope="row">1</th><td>Oct 19 to 25</td><td>Foundations and AI Governance for the Working Strategist</td><td>Syllabus Quiz &middot; Introduction Discussion &middot; AI Tool Inventory &middot; Tools Stack Setup &middot; AI Use Log Wk 1</td></tr>
-        <tr><th scope="row">2</th><td>Oct 26 to Nov 1</td><td>Platforms and Metrics: KPIs in the Age of AI</td><td>KPI Mapping Exercise &middot; Platform Reflection Discussion &middot; AI Use Log Wk 2</td></tr>
+        <tr><th scope="row">2</th><td>Oct 26 to Nov 1</td><td>Platforms and Metrics: KPIs in the Age of AI</td><td>AI-Assisted KPI Mapping Exercise &middot; Platform Reflection Discussion &middot; AI Use Log Wk 2</td></tr>
         <tr><th scope="row">3</th><td>Nov 2 to 8</td><td>Data Collection and AI-Assisted Research Design</td><td>AI-Assisted Research Plan &middot; AI Use Log Wk 3</td></tr>
-        <tr><th scope="row">4</th><td>Nov 9 to 15</td><td>Content and Sentiment Analysis with AI</td><td>Coding Exercise &middot; Content + Sentiment Comparison Memo &middot; Disagreement Discussion &middot; AI Use Log Wk 4</td></tr>
+        <tr><th scope="row">4</th><td>Nov 9 to 15</td><td>Content and Sentiment Analysis with AI</td><td>Coding Exercise &middot; Comparison Memo &middot; Disagreement Discussion &middot; AI Use Log Wk 4</td></tr>
         <tr><th scope="row">5</th><td>Nov 16 to 22</td><td>Statistical Analysis with R, VS Code, and GitHub Copilot</td><td>Mini-Analysis Exercise &middot; Statistical Analysis Memo &middot; AI Use Log Wk 5</td></tr>
         <tr><th scope="row">Break</th><td>Nov 23 to 29</td><td><strong>Thanksgiving Break, no module, no assignments</strong></td><td></td></tr>
-        <tr><th scope="row">6</th><td>Nov 30 to Dec 6</td><td>SMART Goals and Strategic Application of AI Creative</td><td>SMART Goals + AI Creative Brief &middot; Peer Review &middot; AI Use Log Wk 6</td></tr>
-        <tr><th scope="row">7</th><td>Dec 7 to 13</td><td>Strategy Synthesis: SWOT, Timelines, Stakeholder Communication</td><td>SWOT Draft &middot; Campaign Timeline Draft &middot; Peer Review &middot; AI Use Log Wk 7</td></tr>
-        <tr><th scope="row">8</th><td>Dec 14 to 18</td><td>Final Pitch: AI-Augmented Strategy Presentation</td><td><strong>Final Pitch Deck + AI Workflow Appendix</strong> &middot; Elevator Pitch Video &middot; Final Reflection on AI Governance</td></tr>
+        <tr><th scope="row">6</th><td>Nov 30 to Dec 6</td><td>SMART Goals and Strategic Application of AI Creative</td><td>AI Creative Brief Exercise + Peer Review &middot; AI Use Log Wk 6</td></tr>
+        <tr><th scope="row">7</th><td>Dec 7 to 13</td><td>Strategy Synthesis: SWOT, Timelines, Stakeholder Communication</td><td>SWOT Draft + Timeline Draft + Peer Review &middot; AI Use Log Wk 7</td></tr>
+        <tr><th scope="row">8</th><td>Dec 14 to 18</td><td>Final Pitch: AI-Augmented Strategy Presentation</td><td><strong>Final Pitch Deck + AI Workflow Appendix</strong> &middot; Elevator Pitch &middot; Final Reflection</td></tr>
       </tbody>
     </table>
   </div>
+
+  <p id="due-days"><strong>Due days.</strong> Most work is due Sunday at 11:59
+  PM Central time. These items are due on another day, and each one says so on
+  its own page in Blackboard:</p>
+  <ul>
+    <li>the first post in the Introduction Discussion, Wednesday, October 21,
+      in the Platform Reflection Discussion, Wednesday, October 28, and in the
+      Disagreement Discussion, Wednesday, November 11 (replies are due that
+      Sunday);</li>
+    <li>the Module 6 Peer Review, Tuesday, December 8;</li>
+    <li>the Module 7 SWOT Draft and Timeline Draft, Thursday, December 10;</li>
+    <li>everything in Module 8, Friday, December 18, the last day of the
+      term.</li>
+  </ul>
 
   <p><strong>On the final weeks.</strong> Thanksgiving week (Nov 23 to 29) has no
   module and no assignments. Modules 6, 7, and 8 each run for one week after the
@@ -507,18 +530,25 @@ const BOOKINGS =
 
   <h2 id="materials-and-technology">Materials and technology</h2>
 
-  <p><strong>Textbook.</strong> This course uses an Open Educational Resource
-  (OER) adapted from the AURA Lab's <em>From Vibes to Variables</em> methodology
-  textbook. Until the AI Social Media Strategist edition is published, weekly
-  readings are linked through Blackboard. There is no textbook to purchase.</p>
+  <p><strong>Textbook.</strong> There is no textbook to purchase. Course
+  readings are written for this course and provided in each module in
+  Blackboard, alongside assigned open-access articles and reports. Every
+  assigned external reading is free to access.</p>
 
-  <p><strong>Software.</strong> The course uses a mix of AI tools, social
-  listening tools, and analytical software. All required tools are free or have
-  free tiers sufficient for course use.</p>
+  <p><strong>In Blackboard, Start Here:</strong> R Quick Reference, R Field
+  Guide. Setup guides for Windows, Mac, and Chromebook are in
+  <a href={BLACKBOARD}>Blackboard</a> under Start Here, Setting Up Your Course
+  Software. On a Chromebook, you work in the course
+  <a href="https://github.com/AURA-Lab-SIUE/mc427-codespace">Codespace
+  template</a>, which runs VS Code in your web browser.</p>
+
+  <p><strong>Software.</strong> The course uses one generative AI tool and free
+  analytical software. All required tools are free or have free tiers
+  sufficient for course use.</p>
   <ul>
     <li><strong>Generative AI</strong>: ChatGPT (free tier), Claude (free tier),
-      or equivalent. Pick one as your primary; use a second for cross-checking
-      on key assignments.</li>
+      or equivalent. Pick one as your primary and use it throughout the course;
+      you only need one.</li>
     <li><strong>GitHub Copilot Student</strong> (required for Module 5):
       free for verified students through the
       <a href="https://education.github.com/pack">GitHub Education Pack</a>.
@@ -532,16 +562,19 @@ const BOOKINGS =
       needs the other.</li>
     <li><strong>VS Code</strong> with the R extension: free; replaces RStudio for
       the analytical work in Module 5.</li>
-    <li><strong>AURA Lab R Companion</strong> (VS Code extension, free, MIT
-      license): checks your setup, explains the R errors this course meets, and
-      writes commented R code from menus as a check on Copilot's work in Module
-      5. Install it from the Extensions view: search AURA Lab R Companion, then
-      Install. The course Codespace has it already.</li>
+    <li><strong><a href={COMPANION}>AURA Lab R Companion</a></strong>
+      (optional, VS Code extension, free, MIT license): checks your setup,
+      explains the R errors this course meets, and writes commented R code from
+      menus as a check on Copilot's work in Module 5. Install it from the
+      Extensions view: search AURA Lab R Companion, then Install. The course
+      Codespace has it already.</li>
     <li><strong>R</strong>: free; install separately from VS Code.</li>
-    <li><strong>Canva</strong> with AI features (free tier).</li>
-    <li><strong>Social listening (free tier)</strong>: Brand24 trial, Sprout
-      free, or Hootsuite free.</li>
   </ul>
+
+  <p><strong>Appear in examples, not required.</strong> Canva and social
+  listening tools (Brand24, Sprout Social, Hootsuite) appear in course
+  examples. No assignment requires them, and you do not need an account with
+  any of them.</p>
 
   <p>You are not expected to become an expert with any single tool. Fluency
   across the AI-augmented workflow, plus the discipline to govern your own AI
@@ -563,10 +596,9 @@ const BOOKINGS =
       Cloud storage (OneDrive, Google Drive, Dropbox) is recommended.</li>
     <li>Microsoft Teams installed (free for SIUE and SIUC students through the
       campus license).</li>
-    <li>VS Code, R, the AURA Lab R Companion, and Copilot installed and signed
-      in by the end of Module 1 (or the course Codespace, which has them
-      preinstalled). Module 1 includes a setup walkthrough screencast and a
-      confirmation submission.</li>
+    <li>VS Code, R, and Copilot installed and signed in by the end of Module 1
+      (or the course Codespace, which has them preinstalled). Module 1 includes
+      a confirmation submission.</li>
   </ul>
 
   <p>Technical problems are not an excuse for missed deadlines, but they can
