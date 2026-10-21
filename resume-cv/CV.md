@@ -40,7 +40,7 @@ Applied behavioral research, UX/user research, and data analytics consulting for
 
 Develops a suite of local-first, privacy-preserving research and authoring tools: GearOut runs in production at SIUE, TASS and Lector are in closed beta, and the others are in development. All processing runs on the user's machine; no cloud dependency, no per-token metering.
 
-- **TASS** (Text Analysis & Sentiment System), dictionary-based text analysis on open, citable dictionaries, with statistical group comparisons and APA-cited exports. Open-core: the Community Edition engine, CLI, and MCP server are Apache-2.0 (github.com/SIM-DAD/tass); the no-code Windows desktop application is commercial. usetass.app
+- **TASS** (Text Analysis & Sentiment System): dictionary-based text analysis on open, citable dictionaries, with statistical group comparisons and APA-cited exports. Open-core: the Community Edition engine, CLI, and MCP server are Apache-2.0 (github.com/SIM-DAD/tass); the no-code Windows desktop application is commercial. usetass.app
 - **GearOut**: equipment reservation and checkout platform for universities; Next.js / TypeScript / PostgreSQL production web application, deployed at SIUE as *MassComm Checkout*. Sole developer.
 - **Ibis**: fully offline audio transcription for Windows. useibis.app
 - **Lector**: authoring environment with integrated text-to-speech. uselector.app
