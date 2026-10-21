@@ -199,8 +199,6 @@ Cross-unit mentoring at SIUE spanning Mass Communications, Applied Communication
 
 **GearOut** (formerly Control Room / The Cage). Equipment reservation and checkout platform for universities; deployed at SIUE as "MassComm Checkout." 155 files, 21.5K LoC, 57 API routes, 21 models. Sole developer (300+ hours). Disclosed via SIU System OTMIR (Office of Technology Management & Industry Relations); SIUE retains the IP. Licensed to SIM-DAD LLC through OTMIR, 2026. Repository private.
 
-**BMS Selective Muting Evaluation** (with team). MSU Technologies-led Invention Disclosure submitted 2026-05-08; Alex as 1 of 8 contributors at 15% SIUE-affiliated contribution per SIU IP policy. Cross-institutional patent disclosure originating from FW-HTF-R research.
-
 ---
 
 <!-- INTERNAL-ONLY-START -->

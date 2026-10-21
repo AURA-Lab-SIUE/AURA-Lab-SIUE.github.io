@@ -17,17 +17,20 @@
 % rendered in light for print. Display face Archivo, body face Jakarta (Plus
 % Jakarta Sans): the same pair the site self-hosts.
 %
-% Accessibility: WCAG 2.1 AA. Contrast measured against the white page —
+% Accent: the site's own teal (--s-teal #009E73, its role links and primary
+% button), darkened only as far as needed for normal-size text on white.
+%
+% Accessibility: WCAG 2.1 AA. Contrast measured against the white page:
 %   ink   #101113  18.89:1  body text   (the site's ground colour, inverted)
-%   blue  #0072B2   5.19:1  headings, links   (Okabe-Ito, colour-blind safe)
-%   slate #646E7C   5.17:1  secondary text
+%   teal  #008762   4.52:1  headings, links, bullets   (site teal 3.42:1, darkened)
+%   slate #646E7C   5.17:1  secondary text, dates
 % All three clear 4.5:1, so each is safe at NORMAL text size, not merely large.
 % Colour is never the sole cue: headings also carry weight, size, and a rule,
 % and every link's URL is spelled out as visible text.
 %
 % Deliberately NOT carried over from the site spectrum — each fails AA for
 % normal text on a light ground:
-%   amber #E69F00 2.25:1 · pink #CC79A7 3.06:1 · teal #009E73 3.42:1
+%   amber #E69F00 2.25:1 · pink #CC79A7 3.06:1 · teal #009E73 3.42:1 (undarkened)
 %   brick #E05A4A 3.66:1 · indigo #7A79C0 3.94:1 · siue-red #E5182D 4.67:1
 % Several would pass for large text only. The CV needs no second accent, and a
 % single accent keeps the light rendering calm.
@@ -35,7 +38,7 @@
 % ── Colors ──────────────────────────────────────────────────────────────────
 \usepackage{xcolor}
 \definecolor{instink}{HTML}{101113}    % body text
-\definecolor{instblue}{HTML}{0072B2}   % accent: headings, links
+\definecolor{instaccent}{HTML}{008762} % accent: headings, links (site teal, darkened)
 \definecolor{instslate}{HTML}{646E7C}  % secondary text
 \definecolor{instrule}{HTML}{C9CDD3}   % hairlines (decorative, non-text)
 
@@ -54,23 +57,29 @@
   ItalicFont = *-Italic, BoldItalicFont = *-BoldItalic,
 ]
 
-% ── Even out justification ──────────────────────────────────────────────────
+% ── Line breaking ───────────────────────────────────────────────────────────
 % pandoc's template already loads microtype, so options go through
-% PassOptionsToPackage — loading it again here is an option clash. Protrusion
-% pulls punctuation slightly into the margin; expansion stays off because
-% xelatex does not support it.
+% PassOptionsToPackage; loading it again here is an option clash. Expansion
+% stays off because xelatex does not support it.
 \PassOptionsToPackage{protrusion=true, expansion=false}{microtype}
 
-% Let the line breaker work a little harder before it opens up word gaps.
-% emergencystretch gives it a last-resort slack line rather than a river.
-\tolerance=1400
-\emergencystretch=1.2em
-\hyphenpenalty=120
+% Ragged right throughout: no stretched word gaps, and words are not split
+% across lines, not even at a hyphen or dash the text already has, so a date
+% range or a compound stays whole. Long paths break at "/" (cv.lua, rule 7).
+\usepackage{ragged2e}
+\setlength{\RaggedRightRightskip}{0pt plus 1fil}
+\AtBeginDocument{\RaggedRight}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 
 % ── Section styling: lift \subsection to act as the top-level section ───────
-\usepackage{titlesec}
+% Every heading keeps its first entry with it: titlesec's nobottomtitles*
+% moves any heading that would land in the bottom 12% of the page to the next
+% page, which leaves room for the heading's first entry below it.
+\usepackage[nobottomtitles*]{titlesec}
+\renewcommand{\bottomtitlespace}{0.12\textheight}
 \titleformat{\subsection}
-  {\Large\bfseries\sffamily\color{instblue}}{}{0pt}
+  {\Large\bfseries\sffamily\color{instaccent}}{}{0pt}
   {}[\vspace{-3pt}\color{instrule}\titlerule]
 \titlespacing*{\subsection}{0pt}{18pt}{8pt}
 
@@ -84,20 +93,20 @@
 
 \usepackage{enumitem}
 \setlist[itemize]{itemsep=2.5pt, topsep=4pt, parsep=0pt, leftmargin=15pt,
-                  label=\textcolor{instblue}{\textbullet}}
+                  label=\textcolor{instaccent}{\textbullet}}
 
 % ── Footer: name + page number, no header line ──────────────────────────────
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot[L]{\footnotesize\color{instslate}Alex P. Leith, PhD --- CV}
+\fancyfoot[L]{\footnotesize\color{instslate}Alex P. Leith, PhD \textperiodcentered{} Curriculum Vitae}
 \fancyfoot[R]{\footnotesize\color{instslate}\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
 \fancypagestyle{plain}{%
   \fancyhf{}
-  \fancyfoot[L]{\footnotesize\color{instslate}Alex P. Leith, PhD --- CV}
+  \fancyfoot[L]{\footnotesize\color{instslate}Alex P. Leith, PhD \textperiodcentered{} Curriculum Vitae}
   \fancyfoot[R]{\footnotesize\color{instslate}\thepage}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
@@ -114,11 +123,11 @@
 \AtBeginDocument{%
   \hypersetup{
     colorlinks=true,
-    linkcolor=instblue,
-    urlcolor=instblue,
-    citecolor=instblue,
+    linkcolor=instaccent,
+    urlcolor=instaccent,
+    citecolor=instaccent,
     pdfborder={0 0 0},
-    pdftitle={Alex P. Leith, PhD --- Curriculum Vitae},
+    pdftitle={Alex P. Leith, PhD: Curriculum Vitae},
     pdfauthor={Alex P. Leith},
     pdfsubject={Curriculum Vitae},
     pdflang={en-US},
@@ -132,7 +141,7 @@
 \clubpenalty=10000
 
 % ── Inter-paragraph rhythm for entry-style content ──────────────────────────
-\linespread{1.12}
+\linespread{1.08}
 
 % ── Tighten title block spacing ─────────────────────────────────────────────
 % Default pandoc \maketitle leaves an enormous gap between the subtitle line
@@ -144,8 +153,40 @@
 \setlength{\droptitle}{-40pt}
 \pretitle{\begin{center}\sffamily\bfseries\Huge}
 \posttitle{\par\end{center}\vspace{-4pt}}
-\predate{\par\begin{center}\sffamily\color{instslate}}
+\predate{\par\begin{center}\sffamily\color{instaccent}\addfontfeatures{LetterSpace=12}\MakeUppercase}
 \postdate{\par\end{center}\vspace{-44pt}}
 
-% Let long DOIs and URLs break anywhere so none overrun the margin.
-\AtBeginDocument{\def\UrlBreaks{\do\/\do\.\do\-\do\_\do\=\do\&\do\?\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}}
+% Long DOIs and URLs break only at punctuation (/ . - _), never mid-word.
+\AtBeginDocument{\def\UrlBreaks{\do\/\do\.\do\-\do\_\do\=\do\&\do\?}}
+
+% ── Entry layout (pairs with cv.lua) ────────────────────────────────────────
+% Header: everything above the first section, centered as one block.
+\newenvironment{cvheader}
+  {\par\Centering\setlength{\parskip}{3pt}}
+  {\par\vspace{10pt}{\color{instrule}\hrule height 0.6pt}\vspace{6pt}}
+
+% A multi-line entry: each source line is its own line, no gap between them.
+\newlength{\cvbodyparskip}
+% \vspace, not \addvspace: \addvspace here stopped pages breaking anywhere in a
+% section that holds an entry (measured: page 1 ended two-thirds down).
+\newcommand{\cvstart}{\par\vspace{3pt}\setlength{\cvbodyparskip}{\parskip}%
+  \setlength{\parskip}{1pt}}
+\newcommand{\cvend}{\par\setlength{\parskip}{\cvbodyparskip}\vspace{3pt}}
+\newcommand{\cvline}[1]{#1\par}
+
+% A line that ends in a date: the text wraps in its own column and the date
+% sits in a fixed column on the right, so wrapped text never runs under it.
+\newlength{\cvdatewidth}
+\setlength{\cvdatewidth}{1.45in}
+\newcommand{\cvdated}[2]{%
+  \noindent\begin{minipage}[t]{\dimexpr\linewidth-\cvdatewidth-1em\relax}%
+    \RaggedRight #1\end{minipage}\hfill
+  \begin{minipage}[t]{\cvdatewidth}\RaggedLeft\textcolor{instslate}{#2}\end{minipage}\par}
+
+% References: hanging indent (cv.lua opens each reference with \cvhang).
+\newcommand{\cvhang}{\hangindent=1.5em\hangafter=1\relax}
+
+% Name block: set by cv.lua at the top of the header.
+\newcommand{\cvname}[2]{%
+  {\sffamily\bfseries\Huge #1\par}\vspace{2pt}
+  {\sffamily\small\color{instaccent}\addfontfeatures{LetterSpace=14}\MakeUppercase{#2}\par}\vspace{8pt}}

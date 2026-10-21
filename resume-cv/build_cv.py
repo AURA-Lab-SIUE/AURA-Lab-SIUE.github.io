@@ -33,6 +33,7 @@ MARKED = re.compile(
 PANDOC = [
     "pandoc", "-f", "markdown+autolink_bare_uris", "-o", None, "--pdf-engine=xelatex",
     "--include-in-header=cv-header.tex",
+    "--lua-filter=cv.lua",
     "-V", "geometry:margin=0.75in",
     "-V", "fontsize=10.5pt",
     "-V", "lang=en-US",
