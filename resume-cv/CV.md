@@ -12,42 +12,42 @@ aleith@siue.edu · apleith.com · github.com/apleith · ORCID 0000-0003-1310-676
 
 ## Academic Appointments
 
-**Associate Professor (Tenured 2025)** — Director, AURA Lab @ SIUE
+**Associate Professor (Tenured 2025)**, Director, AURA Lab @ SIUE
 Department of Mass Communications, College of Arts & Sciences, Southern Illinois University Edwardsville (SIUE), Edwardsville, IL · Aug 2025 – present
 
-AURA Lab (Avatars, Users, Relationships, and Affect Lab) — rebranded May 2026 from the former SIM Lab (Social & Interactive Media Lab) — is a computational communication research group at SIUE studying how people form relationships, perform identity, and experience affect across virtual environments, streaming platforms, and digital media. Affiliated with the Beyond Meet Space (BMS) initiative on virtual presence and remote work, a multi-institutional research partnership.
+AURA Lab (Avatars, Users, Relationships, and Affect Lab), rebranded May 2026 from the former SIM Lab (Social & Interactive Media Lab), is a computational communication research group at SIUE studying how people form relationships, perform identity, and experience affect across virtual environments, streaming platforms, and digital media. Affiliated with the Beyond Meet Space (BMS) initiative on virtual presence and remote work, a multi-institutional research partnership.
 
 **Assistant Professor (Tenure-track)**
 Department of Mass Communications, College of Arts & Sciences, Southern Illinois University Edwardsville (SIUE), Edwardsville, IL · Aug 2019 – Jul 2025
 
 ### Additional Academic & Teaching Appointments
 
-Adjunct Instructor: Southern Illinois University Edwardsville — Aug–Dec 2011; St. Louis College of Pharmacy — Aug 2011 – May 2012; McKendree University — Jan–May 2012
+Adjunct Instructor: Southern Illinois University Edwardsville, Aug–Dec 2011; St. Louis College of Pharmacy, Aug 2011 – May 2012; McKendree University, Jan–May 2012
 
 ### Graduate Training / Graduate Appointments
 
-Graduate Assistant, Michigan State University — Sep 2012 – May 2017
-Graduate Assistant, Southern Illinois University Edwardsville — Aug 2010 – May 2011
+Graduate Assistant, Michigan State University, Sep 2012 – May 2017
+Graduate Assistant, Southern Illinois University Edwardsville, Aug 2010 – May 2011
 
 ---
 
 ## Industry & Consulting Experience
 
-**Founder & Principal Research Consultant** — SIM-DAD LLC
+**Founder & Principal Research Consultant**, SIM-DAD LLC
 Independent research and data consulting practice | Remote · Jun 2024 – present
 
 Applied behavioral research, UX/user research, and data analytics consulting for technology, media, and gaming clients.
 
 Develops a suite of local-first, privacy-preserving research and authoring tools: GearOut runs in production at SIUE, TASS and Lector are in closed beta, and the others are in development. All processing runs on the user's machine; no cloud dependency, no per-token metering.
 
-- **TASS** (Text Analysis & Sentiment System) — dictionary-based text analysis on open, citable dictionaries, with statistical group comparisons and APA-cited exports. Open-core: the Community Edition engine, CLI, and MCP server are Apache-2.0 (github.com/SIM-DAD/tass); the no-code Windows desktop application is commercial. usetass.app
-- **GearOut** — equipment reservation and checkout platform for universities; Next.js / TypeScript / PostgreSQL production web application, deployed at SIUE as *MassComm Checkout*. Sole developer.
-- **Ibis** — fully offline audio transcription for Windows. useibis.app
-- **Lector** — authoring environment with integrated text-to-speech. uselector.app
-- **Orator** — converts documents into locally voiced narrated video. useorator.app
-- **Resero** — the workbench that houses the suite. useresero.app
+- **TASS** (Text Analysis & Sentiment System), dictionary-based text analysis on open, citable dictionaries, with statistical group comparisons and APA-cited exports. Open-core: the Community Edition engine, CLI, and MCP server are Apache-2.0 (github.com/SIM-DAD/tass); the no-code Windows desktop application is commercial. usetass.app
+- **GearOut**: equipment reservation and checkout platform for universities; Next.js / TypeScript / PostgreSQL production web application, deployed at SIUE as *MassComm Checkout*. Sole developer.
+- **Ibis**: fully offline audio transcription for Windows. useibis.app
+- **Lector**: authoring environment with integrated text-to-speech. uselector.app
+- **Orator**: converts documents into locally voiced narrated video. useorator.app
+- **Resero**: the workbench that houses the suite. useresero.app
 
-**Marketing Manager** — Brigham Young University–Idaho
+**Marketing Manager**, Brigham Young University–Idaho
 Marketing & Communications | Rexburg, ID · Aug 2008 – Aug 2009
 
 ---
@@ -92,7 +92,7 @@ Leith, A. P. (2021). Parasocial cues: The ubiquity of parasocial relationships o
 
 Ratan, R. A., Fordham, J., Leith, A. P., & Williams, D. (2019). Women keep it real: Avatar gender choice in League of Legends. *Cyberpsychology, Behavior, and Social Networking, 22*, 254–257. https://doi.org/10.1089/cyber.2018.0302
 
-DeGroot, J. M., & Leith, A. P. (2018). R.I.P. Kutner: Parasocial grief following the death of a television character. *OMEGA — Journal of Death and Dying, 77*, 199–216. https://doi.org/10.1177/0030222815600450
+DeGroot, J. M., & Leith, A. P. (2018). R.I.P. Kutner: Parasocial grief following the death of a television character. *OMEGA - Journal of Death and Dying, 77*, 199–216. https://doi.org/10.1177/0030222815600450
 
 Leith, A. P., Ratan, R. A., & Wohn, D. Y. (2016). The (de-)evolution of evolution games: Analyzing the accuracy of evolution depiction in video games. *Journal of Science Education and Technology, 25*, 655–664. https://doi.org/10.1007/s10956-016-9620-x
 
@@ -227,10 +227,10 @@ Leith, A. P. When Watching Isn't Enough: Viewer Agency and the Convergent Expans
 
 ### Open-Source Software
 
-- **Mass Communications Careers Dashboard** (SvelteKit) — 2025–present. github.com/AURA-Lab-SIUE/mc-careers-dashboard
-- **v2v** (R package for reproducible course delivery; ships the Twitch teaching corpus and the pedagogical helpers introduced chapter by chapter in the V2V textbook, including `reliability()` for intercoder agreement and a colorblind-safe figure theme; component of the Vibes to Variables (V2V) courseware umbrella, an OER toolkit for teaching research methods to students new to statistics, methods, and coding; formerly *mccoursepack*/*coursepackR*) — 2025–present. github.com/AURA-Lab-SIUE/v2v-r
-- **V2V Hub** (supplemental research methods course website; rebrand and redesign of the legacy Open Methods Hub site) — 2025–present. github.com/AURA-Lab-SIUE/v2v-hub
-- **V2V Course Workspace** (VS Code and Git template repository giving students a version-controlled research workspace: journals, literature notes, codebook, and project drafts in one folder) — 2026–present. github.com/AURA-Lab-SIUE/v2v-workspace
+- **Mass Communications Careers Dashboard** (SvelteKit), 2025–present. github.com/AURA-Lab-SIUE/mc-careers-dashboard
+- **v2v** (R package for reproducible course delivery; ships the Twitch teaching corpus and the pedagogical helpers introduced chapter by chapter in the V2V textbook, including `reliability()` for intercoder agreement and a colorblind-safe figure theme; component of the Vibes to Variables (V2V) courseware umbrella, an OER toolkit for teaching research methods to students new to statistics, methods, and coding; formerly *mccoursepack*/*coursepackR*), 2025–present. github.com/AURA-Lab-SIUE/v2v-r
+- **V2V Hub** (supplemental research methods course website; rebrand and redesign of the legacy Open Methods Hub site), 2025–present. github.com/AURA-Lab-SIUE/v2v-hub
+- **V2V Course Workspace** (VS Code and Git template repository giving students a version-controlled research workspace: journals, literature notes, codebook, and project drafts in one folder), 2026–present. github.com/AURA-Lab-SIUE/v2v-workspace
 
 ### Open Teaching Datasets
 
@@ -332,8 +332,8 @@ DeGroot, J. M., & Leith, A. P. (2011, November). R.I.P. Kutner: Parasocial relat
 
 - **MC 590:** Independent Study in Mass Communications (Fall 2020)
 - **MC 501:** Research Methods for Mass Communications (Fall 2024, Fall 2025)
-- **MC 471:** Special Topics — Introduction to Data Analytics in Journalism and Mass Communications (Fall 2019)
-- **MC 471:** Special Topics — Social Media Analytics (Spring 2024)
+- **MC 471:** Special Topics: Introduction to Data Analytics in Journalism and Mass Communications (Fall 2019)
+- **MC 471:** Special Topics: Social Media Analytics (Spring 2024)
 - **MC 451:** Research Methods in Mass Media (Spring 2021, Spring 2022 – Spring 2026)
 - **MC 422:** Strategic Media Writing (Fall 2025 – Spring 2026)
 - **MC 342:** Digital Imagery (Spring 2025)
@@ -341,7 +341,7 @@ DeGroot, J. M., & Leith, A. P. (2011, November). R.I.P. Kutner: Parasocial relat
 - **MC 323:** Digital Publishing and Design (Spring 2023 – Fall 2023, Fall 2024 – Spring 2025)
 - **FST 101:** Succeeding & Engaging at SIUE (Fall 2023)
 
-### Teaching Assistant — Michigan State University
+### Teaching Assistant: Michigan State University
 
 COM 803: Intro to Quantitative Research Methods (Fall 2011) · TC 401: Social Media in Society (Fall 2013) · TC 401: Science Fiction, Communication, and Technology (Spring–Fall 2013) · MI 201: Introduction to Media and Information Technologies and Industries (Spring–Fall 2016) · MI 101: Understanding Media (Spring 2015 – Spring 2017)
 
@@ -353,25 +353,25 @@ McKendree University: JRN 372: Web and Print Publication Design (Spring 2012) ·
 
 ## Curriculum Development
 
-- **Vibes to Variables (V2V)** — OER courseware umbrella for teaching research methods to students new to statistics, methods, and coding. Funded twice by the SIUE OER Faculty Incentive Program. 2023 – present. Four integrated open components: the textbook, the `v2v` R package, the V2V Hub course site, and the V2V Course Workspace student template. Rebuilt in 2026 onto an original Twitch live-stream corpus, replacing the retired music dataset, and issued in paired undergraduate and graduate editions from a single source.
-- **MC 451 and MC 501** — full Fall 2026 course build on the V2V system: 42 lecture decks, paired syllabi, and Blackboard cartridges, with the graduate course differentiated by depth rather than by additional technique.
-- **MC 451** — authored the open textbook *Quantitative Research in Mass Communications: R and RStudio*; revised for modularity, 2024.
-- **MC 471 Special Topics** — new course preparation, graduate and undergraduate sections, 2024.
-- **MC 427** — course-material development under contract, Fall 2026.
-- **Accessibility remediation** — MC 451 and MC 501 brought to 100% Blackboard Ally compliance, 2026; WCAG 2.1 AA conformance across the V2V materials, verified by automated audit of the rendered pages rather than the source.
+- **Vibes to Variables (V2V)**: OER courseware umbrella for teaching research methods to students new to statistics, methods, and coding. Funded twice by the SIUE OER Faculty Incentive Program. 2023 – present. Four integrated open components: the textbook, the `v2v` R package, the V2V Hub course site, and the V2V Course Workspace student template. Rebuilt in 2026 onto an original Twitch live-stream corpus, replacing the retired music dataset, and issued in paired undergraduate and graduate editions from a single source.
+- **MC 451 and MC 501**: full Fall 2026 course build on the V2V system: 42 lecture decks, paired syllabi, and Blackboard cartridges, with the graduate course differentiated by depth rather than by additional technique.
+- **MC 451**: authored the open textbook *Quantitative Research in Mass Communications: R and RStudio*; revised for modularity, 2024.
+- **MC 471 Special Topics**: new course preparation, graduate and undergraduate sections, 2024.
+- **MC 427**: course-material development under contract, Fall 2026.
+- **Accessibility remediation**: MC 451 and MC 501 brought to 100% Blackboard Ally compliance, 2026; WCAG 2.1 AA conformance across the V2V materials, verified by automated audit of the rendered pages rather than the source.
 
 ---
 
 ## Certifications & Professional Development
 
-- **Designing Learner-Centered and Equitable Courses** — Association of College and University Educators (ACUE) microcredential, Cohort I. Six-module online program completed over eight weeks, covering clear learning outcomes, aligned assessment, and equitable grading practice. March–April 2026.
-- **Core Curriculum** — National Center for Faculty Development & Diversity (NCFDD). 2023.
+- **Designing Learner-Centered and Equitable Courses**: Association of College and University Educators (ACUE) microcredential, Cohort I. Six-module online program completed over eight weeks, covering clear learning outcomes, aligned assessment, and equitable grading practice. March–April 2026.
+- **Core Curriculum**: National Center for Faculty Development & Diversity (NCFDD). 2023.
 
 ---
 
 ## Professional Memberships
 
-- International Communication Association (ICA) — Game Studies Division
+- International Communication Association (ICA), Game Studies Division
 - National Communication Association (NCA)
 - Digital Games Research Association (DiGRA)
 
@@ -393,11 +393,11 @@ Both arising from the Meaningful XR conference; each is a single special issue /
 - **ICA Game Studies Division**, Board Member. Oct 2021 – Jun 2024.
 - **ICA**, Discord Moderator. Oct 2021 – present. Community-facing role moderating year-round scholarly discussion across ICA divisions.
 
-### Peer Review — Journals
+### Peer Review: Journals
 
 Behaviour & Information Technology · Communication and Sports · Communication Monographs · Cyberpsychology, Behavior, and Social Networking · Death & Dying · Games & Culture · Information & Management · International Journal of Communication · Journal of Communication Technology · Journal of Gaming & Virtual Worlds · Mass Communication & Society · Media Psychology · Psychology of Popular Media · Technology, Mind, & Behavior
 
-### Peer Review — Conferences
+### Peer Review: Conferences
 
 ACM SIGCHI · AEJMC · CHI PLAY · DiGRA · Global Fusion · HICSS · ICA · Meaningful Play/XR · NCA
 
