@@ -187,3 +187,7 @@ npm run build    # build to methodosync/ root (commit index.html + assets/)
 ---
 
 &copy; 2026 AURA Lab — Southern Illinois University Edwardsville
+
+## License
+
+The site's code is released under the MIT License (see `LICENSE`). The license does not cover the site's text, the AURA Lab name, SIUE names and marks, or the student portfolios under `sample-portfolios/`, which belong to their authors. Third-party assets keep their own licenses: the self-hosted fonts are under the SIL Open Font License 1.1 (see the `OFL.txt` beside each set), and Font Awesome Free carries its license in its CSS header.
