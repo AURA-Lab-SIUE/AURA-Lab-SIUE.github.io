@@ -113,6 +113,8 @@ Beyea, D., Foxman, M., Ratan, R., Klebig, B., Leith, A. P., & Chen, V. H. H. (20
 <!-- INTERNAL-ONLY-START -->
 ### External Funding (Under Review)
 
+**Humanity AI, Communities Leading on AI**, Co-PI and Technical Lead (R. A. Ratan, PI; Michigan State University, lead). *Meaningful XR: Community Governance of AI in Scholarly Life.* $215,289 SIUE subaward; 07/2027 – 06/2030. Submitted 2026-10-01.
+
 **Spencer Foundation Racial Equity Research Grant**, PI. *At the Margins of Two Systems: Paraprofessionals, AI Tools, and Multilingual Neurodiverse Learners in K-5 Classrooms.* $74,911 (direct costs, no indirect); 01/2027 – 12/2028; SIUE. Submitted 2026-07-01.
 
 **Spencer Foundation Vision Grant**, PI (with L. Marianno, Co-PI). *Who Gets Told: Institutional Communication of Artificial Intelligence and the Distribution of Educational Opportunity.* $75,000 (direct costs, no indirect); 05/2027 – 10/2028; SIUE. Submitted 2026-09-16.
@@ -142,7 +144,7 @@ Leith, A. P. (2021–2022). New Faculty Incentive Program. $2,000. SIUE.
 
 ### Contracts
 
-Southern Illinois University Edwardsville. *MC 427 course-material development.* $3,000 (flat); payout Fall 2026.
+Southern Illinois University Edwardsville. *MC 427 course-material development.* $3,000 (flat); payment pending.
 
 ---
 
@@ -156,9 +158,9 @@ Southern Illinois University Edwardsville. *MC 427 course-material development.*
 
 Cross-unit mentoring at SIUE spanning Mass Communications, Applied Communication Studies, Integrative Studies, Environmental Sciences, and Psychology.
 
-### Master's Project / Thesis Committee Chair
+### Master's Project / Thesis Committee Chair or Co-Chair
 
-- Michelle Poneleit, Integrative Studies. Oct 2025 – present.
+- Michelle Poneleit, Integrative Studies. Co-Chair. Oct 2025 – present.
 
 ### Master's Project / Thesis Committee Member
 
@@ -197,16 +199,28 @@ Cross-unit mentoring at SIUE spanning Mass Communications, Applied Communication
 
 ## Intellectual Property & Technology Transfer (SIUE)
 
-**GearOut** (formerly Control Room / The Cage). Equipment reservation and checkout platform for universities; deployed at SIUE as "MassComm Checkout." 155 files, 21.5K LoC, 57 API routes, 21 models. Sole developer (300+ hours). Disclosed via SIU System OTMIR (Office of Technology Management & Industry Relations); SIUE retains the IP. Licensed to SIM-DAD LLC through OTMIR, 2026. Repository private.
+**GearOut** (formerly Control Room / The Cage). Equipment reservation and checkout platform for universities; deployed at SIUE as "MassComm Checkout." 155 files, 21.5K LoC, 57 API routes, 21 models. Sole developer (300+ hours). Disclosed via SIU System OTMIR (Office of Technology Management & Industry Relations); SIUE retains the IP. Licensed to SIM-DAD LLC through OTMIR, September 2026. Repository private.
 
 ---
 
 <!-- INTERNAL-ONLY-START -->
 ## Intellectual Contributions in Submission (Under Review)
 
-Leith, A. P. Asymmetric Ties: A Convergence Model of Parasocial and Interpersonal Relationships in Platformed Media. *Mass Communication & Society.* Submitted 2026-07-29.
+Leith, A. P., Foxman, M., Lin, Q., Boltz, L. O., & Ratan, R. A. Play to learn in VR: Affordances and constraints of virtual reality. *Journal of Computer Assisted Learning.* Submitted 2026-11-07.
+
+Leith, A. P., Milik, O., Lim, C., & Foxman, M. Nothing compares: Equivalence testing as feminist measurement of gendered affect in pandemic remote-work discourse. *Women's Studies in Communication.* Submitted 2026-10-05.
 
 Leith, A. P. When Watching Isn't Enough: Viewer Agency and the Convergent Expansion of Gamespace in Gameplay Livestreaming. *Convergence: The International Journal of Research into New Media Technologies.*
+
+### Conference Papers in Submission
+
+Leith, A. P., Foxman, M., Lin, Q., Boltz, L. O., & Ratan, R. A. Play to learn in VR: The affordances and constraints of VR as a learning platform. *International Communication Association 77th Annual Conference*, Computational Methods Division. Submitted 2026-11-01.
+
+Leith, A. P., Wolfe, C., & Foxman, M. Funding the front from the chat [Work in progress]. *International Communication Association 77th Annual Conference*, Political Communication Division. Submitted 2026-11-01.
+
+### Submitted, Not Accepted
+
+Leith, A. P. Asymmetric Ties: A Convergence Model of Parasocial and Interpersonal Relationships in Platformed Media. *Mass Communication & Society.* Submitted 2026-07-29; desk-rejected 2026-08-31.
 <!-- INTERNAL-ONLY-END -->
 
 ---
@@ -331,15 +345,16 @@ DeGroot, J. M., & Leith, A. P. (2011, November). R.I.P. Kutner: Parasocial relat
 ### Southern Illinois University Edwardsville (Assistant/Associate Professor)
 
 - **MC 590:** Independent Study in Mass Communications (Fall 2020)
-- **MC 501:** Research Methods for Mass Communications (Fall 2024, Fall 2025)
+- **MC 501:** Research Methods for Mass Communications (Fall 2024 – Fall 2026)
 - **MC 471:** Special Topics: Introduction to Data Analytics in Journalism and Mass Communications (Fall 2019)
 - **MC 471:** Special Topics: Social Media Analytics (Spring 2024)
-- **MC 451:** Research Methods in Mass Media (Spring 2021, Spring 2022 – Spring 2026)
+- **MC 451:** Research Methods in Mass Media (Spring 2021, Spring 2022 – Spring 2026, Fall 2026)
+- **MC 427:** Social Media Analytics (Fall 2026)
 - **MC 422:** Strategic Media Writing (Fall 2025 – Spring 2026)
 - **MC 342:** Digital Imagery (Spring 2025)
 - **MC 327:** Design and Writing for the World Wide Web (Fall 2019 – Spring 2023, Spring 2024)
 - **MC 323:** Digital Publishing and Design (Spring 2023 – Fall 2023, Fall 2024 – Spring 2025)
-- **FST 101:** Succeeding & Engaging at SIUE (Fall 2023)
+- **FST 101:** Succeeding & Engaging at SIUE (Fall 2023, Fall 2026)
 
 ### Teaching Assistant: Michigan State University
 
@@ -365,6 +380,7 @@ McKendree University: JRN 372: Web and Print Publication Design (Spring 2012) ·
 ## Certifications & Professional Development
 
 - **Designing Learner-Centered and Equitable Courses**: Association of College and University Educators (ACUE) microcredential, Cohort I. Six-module online program completed over eight weeks, covering clear learning outcomes, aligned assessment, and equitable grading practice. March–April 2026.
+- **Creating a Productive Learning Environment**: Association of College and University Educators (ACUE) course. Online program, 18 hours. August–October 2026.
 - **Core Curriculum**: National Center for Faculty Development & Diversity (NCFDD). 2023.
 
 ---
@@ -395,7 +411,7 @@ Both arising from the Meaningful XR conference; each is a single special issue /
 
 ### Peer Review: Journals
 
-Behaviour & Information Technology · Communication and Sports · Communication Monographs · Cyberpsychology, Behavior, and Social Networking · Death & Dying · Games & Culture · Information & Management · International Journal of Communication · Journal of Communication Technology · Journal of Gaming & Virtual Worlds · Mass Communication & Society · Media Psychology · Psychology of Popular Media · Technology, Mind, & Behavior
+Behaviour & Information Technology · British Journal of Criminology · Communication and Sports · Communication Monographs · Computers & Education · Cyberpsychology, Behavior, and Social Networking · Death & Dying · Games & Culture · Information & Management · International Journal of Communication · Journal of Communication Technology · Journal of Gaming & Virtual Worlds · Mass Communication & Society · Media Psychology · Psychology of Popular Media · Technology, Mind, & Behavior
 
 ### Peer Review: Conferences
 
@@ -403,12 +419,13 @@ ACM SIGCHI · AEJMC · CHI PLAY · DiGRA · Global Fusion · HICSS · ICA · Mea
 
 ### Departmental Service (SIUE)
 
-- Program Coordinator, Faculty Discord Server (Dec 2023 – present). Department-internal cross-unit convening space for faculty.
-- Technology Committee, Chair (Apr 2024 – present).
-- Grant Committee, Member (Feb 2024 – present).
+- Program Coordinator, Faculty Discord Server (Sep 2026 – present). Department-internal cross-unit convening space for faculty.
+- Technology and Facility Committee, Chair (Apr 2024 – present). Leads the department website modernization with University Marketing and Communications (Jul 2026 – present).
+- Undergraduate Assessment Committee, Member (Aug 2025 – present).
+- Research and Grants Committee (ad hoc), Member (Feb 2024 – Sep 2025).
 - ACEJMC Reaccreditation Committee, Member (Sep 2022 – Jan 2024).
 - Mass Communications Week, Chair (Spring 2021 – Spring 2023). Annual department research-and-industry convening event.
-- Website Committee, Member (Sept 2021 – Apr 2024). Merged into the Technology Committee on its creation.
+- Website Committee, Member (Sept 2021 – Apr 2024). Merged into the Technology and Facility Committee on its creation.
 - Library Liaison (Aug 2020 – May 2024).
 - Global Fusion Conference Committee, Member (Apr – Nov 2020).
 
@@ -418,6 +435,6 @@ ACM SIGCHI · AEJMC · CHI PLAY · DiGRA · Global Fusion · HICSS · ICA · Mea
 
 ### University Service (SIUE)
 
-- Search Committee Member, School of Engineering Dean Search (Spring 2026 – present).
+- Search Committee Member, School of Engineering Dean Search (Spring 2026).
 - Task Force Member, Engagement in Asynchronous Classes (Summer 2020).
 - Search Committee Member, Director of Student Financial Aid (Spring 2020 – Fall 2020).
