@@ -1,13 +1,13 @@
 /* =============================================================================
    SIUE Mass Communications — shared design system  (mc.css)
    WCAG 2.1 / 2.2 Level AA. No gradients — solid SIUE brand fills.
-   Brand: red #e5182d + white; type: Source Sans Pro (UI/body) + Source Serif 4.
-   Contrast: white-on-#e5182d = 4.67:1 (passes AA normal text); muted text #5c5c5c
+   Brand: red #da172b (SIUE red #e5182d deepened 5% to clear a 5:1 floor) + white; type: Source Sans Pro (UI/body) + Source Serif 4.
+   Contrast: white-on-#da172b = 5.07:1; muted text #5c5c5c
    on white = 6.5:1. All interactive targets >= 44x44px. Focus is always visible.
    ============================================================================= */
 
 :root{
-  --red:#e5182d; --red-deep:#a5111e; --ink:#1a1a1a; --body:#262626; --muted:#5c5c5c;
+  --red:#da172b; --red-deep:#a5111e; --ink:#1a1a1a; --body:#262626; --muted:#5c5c5c;
   --line:#d7d7d7; --soft:#f5f4f2; --soft-2:#ececea; --focus:#0b57d0;
   --sans:'Source Sans Pro',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   --serif:'Source Serif 4',Georgia,'Times New Roman',serif;
