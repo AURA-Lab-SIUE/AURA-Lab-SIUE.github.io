@@ -42,10 +42,13 @@
 @layer components {
   .container-page { @apply max-w-page mx-auto px-6 sm:px-8 lg:px-12; }
 
+  /* Tap floor: a standalone link is at least 44 px tall (checklist C01). Not for links inside prose. */
+  .tap { display: inline-flex; align-items: center; min-height: 44px; }
+
   /* Mono "FIG." tag — the instrument label used across the site. */
   .figtag {
     font-family: theme('fontFamily.mono');
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 0.05em;
     color: var(--accent-text);
     border: 1px solid var(--accent);
@@ -56,7 +59,7 @@
   /* Section eyebrow: short brick rule + Archivo caps. */
   .seclabel {
     font-family: theme('fontFamily.sans');
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;

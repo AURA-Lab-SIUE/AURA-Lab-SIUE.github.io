@@ -31,7 +31,7 @@ const items = [
 ---
 <header class="topbar" aria-label="Site">
   <div class="container-page flex items-center justify-between">
-    <a class="siue-link" href="https://www.siue.edu" aria-label="Southern Illinois University Edwardsville home">
+    <a class="siue-link tap" href="https://www.siue.edu" aria-label="Southern Illinois University Edwardsville home">
       <img
         class="siue-mark siue-mark--light"
         src="/img/siue-signature-line-black.png"
@@ -91,7 +91,7 @@ const items = [
 
 <div class="sitename" aria-label="AURA Lab">
   <div class="container-page">
-    <a href="/" class="brand">
+    <a href="/" class="brand tap">
       <span class="name">AURA&nbsp;Lab</span>
       <span class="expand" aria-hidden="true">Avatars · Users · Relationships · Affect</span>
     </a>
@@ -155,7 +155,7 @@ const items = [
      The guide sets no numeric minimum for the signature line, only that
      marks stay legible (p.20); 30px read too small on a desktop display. */
   .topbar > .container-page { padding-block: 36px; }
-  .siue-link { display: inline-block; line-height: 0; }
+  .siue-link { display: inline-flex; align-items: center; min-height: 44px; line-height: 0; }
   .siue-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   .siue-mark { height: 36px; width: auto; display: block; }
   .siue-mark--dark { display: none; }

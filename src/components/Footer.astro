@@ -22,9 +22,9 @@ const links = [
         Southern Illinois University Edwardsville · &copy; {year}
       </p>
     </div>
-    <nav class="flex flex-col gap-2 md:items-end" aria-label="Footer">
+    <nav class="flex flex-col md:items-end" aria-label="Footer">
       {links.map((l) => (
-        <a class="flink link-underline" href={l.href}>{l.label}</a>
+        <a class="flink link-underline tap" href={l.href}>{l.label}</a>
       ))}
     </nav>
   </div>
