@@ -27,10 +27,11 @@ describe('TheoryCard', () => {
     expect(screen.getByText('Health Communication')).toBeInTheDocument();
   });
 
-  it('links to the correct detail page', () => {
+  it('links to the detail page with the rendered category as the lens', () => {
     render(<TheoryCard theory={elm} category="Health Communication" />);
     const link = screen.getByRole('link');
-    expect(link).toHaveAttribute('href', '/theories/elaboration-likelihood-model');
+    // The detail page reads ?cat= to open the matching category lens.
+    expect(link).toHaveAttribute('href', '/theories/elaboration-likelihood-model?cat=health');
   });
 
   it('shows the abbreviation from aka', () => {
