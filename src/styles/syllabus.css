@@ -49,11 +49,9 @@
 }
 .syl-hero .syl-course {
   display: block;
-  font-family: var(--syl-mono);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--syl-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--accent-text);
   margin-bottom: 0.5rem;
 }
@@ -82,7 +80,10 @@
   margin: 0 0 1.5rem;
 }
 .syl-btn {
-  display: inline-block;
+  /* 44 px tap floor (design-audit checklist C01). */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   padding: 0.5rem 0.95rem;
   font-family: var(--syl-sans);
   font-size: 0.82rem;
@@ -115,11 +116,9 @@
 }
 .syl-fact-label {
   display: block;
-  font-family: var(--syl-mono);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-family: var(--syl-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--muted);
   margin-bottom: 0.35rem;
 }
@@ -129,7 +128,13 @@
   line-height: 1.45;
   color: var(--ink);
 }
-.syl-fact-value a { color: var(--accent-text); text-decoration: underline; }
+.syl-fact-value a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent-text);
+  text-decoration: underline;
+}
 .syl-fact-note {
   display: block;
   margin-top: 0.35rem;
@@ -180,6 +185,10 @@
   text-underline-offset: 2px;
 }
 .syl-prose strong { font-weight: 700; color: var(--ink); }
+/* A list made only of links: each link is a standalone target, so it meets the
+   44 px tap floor (C01). Links inside sentences are left alone. */
+.syl-prose .syl-linklist li { margin-bottom: 0; }
+.syl-prose .syl-linklist a { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* --- Tables --------------------------------------------------------------- */
 .syl-table-scroll { overflow-x: auto; margin: 1.2rem 0 1.8rem; }
@@ -193,11 +202,9 @@
   caption-side: top;
   text-align: left;
   padding: 0 0 0.6rem;
-  font-family: var(--syl-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-family: var(--syl-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--muted);
 }
 .syl-prose th, .syl-prose td {
@@ -209,9 +216,7 @@
 }
 .syl-prose thead th {
   border-bottom: 2px solid var(--ink);
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.85rem;
   color: var(--ink);
   font-weight: 700;
 }
