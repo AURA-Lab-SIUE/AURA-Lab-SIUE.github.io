@@ -22,7 +22,7 @@
   <body>
 
   <div id="mockup-banner">
-    <b>MOCKUP — Alumni &amp; Friends</b> — Interior page; WCAG 2.1/2.2 AA. Hero is a muted placeholder Vimeo clip with a keyboard pause control (one unique video per nav page in production). Content mirrors the current live page. Not published anywhere.
+    <b>MOCKUP — Alumni &amp; Friends</b> — Interior page; WCAG 2.1/2.2 AA. Hero is a photo; the one site video is on Home. Content mirrors the current live page. Not published anywhere.
     <button type="button" onclick="document.getElementById('mockup-banner').remove()">Hide notice</button>
   </div>
 
@@ -128,17 +128,12 @@
 
     <main id="main" class="mc-scope">
 
-      <!-- ===================== HERO (muted video + accessible pause control) ===================== -->
+      <!-- ===================== HERO (photo) ===================== -->
       <section class="hero hero--interior" aria-label="Alumni and Friends page header">
         <div class="hero-media">
           <div class="hero-poster" style="background-image:url('https://www.siue.edu/arts-and-sciences/mass-communications/img/outreach-masscomm-club.jpg')"></div>
-          <iframe id="heroVideo" title="Ambient background video of Mass Communications students (no audio)" tabindex="-1" allow="autoplay"
-            src="https://player.vimeo.com/video/1152919041?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1"></iframe>
         </div>
         <div class="veil"></div>
-        <button type="button" class="hero-pause" aria-pressed="true">
-          <span class="ico" aria-hidden="true">&#10074;&#10074;</span><span class="label">Pause background video</span>
-        </button>
         <div class="hero-content">
           <div class="mc-wrap">
             <p class="kicker">Mass Communications</p>
@@ -151,8 +146,8 @@
       <nav class="insection" aria-label="In this section">
         <div class="insection-inner">
           <span class="label">In this section</span>
-          <a href="#giving" aria-current="page">Giving</a>
-          <a href="#spotlight">Spotlight</a>
+          <a href="#hall-of-fame" aria-current="page">Hall of Fame</a>
+          <a href="#giving">Giving</a>
           <a href="#events">Events</a>
           <a href="#support">Support</a>
           <a href="#connect">Stay Connected</a>
@@ -169,14 +164,28 @@
           </p>
 
           <div class="prose">
+            <h2 id="hall-of-fame">Alumni in the SIUE Hall of Fame</h2>
+            <p>The SIUE Alumni Association has honored these Mass Communications graduates. Select a name to read the bio.</p>
+            <ul>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2009.shtml">William (Bill) Plaschke</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2025.shtml">Brian Henry</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2022.shtml">Terry Ganey</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2022.shtml">Kathleen Madigan</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2021.shtml">Jessica McCaskill</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2021.shtml">Bill Land</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2015.shtml">Richard Bragga</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2014.shtml">William Enyart</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2012.shtml">Peter Maer</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2011.shtml">Paige St. John</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2010.shtml">Ted Garcia</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/alumni-hall-of-fame-2010.shtml">Dewayne Staats</a></li>
+              <li><a href="https://www.siue.edu/alumni/get-involved/hall-of-fame/distinguished-alumni.shtml">Keith Alper</a>, Distinguished Alumnus</li>
+            </ul>
+            <p>Are you a graduate? <a href="mailto:smishra@siue.edu">Share your alumni story</a>.</p>
+
             <h2 id="giving">Alumni &amp; giving</h2>
             <img width="1200" height="900" src="https://www.siue.edu/arts-and-sciences/mass-communications/img/outreach-masscomm-club.jpg" alt="SIUE Mass Comm Club connecting with prospective students in the television studio" style="border-radius:.5rem;margin:1.5rem 0;"/>
-            <p>Mass Communications alumni work at organizations across the media industry — from newsrooms and production studios to agencies and corporate communications departments. We are proud of what our graduates accomplish and grateful for the support that keeps our programs strong.</p>
-
-            <h2 id="spotlight">Alumni spotlight</h2>
-            <img width="1200" height="900" src="https://www.siue.edu/arts-and-sciences/mass-communications/img/competition-wildey-award.jpg" alt="Mass Communications student receiving an award at the Wildey Film Competition" style="border-radius:.5rem;margin:1.5rem 0;"/>
-            <blockquote>We want to hear from you. If you are a Mass Communications graduate, share your story and inspire current students.</blockquote>
-            <p>Are you a graduate? <a href="mailto:smishra@siue.edu">Share your alumni story</a>.</p>
+            <p>Mass Communications alumni work across the media industry, in newsrooms, production studios, agencies, and corporate communications. Their support keeps our programs strong.</p>
 
             <h2 id="events">Alumni events</h2>
             <p>Alumni Night is held annually during <a href="news.html">Mass Comm Week</a> (late March). Join us for an evening of networking, conversation, and reconnection with the department.</p>
@@ -188,15 +197,14 @@
             </ul>
 
             <h2 id="support">Support Mass Communications</h2>
-            <p>Every gift we receive from our alumni and friends — regardless of the amount — is transformational. These generous contributions fund scholarships and equipment that directly impact current students' education and career preparation.</p>
+            <p>Every gift from our alumni and friends, whatever the amount, funds scholarships and equipment for current students.</p>
 
             <h3>Technology investment</h3>
-            <p>The department has invested over $500,000 in facility upgrades since 2018, including a renovated multimedia lab, new audio/podcasting lab, LED studio lighting, and updated computer labs. Your support helps us maintain professional-grade facilities for the next generation of media professionals.</p>
+            <p>Students work in industry-standard facilities, including a multimedia lab, an audio and podcasting lab, LED studio lighting, and computer labs. Your support keeps the equipment current for the next generation of media professionals.</p>
             <p>To support our technology fund, <a href="https://connect.siue.edu/g/donate">give to the Mass Communications Lab Development fund</a> and search for '4331 - Mass Communications Lab Development.'</p>
-            <p><a href="https://www.siue.edu/arts-and-sciences/mass-communications/pdf/MassCommTechInvestment_July2024.pdf">Read how technology investment positions students for success (PDF)</a></p>
 
             <h3>Scholarship funds</h3>
-            <p>The department offers 27 scholarships and awards supporting students across all three professional tracks. Named giving opportunities include:</p>
+            <p>A variety of scholarships and awards support students across all three professional tracks. Named giving opportunities include:</p>
             <table class="basic">
               <caption>Named giving opportunities</caption>
               <thead>
@@ -210,7 +218,7 @@
                 <tr><td>Mass Communications Lab Development</td><td>Equipment and technology upgrades</td></tr>
                 <tr><td>Journalism Development Fund</td><td>Journalism program support</td></tr>
                 <tr><td>Bob Hardy Scholarship</td><td>Broadcast journalism, junior/senior, GPA 3.0+</td></tr>
-                <tr><td>Buezetta Meyer &amp; Charlot Hentz Scholarship</td><td>Madison/Macoupin County students, up to $5,000/yr</td></tr>
+                <tr><td>Buezetta Meyer &amp; Charlot Hentz Scholarship</td><td>Madison/Macoupin County students</td></tr>
                 <tr><td>John F. &amp; Diane L. Schrage Scholarship</td><td>Mass Communications majors</td></tr>
                 <tr><td>Rising Communicators Scholarship</td><td>GPA 3.0+, preference for first-gen and financial need</td></tr>
                 <tr><td>John Rider Graduate Achievement Award</td><td>Graduate students in Media Studies</td></tr>

@@ -23,7 +23,7 @@
 
   <div id="mockup-banner">
     <b>MOCKUP — Degrees &amp; Programs</b> — Interior page; WCAG 2.1/2.2 AA; no sidebar (links in the <b>In this section</b>
-    bar). The <b>Majors &amp; Programs</b> listing (a sitewide SIUE widget) is preserved. Hero is a muted placeholder Vimeo clip with a keyboard pause control (one unique video per nav page in production). Not published anywhere.
+    bar). The <b>Majors &amp; Programs</b> listing (a sitewide SIUE widget) is preserved. Hero is a photo; the one site video is on Home. Not published anywhere.
     <button type="button" onclick="document.getElementById('mockup-banner').remove()">Hide notice</button>
   </div>
 
@@ -129,17 +129,12 @@
 
     <main id="main" class="mc-scope">
 
-      <!-- ===================== HERO (muted video + accessible pause control) ===================== -->
+      <!-- ===================== HERO (photo) ===================== -->
       <section class="hero hero--interior" aria-label="Degrees and Programs page header">
         <div class="hero-media">
           <div class="hero-poster" style="background-image:url('https://www.siue.edu/arts-and-sciences/mass-communications/img/track-journalism-newsdesk.jpg')"></div>
-          <iframe id="heroVideo" title="Ambient background video of Mass Communications students at the news desk (no audio)" tabindex="-1" allow="autoplay"
-            src="https://player.vimeo.com/video/1189861206?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1"></iframe>
         </div>
         <div class="veil"></div>
-        <button type="button" class="hero-pause" aria-pressed="true">
-          <span class="ico" aria-hidden="true">&#10074;&#10074;</span><span class="label">Pause background video</span>
-        </button>
         <div class="hero-content">
           <div class="mc-wrap">
             <p class="kicker">Mass Communications</p>
